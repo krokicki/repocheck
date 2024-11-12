@@ -15,7 +15,7 @@ class ReadmeAnalysis(BaseModel):
     prerequisites: list[Prerequisite] = Field(description="The prerequisites for running the setup steps")
     setup_steps: list[ShellCommand] = Field(description="The shell commands which build/install/run the project")
     setup_completeness: int = Field(min_value=1, max_value=5, description="How complete the setup steps are")
-    documentation_quality: int = Field(min_value=1, max_value=5, description="How well the README is written")
+    readme_quality: int = Field(min_value=1, max_value=5, description="How well the README is written")
     docs_url: str = Field(description="The URL to the full documentation for the project, if it exists")
 
 class LicenseAnalysis(BaseModel):
@@ -31,7 +31,8 @@ class CodeDocumentationAnalysis(BaseModel):
     explanation: str = Field(description="A very brief explanation for the scores")
 
 class GlobalQualityScores(BaseModel):
-    readme: float = Field(description="The score for the README")
+    setup_completeness: float = Field(description="The score for the setup completeness")
+    readme_quality: float = Field(description="The score for the README")
     license: float = Field(description="The score for the license")
     api_documentation: float = Field(description="The average API documentation score for all files")
     code_comments: float = Field(description="The average code comments score for all files")
@@ -40,13 +41,16 @@ class GlobalQualityScores(BaseModel):
 class GithubMetadata(BaseModel):
     repo_name: str = Field(description="The name of the GitHub repository")
     repo_url: str = Field(description="The URL of the GitHub repository")
-    description: Optional[str] = Field(description="The description of the GitHub repository")
-    stars: int = Field(description="The number of stars for the GitHub repository")
-    forks: int = Field(description="The number of forks for the GitHub repository")
+    description: Optional[str] = Field(description="Repository description")
+    stars: int = Field(description="Number of stars")
+    forks: int = Field(description="Number of forks")
+    language: Optional[str] = Field(description="Main programming language")
+    contributors: list[str] = Field(description="The list of contributing users")
 
 class ProjectAnalysis(BaseModel):
     github_metadata: GithubMetadata = Field(description="Metadata about the GitHub repository")
     last_commit_date: str = Field(description="The date of the last commit to the repository")
+    analysis_date: str = Field(description="The date of the analysis")
     readme_analysis: ReadmeAnalysis = Field(description="The analysis of the README file")
     license_analysis: LicenseAnalysis = Field(description="The analysis of the LICENSE file")
     code_analysis: dict[str, CodeDocumentationAnalysis] = Field(description="The analysis of the code")

@@ -5,11 +5,14 @@ import sys
 import json
 import random
 from datetime import datetime
+import argparse
 
 from git import Repo
 from openai import OpenAI
 from github import Github, Auth, Repository
 from loguru import logger
+from nbconvert import PythonExporter
+import nbformat
 
 from repocheck.model import *
 
@@ -47,11 +50,7 @@ def clone_or_update_repo(repo_url, local_path):
         changed = repo.head.commit != before_pull_commit
 
     logger.debug(f"Repository at {local_path} is up to date")
-    
-    last_commit_date = repo.head.commit.committed_datetime
-    logger.info(f"Last commit date: {last_commit_date}")
-    
-    return changed, last_commit_date
+    return changed
 
 
 def get_commit_hash(repo_path, relative_path):
@@ -68,13 +67,18 @@ def read_file(file_path):
         with open(file_path, "r", encoding="latin-1") as f:
             return f.read()
 
-
+       
 def collect_content(local_path):
     readme = None, ""
     license = None, ""
     code = {}
     for root, _, files in os.walk(local_path):
         for file in files:
+
+            if len(code) >= MAX_CODE_FILES:
+                logger.warning(f"Reached the maximum number of code files to analyze ({MAX_CODE_FILES}).")
+                return readme, license, code
+            
             file_path = os.path.join(root, file)
             real_path = os.path.relpath(file_path, local_path)
 
@@ -91,6 +95,16 @@ def collect_content(local_path):
                     code[real_path] = read_file(file_path)
                 except Exception as e:
                     logger.warning(f"Failed to read file {file_path}: {e}")
+
+            elif file.endswith(".ipynb"):
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        notebook = nbformat.read(f, as_version=4)
+                    exporter = PythonExporter()
+                    code_content, _ = exporter.from_notebook_node(notebook)
+                    code[real_path] = code_content
+                except Exception as e:
+                    logger.warning(f"Failed to read notebook file {file_path}: {e}")
 
     return readme, license, code
 
@@ -182,13 +196,7 @@ def analyze_code(root_path, code):
     total_cost = 0
     c = 0
 
-    if len(code) <= MAX_CODE_FILES:
-        sampled_code = code
-    else:
-        sampled_code = dict(random.sample(list(code.items()), MAX_CODE_FILES))
-        logger.warning(f"Too many files to analyze. Analyzing {len(sampled_code)} random code files: {list(sampled_code.keys())}")
-
-    for filepath, file_content in sampled_code.items():
+    for filepath, file_content in code.items():
 
         system_prompt = """
         You are an expert in evaluating Python code for API documentation and internal comments.
@@ -230,19 +238,35 @@ def analyze_code(root_path, code):
     return results, total_cost
 
 
-def process_github_repo(repo: Repository):
+def process_github_repo(repo: Repository, force=False):
 
     logger.info("=" * 80)
     logger.info(f"Processing {repo.full_name}")
     logger.info(f"Repo URL: {repo.html_url}")
     logger.info(f"Repo Description: {repo.description}")
+    logger.info(f"Language: {repo.language}")
+    logger.info(f"Pushed at: {repo.pushed_at}")
+
+    # Get the contributors
+    contributors = repo.get_contributors()
+    logger.info("Contributors:")    
+    for contributor in contributors:
+        logger.info(f"  {contributor.login} ({contributor.contributions} contributions)")
+
+    if repo.fork:
+        logger.info(f"Skipping {repo.full_name} because it is a fork")
+        return
+    
+    if repo.archived:
+        logger.info(f"Skipping {repo.full_name} because it is archived")
+        return
 
     project_cache_path = f"repo_cache/{repo.full_name}"
     local_repo_path = f"{project_cache_path}/repo"
 
-    changed, last_commit_date = clone_or_update_repo(repo.ssh_url, local_repo_path)
+    changed = clone_or_update_repo(repo.ssh_url, local_repo_path)
 
-    if not changed and os.path.exists(f"{project_cache_path}/analysis.json"):
+    if not changed and os.path.exists(f"{project_cache_path}/analysis.json") and not force:
         logger.info(f"Skipping {repo.full_name} because it hasn't changed since last analysis")
         return
 
@@ -254,12 +278,13 @@ def process_github_repo(repo: Repository):
         for step in readme_result.setup_steps:
             logger.info(f"  $ {step.command}")
     else:
-        logger.info("Setup Steps: none found")
+        logger.info("Setup Steps: N/A")
 
-    logger.info(f"README Quality Score: {readme_result.documentation_quality}")
     logger.info(f"Setup Completeness Score: {readme_result.setup_completeness}")
+    logger.info(f"README Quality Score: {readme_result.readme_quality}")
 
     license_result = analyze_license(local_repo_path, license)
+    
     if ANALYZE_CODE:
         code_result, code_cost = analyze_code(local_repo_path, code)
     else:
@@ -290,7 +315,7 @@ def process_github_repo(repo: Repository):
     logger.info(f"License Score: {license_score}")
 
     overall_score = 0.5 * readme_result.setup_completeness \
-                  + 0.4 * readme_result.documentation_quality \
+                  + 0.4 * readme_result.readme_quality \
                   + 0.1 * license_score \
                   + 0.3 * global_api_doc_score \
                   + 0.2 * global_code_comments_score
@@ -305,16 +330,20 @@ def process_github_repo(repo: Repository):
         description=repo.description,
         stars=repo.stargazers_count,
         forks=repo.forks_count,
+        language=repo.language,
+        contributors=[contributor.login for contributor in contributors],
     )
 
     analysis = ProjectAnalysis(
         github_metadata=metadata,
-        last_commit_date=last_commit_date.isoformat(),
+        last_commit_date=repo.pushed_at.isoformat(),
+        analysis_date=datetime.now().isoformat(),
         readme_analysis=readme_result,
         license_analysis=license_result,
         code_analysis=code_result,
         global_scores=GlobalQualityScores(
-            readme=readme_result.documentation_quality, 
+            setup_completeness=readme_result.setup_completeness,
+            readme_quality=readme_result.readme_quality, 
             license=license_score, 
             api_documentation=global_api_doc_score, 
             code_comments=global_code_comments_score, 
@@ -329,7 +358,7 @@ def process_github_repo(repo: Repository):
     return analysis
 
 
-def process_repo_from_url(repo_url):
+def process_repo_from_url(repo_url, force=False):
     if repo_url.startswith("git@"):
         # SSH URL
         org_repo = repo_url.split(":")[1].replace(".git", "")
@@ -337,28 +366,42 @@ def process_repo_from_url(repo_url):
         # HTTPS URL
         org_repo = repo_url.split("github.com/")[1].replace(".git", "")
     else:
-        raise ValueError("Unsupported URL format")
+        org_repo = repo_url
 
     org_name, repo_name = org_repo.split("/")
     g = Github(auth=Auth.Token(os.getenv("GITHUB_TOKEN")))
     repo = g.get_repo(f"{org_name}/{repo_name}")
-    return process_github_repo(repo)
+    return process_github_repo(repo, force)
 
 
-def process_all_repos_in_org(org_name):
+def process_all_repos_in_org(org_name, start_repo=None, force=False):
     logger.info(f"Fetching repositories in {org_name} organization...")
     g = Github(auth=Auth.Token(os.getenv("GITHUB_TOKEN")))
     repos = list(g.get_organization(org_name).get_repos(type='public'))
+    
+    start_processing = start_repo is None
     for repo in repos:
-        process_github_repo(repo)
+        if not start_processing:
+            if repo.full_name == start_repo:
+                start_processing = True
+            else:
+                continue
+        
+        process_github_repo(repo, force)
 
 
 if __name__ == "__main__":
     logger.remove()
     logger.add(sys.stderr, level=LOG_LEVEL)
-    process_all_repos_in_org("JaneliaSciComp")
-    #process_repo_from_url("https://github.com/JaneliaSciComp/zarrcade")
-    #process_repo_from_url("https://github.com/JaneliaSciComp/colormipsearch")
-    #process_repo_from_url("git@github.com:JaneliaSciComp/FL-web.git")
-    #process_repo_from_url("https://github.com/JaneliaSciComp/G4_Display_Tools")
+    
+    parser = argparse.ArgumentParser(description="Process GitHub repositories.")
+    parser.add_argument("--single", type=str, help="Process a single repository")
+    parser.add_argument("--start", type=str, help="Restart processing from this repository name (full name, e.g. JaneliaSciComp/colormipsearch)")
+    parser.add_argument("--force", action="store_true", help="Force re-analysis even if existing analysis exists")
+    parser.add_argument("--org", type=str, help="Process all repositories in this organization", default="JaneliaSciComp")
+    args = parser.parse_args()
 
+    if args.single:
+        process_repo_from_url(args.single, force=args.force)
+    else:
+        process_all_repos_in_org(args.org, start_repo=args.start, force=args.force)
