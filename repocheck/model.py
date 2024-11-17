@@ -14,8 +14,8 @@ class ReadmeAnalysis(BaseModel):
     project_name: str = Field(description="The full name of the project")
     prerequisites: list[Prerequisite] = Field(description="The prerequisites for running the setup steps")
     setup_steps: list[ShellCommand] = Field(description="The shell commands which build/install/run the project")
-    setup_completeness: int = Field(min_value=1, max_value=5, description="How complete the setup steps are")
-    readme_quality: int = Field(min_value=1, max_value=5, description="How well the README is written")
+    setup_completeness: int = Field(min_value=0, max_value=5, description="How complete the setup steps are")
+    readme_quality: int = Field(min_value=0, max_value=5, description="How well the README is written")
     docs_url: str = Field(description="The URL to the full documentation for the project, if it exists")
 
 class LicenseAnalysis(BaseModel):
@@ -26,8 +26,8 @@ class LicenseAnalysis(BaseModel):
     
 class CodeDocumentationAnalysis(BaseModel):
     github_commit_hash: Optional[str] = Field(description="The commit hash for the code (AI should leave this blank)")
-    api_documentation_score: int = Field(min_value=1, max_value=5, description="How well the code is documented for external users")
-    code_comments_score: int = Field(min_value=1, max_value=5, description="How well the code is commented for developers")
+    api_documentation_score: int = Field(min_value=0, max_value=5, description="How well the code is documented for external users")
+    code_comments_score: int = Field(min_value=0, max_value=5, description="How well the code is commented for developers")
     explanation: str = Field(description="A very brief explanation for the scores")
 
 class GlobalQualityScores(BaseModel):

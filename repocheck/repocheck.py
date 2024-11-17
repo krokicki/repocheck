@@ -16,10 +16,12 @@ import nbformat
 
 from repocheck.model import *
 
+random.seed(42)  # Use consistent seed
 
 LOG_LEVEL = "INFO"
 ANALYZE_CODE = True
 MAX_CODE_FILES = 10
+CACHE_DIR = "repo_cache"
 OPENAI_MODEL = "gpt-4o-mini-2024-07-18"
 
 COST_PER_INPUT_TOKEN = {
@@ -71,66 +73,50 @@ def read_file(file_path):
 def collect_content(local_path):
     readme = None, ""
     license = None, ""
+    code_files = []
     code = {}
-    for root, _, files in os.walk(local_path):
-        for file in files:
 
-            if len(code) >= MAX_CODE_FILES:
-                logger.warning(f"Reached the maximum number of code files to analyze ({MAX_CODE_FILES}).")
-                return readme, license, code
-            
+    for root, _, files in os.walk(local_path):
+
+        for file in files:
             file_path = os.path.join(root, file)
             real_path = os.path.relpath(file_path, local_path)
 
             if "/" not in real_path:
-                if file in ("README", "README.mdown", "README.md"):
+                if file.lower() in ("readme", "readme.mdown", "readme.md", "readme.txt"):
                     readme = (file, read_file(file_path))
                     logger.debug(f"Found readme at {root}/{file}")
-                elif file in ("LICENSE", "LICENSE.mdown", "LICENSE.md"):
+                elif file.lower() in ("license", "license.mdown", "license.md", "license.txt"):
                     license = (file, read_file(file_path))
                     logger.debug(f"Found license at {root}/{file}")
 
-            elif file.endswith(".py"):
-                try:
-                    code[real_path] = read_file(file_path)
-                except Exception as e:
-                    logger.warning(f"Failed to read file {file_path}: {e}")
+            if file.endswith(".py") or file.endswith(".ipynb"):
+                code_files.append(file_path)
 
-            elif file.endswith(".ipynb"):
-                try:
-                    with open(file_path, "r", encoding="utf-8") as f:
-                        notebook = nbformat.read(f, as_version=4)
-                    exporter = PythonExporter()
-                    code_content, _ = exporter.from_notebook_node(notebook)
-                    code[real_path] = code_content
-                except Exception as e:
-                    logger.warning(f"Failed to read notebook file {file_path}: {e}")
+    # Randomly select from code_files if we have more files than the limit
+    if len(code_files) > MAX_CODE_FILES:
+        code_files = random.sample(code_files, MAX_CODE_FILES)
+        logger.debug(f"Randomly selected {MAX_CODE_FILES} files to analyze.")
+
+    for file_path in code_files:
+        real_path = os.path.relpath(file_path, local_path)
+        if real_path.endswith(".py"):
+            try:
+                code[real_path] = read_file(file_path)
+            except Exception as e:
+                logger.warning(f"Failed to read file {file_path}: {e}")
+
+        elif real_path.endswith(".ipynb"):
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    notebook = nbformat.read(f, as_version=4)
+                exporter = PythonExporter()
+                code_content, _ = exporter.from_notebook_node(notebook)
+                code[real_path] = code_content
+            except Exception as e:
+                logger.warning(f"Failed to read notebook file {file_path}: {e}")
 
     return readme, license, code
-
-
-def analyze_file_content(client, filepath, file_content, system_prompt, user_prompt, response_format):
-    
-    CHAR_LIMIT = 100000
-    if len(file_content) > CHAR_LIMIT:
-        logger.warning(f"File {filepath} exceeds the token limit and will be truncated.")
-        file_content = file_content[:CHAR_LIMIT]
-
-    try:
-        completion = client.beta.chat.completions.parse(
-            model=OPENAI_MODEL,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            response_format=response_format,
-        )
-        cost = calculate_completion_cost(completion)
-        return completion, cost
-    
-    except Exception as e:
-        logger.error(f"Failed to analyze code {filepath}: {e}")
-        return None, 0
 
 
 def calculate_completion_cost(completion):
@@ -141,20 +127,49 @@ def calculate_completion_cost(completion):
     return total_cost
 
 
+def analyze_file_content(client, filepath, file_content, system_prompt, user_prompt, response_format):
+    
+    CHAR_LIMIT = 100000
+    if len(file_content) > CHAR_LIMIT:
+        logger.warning(f"File {filepath} exceeds the token limit and will be truncated.")
+        file_content = file_content[:CHAR_LIMIT]
+
+    try:
+        # Using beta API so that we can structured output
+        completion = client.beta.chat.completions.parse(
+            model=OPENAI_MODEL,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            response_format=response_format,
+        )
+        
+        #cached_tokens = completion.usage.prompt_tokens_details.cached_tokens
+        #print(f"cached_tokens: {cached_tokens}")
+        
+        cost = calculate_completion_cost(completion)
+        return completion, cost
+    
+    except Exception as e:
+        logger.error(f"Failed to analyze code {filepath}: {e}")
+        return None, 0
+
+
 def analyze_readme(root_path, readme):
     file, content = readme
 
     system_prompt = """
     You are an expert at analyzing Markdown files from GitHub repositories and extracting structured information about the project.
-    Given the content of a README file, you extract the shell commands which are necessary to setup the project and run a basic example.
-    Please break multiline commands into separate steps.
-    Do not include commands which are optional or not relevant to setting up the project for a minimal example.
+    Given the content of a README file, you extract the shell (CLI) commands which are necessary to setup the project and run a basic example.
+    Break multiline commands into separate steps.
+    Do NOT include commands which are optional or not relevant to setting up the project for a minimal example.
     If commands are repeated multiple times with different example arguments, you should output those command only once, choosing the best example.
     If you can't find any setup commands, please output an empty list.
     """
 
     user_prompt = f"""
-    Given the README content below, extract only the shell commands which are necessary to setup the project and run a basic example:
+    Given the README content below, extract ONLY the shell commands which are necessary to setup the project and run a basic example:
 
     {content}
     """
@@ -167,9 +182,7 @@ def analyze_readme(root_path, readme):
     message = completion.choices[0].message
     if message.parsed:
         result = message.parsed
-        # Populate the commit hash
         result.github_commit_hash = get_commit_hash(root_path, file) if file else None
-        #logger.info(message.parsed.model_dump_json(indent=4))
         return result, cost
     
     elif message.refusal:
@@ -181,10 +194,16 @@ def analyze_readme(root_path, readme):
 def analyze_license(root_path, license):
     file, content = license
 
+    is_copyright_hhmi = any(
+        line.strip().startswith("Copyright") and 
+        ("HHMI" in line.strip() or "Howard Hughes Medical Institute" in line.strip())
+        for line in content.splitlines()
+    )
+
     analysis = LicenseAnalysis(
         github_commit_hash=get_commit_hash(root_path, file) if file else None,
         is_bsd3clause="BSD 3-Clause License" in content,
-        is_copyright_hhmi="Howard Hughes Medical Institute" in content,
+        is_copyright_hhmi=is_copyright_hhmi,
         is_current_year=str(datetime.now().year) in content,
     )
     return analysis
@@ -222,7 +241,6 @@ def analyze_code(root_path, code):
             if message.parsed.github_commit_hash:
                 logger.warning(f"AI returned a commit hash for {filepath}: {message.parsed.github_commit_hash}")
             
-            # Populate the commit hash
             message.parsed.github_commit_hash = get_commit_hash(root_path, filepath)
 
             results[filepath] = message.parsed
@@ -240,10 +258,23 @@ def analyze_code(root_path, code):
 
 def process_github_repo(repo: Repository, force=False):
 
+    project_cache_path = f"{CACHE_DIR}/{repo.full_name}"
+    local_repo_path = f"{project_cache_path}/repo"
+    output_file = f"{project_cache_path}/analysis.json"
+
     logger.info("=" * 80)
     logger.info(f"Processing {repo.full_name}")
     logger.info(f"Repo URL: {repo.html_url}")
     logger.info(f"Repo Description: {repo.description}")
+
+    if repo.fork or repo.archived:
+        reason = "fork" if repo.fork else "archived"
+        logger.info(f"Skipping {repo.full_name} because it is a {reason}")
+        if os.path.exists(output_file):
+            logger.info(f"Removing existing analysis for {reason} repo {repo.full_name}")
+            os.remove(output_file)
+        return
+
     logger.info(f"Language: {repo.language}")
     logger.info(f"Pushed at: {repo.pushed_at}")
 
@@ -253,19 +284,8 @@ def process_github_repo(repo: Repository, force=False):
     for contributor in contributors:
         logger.info(f"  {contributor.login} ({contributor.contributions} contributions)")
 
-    if repo.fork:
-        logger.info(f"Skipping {repo.full_name} because it is a fork")
-        return
-    
-    if repo.archived:
-        logger.info(f"Skipping {repo.full_name} because it is archived")
-        return
-
-    project_cache_path = f"repo_cache/{repo.full_name}"
-    local_repo_path = f"{project_cache_path}/repo"
-
+    # Fetch changes to the repo
     changed = clone_or_update_repo(repo.ssh_url, local_repo_path)
-
     if not changed and os.path.exists(f"{project_cache_path}/analysis.json") and not force:
         logger.info(f"Skipping {repo.full_name} because it hasn't changed since last analysis")
         return
@@ -295,7 +315,7 @@ def process_github_repo(repo: Repository, force=False):
     global_code_comments_score = 0
 
     for filepath, analysis in code_result.items():
-        file_lines = len(code[filepath].splitlines())
+        file_lines = len([line for line in code[filepath].splitlines() if line.strip()])
         weight = file_lines / total_lines
         global_api_doc_score += analysis.api_documentation_score * weight
         global_code_comments_score += analysis.code_comments_score * weight
@@ -304,8 +324,8 @@ def process_github_repo(repo: Repository, force=False):
     logger.info(f"Code Comments Score: {global_code_comments_score:.2f}")
 
     license_score = 0
-    if license:
-        license_score += 1
+    if license_result.github_commit_hash:
+        license_score += 2
         if license_result.is_bsd3clause:
             license_score += 1
         if license_result.is_copyright_hhmi:
@@ -314,15 +334,38 @@ def process_github_repo(repo: Repository, force=False):
             license_score += 1
     logger.info(f"License Score: {license_score}")
 
-    overall_score = 0.5 * readme_result.setup_completeness \
-                  + 0.4 * readme_result.readme_quality \
-                  + 0.1 * license_score \
-                  + 0.3 * global_api_doc_score \
-                  + 0.2 * global_code_comments_score
+    scores = {
+        "setup_completeness": readme_result.setup_completeness,
+        "readme_quality": readme_result.readme_quality,
+        "license": license_score,
+        "api_documentation": global_api_doc_score,
+        "code_comments": global_code_comments_score,
+    }
+
+    weights = {
+        "setup_completeness": 0.5,
+        "readme_quality": 0.4,
+        "license": 0.1,
+        "api_documentation": 0.3,
+        "code_comments": 0.2,
+    }
+
+    overall_score = sum(weights[key] * scores[key] for key in scores)
     logger.info(f"Overall Score: {overall_score:.2f}")
 
-    total_cost = readme_cost + code_cost
-    logger.info(f"Total cost: ${total_cost:.4f}")
+    # Normalize the overall score to a 0 to 5 range
+    def normalize_score(overall_score, weights):
+        theoretical_min = sum(weights[key] * 1 for key in weights)
+        theoretical_max = sum(weights[key] * 5 for key in weights)
+        normalized_score = 5 * ((overall_score - theoretical_min) / (theoretical_max - theoretical_min))
+        normalized_score = min(5, max(0, normalized_score))  # Clamp between 0-5
+        return normalized_score
+    
+    normalized_score = normalize_score(overall_score, weights)
+    logger.info(f"Normalized Overall Score: {normalized_score:.2f}")
+
+    analysis_cost = readme_cost + code_cost
+    logger.info(f"Analysis cost: ${analysis_cost:.4f}")
 
     metadata = GithubMetadata(
         repo_name=repo.full_name,
@@ -347,10 +390,9 @@ def process_github_repo(repo: Repository, force=False):
             license=license_score, 
             api_documentation=global_api_doc_score, 
             code_comments=global_code_comments_score, 
-            overall=overall_score),
+            overall=normalized_score),
     )
 
-    output_file = f"{project_cache_path}/analysis.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(analysis.model_dump(), f, indent=4)
     
