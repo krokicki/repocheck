@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/Ax Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/Ax" target="_blank">https://github.com/JaneliaSciComp/Ax</a></p>
+                <p>Description: Acoustic Segmenter</p>
+                <p>Language: Matlab</p>
+                <p>Stars: 2</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2015-12-23T14:39:36+00:00</p>
+                <p>Contributors: bjarthur</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.1</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>A recent version of Matlab (at least 2012a), plus the image processing, signal processing, and statistics toolboxes [<a href="" target="_blank"></a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>The parallel computing toolbox if using a computer with many cores, or the distributed computing server or matlab compiler for a cluster [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Run ax1 to generate the sparse matrix of significant time-frequency pixels from the raw data file.</p>
+            <code>ax1('parameters.txt', 'rawdata.wav', '0')</code>
+        </div>
+        <div class="setup-step">
+            <p>Run ax2 to generate a list of bounding boxes from the previously created .ax file.</p>
+            <code>ax2('parameters.txt', {'rawdata-0.ax'}, 'rawdata')</code>
+        </div>
+        <div class="setup-step">
+            <p>Compile the code (this only needs to be done once).</p>
+            <code>./compile.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Batch process the files using the cluster.sh script.</p>
+            <code>./cluster.sh ./parameters.txt ./rawdata.wav 3</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Ax/blob/5aa1ad8ddec03bc6966203ea77eda0fa639611f8/dpss.py" target="_blank">dpss.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive and well-structured, providing clear explanations of parameters and return values. However, while the internal comments are generally useful, some sections lack detail which could enhance clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Ax/blob/86a4e5b48668659161d7da197cdcf759a6c406c5/ax1.py" target="_blank">ax1.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough, providing good examples and clear parameter descriptions, making it accessible for users. However, internal comments are sparse and could be more descriptive to enhance understanding of the code's logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Ax/blob/86a4e5b48668659161d7da197cdcf759a6c406c5/ax1b.py" target="_blank">ax1b.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some functional comments but lacks comprehensive API documentation for external users. Internal comments explain individual steps, yet the overall purpose and usage of functions are not clearly described.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/xarray-ome-ngff Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/xarray-ome-ngff" target="_blank">https://github.com/JaneliaSciComp/xarray-ome-ngff</a></p>
+                <p>Description: Integration between xarray and the ome-ngff data model.</p>
+                <p>Language: Python</p>
+                <p>Stars: 5</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-09-10T09:05:21+00:00</p>
+                <p>Contributors: d-v-b</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.3</span></p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Open the OME-NGFF data from a Zarr group</p>
+            <code>zarr.open_group("https://uk1s3.embassy.ebi.ac.uk/idr/zarr/v0.4/idr0062A/6001240.zarr")</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a MemoryStore and create a multiscale group</p>
+            <code>create_multiscale_group(store=store, path='my_group', arrays=arrays)</code>
+        </div>
+        <div class="setup-step">
+            <p>Write data to the arrays</p>
+            <code>for path, array in arrays.items():
+  group[path][:] = array.data</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/cb810a87351a81bd1a42ae51c50adf514ea1579c/tests/conftest.py" target="_blank">tests/conftest.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks detailed docstrings for the `store` fixture, making it unclear how it should be used by external users. Internal comments are minimal and could significantly benefit from explanations of the parameters and choices made within the function.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/4b051cddc20f8784b491d0588c58da75932f492c/tests/test_v04.py" target="_blank">tests/test_v04.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is fairly good, with function docstrings providing a clear summary of inputs and outputs. Internal comments are present but could be more detailed to enhance understanding of complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/aa1547ee8f7230d30954eb387cb4e6fe49b05264/tests/test_docs.py" target="_blank">tests/test_docs.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal as it lacks docstrings for functions, which makes it harder for users to understand the purpose and usage. The internal comments are sparse but provide some context, still, more detailed comments would improve clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/cb810a87351a81bd1a42ae51c50adf514ea1579c/tests/test_core.py" target="_blank">tests/test_core.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is limited, lacking docstrings for functions which could explain their purpose and usage. Internal comments are sparse, providing minimal context for more complex code segments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/4b051cddc20f8784b491d0588c58da75932f492c/src/xarray_ome_ngff/array_wrap.py" target="_blank">src/xarray_ome_ngff/array_wrap.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough, providing clear docstrings for all major classes and functions, which helps users understand their usage and functionality. Internal comments are generally helpful but could benefit from additional clarity in complex areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/4b051cddc20f8784b491d0588c58da75932f492c/src/xarray_ome_ngff/__init__.py" target="_blank">src/xarray_ome_ngff/__init__.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough and clearly explains parameters and return types using standard Python docstring conventions. However, internal comments are sparse and could be improved for better understanding of the code logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/4b051cddc20f8784b491d0588c58da75932f492c/src/xarray_ome_ngff/core.py" target="_blank">src/xarray_ome_ngff/core.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides useful information about the `CoordinateAttrs` class and key functions. However, internal comments could be more detailed, especially in complex functions like `get_store_url` and `get_parent`, to enhance understanding for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/8e0100d9301cde9d419813b9b437283b6a48a2eb/src/xarray_ome_ngff/__about__.py" target="_blank">src/xarray_ome_ngff/__about__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation or comments that would help users or developers understand its purpose or functionality. The only information provided is the versioning and licensing details, which do not contribute to the understanding of code behavior.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/5b9faae119d99daf1c112a10ddda62293777a387/src/xarray_ome_ngff/v04/multiscale.py" target="_blank">src/xarray_ome_ngff/v04/multiscale.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation for the functions is thorough, with clear explanations of parameters and return types, making it useful for users. The internal comments are good but could be improved for clarity and detail in some areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-ome-ngff/blob/c96672763d27f592b530d0640b57d68c4edf87f9/src/xarray_ome_ngff/v04/__init__.py" target="_blank">src/xarray_ome_ngff/v04/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a basic understanding but lacks detailed examples and usage context, while internal comments effectively clarify complex logic but could benefit from more coverage in certain areas.</p>
+        </div>
+    </div>
+</body>
+</html>

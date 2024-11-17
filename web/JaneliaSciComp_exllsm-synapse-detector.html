@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/exllsm-synapse-detector Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector" target="_blank">https://github.com/JaneliaSciComp/exllsm-synapse-detector</a></p>
+                <p>Description: Deep Neuron Network for synapse detection</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-06-30T20:56:28+00:00</p>
+                <p>Contributors: lillvis, krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.0</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Conda package manager for creating and managing environments [<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a new Conda environment for the project</p>
+            <code>conda create -n exllsm-synapse</code>
+        </div>
+        <div class="setup-step">
+            <p>Update the Conda environment with dependencies from the environment file</p>
+            <code>conda env update -n exllsm-synapse -f environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the newly created Conda environment</p>
+            <code>conda activate exllsm-synapse</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the training script for the model</p>
+            <code>python ExLLSM_unet_v2_train.py</code>
+        </div>
+        <div class="setup-step">
+            <p>Plot the training progress results</p>
+            <code>python ExLLSM_unet_training_result_plot.py</code>
+        </div>
+        <div class="setup-step">
+            <p>Evaluate the model performance against ground truth data</p>
+            <code>python ExLLSM_unet_performance_evaluate.py</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/9abdefb46bb4e5d3925b51ba7edf4359e4c58404/training/exm_deeplearn_lib/exmsyn_data.py" target="_blank">training/exm_deeplearn_lib/exmsyn_data.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is clear for most functions, providing a general understanding of inputs and outputs, although a few could benefit from more detailed descriptions. Internal comments exist but lack consistency and depth; they could be improved to explain complex logic or assumptions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/beae9fba8411085430b9f3e33127e5e4c03dcb76/training/ExLLSM_unet_performance_evaluate.py" target="_blank">training/ExLLSM_unet_performance_evaluate.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is present but lacks detailed descriptions and structured parameters. Code comments are minimal and do not sufficiently explain the logic within the functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/9abdefb46bb4e5d3925b51ba7edf4359e4c58404/training/exm_deeplearn_lib/exmsyn_models.py" target="_blank">training/exm_deeplearn_lib/exmsyn_models.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for the functions is thorough, providing clear descriptions of input parameters and overall functionality. However, the internal comments are somewhat inconsistent in depth and clarity, which could make the code harder to follow for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/e7f67d0374faf18aa970080bce0ed962c22b5995/inference/python/aggregate_csvs.py" target="_blank">inference/python/aggregate_csvs.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides essential information about the command line arguments, which is helpful for users. The internal comments explain the logic but could be more detailed in parts to better assist developers in understanding the flow of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/9abdefb46bb4e5d3925b51ba7edf4359e4c58404/training/exm_deeplearn_lib/exmsyn_network.py" target="_blank">training/exm_deeplearn_lib/exmsyn_network.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation for key functions is adequate but could benefit from additional detail, especially in the classes and their methods. Internal comments are generally clear and provide good insights into the code logic, although some sections may require more context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/e7f67d0374faf18aa970080bce0ed962c22b5995/inference/python/postprocess_cpu.py" target="_blank">inference/python/postprocess_cpu.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and mostly comprehensive, with function docstrings explaining parameters and returns. However, internal comments are present but not consistently detailed, leaving some functions under-commented.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/9abdefb46bb4e5d3925b51ba7edf4359e4c58404/training/ExLLSM_unet_v2_train.py" target="_blank">training/ExLLSM_unet_v2_train.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks meaningful documentation for external users, such as function docstrings or comments explaining the purpose of the code segments. Internal comments are absent, making it difficult for other developers to understand the code's logic and intention.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/9abdefb46bb4e5d3925b51ba7edf4359e4c58404/training/exm_deeplearn_lib/exmsyn_compile.py" target="_blank">training/exm_deeplearn_lib/exmsyn_compile.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear and provides useful details about function parameters and return values; however, some function descriptions could be more concise or clearer. Internal comments exist but are limited, especially in more complex sections of the code, which could benefit from additional explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/e7f67d0374faf18aa970080bce0ed962c22b5995/inference/python/matlab_helper.py" target="_blank">inference/python/matlab_helper.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed descriptions of the functions and their parameters. Internal comments exist but are mostly basic without clarifying complex logic or offering insights into usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-synapse-detector/blob/b822a137a208c52ee24ab2ca1bb9a477ff76c3b9/inference/python/unet_gpu.py" target="_blank">inference/python/unet_gpu.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is clear and provides important information for function usage, but additional details such as return types and exceptions could improve it. Internal comments explain some parts of the code, but there are sections that could benefit from further clarification.</p>
+        </div>
+    </div>
+</body>
+</html>

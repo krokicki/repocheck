@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/exllsm-neuron-segmentation Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation" target="_blank">https://github.com/JaneliaSciComp/exllsm-neuron-segmentation</a></p>
+                <p>Description: Neuron segmentation for expanded microscopy</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-11-15T18:25:18+00:00</p>
+                <p>Contributors: lillvis, krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.5</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: green">Average API Docs Score: 4.1</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Conda environment for the project [<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a new conda environment</p>
+            <code>conda create -n neuron-segmentation python=3.9</code>
+        </div>
+        <div class="setup-step">
+            <p>Update the conda environment with required packages</p>
+            <code>conda env update -n neuron-segmentation -f conda-requirements.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate neuron-segmentation</code>
+        </div>
+        <div class="setup-step">
+            <p>Prepare training and evaluation datasets</p>
+            <code>python datasetPreparation_cmd.py --region-dir /REGION-DIR/ --dataset-dir /DATASET-DIR/ --output-dir /DATASET-DIR/ --above-threshold-ratio 0.9 --samples-per-region 50</code>
+        </div>
+        <div class="setup-step">
+            <p>Train the U-Net model</p>
+            <code>python training_cmd.py --training-dataset /TRAINING-DATASET-DIR/training-dataset.h5 --output-dir /OUTPUT-DIR/ --model-name TRAINEDMODEL.h5</code>
+        </div>
+        <div class="setup-step">
+            <p>Evaluate the model performance</p>
+            <code>python evaluation_cmd.py --dataset /EVAL-DATASET-DIR/evaluation-dataset.h5 --model-path /MODEL-DIR/trained-model.h5 --output-dir /OUTPUT-DIR/</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/6580fbf2cecefa66f16a79af748f2be23cd9340b/volumeScalingFactor.py" target="_blank">volumeScalingFactor.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a clear high-level explanation of the script's purpose and includes detailed descriptions of input arguments; however, it lacks more extensive inline comments on certain logic sections. Internal comments exist but could better clarify complex parts of the code for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/1629556db1ee3f8cd32e4346f73ab40fd60b25be/tools/preProcessing.py" target="_blank">tools/preProcessing.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough, detailing the purpose and parameters of each function effectively, though some parameters could use additional clarity in naming. Internal comments adequately explain the code logic, but could be more concise in certain areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/6580fbf2cecefa66f16a79af748f2be23cd9340b/tools/__init__.py" target="_blank">tools/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a basic overview but lacks depth and examples, which limits its effectiveness for external users. The internal comments are generally clear and help in understanding the code logic, but some complex functions could benefit from additional clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/1629556db1ee3f8cd32e4346f73ab40fd60b25be/datasetPreparation.py" target="_blank">datasetPreparation.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a general overview of the script's purpose but lacks detailed explanations for functions and classes. Internal comments are mostly clear and informative, covering key sections of the code, but certain areas could benefit from more specificity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/1629556db1ee3f8cd32e4346f73ab40fd60b25be/tools/tilingStrategy.py" target="_blank">tools/tilingStrategy.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite thorough, providing clear descriptions of parameters and return types, but lacks examples or more context for full usability. Internal comments are somewhat sporadic and could benefit from more consistent clarity and detail.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/1629556db1ee3f8cd32e4346f73ab40fd60b25be/tools/Dataset3D.py" target="_blank">tools/Dataset3D.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough and clearly describes all functions, parameters, and return types, making it easy for external users to understand their purpose and usage. Internal comments are helpful but could be improved in certain areas for more clarity and consistency.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/1629556db1ee3f8cd32e4346f73ab40fd60b25be/datasetPreparation_cmd.py" target="_blank">datasetPreparation_cmd.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation covers the basic purpose of the script and its command-line arguments but lacks detailed explanations of the functions and processes within the code. Internal comments are generally clear and informative, providing good context for complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/1629556db1ee3f8cd32e4346f73ab40fd60b25be/tools/affine.py" target="_blank">tools/affine.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear, structured, and provides detailed descriptions of parameters and return types for each function, earning a top score. Internal comments are helpful but a bit sparse in some sections, which is why it receives a slightly lower score.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/f415cf82e2761252fb844e3a8fc71cbb6b8285df/training_cmd.py" target="_blank">training_cmd.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The file provides clear API documentation for the script's purpose and detailed argument descriptions. However, while there are some comments explaining specific sections, several complex parts of the code lack sufficient inline comments to aid future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-neuron-segmentation/blob/1629556db1ee3f8cd32e4346f73ab40fd60b25be/tools/utilities.py" target="_blank">tools/utilities.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is comprehensive and well-structured, with clear parameter and return descriptions for most functions, which aids external users. However, some functions could benefit from additional internal comments to clarify complex logic and improve developer understanding.</p>
+        </div>
+    </div>
+</body>
+</html>

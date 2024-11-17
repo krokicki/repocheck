@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/pppm-website Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/pppm-website" target="_blank">https://github.com/JaneliaSciComp/pppm-website</a></p>
+                <p>Description: PatchPerPix Match website</p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-01-09T15:06:28+00:00</p>
+                <p>Contributors: robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.9</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the repository to the deployment system</p>
+            <code>git clone https://github.com/JaneliaSciComp/pppm-website.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Navigate to the project directory</p>
+            <code>cd /opt/flask/pppm-website</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the app</p>
+            <code>sh restart_production.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Navigate to the API directory</p>
+            <code>cd api</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the responder script without docker</p>
+            <code>python3 ppp_responder.py</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pppm-website/blob/b522fe83673203c15be0c36df01d0d52ba772ee8/api/ppp_responder.py" target="_blank">api/ppp_responder.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is extensive and well-structured, providing clear descriptions for endpoint behavior and parameters. However, while internal comments are present, they could be more detailed to better aid developers in understanding complex sections of the code.</p>
+        </div>
+    </div>
+</body>
+</html>

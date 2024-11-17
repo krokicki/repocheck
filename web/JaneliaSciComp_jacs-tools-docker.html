@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/jacs-tools-docker Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/jacs-tools-docker" target="_blank">https://github.com/JaneliaSciComp/jacs-tools-docker</a></p>
+                <p>Description: Tools for JACS, containerized with Docker</p>
+                <p>Language: ImageJ Macro</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-06-07T17:29:04+00:00</p>
+                <p>Contributors: krokicki, robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.1</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Build the NeuronBridge aligner container</p>
+            <code>./manage.sh build neuronbridge-aligner</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the NeuronBridge aligner with local data</p>
+            <code>localip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')</code>
+        </div>
+        <div class="setup-step">
+            <p>Allow local host access to the container</p>
+            <code>xhost + $localip</code>
+        </div>
+        <div class="setup-step">
+            <p>Set the FB_MODE_PARAM environment variable</p>
+            <code>FB_MODE_PARAM="-e FB_MODE=false -e DISPLAY=$localip:0"</code>
+        </div>
+        <div class="setup-step">
+            <p>Set the local data directory</p>
+            <code>LOCAL_DATA_DIR=$PWD/local/testData</code>
+        </div>
+        <div class="setup-step">
+            <p>Set the local templates directory</p>
+            <code>LOCAL_TEMPLATES_DIR=$LOCAL_DATA_DIR/templates</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Docker container to execute the aligner script with defined parameters</p>
+            <code>docker run \
+       -v $LOCAL_DATA_DIR:/data \
+       -v $LOCAL_TEMPLATES_DIR:/alignment_templates \
+       -it \
+       registry.int.janelia.org/jacs-scripts/neuronbridge-aligner:1.0 \
+       /opt/aligner-scripts/run_aligner.sh \
+       -debug \
+       --xyres 1 \
+       --zres 1 \
+       --nslots 4 \
+       --nchannels 2 \
+       --templatedir ${TEMPLATES} \
+       -i $INPUT \
+       -o $OUTPUT \
+       $*</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-tools-docker/blob/0763a2ce7c874d98cc21ea8bb39ecb83e4976db3/flylight_tools/scripts/python/extract_channel.py" target="_blank">flylight_tools/scripts/python/extract_channel.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks meaningful comments and detailed API documentation, which makes it difficult for developers to understand the code's purpose and functionality. Although there are some descriptions for command-line options, there are no comments explaining the logic behind the code blocks.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-tools-docker/blob/0763a2ce7c874d98cc21ea8bb39ecb83e4976db3/flylight_tools/scripts/python/extract_channels.py" target="_blank">flylight_tools/scripts/python/extract_channels.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks detailed API documentation and essential in-line comments, making it hard to understand the purpose and functionality of the functions. While it has argparser descriptions, it would benefit from comments explaining the logic of the code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-tools-docker/blob/e50c5b1bad99557aa057fd93f95cfd7f911c8780/flylight_tools/scripts/python/h5j_metadata.py" target="_blank">flylight_tools/scripts/python/h5j_metadata.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear, with a concise description of the script's functionality and command-line arguments. Internal comments are present and mostly informative, though some could benefit from further clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-tools-docker/blob/f905be599a61c104966ea518c2fd10f0854f5fbd/flylight_perl/pipeline/bin/get_sage_imageprop.py" target="_blank">flylight_perl/pipeline/bin/get_sage_imageprop.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal and could benefit from more descriptive comments about function parameters and return values. Internal comments are almost non-existent, which makes understanding the code flow and logic quite challenging.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-tools-docker/blob/f905be599a61c104966ea518c2fd10f0854f5fbd/flylight_perl/pipeline/bin/get_sage_lineprop.py" target="_blank">flylight_perl/pipeline/bin/get_sage_lineprop.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks sufficient comments and documentation for both API usage and internal logic, making it difficult for users and developers to understand its purpose and flow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-tools-docker/blob/f905be599a61c104966ea518c2fd10f0854f5fbd/flylight_perl/pipeline/bin/get_sage_line.py" target="_blank">flylight_perl/pipeline/bin/get_sage_line.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal and only consists of a short description for the argument, which does not adequately cover the function's purpose or usage. Internal comments are absent, making it difficult for other developers to understand the code's logic or intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-tools-docker/blob/f046f021156f27a1c7e5edd4bda620132202b2a3/h5j_extract_channels/src/extract_channels.py" target="_blank">h5j_extract_channels/src/extract_channels.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks significant API documentation suitable for external users, and internal comments are minimal, providing only the author's name. More detailed explanations and contextual comments would greatly enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-tools-docker/blob/4b5c64cc20c92bd667a59701f8ebed0b086d9558/h5j_metadata/src/h5j_metadata.py" target="_blank">h5j_metadata/src/h5j_metadata.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a clear and concise overview of the script's functionality and its intended use. Internal comments are helpful for understanding the code's structure and flow, though some areas could benefit from slightly more detail.</p>
+        </div>
+    </div>
+</body>
+</html>

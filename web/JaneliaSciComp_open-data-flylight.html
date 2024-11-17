@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/open-data-flylight Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/open-data-flylight" target="_blank">https://github.com/JaneliaSciComp/open-data-flylight</a></p>
+                <p>Description: FlyLight Gen1 and Split-GAL4 Imagery hosted on AWS Open Data</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 0</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2023-05-23T00:54:17+00:00</p>
+                <p>Contributors: robsv, krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.0</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: #F88017">README Quality: 2.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/6cedebdfb2c81fb2c090d03d7a51c53b1d41da4f/bin/add_standard_tags.py" target="_blank">bin/add_standard_tags.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal external documentation and lacks docstrings for functions, which hinders understanding for external users. Internal comments exist but are sparse and do not provide sufficient context for future maintainers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/41eb197a1f00b9a6b763277ba10f0dbc9638a961/bin/denormalize_s3.py" target="_blank">bin/denormalize_s3.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of the functionality and the purpose of the script. Internal comments are generally informative, but could benefit from more detail in certain complex functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/bdcfff8038d421a7969391a5ad012f21895bd790/bin/check_thumbnails.py" target="_blank">bin/check_thumbnails.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is generally clear and follows a consistent pattern, providing helpful descriptions for the function parameters and return values. However, while there are some inline comments, many complex methods lack sufficient commentary to fully explain the internal logic, which could benefit from additional context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/41eb197a1f00b9a6b763277ba10f0dbc9638a961/bin/upload_cdms.py" target="_blank">bin/upload_cdms.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation, primarily through docstrings, is clear and typically follows conventions, making it easy to understand the purpose of functions. Internal comments within the code are mostly adequate; however, more in-depth explanations in certain complex logic areas could enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/bd7ab4cec2f395473227f0e38e2abb2753753042/tutorials/Using_imagery_on_AWS_S3.ipynb" target="_blank">tutorials/Using_imagery_on_AWS_S3.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a clear overview and links to relevant resources, but the internal comments are sparse and lack detail about the code operations. While it offers some context, additional inline comments explaining critical functions and logic steps would improve readability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/b6db4b1d02d1771644769ddffd9701d46c3db79d/tutorials/File_operations_on_AWS_S3.ipynb" target="_blank">tutorials/File_operations_on_AWS_S3.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides good contextual information about the operations being performed, with links to external resources. However, the code comments are minimal and could benefit from more detailed explanations of specific code blocks.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/8fe812b4f701d26197654ba6114020fe1be813af/tutorials/.ipynb_checkpoints/Using_imagery_on_AWS_S3-checkpoint.ipynb" target="_blank">tutorials/.ipynb_checkpoints/Using_imagery_on_AWS_S3-checkpoint.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear information about the libraries used and the high-level steps of the process; however, it could be improved by including function definitions and descriptions for clarity. The internal comments effectively explain key code sections but occasionally lack detail in describing variable purposes.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/8fe812b4f701d26197654ba6114020fe1be813af/tutorials/.ipynb_checkpoints/File_operations_on_AWS_S3-checkpoint.ipynb" target="_blank">tutorials/.ipynb_checkpoints/File_operations_on_AWS_S3-checkpoint.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear explanations of how to use boto3 and Quilt for AWS S3 file operations, with links to relevant resources. Internal comments are helpful and well-placed, but some parts could benefit from more detailed explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/open-data-flylight/blob/8fe812b4f701d26197654ba6114020fe1be813af/tutorials/.ipynb_checkpoints/xxx-checkpoint.ipynb" target="_blank">tutorials/.ipynb_checkpoints/xxx-checkpoint.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides good context for using the code with AWS S3 and image handling. However, the internal comments could be more detailed to explain the purpose of each code block and function.</p>
+        </div>
+    </div>
+</body>
+</html>

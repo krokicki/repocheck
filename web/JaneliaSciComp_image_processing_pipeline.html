@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/image_processing_pipeline Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/image_processing_pipeline" target="_blank">https://github.com/JaneliaSciComp/image_processing_pipeline</a></p>
+                <p>Description: Interface to configure pipeline jobs for LightSheet</p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 2</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-09-29T01:04:37+00:00</p>
+                <p>Contributors: ntj, davidackerman, krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.7</span></p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.4</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python 3.5 or higher and pip [<a href="" target="_blank"></a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Node.js [<a href="" target="_blank"></a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>MongoDB [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Check Python and pip versions</p>
+            <code>python --version</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a virtual environment</p>
+            <code>virtualenv env --no-site-packages</code>
+        </div>
+        <div class="setup-step">
+            <p>(Alternative) Create a virtual environment on Mac</p>
+            <code>python -m venv env</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the environment</p>
+            <code>source env/bin/activate</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the requirements</p>
+            <code>pip install -r requirements.txt</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Flask application</p>
+            <code>python manage.py runserver</code>
+        </div>
+        <div class="setup-step">
+            <p>Locate lightsheet service file</p>
+            <code>locate systemd | grep lightsheet</code>
+        </div>
+        <div class="setup-step">
+            <p>Restart lightsheet services</p>
+            <code>sudo systemctl stop lightsheet</code>
+        </div>
+        <div class="setup-step">
+            <p>Restart lightsheet services</p>
+            <code>sudo systemctl start lightsheet</code>
+        </div>
+        <div class="setup-step">
+            <p>Restart nginx</p>
+            <code>sudo systemctl restart nginx</code>
+        </div>
+        <div class="setup-step">
+            <p>Access the database</p>
+            <code>mongo --host [your mongodb host]:[mongodb port]</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/a2b09f3fbb62c509f08d4abe979e3f12114a4c4b/lightsheetInterface/app/tests/variables_for_testing.py" target="_blank">lightsheetInterface/app/tests/variables_for_testing.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code lacks high-level documentation that describes the purpose and usage of functions or components, and the comments present are mainly variable assignments without elaboration on logic or function. While there are some internal comments, they do not adequately guide the user through the code's intent or usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/779bd03c0cee2525ad3fadb30f856ba1fc0f32f9/lightsheetInterface/app/__init__.py" target="_blank">lightsheetInterface/app/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is relatively minimal and lacks detailed descriptions for the functions, making it somewhat difficult for external users to understand usage without reading the code. Internal comments are sparse, primarily describing basic functionality, and additional contextual information would enhance clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/4488c10b004fe2faff14673a39244b27b4a5d0b0/lightsheetInterface/app/authservice.py" target="_blank">lightsheetInterface/app/authservice.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code lacks comprehensive docstrings that would explain the purpose and usage of classes and methods, which diminishes its external documentation quality. Internal comments are present but are minimal and could be more descriptive to enhance readability and understanding for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/0fae82ff6520de29985a964f10642181f7816e88/lightsheetInterface/app/models.py" target="_blank">lightsheetInterface/app/models.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is somewhat limited, with class descriptions present but lacking details on method parameters and return values. Internal comments are generally clear and cover the purpose of significant sections, aiding developers in understanding the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/779bd03c0cee2525ad3fadb30f856ba1fc0f32f9/lightsheetInterface/config.py" target="_blank">lightsheetInterface/config.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The internal comments provide some context for the settings but lack explanations for many configuration variables. There is minimal external API documentation, and only a few lines of commentary are present to clarify the purpose of certain settings.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/ce8a818b1e0bbcaf8766c2c4442a58eb3d0914ce/lightsheetInterface/app/widgets.py" target="_blank">lightsheetInterface/app/widgets.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The function lacks detailed docstrings for API documentation, explaining its purpose, parameters, and return values. Internal comments are minimal and do not effectively clarify the code logic or flow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/13f98a84ce80a473149a0f752c7fb98ba54ba6e4/lightsheetInterface/deploy.py" target="_blank">lightsheetInterface/deploy.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks both API documentation and internal comments, making it difficult for users and developers to understand its purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/434bbb9dedc46fc6a6a1615c9f9f7f7940378777/lightsheetInterface/wsgi.py" target="_blank">lightsheetInterface/wsgi.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of API documentation and there are no internal comments explaining its functionality, which makes it difficult for both external users and developers to understand the purpose and usage of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/1a87c22dc7859e1dea3dd9988a39b6402077080d/lightsheetInterface/app/views.py" target="_blank">lightsheetInterface/app/views.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides some essential information about the purpose of endpoints and functions but lacks detailed method-level documentation. Internal comments are informative and consistent, helping to clarify the code's logic and flow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/image_processing_pipeline/blob/2d44f22887e5ee9c60fe7797a1e64de790076708/lightsheetInterface/app/utils.py" target="_blank">lightsheetInterface/app/utils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive module-level docstrings and function-level documentation, making it challenging for external users to understand the API without diving into the implementation details. Internal comments are sporadic and often insufficient in explaining the logic behind complex code sections, which could benefit from more clarity.</p>
+        </div>
+    </div>
+</body>
+</html>

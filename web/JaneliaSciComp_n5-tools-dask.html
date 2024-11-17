@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/n5-tools-dask Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/n5-tools-dask" target="_blank">https://github.com/JaneliaSciComp/n5-tools-dask</a></p>
+                <p>Description: Dask-based utilities to process N5 images</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-09-11T17:16:21+00:00</p>
+                <p>Contributors: krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Install conda for managing environments and dependencies [<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create the conda environment using the specified environment file</p>
+            <code>conda env create --file environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate n5-tools-dask</code>
+        </div>
+        <div class="setup-step">
+            <p>Create output directories for TIFFs and N5 files</p>
+            <code>mkdir output_tiffs output_n5</code>
+        </div>
+        <div class="setup-step">
+            <p>Convert N5 images to TIFF format</p>
+            <code>python src/n5_to_tif.py -i data/test.n5/ -d mri/c0/s0 -o output_tiffs</code>
+        </div>
+        <div class="setup-step">
+            <p>Convert TIFF files back to N5 format</p>
+            <code>python src/tif_to_n5.py -i output_tiffs -o output_n5 -d mri/s0 -c 64,64,64 --compression gzip</code>
+        </div>
+        <div class="setup-step">
+            <p>Add multiscale imagery to the N5 file</p>
+            <code>python src/n5_multiscale.py -i output_n5 -d mri</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/n5-tools-dask/blob/d5838a8449615398778705cd74e7a7ec8fae7535/src/n5_utils.py" target="_blank">src/n5_utils.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides comprehensive information about the function parameters and their expected types, but could benefit from additional examples or context. Internal comments are present but tend to be brief; enhancing them with more context would aid developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/n5-tools-dask/blob/d5838a8449615398778705cd74e7a7ec8fae7535/src/n5_to_tif.py" target="_blank">src/n5_to_tif.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides strong explanations of the functions, but it could benefit from more detail on parameters and return values. Internal comments are present but could be more thorough to enhance understanding of the code's logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/n5-tools-dask/blob/d5838a8449615398778705cd74e7a7ec8fae7535/src/create_n5.py" target="_blank">src/create_n5.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is decent, as function signatures and arguments are described, especially in the `main()` function. However, internal comments explaining complex logic or key steps in `create_dataset` are lacking, which could improve understandability for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/n5-tools-dask/blob/d5838a8449615398778705cd74e7a7ec8fae7535/src/tif_to_n5.py" target="_blank">src/tif_to_n5.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear, providing useful parameter descriptions, though a little more detail on the function's operation and possible exceptions could enhance understanding. Internal comments are present but could be improved by explaining the thought process behind key code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/n5-tools-dask/blob/b273a9171e927550c68a98fc138c27081fa4f866/src/n5_multiscale.py" target="_blank">src/n5_multiscale.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, providing a clear description of the script's functionality and detailed argument descriptions. Internal comments efficiently explain the logic of various code sections, although some areas could benefit from slightly more context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/n5-tools-dask/blob/6b4e3a661ce960ea328b32ae02d144fb9687c1ab/src/ometif_to_n5.py" target="_blank">src/ometif_to_n5.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear descriptions for function parameters and return values, but it lacks detail on how to use the functions in a broader context. Internal comments are generally helpful and explain the code well, but more consistent commenting throughout would enhance clarity.</p>
+        </div>
+    </div>
+</body>
+</html>

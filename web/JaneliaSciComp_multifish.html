@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/multifish Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/multifish" target="_blank">https://github.com/JaneliaSciComp/multifish</a></p>
+                <p>Description: EASI-FISH analysis pipeline for spatial transcriptomics</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 33</p>
+                <p>Forks: 14</p>
+                <p>Last Commit: 2024-11-13T14:17:10+00:00</p>
+                <p>Contributors: krokicki, cgoina, wangyuhan01, orena1, FangmingXie</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.2</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Nextflow version 20.10.0 or greater [<a href="https://www.nextflow.io" target="_blank">https://www.nextflow.io</a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Singularity version 3.5 or greater [<a href="https://sylabs.io" target="_blank">https://sylabs.io</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install Nextflow</p>
+            <code>curl -s https://get.nextflow.io | bash</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Singularity on CentOS Linux</p>
+            <code>sudo yum install singularity</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone --recursive https://github.com/JaneliaSciComp/multifish.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Run setup to pull in external dependencies</p>
+            <code>./setup.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Launch the pipeline</p>
+            <code>./main.nf [arguments]</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/014a0b4dd5609f58a33c9099791478b5d9b92d38/notebooks/infer_darkfield_flatfield.ipynb" target="_blank">notebooks/infer_darkfield_flatfield.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks proper API documentation, with no docstrings present to explain the function or its parameters. Internal comments are sparse and do not adequately describe the purpose or logic behind significant code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/1081a33ca9629f2c4f6707a93066978ebf244a4e/containers/spot_extraction/scripts/python/n5_metadata_utils.py" target="_blank">containers/spot_extraction/scripts/python/n5_metadata_utils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear docstrings for public functions, making it challenging for external users to understand its purpose and usage. Internal comments are present but are often sparse and could benefit from more detail to clarify complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/94e6d6f68a2db7fb08b6092d3471ad5de4e00f57/containers/spot_extraction/compiled_matlab/AIRLOCALIZE_N5/__init__.py" target="_blank">containers/spot_extraction/compiled_matlab/AIRLOCALIZE_N5/__init__.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has good API documentation with clear explanations of parameters and return values, but could benefit from more examples. Internal comments are generally informative and relevant, though a few more details in complex methods would improve clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/94e6d6f68a2db7fb08b6092d3471ad5de4e00f57/containers/spot_extraction/compiled_matlab/setup.py" target="_blank">containers/spot_extraction/compiled_matlab/setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is moderate; it provides basic setup parameters but lacks detailed explanations of usage. Internal comments explain the purpose of certain sections but could be more comprehensive to improve clarity for other developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/a35a6ac7fee99795bb8896ee5089fba9b022c3c3/containers/spot_assignment/scripts/python/intensity_measurements.py" target="_blank">containers/spot_assignment/scripts/python/intensity_measurements.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal comments, making it difficult for other developers to understand its purpose and functionality. API documentation is virtually non-existent, and there are no docstrings provided for functions or modules.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/b01db5c689f725818250c96e846cda4d9f670c2a/containers/spot_assignment/scripts/python/assign_spots.py" target="_blank">containers/spot_assignment/scripts/python/assign_spots.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some comments explaining essential operations, but they are sparse and lack detail on the overall functionality. There is no API documentation or docstrings to help external users understand how to use the module.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/014a0b4dd5609f58a33c9099791478b5d9b92d38/notebooks/correct_darkfield_flatfield.py" target="_blank">notebooks/correct_darkfield_flatfield.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear descriptions of function parameters and return values. Internal comments provide some context but do not sufficiently explain the purpose or mechanics of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/e0a2a8e478a2563d82f939c2b7614c7e9276abd2/containers/spot_extraction/scripts/python/post_rsfish.py" target="_blank">containers/spot_extraction/scripts/python/post_rsfish.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and does not provide detailed descriptions of parameters or return values, which limits usability for external users. Internal comments provide some clarity on specific actions within the code, but they are sparse and could be more descriptive.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/859a2f40e62f55400b91d094ba80c045cad0bf88/containers/segmentation/scripts/python/starfinity_prediction.py" target="_blank">containers/segmentation/scripts/python/starfinity_prediction.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detailed descriptions for the command-line arguments. Internal comments provide some context but do not fully describe the function and purpose of all code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/multifish/blob/94e6d6f68a2db7fb08b6092d3471ad5de4e00f57/containers/spot_extraction/scripts/python/air_localize_mcr.py" target="_blank">containers/spot_extraction/scripts/python/air_localize_mcr.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has minimal external API documentation, which makes it challenging for users unfamiliar with the functions' purpose and usage. Internal comments are present but lack detail, often being too brief or not sufficiently descriptive of the underlying logic.</p>
+        </div>
+    </div>
+</body>
+</html>

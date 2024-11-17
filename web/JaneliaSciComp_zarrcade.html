@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/zarrcade Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/zarrcade" target="_blank">https://github.com/JaneliaSciComp/zarrcade</a></p>
+                <p>Description: Create web-based OME-Zarr galleries</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 9</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-11-09T02:10:44+00:00</p>
+                <p>Contributors: krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.2</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.4</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.2</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Install miniforge if you don't already have it. [<a href="https://github.com/conda-forge/miniforge" target="_blank">https://github.com/conda-forge/miniforge</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone https://github.com/JaneliaSciComp/zarrcade.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Change directory to zarrcade</p>
+            <code>cd zarrcade</code>
+        </div>
+        <div class="setup-step">
+            <p>Initialize the conda environment</p>
+            <code>conda env create -f environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate zarrcade</code>
+        </div>
+        <div class="setup-step">
+            <p>Import images into Zarrcade</p>
+            <code>bin/import.py -d /root/data/dir -c mycollection</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Zarrcade web application</p>
+            <code>uvicorn zarrcade.serve:app --host 0.0.0.0 --reload</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/8e96e2e993fa97cdf4960e2f8cdb266507352498/notebooks/Thumbnails.ipynb" target="_blank">notebooks/Thumbnails.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code contains minimal documentation and very few comments explaining the purpose of functions and critical operations; while some function definitions include comments, many lack explanations that would help understand their use or context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/377487504d567285c9632e9a8c76fa51d3cf7e93/zarrcade/serve.py" target="_blank">zarrcade/serve.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is quite comprehensive, providing clear descriptions of the purpose and functionality of each endpoint. The internal comments are also informative, though some areas could benefit from a bit more detail in describing the rationale behind the implementation choices.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/d681ae2e83be313c6ce1908232bfcc50513f55fa/zarrcade/viewers.py" target="_blank">zarrcade/viewers.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive API documentation, such as docstrings for classes and methods, which is crucial for external users. Internal comments are minimal, and while there is one comment related to a viewer, it doesn't provide enough context or explanation for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/153306b0de4626477cbbfea9b58f020b785b5e7f/notebooks/MIPs.ipynb" target="_blank">notebooks/MIPs.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code contains minimal comments, which makes it difficult for others to understand its purpose and functionality. While there are some helpful comments, they are sparse and lack detail for a full understanding of the code's flow and intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/4988da94039e8f909f24de13d36ffba90ec9dd26/zarrcade/agents/agent.py" target="_blank">zarrcade/agents/agent.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, clearly explaining classes, methods, arguments, and return types. Internal comments are generally helpful but could provide more detail in certain areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/377487504d567285c9632e9a8c76fa51d3cf7e93/zarrcade/filestore.py" target="_blank">zarrcade/filestore.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and sufficiently detailed for external users, providing concise function descriptions. Internal comments effectively clarify specific implementation details, though some could be expanded for greater clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/172e1f85453bca12c9c5632a7a6fc450c9c34a15/zarrcade/model.py" target="_blank">zarrcade/model.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is clear and descriptive, providing a good overview of the purpose of each class and its attributes. However, the internal comments are minimal, lacking detail on methods or complex logic, which would benefit developers seeking to understand the code's functionality better.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/377487504d567285c9632e9a8c76fa51d3cf7e93/zarrcade/database.py" target="_blank">zarrcade/database.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite comprehensive with clear argument and return value descriptions for each method, making it mostly easy to understand for external users. However, while there are some comments in the code, they are sparse and could be improved to enhance clarity for developers working on the code base.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/525ac3e1cc00ba2d36b754dc89b2d42aed0982bb/notebooks/Development.ipynb" target="_blank">notebooks/Development.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly implicit through function names and parameters, but lacks detailed docstrings for clarity. Internal comments are present, yet they could be more informative about the logic and purpose of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/zarrcade/blob/377487504d567285c9632e9a8c76fa51d3cf7e93/zarrcade/thumbnails.py" target="_blank">zarrcade/thumbnails.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear and provides useful context for the functions, but could benefit from additional examples or more detailed parameter descriptions. Internal comments explain some operations, but key logic is left uncommented, leading to reduced clarity.</p>
+        </div>
+    </div>
+</body>
+</html>

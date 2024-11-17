@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/lightsheetrecon Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/lightsheetrecon" target="_blank">https://github.com/JaneliaSciComp/lightsheetrecon</a></p>
+                <p>Language: Nextflow</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-10-03T20:15:42+00:00</p>
+                <p>Contributors: krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: green">Average API Docs Score: 4.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Nextflow [<a href="https://nf-co.re/docs/usage/installation" target="_blank">https://nf-co.re/docs/usage/installation</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Run the nf-core/lightsheetrecon pipeline with specified parameters</p>
+            <code>nextflow run nf-core/lightsheetrecon</code>
+        </div>
+        <div class="setup-step">
+            <p>Specify the executor profile (e.g., docker, singularity, etc.)</p>
+            <code>-profile <docker/singularity/.../institute></code>
+        </div>
+        <div class="setup-step">
+            <p>Provide the path to the input samplesheet</p>
+            <code>--input samplesheet.csv</code>
+        </div>
+        <div class="setup-step">
+            <p>Specify the output directory for the pipeline results</p>
+            <code>--outdir <OUTDIR></code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/lightsheetrecon/blob/aa548df810a7f4684baf399c1add6a1778d1a5f7/bin/check_samplesheet.py" target="_blank">bin/check_samplesheet.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough, with clear explanations of parameters and returns for all functions. Internal comments are good but could be improved in some sections for better clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/lightsheetrecon/blob/740915a7aba01d1b52654b5f0bc5e1d69af1182f/tests/test_versions_yml.py" target="_blank">tests/test_versions_yml.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and effectively communicates the purpose of functions and their parameters. However, while there are some internal comments, they aren't sufficient for all sections of the code, particularly in more complex logic flows.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/lightsheetrecon/blob/18a6f60b60d7b21a4aff4d266a3c9d11dcb82f03/modules/nf-core/custom/dumpsoftwareversions/templates/dumpsoftwareversions.py" target="_blank">modules/nf-core/custom/dumpsoftwareversions/templates/dumpsoftwareversions.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the module's purpose and function, but lacks detailed parameter and return value descriptions. Internal comments are present but could be improved for clarity and detail on complex sections.</p>
+        </div>
+    </div>
+</body>
+</html>

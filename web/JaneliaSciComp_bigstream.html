@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/bigstream Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/bigstream" target="_blank">https://github.com/JaneliaSciComp/bigstream</a></p>
+                <p>Description: Tools for distributed alignment of massive images</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 75</p>
+                <p>Forks: 21</p>
+                <p>Last Commit: 2024-11-13T19:44:46+00:00</p>
+                <p>Contributors: GFleishman, orena1, mansouralawi</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.8</span></p>
+        <p style="color: red">Setup Completeness: 1.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: green">Average API Docs Score: 4.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the BigStream library</p>
+            <code>pip install bigstream</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/989eddc4461c3f483016ac5bf14ca1e2086ac780/scripts/main_apply_local_transform.py" target="_blank">scripts/main_apply_local_transform.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides descriptions for all command line arguments, making it user-friendly. However, while the internal comments are present, they could be more detailed to better explain the code's logic and workflow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/590b66d6863194739ee18055457f910486e847db/scripts/main_apply_global_transform.py" target="_blank">scripts/main_apply_global_transform.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides adequate descriptions for command line arguments, making it user-friendly. However, the internal comments could be more detailed to explain the logic and purpose of specific code blocks.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/7525f8e05bf72edba38599eabf1bf810daf3a714/bigstream/piecewise_transform.py" target="_blank">bigstream/piecewise_transform.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is extensive and well-structured, clearly defining the parameters, return values, and providing sufficient context for functions intended for external users. Internal comments are mostly clear and helpful, but some code sections could benefit from additional explanations to enhance clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/24d732034a0ce88011a5dd8b1a9c0981288854fc/bigstream/level_set.py" target="_blank">bigstream/level_set.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is extensive and clearly describes the functionality of each function, including parameters and return types. The internal comments are mostly good, but may benefit from additional context in certain areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/5bfca6f7a380382f6398566ffce19af332a27676/bigstream/__init__.py" target="_blank">bigstream/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation and internal comments, making it difficult for users and developers to understand its purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/f2bae2ec550cb50b9293c433ca47dd5fbedfeace/notebooks/rnr-exm_notebooks/c_elegan_pair7.ipynb" target="_blank">notebooks/rnr-exm_notebooks/c_elegan_pair7.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear function descriptions and parameter explanations. Internal comments are present but inconsistent in detail and do not always provide enough context for complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/f2bae2ec550cb50b9293c433ca47dd5fbedfeace/notebooks/rnr-exm_notebooks/zebrafish_pair7.ipynb" target="_blank">notebooks/rnr-exm_notebooks/zebrafish_pair7.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some comments that aid in understanding the major steps, but it lacks detailed docstrings for functions and unclear variable names reduce clarity. More comprehensive explanations and adherence to documentation standards would improve the ratings significantly.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/f2bae2ec550cb50b9293c433ca47dd5fbedfeace/notebooks/rnr-exm_notebooks/mouse_pair0.ipynb" target="_blank">notebooks/rnr-exm_notebooks/mouse_pair0.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear descriptions for the functions and their parameters, making it hard for external users to understand how to use the code. Internal comments are present but often lack detail, making them less helpful for developers trying to comprehend the code's functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/f2bae2ec550cb50b9293c433ca47dd5fbedfeace/notebooks/rnr-exm_notebooks/c_elegan_pair2.ipynb" target="_blank">notebooks/rnr-exm_notebooks/c_elegan_pair2.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite minimal with no clear docstrings or explanations of functions, making understanding the API externally difficult. Internal comments are present but often lack depth or clarity, which may leave developers unsure about certain code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/bigstream/blob/b0d3af47c6922c506046dafaa6ca62041e3b4569/bigstream/utility.py" target="_blank">bigstream/utility.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough and clearly structured, providing detailed descriptions for parameters and return values for each function. Internal comments are generally helpful and relevant, though there are a few minor areas where additional clarity could enhance understanding.</p>
+        </div>
+    </div>
+</body>
+</html>

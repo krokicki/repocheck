@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/SongExplorer Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/SongExplorer" target="_blank">https://github.com/JaneliaSciComp/SongExplorer</a></p>
+                <p>Description: deep learning for acoustic signals</p>
+                <p>Language: Python</p>
+                <p>Stars: 23</p>
+                <p>Forks: 5</p>
+                <p>Last Commit: 2024-11-13T21:15:48+00:00</p>
+                <p>Contributors: bjarthur, yongtang, petewarden</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.8</span></p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: red">Average API Docs Score: 2.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>CUDA and CUDNN drivers from nvidia.com for GPU support [<a href="https://www.nvidia.com/en-us/deep-learning-ai/solutions/ gpu-cloud/" target="_blank">https://www.nvidia.com/en-us/deep-learning-ai/solutions/ gpu-cloud/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Download the SongExplorer ZIP file for your operating system</p>
+            <code>$ unzip songexplorer-<version>-<architecture>.zip</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a folder for ground truth data</p>
+            <code>$ mkdir -p groundtruth-data/round1</code>
+        </div>
+        <div class="setup-step">
+            <p>Copy example WAV file into the created folder</p>
+            <code>$ cp PS_20130625111709_ch3.wav groundtruth-data/round1</code>
+        </div>
+        <div class="setup-step">
+            <p>Start SongExplorer's GUI</p>
+            <code>$ ./OPEN-WITH-TERMINAL.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Monitor training progress</p>
+            <code>$ watch tail trained-classifier1/train_1r.log</code>
+        </div>
+        <div class="setup-step">
+            <p>Delete old prediction files to save space</p>
+            <code>$ rm groundtruth-data/*/oldfiles*</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/d152f834973d602e00c38ee8c1fede650bde9f4a/src/gui/view.py" target="_blank">src/gui/view.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive docstrings and has minimal internal comments, making it difficult to understand the purpose and usage of functions or classes. Although some comments exist, they often do not clarify the logic or intent behind the code, resulting in a need for significant context for users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/9ab9cec9b6787f1927eff91eee520ced89ead52d/test/shiftby.py" target="_blank">test/shiftby.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks detailed API documentation for external users and has minimal inline comments that do not adequately explain the functionality or logic of the code. Improving the clarity and depth of comments would significantly enhance understanding for both external users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/73a3b4c4314f2fa12fb68c5ab457336b077d47c3/app/post-process.py" target="_blank">app/post-process.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal external documentation and lacks detailed comments to explain the internal workings or the purpose of various sections, making it hard to follow for new developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/20fed740f04d61d08d2aeeb28d8a29dba5faa633/src/load-epg.py" target="_blank">src/load-epg.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks adequate external API documentation, such as docstrings for functions explaining parameters and return values. Internal comments are minimal and do not provide enough context for understanding complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/6c0e7dc6b59fe6dd41dcffb607dc04e74ac0dc62/src/lib.py" target="_blank">src/lib.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is quite sparse, with minimal external documentation for functions and no docstrings provided. Internal comments exist but are largely limited and can benefit from greater detail to enhance clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/1e9cd192021475e60f517c5506434813f4a4cd61/src/load-avi-mp4-mov.py" target="_blank">src/load-avi-mp4-mov.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The function `video_read` lacks a docstring to explain its purpose and parameters, which is essential for API documentation. Internal comments provide minimal context but could be expanded for clarity, especially regarding the data structure.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/9ab9cec9b6787f1927eff91eee520ced89ead52d/test/visualization.py" target="_blank">test/visualization.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear purpose and usage for external users. Internal comments are sparse and do not adequately explain the logic or provide context for the steps in the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/9ab9cec9b6787f1927eff91eee520ced89ead52d/test/congruence.py" target="_blank">test/congruence.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive API documentation, making it challenging for external users to understand its purpose and usage. Internal comments are sparse and mainly focus on individual lines or small sections, reducing overall clarity and maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/9ab9cec9b6787f1927eff91eee520ced89ead52d/test/freeze-classify.py" target="_blank">test/freeze-classify.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation lacks clarity on the purpose and usage of functions and modules, making it difficult for external users to understand the code's functionality. Internal comments are sparse and often do not explain complex logic or significant code blocks, which could help developers navigate the code more effectively.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SongExplorer/blob/9ab9cec9b6787f1927eff91eee520ced89ead52d/src/cluster-plugin.py" target="_blank">src/cluster-plugin.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is somewhat basic with limited context on the purpose of the command-line parameters, needing more in-depth explanations. Internal comments provide good clarity on specific sections and functionalities, though some parts would benefit from additional detail.</p>
+        </div>
+    </div>
+</body>
+</html>

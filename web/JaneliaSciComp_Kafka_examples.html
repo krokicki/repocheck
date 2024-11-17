@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/Kafka_examples Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/Kafka_examples" target="_blank">https://github.com/JaneliaSciComp/Kafka_examples</a></p>
+                <p>Description: Example producer/consumer programs for Kafka</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-04-09T17:17:11+00:00</p>
+                <p>Contributors: robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.4</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: #F88017">README Quality: 2.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.4</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Kafka_examples/blob/69a7f96d517d76841b370e613a56887b9776f753/produce.py" target="_blank">produce.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks adequate API documentation and internal comments, making it difficult for external users and developers to understand its functionality. There are very few comments to explain the purpose of functions or critical code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Kafka_examples/blob/b9bec7a5bb9d09615cfb94610e113046e20c9aab/fastconsumer.py" target="_blank">fastconsumer.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides basic parameter descriptions but lacks detailed explanations about function behavior and output. Internal comments are minimal and could enhance clarity by explaining complex logic or error handling.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Kafka_examples/blob/0de1b3da2b997413fad3b290257e97f36663a8f7/topic_aging_report.py" target="_blank">topic_aging_report.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal external documentation, mostly in the form of argument descriptions, and lacks comprehensive docstrings for functions. Internal comments are sparse and often do not clarify complex logic, making it difficult for developers to understand the code's intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Kafka_examples/blob/0e14a4a68eb433bea6b13d1641ba68307f35347a/pykafkaconsumer.py" target="_blank">pykafkaconsumer.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks detailed API documentation for external users, such as docstrings for functions and modules. Additionally, internal comments are minimal and would benefit from more contextual explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Kafka_examples/blob/e775692886264d2714c1a04bee767216f8c641e7/find_topics.py" target="_blank">find_topics.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides basic information about parameters and return types for functions but lacks examples and detailed descriptions. Internal comments exist but often only provide minimal context, and some pylint disable comments could be improved for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Kafka_examples/blob/5a2e40aa33961b3ffe487cd9394e0e2e5aa36873/dvid_transport.py" target="_blank">dvid_transport.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The function lacks docstrings and clear comments throughout the code, making it hard for users to understand the purpose and functionality. While some variable names are descriptive, additional context within the code would enhance readability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Kafka_examples/blob/e09d1a9be9d1aad4f432801569da3e84616dceb9/consumer.py" target="_blank">consumer.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code contains minimal comments and lacks detailed API documentation that explains how to use the module or its functions. Additionally, internal comments are sparse and do not clarify complex logic or decisions within the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Kafka_examples/blob/c9d5c7aa6c1be73e23bac769589dc9bbd62717de/delete_topic.py" target="_blank">delete_topic.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes basic descriptions but lacks detailed usage examples and parameter explanations, which might hinder users. Internal comments are generally clear and aid in understanding the code flow, but some functions could benefit from more detailed explanations.</p>
+        </div>
+    </div>
+</body>
+</html>

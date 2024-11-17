@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/delectable Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/delectable" target="_blank">https://github.com/JaneliaSciComp/delectable</a></p>
+                <p>Description: DeepLabCut but with better code-data separation</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2020-02-26T23:19:03+00:00</p>
+                <p>Contributors: adamltaylor</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.4</span></p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.8</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Add the Delectable folder to your PATH</p>
+            <code>echo 'PATH=$PATH:/groups/svoboda/home/svobodalab/delectable' >> ~/.profile</code>
+        </div>
+        <div class="setup-step">
+            <p>Log out and log back in again to apply the PATH changes</p>
+            <code>logout</code>
+        </div>
+        <div class="setup-step">
+            <p>SSH into the Janelia login node</p>
+            <code>ssh login1.int.janelia.org</code>
+        </div>
+        <div class="setup-step">
+            <p>Train the model on the cluster</p>
+            <code>train_model_on_cluster <targets-folder-name> <model-folder-name></code>
+        </div>
+        <div class="setup-step">
+            <p>Test the trained model on the cluster</p>
+            <code>test_model_on_cluster <targets folder name> <model folder name></code>
+        </div>
+        <div class="setup-step">
+            <p>Apply the trained model to a novel video</p>
+            <code>apply_model_on_cluster <model folder name> <video file name> <h5 file_name></code>
+        </div>
+        <div class="setup-step">
+            <p>Make a labeled video from the predictions</p>
+            <code>make_labeled_video_on_cluster <model folder name> <video file name> <h5 file_name> <output video file name></code>
+        </div>
+        <div class="setup-step">
+            <p>Compress videos for better storage</p>
+            <code>compress_videos_on_cluster <input folder name> <output folder name></code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/a8a1eb23b96f83c332d4b14593e0ae209bb062b2/train_model.py" target="_blank">train_model.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is sparse; while the function is reasonably well-defined, it lacks a docstring describing parameters and return values. Internal comments are generally helpful, but several important steps in the logic flow could benefit from more context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/ac9a059af0f9e0a55fab6931fae1feb5e25b501b/test_make_labeled_video_on_cluster.py" target="_blank">test_make_labeled_video_on_cluster.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code provides some internal comments, but they are minimal and lack depth, which can make it challenging for developers to understand the intent behind certain operations. Additionally, there is no API documentation to assist external users with understanding or utilizing the script.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/209b41c8a43129352b17385d2d60cc85e5a9bac7/dlc/Generating_a_Training_Set/Step2_ConvertingLabels2DataFrame.py" target="_blank">dlc/Generating_a_Training_Set/Step2_ConvertingLabels2DataFrame.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the header provides an adequate overview of the purpose and functionality of the script, but lacks detailed parameter and return value descriptions. Internal comments are mostly clear and helpful, explaining significant code sections, though some areas could benefit from more detail.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/6af33bb2950c3ce1e32654693d0e6c542726dfa3/make_labeled_video.py" target="_blank">make_labeled_video.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The top-level docstring provides a good overview of the script's purpose and usage, but could benefit from more detailed function-level documentation. Internal comments are frequent and helpful for understanding the logic, though some comments reference removed code, which may cause confusion.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/209b41c8a43129352b17385d2d60cc85e5a9bac7/dlc/myconfig.py" target="_blank">dlc/myconfig.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of the configuration options available, making it accessible for users. Internal comments offer detailed explanations regarding specific parameters, but some could be more concise.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/ac9a059af0f9e0a55fab6931fae1feb5e25b501b/test_compress_videos_on_cluster.py" target="_blank">test_compress_videos_on_cluster.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, leaving users without much context on how to use the script or its parameters. Internal comments provide some clarity, but could be more descriptive to enhance understanding of the code's purpose and logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/209b41c8a43129352b17385d2d60cc85e5a9bac7/dlc/Generating_a_Training_Set/frameselectiontools.py" target="_blank">dlc/Generating_a_Training_Set/frameselectiontools.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the functions and their purposes, with detailed docstrings that describe parameters and behavior. However, internal comments could be improved for clarity and comprehensiveness concerning the logic of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/ac9a059af0f9e0a55fab6931fae1feb5e25b501b/test_test_model_on_cluster.py" target="_blank">test_test_model_on_cluster.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: There is a minimal level of comments explaining high-level logic, but it lacks detailed documentation for functions and parameters. The comments could be more descriptive to help understand the code's purpose and flow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/209b41c8a43129352b17385d2d60cc85e5a9bac7/dlc/pose-tensorflow/config.py" target="_blank">dlc/pose-tensorflow/config.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation functions adequately with clear descriptions, but it could benefit from examples or more detailed parameter explanations. Internal comments provide useful context, but there are some segments where additional clarification could enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/delectable/blob/209b41c8a43129352b17385d2d60cc85e5a9bac7/dlc/myconfig_analysis.py" target="_blank">dlc/myconfig_analysis.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The file has a clear overall description and specific comments for some sections, but lacks detailed function-level documentation for usability. Internal comments are generally informative and provide necessary context, but could benefit from more clarity on parameter usage.</p>
+        </div>
+    </div>
+</body>
+</html>

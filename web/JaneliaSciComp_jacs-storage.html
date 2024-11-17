@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/jacs-storage Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/jacs-storage" target="_blank">https://github.com/JaneliaSciComp/jacs-storage</a></p>
+                <p>Description: JADE file storage services</p>
+                <p>Language: Java</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-10-23T17:39:01+00:00</p>
+                <p>Contributors: cgoina, krokicki, olbris</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.2</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.0</p>
+        <p style="color: green">Average Code Comments Score: 4.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>MongoDB instance (can use local or remote) [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create configuration properties for MongoDB connection</p>
+            <code>mkdir local</code>
+        </div>
+        <div class="setup-step">
+            <p>Create MongoDB configuration file</p>
+            <code>cat <<EOF > local/myConfig.properties
+MongoDB.ConnectionURL=mongodb://myusername:mypassword@localhost:27017/?authSource=db1
+EOF</code>
+        </div>
+        <div class="setup-step">
+            <p>Set environment variable for production</p>
+            <code>export JACSSTORAGE_CONFIG=$PWD/local/myConfig.properties</code>
+        </div>
+        <div class="setup-step">
+            <p>Set environment variable for testing</p>
+            <code>export JACSSTORAGE_CONFIG_TEST=$PWD/local/myConfig.properties</code>
+        </div>
+        <div class="setup-step">
+            <p>Build the application and create the distribution</p>
+            <code>./gradlew clean build installDist</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the integration tests</p>
+            <code>./gradlew integrationTest</code>
+        </div>
+        <div class="setup-step">
+            <p>Package the application into RPM</p>
+            <code>cat > local/gradle.properties <<EOF
+jacs.runtime.env.apiKey=JacsStorageAuthorizedAPI.Dev
+jacs.runtime.env.jwtSecret=<put the secret key here>
+jacs.runtime.env.agentHttpPort=9881
+jacs.runtime.env.masterHttpPort=9880
+jacs.runtime.env.logsRootDir=/data/jacsstorage/prod-logs
+EOF</code>
+        </div>
+        <div class="setup-step">
+            <p>Generate an RPM package</p>
+            <code>./gradlew --gradle-user-home=local ospackage</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the generated RPM package on CentOS</p>
+            <code>sudo yum install jacsstorage-masterweb/build/distributions/jacsstorage-masterweb-${jadeVersion}-1.i386.rpm</code>
+        </div>
+        <div class="setup-step">
+            <p>Install agent web RPM package on CentOS</p>
+            <code>sudo yum install jacsstorage-agentweb/build/distributions/jacsstorage-agentweb-${jadeVersion}-1.i386.rpm</code>
+        </div>
+        <div class="setup-step">
+            <p>Build Docker containers for the application (master)</p>
+            <code>docker build jacsstorage-masterweb --build-arg SSH_PRIVATE_KEY="`cat ~/.ssh/id_rsa`" -t jacsstorage-masterweb</code>
+        </div>
+        <div class="setup-step">
+            <p>Build Docker containers for the application (agent)</p>
+            <code>docker build jacsstorage-agentweb --build-arg SSH_PRIVATE_KEY="`cat ~/.ssh/id_rsa`" -t jacsstorage-agentweb</code>
+        </div>
+        <div class="setup-step">
+            <p>Build Docker containers using docker-compose</p>
+            <code>docker-compose build --build-arg SSH_PRIVATE_KEY="`cat ~/.ssh/id_rsa`"</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the application with default settings</p>
+            <code>jacsstorage-web/build/install/jacsstorage-web/bin/jacsstorage-web</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the application with debug settings</p>
+            <code>JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005" jacsstorage-web/build/install/jacsstorage-web/bin/jacsstorage-web</code>
+        </div>
+        <div class="setup-step">
+            <p>Run application with production configuration</p>
+            <code>JACSSTORAGE_CONFIG=/usr/local/etc/myjacsstorage-config.properties jacsstorage-web/build/install/jacsstorage-web/bin/jacsstorage-web</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jacs-storage/blob/f066a1db1ea59b541aece13337c2450a56ef203b/examples/python/storageclient.py" target="_blank">examples/python/storageclient.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic descriptions for some functions and parameters, but lacks detail and examples for better understanding. Internal comments are generally clear but could benefit from additional context in certain areas.</p>
+        </div>
+    </div>
+</body>
+</html>

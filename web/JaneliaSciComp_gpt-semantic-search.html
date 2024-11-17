@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/gpt-semantic-search Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/gpt-semantic-search" target="_blank">https://github.com/JaneliaSciComp/gpt-semantic-search</a></p>
+                <p>Description: Semantic search for Janelia resources using GPT models</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-08-09T17:12:53+00:00</p>
+                <p>Contributors: krokicki, ArjunBakhale</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Docker must be installed [<a href="https://docs.docker.com/get-docker/" target="_blank">https://docs.docker.com/get-docker/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Start the Compose deployment which runs Weaviate and Streamlit webapp</p>
+            <code>docker compose up -d</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a virtual environment and install dependencies</p>
+            <code>virtualenv env</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the virtual environment</p>
+            <code>source env/bin/activate</code>
+        </div>
+        <div class="setup-step">
+            <p>Install required Python packages</p>
+            <code>pip install -r requirements.txt</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the indexing for Slack export</p>
+            <code>./index_slack.py -i ./data/slack/slack_export_Janelia-Software_ALL -c Janelia</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the indexing for Wiki export</p>
+            <code>./index_wiki.py -i ./data/wiki -c Janelia</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the indexing for the Janelia website</p>
+            <code>./index_web.py -i ./data/janelia.org -c Janelia</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the webapp in development mode using Streamlit</p>
+            <code>streamlit run 1_🔍_Search.py -- -w http://search.int.janelia.org:8777</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/b6c267bc27e92c62d593c1e4be73841f78394d05/index_slack.py" target="_blank">index_slack.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally clear and provides good function-level descriptions, especially regarding the purpose of classes and methods. Internal comments are quite helpful in explaining complex logic and the flow, though some additional inline comments could enhance clarity further.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/a33bd29434cd466f39762e464a2ccc6893efeb2b/1_🔍_Search.py" target="_blank">1_🔍_Search.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the components and their functionalities but lacks detailed descriptions for several functions. Internal comments are generally helpful, although some critical sections could benefit from additional context for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/810788a4a10208fe844f4e7837b9e97dca83e5fa/pages/2_⚙️_Settings.py" target="_blank">pages/2_⚙️_Settings.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is clear and well-structured, providing a good understanding of the parameters and their usage. However, internal comments are minimal and could enhance understanding of code logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/7fe6a27e04be9979c6b9f8f08d4880d052d8ec24/weaviate_indexer.py" target="_blank">weaviate_indexer.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is minimal, with only function signatures and brief descriptions provided, making it difficult for external users to fully understand the usage. However, the internal comments are fairly detailed, explaining the purpose of key sections and providing adequate context for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/79db22a3196dabeb231c9b2e4456914e684b1099/notebooks/OpenAIAPI.ipynb" target="_blank">notebooks/OpenAIAPI.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation consists mainly of function definitions without clear external documentation for users, and the existing comments are sparse and not consistently informative for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/938caa51adf897a64f0833cb09f2671d3c542868/pages/3_ℹ️_About.py" target="_blank">pages/3_ℹ️_About.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation explains the purpose and functionality clearly, but there are no internal comments helping developers understand the code structure or logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/79db22a3196dabeb231c9b2e4456914e684b1099/notebooks/LlamaIndexToWeaviate.ipynb" target="_blank">notebooks/LlamaIndexToWeaviate.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code includes some comments, but they are sparse and lack detail on functionality. API documentation is limited, with no clear docstrings for functions or indication of expected inputs and outputs.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/cd5e5a7b56f38aecfff2d198e89707ea079e54ab/pages/4_📋_Survey_Responses.py" target="_blank">pages/4_📋_Survey_Responses.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear descriptions of parameters and return values. The internal comments provide some insight into the code's functionality, but they are not comprehensive enough to effectively guide a developer unfamiliar with the codebase.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/b6c267bc27e92c62d593c1e4be73841f78394d05/index_wiki.py" target="_blank">index_wiki.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite clear, especially for the main function and public methods, which improves usability for external users. However, internal comments would benefit from additional detail and context to enhance understandability among developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/gpt-semantic-search/blob/79db22a3196dabeb231c9b2e4456914e684b1099/notebooks/SlackIndexingArchive.ipynb" target="_blank">notebooks/SlackIndexingArchive.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is sparse and lacks detailed descriptions for many functions and classes, making it less useful for external users. Internal comments are somewhat helpful but do not consistently explain the purpose or logic behind the more complex functions, which could hinder developer understanding.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/NIDAQ.jl Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/NIDAQ.jl" target="_blank">https://github.com/JaneliaSciComp/NIDAQ.jl</a></p>
+                <p>Description: National Instruments Data Acquisition Interface</p>
+                <p>Language: Julia</p>
+                <p>Stars: 47</p>
+                <p>Forks: 16</p>
+                <p>Last Commit: 2022-02-15T09:22:54+00:00</p>
+                <p>Contributors: bjarthur, Cody-G, Petr-Hlavenka, urlicht, JuliaTagBot, halars, RubensRossi</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.7</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: red">Average API Docs Score: 0.0</p>
+        <p style="color: red">Average Code Comments Score: 0.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>NI-DAQmx driver installation (version 20.1 recommended) [<a href="https://www.ni.com/en-us/support/downloads/drivers/download.ni-daqmx.html#348669" target="_blank">https://www.ni.com/en-us/support/downloads/drivers/download.ni-daqmx.html#348669</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Add the NIDAQ.jl package</p>
+            <code>]add NIDAQ</code>
+        </div>
+        <div class="setup-step">
+            <p>Using NIDAQ.jl, query system properties</p>
+            <code>using NIDAQ</code>
+        </div>
+        <div class="setup-step">
+            <p>Get properties with no input arguments</p>
+            <code>getproperties()</code>
+        </div>
+        <div class="setup-step">
+            <p>Get properties for a specific device</p>
+            <code>getproperties("Dev1")</code>
+        </div>
+        <div class="setup-step">
+            <p>Add analog input channels</p>
+            <code>t = analog_input("Dev1/ai0:1")</code>
+        </div>
+        <div class="setup-step">
+            <p>Start data acquisition</p>
+            <code>start(t)</code>
+        </div>
+        <div class="setup-step">
+            <p>Read data from the acquisition</p>
+            <code>read(t, 10)</code>
+        </div>
+        <div class="setup-step">
+            <p>Stop the acquisition</p>
+            <code>stop(t)</code>
+        </div>
+        <div class="setup-step">
+            <p>Clear the task</p>
+            <code>clear(t)</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/nf-omezarr Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/nf-omezarr" target="_blank">https://github.com/JaneliaSciComp/nf-omezarr</a></p>
+                <p>Description: Nextflow pipeline for converting images to OME-Zarr using bioformats2raw</p>
+                <p>Language: Groovy</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-10-09T21:44:07+00:00</p>
+                <p>Contributors: krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: green">Average API Docs Score: 4.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Nextflow [<a href="https://www.nextflow.io/docs/latest/getstarted.html" target="_blank">https://www.nextflow.io/docs/latest/getstarted.html</a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Singularity [<a href="https://sylabs.io/guides/3.7/admin-guide/installation.html" target="_blank">https://sylabs.io/guides/3.7/admin-guide/installation.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install Nextflow using curl command.</p>
+            <code>curl -s https://get.nextflow.io | bash</code>
+        </div>
+        <div class="setup-step">
+            <p>Prepare a samplesheet with your input data as samplesheet.csv.</p>
+            <code># Create a CSV file named 'samplesheet.csv' with the following content:
+id,image,output_path
+image1,/path/to/set1/image1.czi,set1
+image2,/path/to/set1/image2.czi,set1
+image3,/path/to/set2/image1.czi,set2</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Nextflow pipeline to convert images to OME-Zarr format.</p>
+            <code>nextflow run JaneliaSciComp/nf-omezarr -profile singularity --input samplesheet.csv --outdir ./output --compression zlib --cpus 40</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/nf-omezarr/blob/6e48ab78dc328fc55a7f96753d1a817fa193e29d/modules/nf-core/custom/dumpsoftwareversions/templates/dumpsoftwareversions.py" target="_blank">modules/nf-core/custom/dumpsoftwareversions/templates/dumpsoftwareversions.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear, providing an overview of the module's purpose and detailing the functionality of major functions. However, internal comments could be expanded for better understanding of more complex logic.</p>
+        </div>
+    </div>
+</body>
+</html>

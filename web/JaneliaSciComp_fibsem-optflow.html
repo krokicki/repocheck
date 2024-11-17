@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/fibsem-optflow Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/fibsem-optflow" target="_blank">https://github.com/JaneliaSciComp/fibsem-optflow</a></p>
+                <p>Description: Repository related to optical flow calculations for fibsem images</p>
+                <p>Language: C++</p>
+                <p>Stars: 0</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2019-11-07T14:12:55+00:00</p>
+                <p>Contributors: mlnichols</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.8</span></p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: #F88017">README Quality: 2.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.3</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Required library for image processing [<a href="" target="_blank"></a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Non-free version of OpenCV for additional features [<a href="" target="_blank"></a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>NVIDIA's parallel computing architecture [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Compile the optical flow program from source</p>
+            <code>g++ -ggdb src/*.cpp -o optflow `pkg-config --cflags --libs opencv` -lgsl -lblas -lpng -ljsoncpp -lboost_iostreams -std=c++11</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fibsem-optflow/blob/827d8178285fcf7d179ad7ea20fddaa6cf1552da/support_scripts/gen_cross_file_list.py" target="_blank">support_scripts/gen_cross_file_list.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detailed descriptions for functions, parameters, and return values, making it difficult for external users to understand the usage. Internal comments are sparse and do not adequately clarify complex logic or the purpose of various blocks in the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fibsem-optflow/blob/827d8178285fcf7d179ad7ea20fddaa6cf1552da/support_scripts/gen_cross_file_list_dir.py" target="_blank">support_scripts/gen_cross_file_list_dir.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive docstrings for functions and unclear variable names hinder understandability, resulting in a moderate score for API documentation. Internal comments are minimal and do not effectively clarify complex logic within functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fibsem-optflow/blob/23318115f61bf4f9c630bfbc6b3d04e1b1acb74e/support_scripts/upload_matches.py" target="_blank">support_scripts/upload_matches.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some argument descriptions but lacks comprehensive detail on function purposes and expected behaviors. Internal comments are minimal, which decreases clarity regarding complex logic and operations in the code.</p>
+        </div>
+    </div>
+</body>
+</html>

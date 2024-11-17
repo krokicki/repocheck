@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/ImagingEcosystem Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/ImagingEcosystem" target="_blank">https://github.com/JaneliaSciComp/ImagingEcosystem</a></p>
+                <p>Description: The Imaging Ecosystem (well, parts of it, anyway).</p>
+                <p>Language: Perl</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-04-08T16:25:34+00:00</p>
+                <p>Contributors: robsv, ntj, neomorphic</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.9</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: #F88017">README Quality: 2.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.8</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python 3.7 is required to run this project. [<a href="https://www.python.org/downloads/release/python-360/" target="_blank">https://www.python.org/downloads/release/python-360/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/dd86e04ad3b906251ed9c1f5278e23f46b3326c8/bin/update_crossprops.py" target="_blank">bin/update_crossprops.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has well-structured and clear docstrings for each function, providing excellent context for API users. Internal comments are also reasonably detailed but could benefit from explaining certain logic flows and variable usages for better developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/4bbda402b7ea4ec68c0ac7f23c9dbd28b9acf989/bin/compare_lsms.py" target="_blank">bin/compare_lsms.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear, with function docstrings providing concise descriptions, but could be improved with more details on parameters and return values. Internal comments are present but lack depth and may not fully guide a developer unfamiliar with the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/ac17871fededbf9f1bc02758b3b5ede9e12af665/bin/move_archived_lsms.py" target="_blank">bin/move_archived_lsms.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is present in the form of docstrings for several functions, making it reasonably informative for external users. Internal comments provide good insights into the logic, with some areas needing more clarity or detail on complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/277bdd13b0bd28f811fd70f43e0cec9e07df7453/bin/gen1_split_generator.py" target="_blank">bin/gen1_split_generator.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic descriptions but lacks detailed explanations for several functions. Internal comments are generally clear and helpful, particularly in critical functions, enhancing developers' understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/443d31f8553e9a93fa65fc22cf2220c5ff9b3a50/bin/update_jacs_line.py" target="_blank">bin/update_jacs_line.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and includes parameter descriptions which enhance usability. Internal comments are informative and provide sufficient context, though a few more comments in complex areas could improve developer understanding even further.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/a3101a5c92b9d80cd59bfd220cb4621b3d57bf90/bin/update_sage_driver.py" target="_blank">bin/update_sage_driver.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is mostly clear and explains the purpose and parameters of functions well. Internal comments are also effective, but some sections could benefit from greater detail or clarity regarding the overall flow of the program.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/294129b97c4c6a42a60d5309445b84c292f18f21/bin/samples_in_process.py" target="_blank">bin/samples_in_process.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic descriptions of functions and their parameters, but it lacks detailed explanations and examples which could enhance clarity for users. Internal comments are generally clear and help in understanding code logic, although some comments have minor typos and could be more consistent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/de67afca63460ca1d550c941f4f832dec25ebb8e/bin/indexing_cleanup.py" target="_blank">bin/indexing_cleanup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is functional but lacks in-depth explanations for the endpoints and specific returned data structures, which would be useful for external users. Internal comments are generally clear, helping developers understand the code flow, but more contextual information about complex functions could enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/925883cec955ca24628444c8c5a242a4b618c13d/bin/check_crosses.py" target="_blank">bin/check_crosses.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides good context for function arguments and behavior, but lacks overall structure and a top-level overview. Internal comments are present but could be more detailed to enhance understanding of complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ImagingEcosystem/blob/93910b3a31dcb4190f4f0b2ca2b6e75fe9132504/bin/update_grammar.py" target="_blank">bin/update_grammar.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation includes clear descriptions of the function purposes and parameters, contributing to good usability for external users. However, while there are some inline comments, more detailed explanations about complex parts of the code could enhance the clarity for developers.</p>
+        </div>
+    </div>
+</body>
+</html>

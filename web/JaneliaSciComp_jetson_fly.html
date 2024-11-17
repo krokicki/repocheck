@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/jetson_fly Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/jetson_fly" target="_blank">https://github.com/JaneliaSciComp/jetson_fly</a></p>
+                <p>Description: various binaries and forks needed for reiser lab fly experiment work</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2019-03-22T14:47:56+00:00</p>
+                <p>Contributors: porterbot</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.3</span></p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the necessary dependencies</p>
+            <code>npm install</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the basic example script</p>
+            <code>node example.js</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/pip/_internal/utils/models.py" target="_blank">webserver/venv/lib/python3.5/site-packages/pip/_internal/utils/models.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a brief overview of the class functionality, but lacks details about parameters and return types. Internal comments could improve clarity, as they don't explain more complex methods or the rationale behind the comparisons.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/pip/_vendor/urllib3/packages/six.py" target="_blank">webserver/venv/lib/python3.5/site-packages/pip/_vendor/urllib3/packages/six.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes some good module-level docstrings, but individual functions lack detailed descriptions of their parameters and return values. Internal comments are clear and mostly helpful, though some complex sections could benefit from further elaboration.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/pip/_vendor/cachecontrol/filewrapper.py" target="_blank">webserver/venv/lib/python3.5/site-packages/pip/_vendor/cachecontrol/filewrapper.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The class is well-documented with a clear docstring that explains its purpose and behavior, which is helpful for external users. Internal comments are detailed and explain potentially complex logic, contributing to a solid understanding for developers working with the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/pip/_vendor/lockfile/pidlockfile.py" target="_blank">webserver/venv/lib/python3.5/site-packages/pip/_vendor/lockfile/pidlockfile.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear and concise class and method descriptions, making it easy for users to understand the functionality. Internal comments are helpful and explain the code well, but there could be more clarity in some specific areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/setuptools/command/easy_install.py" target="_blank">webserver/venv/lib/python3.5/site-packages/setuptools/command/easy_install.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is well-structured and provides useful external resources, but it could benefit from more examples or use cases. Internal comments are present but could be more consistent and detailed in explaining complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/setuptools/__init__.py" target="_blank">webserver/venv/lib/python3.5/site-packages/setuptools/__init__.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is very clear and thorough, providing detailed explanations of functions and their parameters. However, while the internal comments are informative, there could be more in-line comments to enhance clarity on specific logic points.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/pip/_internal/req/constructors.py" target="_blank">webserver/venv/lib/python3.5/site-packages/pip/_internal/req/constructors.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally clear and provides useful information about parameters and functionality, making it accessible for external users. Internal comments are also thorough and aid in understanding the code's logic, though some could be more concise.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/pip/_vendor/distlib/__init__.py" target="_blank">webserver/venv/lib/python3.5/site-packages/pip/_vendor/distlib/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has minimal API documentation, lacking clear explanations of the class and its purpose. Internal comments explain specific code choices, but more thorough commentary would enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/werkzeug/contrib/sessions.py" target="_blank">webserver/venv/lib/python3.5/site-packages/werkzeug/contrib/sessions.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is comprehensive and provides clear usage examples, making it useful for external users. However, the internal comments, while present, could be more detailed to enhance clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jetson_fly/blob/311c195fbfb1b09282e99d3c2d6e2da253d5701e/webserver/venv/lib/python3.5/site-packages/pip/_vendor/html5lib/__init__.py" target="_blank">webserver/venv/lib/python3.5/site-packages/pip/_vendor/html5lib/__init__.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation at the beginning provides a clear overview of library usage and functionality, serving well for external users. However, the internal comments are minimal and don't explain the purpose of some modules and components in detail, which is why the score is slightly lower.</p>
+        </div>
+    </div>
+</body>
+</html>

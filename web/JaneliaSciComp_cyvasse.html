@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/cyvasse Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/cyvasse" target="_blank">https://github.com/JaneliaSciComp/cyvasse</a></p>
+                <p>Description: A simple service for compressing videos with good settings</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2021-09-30T21:13:24+00:00</p>
+                <p>Contributors: adamltaylor</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.1</span></p>
+        <p style="color: red">Setup Completeness: 1.0</p>
+        <p style="color: #F88017">README Quality: 2.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.1</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Run the turn-on script to add cyvasse to the crontab file.</p>
+            <code>./turn-on</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/cyvasse/blob/69f65029c5091ed10aaf4ad971e060fca05a8ff4/make_copies_of_single_avi.py" target="_blank">make_copies_of_single_avi.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks both API documentation and internal comments, making it difficult for other developers to understand its purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/cyvasse/blob/7981cfdb746fb1057e4988e139be641f4019a035/compress_video.py" target="_blank">compress_video.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear docstrings for functions which would help external users understand their purpose. Internal comments are present but inconsistent and sometimes unclear, making the code harder to follow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/cyvasse/blob/7981cfdb746fb1057e4988e139be641f4019a035/dlct.py" target="_blank">dlct.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is lacking, as there are no docstrings explaining the purpose of each function. However, the internal comments provide some context for certain operations, leading to an average score for code comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/cyvasse/blob/75c589ab310302ae0c1e5346f5cf2cdfb2ae9f81/compress_video_and_delete_input_file.py" target="_blank">compress_video_and_delete_input_file.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has some good internal comments that explain the purpose of certain blocks and functions; however, it's lacking formal API documentation, such as docstrings for functions and a module-level docstring to explain the overall purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/cyvasse/blob/69f65029c5091ed10aaf4ad971e060fca05a8ff4/test_cyvasse.py" target="_blank">test_cyvasse.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of API documentation or comments, making it difficult for external users or developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/cyvasse/blob/69f65029c5091ed10aaf4ad971e060fca05a8ff4/test_cyvasse_on_many_copies.py" target="_blank">test_cyvasse_on_many_copies.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any comments or docstrings, making it difficult for other developers to understand its purpose and functionality. There is no external API documentation evident in the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/cyvasse/blob/d8cf9273c500e6ecba3c0a0597ecf54a91e2a35e/cyvasse.py" target="_blank">cyvasse.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation lacks clear function docstrings explaining parameters and return values, which can hinder external understanding. Internal comments provide some clarity but could be more concise and structured to improve maintainability.</p>
+        </div>
+    </div>
+</body>
+</html>

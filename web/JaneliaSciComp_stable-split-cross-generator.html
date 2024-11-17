@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/stable-split-cross-generator Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/stable-split-cross-generator" target="_blank">https://github.com/JaneliaSciComp/stable-split-cross-generator</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-01-06T22:25:20+00:00</p>
+                <p>Contributors: ntj, robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.7</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.3</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python version 3.5 or higher [<a href="" target="_blank"></a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Pip using the correct python [<a href="" target="_blank"></a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Virtualenv [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Check python version</p>
+            <code>python --version</code>
+        </div>
+        <div class="setup-step">
+            <p>Check pip version</p>
+            <code>pip --version</code>
+        </div>
+        <div class="setup-step">
+            <p>Check python executable path</p>
+            <code>which python</code>
+        </div>
+        <div class="setup-step">
+            <p>Check pip executable path</p>
+            <code>which pip</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a virtual environment named 'env'</p>
+            <code>virtualenv env --no-site-packages</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the virtual environment</p>
+            <code>source env/bin/activate</code>
+        </div>
+        <div class="setup-step">
+            <p>Install required packages</p>
+            <code>pip install -r requirements.txt</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Flask application</p>
+            <code>python run.py</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/bcb16ef7d7341086136ac103ad963432e3aa97fb/run.py" target="_blank">run.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks API documentation for external users, which is crucial for understanding its functionality. Internal comments are minimal and do not adequately explain the purpose or usage of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/a007513f57680bf283f11d6ee225593d39ad6fda/run-celery.py" target="_blank">run-celery.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks meaningful comments and documentation. The existing comments do not provide substantial information about the purpose, usage, or functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/c44ed8f4759f14bb342a433bbcfeb314b4a7319d/wsgi.py" target="_blank">wsgi.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of API documentation or inline comments, making it hard for users or developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/403398e38f24bd1254654436ed889511490922b9/myapp/models.py" target="_blank">myapp/models.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: There is no API documentation provided for external users, and internal comments are entirely absent, leaving the code largely unexplained for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/e851d5010aa919037dac627d7e9b1831fbbf7677/myapp/__init__.py" target="_blank">myapp/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code contains minimal comments and lacks detailed API documentation, which makes it challenging for external users to understand its purpose and functionality. Internal comments are limited to one-liners that do not adequately explain the logic or context of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/6a6ff39abe2d450157a38dcdea68dfded4ccb7a2/myapp/forms.py" target="_blank">myapp/forms.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal comments and lacks a docstring for the classes and methods, making it less informative for users and developers. While the variable names are descriptive, additional comments would enhance understanding, especially in the validation logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/6a6ff39abe2d450157a38dcdea68dfded4ccb7a2/myapp/celery.py" target="_blank">myapp/celery.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code contains useful inline comments explaining the purpose of specific configurations and functions, enhancing clarity for developers. However, there is minimal external documentation, such as docstrings for the `debug_task` function, which detracts from the overall API documentation quality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/6a6ff39abe2d450157a38dcdea68dfded4ccb7a2/myapp/gen1_split_generator.py" target="_blank">myapp/gen1_split_generator.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is adequately structured with clear method docstrings, but lacks examples and more detailed explanations of parameters. Internal comments are useful and fairly clear, though some functions would benefit from additional context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/83627d29ac2278e94feca7279e56ee443f3924b5/myapp/views.py" target="_blank">myapp/views.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is moderate, with some route decorators and minimal inline comments explaining functionality, but lacks comprehensive docstrings for functions. The internal comments are helpful but not consistently applied, making it challenging for developers to understand the purpose of certain sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/stable-split-cross-generator/blob/6a6ff39abe2d450157a38dcdea68dfded4ccb7a2/myapp/auth/__init__.py" target="_blank">myapp/auth/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides basic usage examples but lacks detail on parameters and return types. Internal comments are sparse and do not adequately explain complex sections of the code.</p>
+        </div>
+    </div>
+</body>
+</html>

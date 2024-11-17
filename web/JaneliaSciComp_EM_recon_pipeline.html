@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/EM_recon_pipeline Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/EM_recon_pipeline" target="_blank">https://github.com/JaneliaSciComp/EM_recon_pipeline</a></p>
+                <p>Description: Pipeline scripts and tools for reconstructing Electron Microscopy volumes.</p>
+                <p>Language: Python</p>
+                <p>Stars: 4</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2024-11-15T19:23:53+00:00</p>
+                <p>Contributors: trautmane, Silvam2, minnerbe, templiert</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.9</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.2</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Install Miniconda if it is not already installed. [<a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">https://docs.conda.io/en/latest/miniconda.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone https://github.com/JaneliaSciComp/EM_recon_pipeline.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Change directory to the cloned repository</p>
+            <code>cd EM_recon_pipeline</code>
+        </div>
+        <div class="setup-step">
+            <p>Create the conda environment from the environment file</p>
+            <code>conda env create -f janelia_emrp.environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate janelia_emrp</code>
+        </div>
+        <div class="setup-step">
+            <p>Install dependencies using poetry</p>
+            <code>poetry install</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/4a6fd5a63a1caf581d0f284af67725ce8b52237a/tests/python/janelia_emrp/fibsem/test_keep_file.py" target="_blank">tests/python/janelia_emrp/fibsem/test_keep_file.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of documentation for external users, such as docstrings or comments explaining the purpose of the test case. Internal comments are also absent, making it difficult for a developer unfamiliar with the function to understand its intent and implementation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/547b410672cda4afc0fb1757ec2feada15016a83/src/python/janelia_emrp/msem/wafer_53_hayworth_adjust_sfov_contrast.py" target="_blank">src/python/janelia_emrp/msem/wafer_53_hayworth_adjust_sfov_contrast.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the script's purpose and usage, but lacks detailed method-level docstrings. Internal comments are informative and help understand the logic and flow of the code, though some could be more succinct.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/8150aa19e25d2abf29d2d4df53f636e1dab3fdcb/src/python/janelia_emrp/fibsem/cyx_dat.py" target="_blank">src/python/janelia_emrp/fibsem/cyx_dat.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides specific details about the function's return type and its purpose. However, the internal comments could be more descriptive, especially regarding the transformation of the pixel data array.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/173b3bb71576273af22e34ab046c04095982f8ea/src/scripts/flyTEM/render/FAFB_v14/__init__.py" target="_blank">src/scripts/flyTEM/render/FAFB_v14/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code contains basic docstrings for functions but lacks detailed explanations that would help external users understand usage. Internal comments are sparse and often do not clarify the logic behind complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/a850462cc17664bfc4a63352a5bf45e062489ae2/src/python/janelia_emrp/msem/ingestion_ibeammsem/ingestion.py" target="_blank">src/python/janelia_emrp/msem/ingestion_ibeammsem/ingestion.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The initial docstring provides a general overview but lacks detail about individual functions and their parameters. Code comments are present and mostly clear, aiding developers in understanding the flow, but further elaboration on complex sections would enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/3ff65e07730689f147a786026733f8aa5b54414c/src/python/janelia_emrp/msem/ingestion_ibeammsem/metrics.py" target="_blank">src/python/janelia_emrp/msem/ingestion_ibeammsem/metrics.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and concise, providing accurate descriptions of each function's purpose, which is valuable for external users. However, the internal comment quality is limited; while the functions are self-explanatory, additional inline comments could enhance understanding of complex operations for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/dceb2e4787b16c6cda9368818ab5f01136b1e641/src/python/janelia_emrp/fibsem/dat_copier.py" target="_blank">src/python/janelia_emrp/fibsem/dat_copier.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear, especially regarding function parameters and return types, but there are few docstrings explaining the overall purpose of each function. Internal comments provide some context, though more consistent explanations would enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/3844eb881ccd3797b9b0279ca5bbff10ee669935/src/python/janelia_emrp/msem/wafer_info.py" target="_blank">src/python/janelia_emrp/msem/wafer_info.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API functions are well documented with clear parameter descriptions and return types, making it user-friendly. However, internal comments provide some context but could be improved for clarity and depth, particularly in complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/4b82aefe9f760d2e51b4f93f666bb45fe5c6d5ec/src/python/janelia_emrp/match/copy_matches.py" target="_blank">src/python/janelia_emrp/match/copy_matches.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code lacks adequate API documentation, which makes it difficult for external users to understand its purpose and usage. While there are some internal comments, they are insufficient and somewhat generic, failing to clarify complex logic or decision-making processes in the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/EM_recon_pipeline/blob/e7e2881e5d24705ed4bce6d1485fb6970ac10d34/src/scripts/flyem/Z0720_07m/base_scripts/gen_z_corr_job_parameters.py" target="_blank">src/scripts/flyem/Z0720_07m/base_scripts/gen_z_corr_job_parameters.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal documentation for external users, such as function descriptions and usage examples. Internal comments are sparse, lacking detail to help developers understand the purpose and functionality of the code.</p>
+        </div>
+    </div>
+</body>
+</html>

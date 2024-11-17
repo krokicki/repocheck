@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/neuronbridge-python Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/neuronbridge-python" target="_blank">https://github.com/JaneliaSciComp/neuronbridge-python</a></p>
+                <p>Description: Python API for NeuronBridge</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-11-15T16:18:42+00:00</p>
+                <p>Contributors: krokicki, olbris</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.0</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.3</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Conda package manager [<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a conda environment with all the dependencies including Jupyter</p>
+            <code>conda env create -f environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate neuronbridge-python</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the module as a Jupyter kernel</p>
+            <code>python -m ipykernel install --user --name=neuronbridge-python</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the module for development</p>
+            <code>pip install -e .</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the unit tests</p>
+            <code>pytest tests</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/648f11623ea342d53604d421d8e26a349b7e317f/notebooks/python_api_examples.ipynb" target="_blank">notebooks/python_api_examples.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and well-structured, providing contextual information about each step. However, there is a lack of detailed in-line comments throughout the code that could enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/ebf48d93b1b4376b85ea82df30fc13b9d6881f49/notebooks/inheritance_aware.ipynb" target="_blank">notebooks/inheritance_aware.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation consists mostly of a few comments and links to sources, which does not provide a clear explanation of the primary classes and methods for external users. Internal comments exist but lack detail on the functionality and intent behind key pieces of code, leading to a moderate rating.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/69924c99d05f70111b809d4e60718d7ee6d82bbc/neuronbridge/__init__.py" target="_blank">neuronbridge/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: The provided code snippet lacks any form of documentation or comments, making it difficult for external users or developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/ebf48d93b1b4376b85ea82df30fc13b9d6881f49/neuronbridge/utils.py" target="_blank">neuronbridge/utils.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides clear descriptions of the functions' purposes but could benefit from more detailed parameter and return type descriptions. Internal comments are minimal and could greatly enhance understanding, especially for complex logic or data structures.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/48c5df0cf7ebd313295b7ca43b48e72172712847/neuronbridge/validate_ray.py" target="_blank">neuronbridge/validate_ray.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code is generally well-documented with a clear module-level docstring and method-level comments that explain the purpose of functions succinctly. However, some functions could benefit from additional details about parameters and return values for improved clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/6e653c0aca0b3b1a62ebffb735ce43b6c748ccea/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API is documented well with the use of a README and descriptive fields in the setup function; however, there are no inline comments explaining the code logic, which reduces clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/175a4bf5ed24f719db1149d09afe9171dfa0224c/neuronbridge/generate_schemas.py" target="_blank">neuronbridge/generate_schemas.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks external API documentation, such as docstrings for functions, which would help users understand the purpose and usage of the functions. Additionally, internal comments are minimal, providing little context for the logic and functioning of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/734ef008f523f71eb78d967a591fc7e18b0af7c8/tests/test_model.py" target="_blank">tests/test_model.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal documentation for external users, and it lacks docstrings for functions or classes. Internal comments are missing, making it hard for developers to understand the logic without analyzing the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/4cb5eaaf10833cf6cfeaddba01b92e04f7b12501/neuronbridge/model.py" target="_blank">neuronbridge/model.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The code is thoroughly documented with detailed and clear docstrings for all classes and fields, making it easy for external users to understand the APIs and their usage. Additionally, the comments provide in-depth information about the purpose and behavior of the code, benefiting developers working on or maintaining the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-python/blob/9f23ed776eb8e2a66042cae80a4d11dc3de19055/neuronbridge/client.py" target="_blank">neuronbridge/client.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and well-structured, providing concise descriptions and argument details for each method, making it easy for external users to understand. Internal comments are present but could be expanded for some methods to enhance clarity for developers.</p>
+        </div>
+    </div>
+</body>
+</html>

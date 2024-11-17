@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/neuronbridge-precompute Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/neuronbridge-precompute" target="_blank">https://github.com/JaneliaSciComp/neuronbridge-precompute</a></p>
+                <p>Description: Utilities for indexing and transferring of NeuronBridge-related files</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-11-15T15:14:31+00:00</p>
+                <p>Contributors: robsv, cgoina, krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.0</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 1.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/135b23a1bd254599510128915685ae526bb731d8/bin/update_dynamodb_published_skeletons.py" target="_blank">bin/update_dynamodb_published_skeletons.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The documentation and comments are mostly clear and detailed, providing good insights into function purposes and parameters. However, some sections could benefit from additional context or examples to enhance understandability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/3bddbdd2677b913dc40446c111d939b2f90760ef/bin/upload_ppp.py" target="_blank">bin/upload_ppp.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is present but lacks consistency and detail for some functions, which could hinder external users' understanding. Internal comments are mostly clear and informative, though some function descriptions could benefit from more context about their purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/0ac221387d83cb0c61c1989759403ad3ec31106c/bin/update_dynamodb_published_versioned.py" target="_blank">bin/update_dynamodb_published_versioned.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code is well documented with clear and concise docstrings for functions that explain parameters and return values. Internal comments are present, but could benefit from more context in some areas to enhance developer understanding of the logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/5d506468888467976aed2c323d840eca323305fc/postprocessing/bin/backup_published_versioned.py" target="_blank">postprocessing/bin/backup_published_versioned.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation within the code is clear and adequately explains the purpose and functionality of functions and arguments. However, more in-depth internal comments detailing the logic behind certain operations would enhance understanding for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/b3ac52a871c69ca818308c74f59302761d9b9aae/bin/scrub_order.py" target="_blank">bin/scrub_order.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is well-structured and provides necessary details for external users regarding function purposes and arguments. However, while there are some internal comments, their coverage and clarity could be improved to enhance developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/79628add7dafc744b65bf421fd471e9a3d2f9ead/reports/bin/publishing_check.py" target="_blank">reports/bin/publishing_check.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear function descriptions and arguments, making it easy for external users to understand the code. Internal comments are present and informative, though there could be slight improvements in clarity for some comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/861677fc469495cf4431b3087829fb972500df50/reports/bin/reformat_lm_annotations.py" target="_blank">reports/bin/reformat_lm_annotations.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is mostly clear, providing good function descriptions and return types. Internal comments effectively clarify key sections of the code, but a few additional inline comments could enhance understanding further.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/b3ac52a871c69ca818308c74f59302761d9b9aae/bin/check_neuronmetadata.py" target="_blank">bin/check_neuronmetadata.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the form of docstrings provides clear function descriptions and expected arguments, but is somewhat brief and lacks detailed examples. Internal comments are largely helpful, especially in complex regions, but could benefit from additional context in places for improved clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/7ded3abb175f3ddaeb17095ace6b979d8d5924fc/bin/update_dynamodb_publishing_doi.py" target="_blank">bin/update_dynamodb_publishing_doi.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides detailed descriptions of function parameters and return values. Internal comments effectively explain complex logic and the flow of the program, although some more in-line comments could enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/neuronbridge-precompute/blob/3bddbdd2677b913dc40446c111d939b2f90760ef/bin/sync_mongo_aws.py" target="_blank">bin/sync_mongo_aws.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally clear and well-structured, explaining the purpose and usage of the functions effectively. Internal comments are helpful, but a few more explanations on complex logic could enhance understanding.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/fvb Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/fvb" target="_blank">https://github.com/JaneliaSciComp/fvb</a></p>
+                <p>Description: Flyvision box code</p>
+                <p>Language: MATLAB</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-03-13T19:56:53+00:00</p>
+                <p>Contributors: adamltaylor</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.5</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Node.js must be installed to run this project [<a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the project dependencies</p>
+            <code>npm install</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the example script</p>
+            <code>node example.js</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/sbmoviesuite/sbview1.py" target="_blank">sbmoviesuite/sbview1.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a brief overview of the classes and functions, but lacks detailed descriptions for method parameters and return types. Internal comments are generally informative but could be more systematic and concise.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/sbmoviesuite/sbmovielib/movies.py" target="_blank">sbmoviesuite/sbmovielib/movies.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a brief overview of the functionality and certain alterations made to the original code, but lacks in-depth descriptions of the classes and methods. Internal comments are detailed and explain the purpose of various code segments, making it easier for developers to understand the setup and underlying logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/scripts/attic/Archiving/archive_box_experiment.py" target="_blank">scripts/attic/Archiving/archive_box_experiment.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking function docstrings and a general description of the script's purpose. Internal comments exist but are often insufficient for understanding the logic and assumptions behind the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/informatics-pipeline/bin/get_sage_lineprop.py" target="_blank">informatics-pipeline/bin/get_sage_lineprop.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal, with only one line in the argparse description and a couple of comments missing for key functions. Internal comments are almost nonexistent, making it difficult for future developers to understand the code's logic and structure.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/scripts/attic/sage.py" target="_blank">scripts/attic/sage.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is decent, with docstrings provided for most public methods, but some methods lack concise descriptions or examples of usage. Internal comments are mostly clear and helpful, but there are areas where additional context could enhance the understanding of complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/sbmoviesuite/sbconcat.py" target="_blank">sbmoviesuite/sbconcat.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a general overview of the script's functionality, but lacks detailed usage examples. Internal comments are frequent and mostly helpful, though some could be more descriptive regarding the logic to enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/sbmoviesuite/sbmovielib/backsub.py" target="_blank">sbmoviesuite/sbmovielib/backsub.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the class constructor is quite thorough, detailing input parameters and possible values. However, while there are some internal comments present, they tend to be inconsistent and could benefit from more clarity and completeness, particularly in the `medmad` and `meanstd` functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/scripts/attic/AnalysisLoader/load_analysis.py" target="_blank">scripts/attic/AnalysisLoader/load_analysis.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear docstrings that explain the purpose and usage of functions. Internal comments are present, but they often provide insufficient context for understanding the implementation details.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/scripts/reload.py" target="_blank">scripts/reload.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation lacks clarity and does not provide descriptions for function parameters or return values. Internal comments are sparse and mainly serve as reminders, which do not sufficiently explain the purpose or workings of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/fvb/blob/26ae9f3aeae5da0b9beefa7b7e8a7664ef9754ef/informatics-pipeline/bin/get_sage_imageprop.py" target="_blank">informatics-pipeline/bin/get_sage_imageprop.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal API documentation and lacks internal comments explaining the logic and functionality. Improved clarity could be achieved by adding comments to describe functions and significant code blocks.</p>
+        </div>
+    </div>
+</body>
+</html>

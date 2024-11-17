@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/PyWaveSurfer Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/PyWaveSurfer" target="_blank">https://github.com/JaneliaSciComp/PyWaveSurfer</a></p>
+                <p>Description: PyWaveSurfer is a Python package for reading WaveSurfer data files in Python.</p>
+                <p>Language: Python</p>
+                <p>Stars: 9</p>
+                <p>Forks: 6</p>
+                <p>Last Commit: 2024-11-08T15:09:20+00:00</p>
+                <p>Contributors: boazmohar, pyup-bot, adamltaylor, olbris, JoeZiminski, ralbso</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.4</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.3</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Node.js is required to run the project [<a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the project dependencies</p>
+            <code>npm install</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the basic example script</p>
+            <code>node example.js</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/PyWaveSurfer/blob/79f166dab09817dc095d6f68f2ec2e8cd26204d9/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is quite comprehensive, providing essential metadata about the package, including name, version, and dependencies, which is good for users. However, there are no internal comments explaining the purpose of the code blocks or the logic behind key segments, which would be beneficial for developers working on the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/PyWaveSurfer/blob/1204263244090fc7481ba3feef3d79de1bc0fa3f/pywavesurfer/__init__.py" target="_blank">pywavesurfer/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: The provided content does not include any code or documentation to evaluate, hence the scores are zero.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/PyWaveSurfer/blob/37b9b383830dbfa50df388fd7169dc95d02576c0/pywavesurfer/ws.py" target="_blank">pywavesurfer/ws.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides detailed parameter descriptions for the main function. Internal comments effectively explain key operations and decisions, although some sections could benefit from additional clarifications.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/PyWaveSurfer/blob/6753a594b54a3458889db07d480be13f3533e155/tests/run_tests.py" target="_blank">tests/run_tests.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of external API documentation and internal comments, making it difficult for both users and developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/PyWaveSurfer/blob/6753a594b54a3458889db07d480be13f3533e155/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some details but lacks comprehensive examples or explanations of parameters and return values. Internal comments are sparse and do not sufficiently clarify complex sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/PyWaveSurfer/blob/32bc8dbeb1c3b2ecac8832494b1d24baf2e07eeb/tests/test_ws.py" target="_blank">tests/test_ws.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has minimal comments and lacks clear documentation for function purposes and expected inputs/outputs, which would help external users. While some internal comments exist, they are not consistent, leading to potential confusion.</p>
+        </div>
+    </div>
+</body>
+</html>

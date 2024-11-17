@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/janelia-unity-toolkit Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/janelia-unity-toolkit" target="_blank">https://github.com/JaneliaSciComp/janelia-unity-toolkit</a></p>
+                <p>Description: Packages for the Unity game engine, emphasizing animal studies in VR.</p>
+                <p>Language: C#</p>
+                <p>Stars: 16</p>
+                <p>Forks: 11</p>
+                <p>Last Commit: 2024-11-11T14:33:07+00:00</p>
+                <p>Contributors: hubbardp, lingerlyn, DiamonDiva</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.9</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Unity version required to install packages. [<a href="https://docs.unity3d.com/Manual/upm-ui-local.html" target="_blank">https://docs.unity3d.com/Manual/upm-ui-local.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the repository into a directory on your computer.</p>
+            <code>git clone https://github.com/JaneliaSciComp/janelia-unity-toolkit.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Open Unity and choose Package Manager from the Window menu.</p>
+            <code>Choose 'Package Manager' from the Unity editor's 'Window' menu.</code>
+        </div>
+        <div class="setup-step">
+            <p>Add package from disk by selecting the package's directory.</p>
+            <code>Press the small '+' button in the upper-left corner of the Package Manager window, and click on the 'Add package from disk...' item.</code>
+        </div>
+        <div class="setup-step">
+            <p>Navigate to the package's directory and select package.json file to load the package.</p>
+            <code>Use the file chooser to navigate to a package's directory (e.g., org.janelia.package-installer) in the cloned janelia-unity-toolkit repository. Select the package.json file and press 'Open'.</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/janelia-unity-toolkit/blob/23a1abd285721b4b3a21121a10400601c639d895/org.janelia.ur/fake-rtde-controller.py" target="_blank">org.janelia.ur/fake-rtde-controller.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite detailed, including references to external guides, which makes it helpful for users. However, while there are comments describing functions and certain operations, some complex sections lack sufficient inline explanations for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/janelia-unity-toolkit/blob/473e7405bef4ca0415991b0e081002ce2f4cc59c/org.janelia.logging/simplify.py" target="_blank">org.janelia.logging/simplify.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code provides a decent level of internal comments, explaining the purpose and usage of functions, which aids in understanding the implementation. However, the API documentation for external users is somewhat lacking, as the command-line arguments are not fully described, and the overall module functionality isn't addressed.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/janelia-unity-toolkit/blob/98add469d03f49e197c0408e4ad026313115d5d5/org.janelia.io/ExampleWritingSocket.py" target="_blank">org.janelia.io/ExampleWritingSocket.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is somewhat useful but lacks comprehensive examples and descriptions for some parameters. The internal comments effectively describe the function logic, but could benefit from additional clarity and consistency in explaining non-obvious calculations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/janelia-unity-toolkit/blob/cb1b8b4d9d5f98aa276aaca3d2a1dba912b065e4/org.janelia.fictrac/FakeTrac.py" target="_blank">org.janelia.fictrac/FakeTrac.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code contains clear docstrings and in-line comments that adequately describe the purpose and functionality of the various components, particularly for the complex message formatting. However, while the API documentation is informative, it could benefit from additional context regarding the overall architecture and usage examples.</p>
+        </div>
+    </div>
+</body>
+</html>

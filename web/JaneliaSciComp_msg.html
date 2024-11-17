@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/msg Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/msg" target="_blank">https://github.com/JaneliaSciComp/msg</a></p>
+                <p>Description: Multiplexed Shotgun Genotyping</p>
+                <p>Language: Python</p>
+                <p>Stars: 11</p>
+                <p>Forks: 12</p>
+                <p>Last Commit: 2022-02-15T17:37:17+00:00</p>
+                <p>Contributors: gregpinero, dstern, tinathu, YourePrettyGood, olbris, lparsons</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.3</span></p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Ensure all necessary dependencies are installed. [<a href="http://genomics.princeton.edu/AndolfattoLab/MSG.html" target="_blank">http://genomics.princeton.edu/AndolfattoLab/MSG.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the project repository from GitHub.</p>
+            <code>git clone git://github.com/JaneliaSciComp/msg.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Change directory to the cloned msg directory.</p>
+            <code>cd msg</code>
+        </div>
+        <div class="setup-step">
+            <p>Build the project using make.</p>
+            <code>make</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/a2d3e4c1665bf7907a764966cf6738153403f7f7/cmdline/__init__.py" target="_blank">cmdline/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clarity, making it difficult for external users to understand the usage of the functions. In contrast, internal comments provide some context but are insufficient for comprehensive understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/c18ba8b0ac560951cfc2ee696c14ba10be38055c/mapping_functions.py" target="_blank">mapping_functions.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is sparse, with only one function containing a docstring, making it hard for external users to understand their use. Internal comments provide some context but are inconsistent and often insufficiently detailed to clarify the code's intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/790c3d67832596192d98e9a6d5f92e7b3470a9a5/test_dependencies_python.py" target="_blank">test_dependencies_python.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The script lacks both API documentation and internal comments, providing no context or explanation for its operation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/3172faab4f50506ef2571124d5491c60104654c5/TQSfastq.py" target="_blank">TQSfastq.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of the script's purpose and usage, but lacks detailed descriptions of individual functions and parameters. Internal comments are present but could be more consistent and informative, as some sections are under-commented.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/8cc4e2b055cc130e9334e2c6285d8565f3644037/validate.py" target="_blank">validate.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking usage examples and specific function descriptions, making it hard for external users to understand how to utilize the code effectively. Internal comments are present but often insufficiently detailed, which may lead to confusion regarding the intent and functioning of various components.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/10e6008fe0b191631d9631ff7b4dc83ac0a7395e/tools/last_optimize.py" target="_blank">tools/last_optimize.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The module includes some API documentation in the form of docstrings, which provides a basic understanding of function purposes. Internal comments exist but lack detail and clarity, reducing their usefulness for developers looking to understand implementation nuances.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/ac51fda68d31f3cea9fe386d5b5ec67ecd1846cf/hmmprob_to_est.py" target="_blank">hmmprob_to_est.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a clear description of the file's purpose, usage examples, and file format details. Internal comments are generally clear, but some areas could benefit from additional context or clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/b160ad99d5a16367ee0f143b040e26b25bc1fd77/create_stats.py" target="_blank">create_stats.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is decent, providing a general description of the script and usage instructions, but it lacks details about the parameters and the expected input/output. Internal comments are minimal and could greatly enhance understanding, especially around the exception handling and main functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/d2f06f50c1b59978c92c35533d0abb3e74ae17d4/combine.py" target="_blank">combine.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic usage instructions but lacks detail on parameter descriptions and expected outputs. Internal comments are fairly comprehensive, explaining the purpose of the code sections, but could be improved for greater clarity in complex logic sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/msg/blob/3b1953966e28f4aa1c1563e85eedac4ea4029920/parse_and_map.py" target="_blank">parse_and_map.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes usage instructions and detailed help for various options, which is quite useful. Internal comments could be improved by providing clearer context in some areas, but overall they help understand the code's functionality.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/flycore-utilities Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/flycore-utilities" target="_blank">https://github.com/JaneliaSciComp/flycore-utilities</a></p>
+                <p>Description: Utility programs for synchronization with the Fly Facility's FLYF2 database</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-04-11T13:24:27+00:00</p>
+                <p>Contributors: robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.6</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 4.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python 3.7 or higher is required to run the utilities. [<a href="https://www.python.org/downloads/release/python-360/" target="_blank">https://www.python.org/downloads/release/python-360/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/3a33b493f5259c198ff9a8dabac1e0dbf8da8d8f/bin/flystore_order_report.ipynb" target="_blank">bin/flystore_order_report.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is present and covers the functionality but lacks depth in explaining complex processes. Internal comments are clear and helpful, particularly in function definitions and sections, but some areas could benefit from more detailed explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/93a3803566c2d281e06384574a8672f4970d2856/bin/fix_robot_rack_id.py" target="_blank">bin/fix_robot_rack_id.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides function-level descriptions but lacks detailed parameter and return value explanations. Internal comments are generally clear and helpful, but some parts could benefit from additional clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/689b2aa879a0ff3e0f241cda7231a102b5d7a5f6/bin/update_dois.py" target="_blank">bin/update_dois.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is quite clear, using docstrings effectively to explain the purpose of functions along with their parameters and return values. Internal comments are also informative, though some areas could benefit from more detailed explanations of complex code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/c77c166511eb7a1ab8ef2d3b6fb7bd088347f068/bin/change_cross_line.py" target="_blank">bin/change_cross_line.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides function signatures and brief descriptions, but lacks detailed examples or clarity on usage, which lowers its score. Internal comments are generally informative and helpful for understanding the code flow, but some functions could benefit from more context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/a6a5080e22fa9f9e0c4546dfa057750e478094ba/bin/flystore_orders.py" target="_blank">bin/flystore_orders.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation for functions is clear and provides adequate information about parameters and return values, making it useful for external users. Internal comments are also informative, although a few more inline comments could enhance clarity further.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/c77c166511eb7a1ab8ef2d3b6fb7bd088347f068/bin/sync_flyf_initial_splits.py" target="_blank">bin/sync_flyf_initial_splits.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally clear and provides good context for the function parameters and expected behavior. Internal comments are present; however, there are some areas where additional context could enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/c77c166511eb7a1ab8ef2d3b6fb7bd088347f068/bin/flyboy_check_robotids.py" target="_blank">bin/flyboy_check_robotids.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is clear and provides a good overview of the functions' purposes; however, it could benefit from more details about parameters and return values. Internal comments are generally descriptive and helpful but could be expanded in some complex sections for improved understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/c77c166511eb7a1ab8ef2d3b6fb7bd088347f068/bin/delete_lines.py" target="_blank">bin/delete_lines.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides useful information about function parameters and purposes but lacks detail in edge cases and return types. Internal comments are generally good, particularly for error handling, but some functions lack thorough commentary on their logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/689b2aa879a0ff3e0f241cda7231a102b5d7a5f6/bin/sync_flyf_publishing_names.py" target="_blank">bin/sync_flyf_publishing_names.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear with useful docstrings describing function purposes and parameters, making it mostly accessible for external users. Internal comments are also good, providing context and clarifications on complex sections, but a few more details in areas would improve developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flycore-utilities/blob/62f861adf4d30c0ae84110225e7e2594abb3a157/bin/add_initial_split.py" target="_blank">bin/add_initial_split.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides useful details about function parameters and return types, making it easy for external users to understand the code's functionality. Internal comments effectively explain key sections of logic and intent, but could be more detailed in some cases.</p>
+        </div>
+    </div>
+</body>
+</html>

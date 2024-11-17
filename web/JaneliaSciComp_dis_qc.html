@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/dis_qc Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/dis_qc" target="_blank">https://github.com/JaneliaSciComp/dis_qc</a></p>
+                <p>Description: Exploration and QC of the Data and Information Services (DIS) publication database.</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-10-31T17:58:17+00:00</p>
+                <p>Contributors: virginiascarlett</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.5</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 1.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.3</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/947db75d0bcb25d487fcad152b18a6642bd541c3/__init__.py" target="_blank">__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some guidance on usage but lacks comprehensive examples or detailed parameter descriptions. Internal comments are sparse and often fail to clarify complex sections of the code, making it harder for future developers to understand.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/a9704b31aa87d8817bc4121c93f9eca558b31879/qcmodule.py" target="_blank">qcmodule.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is minimal; while some functions have brief comments, there are no docstrings for most functions or classes. Internal comments are generally helpful and clear, describing the purpose of specific code sections, but could be improved with more consistency and detail.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/85e598a6f96a87dfb67e02ef8e90bbbc04e551e5/virginia_manual_vs_sync/newsletter_sources.py" target="_blank">virginia_manual_vs_sync/newsletter_sources.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The initial docstring provides a good overview of the script's purpose, but lacks detailed function-level documentation. Internal comments are sparse and could be more informative to guide future developers in understanding the functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/b406fc07b74ee0509ef1ede20ad711b1493cc735/virginia_manual_vs_sync/temp.py" target="_blank">virginia_manual_vs_sync/temp.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any comments or docstrings explaining its purpose or the functions being used. Additionally, the API documentation is minimal, making it difficult for external users to understand the context and usage of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/c49d130e7bc2432a59de63a791e82d1ad0fc7586/oaworks_vs_disDB/oaworks_qc.py" target="_blank">oaworks_vs_disDB/oaworks_qc.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some inline comments that provide context, but overall, it lacks thorough documentation for external users, making it difficult to understand its purpose and functionality. Internal comments, while present, are often minimal and do not provide comprehensive explanations for the logic or decisions made in the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/463048eebb2d32f3f8e8fd16053a9ced6aab1f7f/figshareAPI_vs_batch_management/figshare_API_vs_batch_management.py" target="_blank">figshareAPI_vs_batch_management/figshare_API_vs_batch_management.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, only providing a basic overview of fetching data and processing DOIs, lacking detailed descriptions of functions and parameters. Internal comments are present but are mostly brief and not sufficiently explanatory, which may hinder understanding of the code's logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/b406fc07b74ee0509ef1ede20ad711b1493cc735/hq/check_for_crossref_affiliations.py" target="_blank">hq/check_for_crossref_affiliations.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal comments and lacks clear API documentation, making it difficult for users and developers to understand the intent and usage of various components.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/b406fc07b74ee0509ef1ede20ad711b1493cc735/hq/date_cutoff.py" target="_blank">hq/date_cutoff.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks significant API documentation, such as function or module-level docstrings, making it difficult for external users to understand its purpose and usage. Internal comments are minimal and do not provide contextual understanding of the code's logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/db6065fe7935c5eee048c43184682ec3e2cb9697/hq/parse_hq.py" target="_blank">hq/parse_hq.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of API documentation or explanation of its functionality, making it difficult for external users to understand its purpose. Additionally, there are no internal comments to help developers follow the logic or reasoning behind the code, leading to low scores.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis_qc/blob/b406fc07b74ee0509ef1ede20ad711b1493cc735/hq/get_true_janelia_papers.py" target="_blank">hq/get_true_janelia_papers.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal documentation and comments, with only a brief note at the beginning that is helpful but insufficient for understanding the functionality and structure of the code. The lack of detailed comments within the code hampers its readability and maintainability.</p>
+        </div>
+    </div>
+</body>
+</html>

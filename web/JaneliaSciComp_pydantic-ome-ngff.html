@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/pydantic-ome-ngff Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff" target="_blank">https://github.com/JaneliaSciComp/pydantic-ome-ngff</a></p>
+                <p>Description: Pydantic models for OME-NGFF</p>
+                <p>Language: Python</p>
+                <p>Stars: 20</p>
+                <p>Forks: 3</p>
+                <p>Last Commit: 2024-11-11T16:36:23+00:00</p>
+                <p>Contributors: d-v-b, clbarnes, pre-commit-ci[bot]</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.1</span></p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.1</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python package manager for installing Python packages [<a href="https://pip.pypa.io/en/stable/installation/" target="_blank">https://pip.pypa.io/en/stable/installation/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the pydantic-ome-ngff package</p>
+            <code>pip install -U pydantic-ome-ngff</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/2768763b2e775d44e03202a657a5aa5c5c9ca018/src/pydantic_ome_ngff/v04/label.py" target="_blank">src/pydantic_ome_ngff/v04/label.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is generally clear, with references to external specs and well-structured docstrings for class attributes and methods. However, internal comments could be improved for clarity and consistency, especially in sections that involve conditional logic and potential errors.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/2768763b2e775d44e03202a657a5aa5c5c9ca018/src/pydantic_ome_ngff/latest/multiscale.py" target="_blank">src/pydantic_ome_ngff/latest/multiscale.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is mostly clear and includes useful references, but some sections could benefit from more detailed descriptions or examples. The internal comments are minimal, providing little context for developers navigating the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/919caadee06d4d58a3313096b6742d341419f009/src/pydantic_ome_ngff/latest/plate.py" target="_blank">src/pydantic_ome_ngff/latest/plate.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The class includes a clear docstring with a reference link, which is good for API documentation. However, there are few internal comments that could help clarify the code's functionality further.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/2826666dc4d5054674d4c84f2443f82962e77eea/src/pydantic_ome_ngff/v04/__init__.py" target="_blank">src/pydantic_ome_ngff/v04/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has a minimal level of documentation, lacking detailed docstrings for classes or functions which would help external users understand the purpose and functionality. Additionally, there are no internal comments explaining the purpose of the imports or the contents of the `__all__` declaration.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/06dc31cfb734d278cd52027d1b9e633edc0e67b7/tests/test_utils.py" target="_blank">tests/test_utils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks sufficient docstrings or comments explaining the purpose of functions and parameters, which limits its usability for external users. While the test cases are clear, internal comments describing the logic or assumptions in the code are minimal.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/cd276e2af884b2d7e7555d4bf299a513359757ef/src/pydantic_ome_ngff/latest/transform.py" target="_blank">src/pydantic_ome_ngff/latest/transform.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is clear and informative, giving context for each class and referencing external resources for further reading. However, there are missing or incorrect internal comments which limits the clarity for developers working with the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/1ad54eaf5e873a2a6c4c2cd6b7854eaeb0227332/src/pydantic_ome_ngff/latest/well.py" target="_blank">src/pydantic_ome_ngff/latest/well.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is brief and includes a link for further information, but it lacks detailed explanations of the class's attributes or methods. The internal comments are useful and clear, explaining the necessity of the private attribute, but additional comments within the class could enhance overall clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/2b9d2cc472f38b12d4ac47c24a9ea6015f6fba4e/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some insights but lacks comprehensive detail necessary for full understanding. Internal comments are sparse and occasionally unclear, detracting from code readability and maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/2826666dc4d5054674d4c84f2443f82962e77eea/src/pydantic_ome_ngff/v04/well.py" target="_blank">src/pydantic_ome_ngff/v04/well.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides a link to additional resources, making it helpful for external users. Internal comments are descriptive and assist developers in understanding the code logic, though additional inline comments could enhance clarity further.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/pydantic-ome-ngff/blob/2826666dc4d5054674d4c84f2443f82962e77eea/src/pydantic_ome_ngff/v04/transform.py" target="_blank">src/pydantic_ome_ngff/v04/transform.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough, with clear descriptions of classes, their attributes, and references to relevant specifications, earning a high score. The code comments are generally adequate, but could include more in-line comments for clarity on complex logic.</p>
+        </div>
+    </div>
+</body>
+</html>

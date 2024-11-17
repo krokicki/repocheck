@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/exllsm-circuit-reconstruction Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/exllsm-circuit-reconstruction" target="_blank">https://github.com/JaneliaSciComp/exllsm-circuit-reconstruction</a></p>
+                <p>Description: Nextflow pipeline encapsulating workflows for analyzing expansion lattice light-sheet microscopy (ExLLSM) imagery</p>
+                <p>Language: Nextflow</p>
+                <p>Stars: 13</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-10-30T13:37:27+00:00</p>
+                <p>Contributors: lillvis, krokicki, cgoina</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.3</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 4.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Nextflow version 20.10.0 or greater [<a href="https://www.nextflow.io/docs/latest/getstarted.html" target="_blank">https://www.nextflow.io/docs/latest/getstarted.html</a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Singularity version 3.5 or greater [<a href="https://sylabs.io/guides/3.7/admin-guide/installation.html" target="_blank">https://sylabs.io/guides/3.7/admin-guide/installation.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install Nextflow</p>
+            <code>curl -s https://get.nextflow.io | bash</code>
+        </div>
+        <div class="setup-step">
+            <p>Alternatively, install Nextflow as a conda package</p>
+            <code>conda create --name exm -c bioconda nextflow</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Singularity on CentOS Linux</p>
+            <code>sudo yum install singularity</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the expansion microscopy pipeline repository</p>
+            <code>git clone https://github.com/JaneliaSciComp/expansion-microscopy-pipeline.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Run setup to pull in external dependencies</p>
+            <code>./setup.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Launch the stitch pipeline</p>
+            <code>./stitch_pipeline.nf [arguments]</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the main pipeline</p>
+            <code>./main.nf [arguments]</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-circuit-reconstruction/blob/52d819e8dbd16bc57365cb3f54d74c426a7f7671/containers/synapse-dask/scripts/n5_utils.py" target="_blank">containers/synapse-dask/scripts/n5_utils.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation within the function docstrings is clear and provides necessary parameters and functionality descriptions. However, while there are basic comments in the code, they could be more detailed to enhance understanding of the implementation, particularly around critical steps.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-circuit-reconstruction/blob/31d68da4c7ad29d49f93ef3f0c465355360068e6/containers/synapse-dask/scripts/n5_to_tif.py" target="_blank">containers/synapse-dask/scripts/n5_to_tif.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and describes function purposes well, but could include more detail on parameters and return values. Internal comments are present but not always comprehensive, lacking context for some sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-circuit-reconstruction/blob/56117bfeac91d624121376fbbe3e81e834b29585/containers/synapse-dask/scripts/create_n5.py" target="_blank">containers/synapse-dask/scripts/create_n5.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has a clear API documentation with function descriptions and argument details; however, it lacks detailed comments within the function to explain complex operations. Internal comments are minimal, and while the code is generally understandable, additional comments could improve clarity for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-circuit-reconstruction/blob/361db6c0d7633ad3d243153cd08e8f9dcb59fd1d/containers/synapse-dask/scripts/tif_to_n5.py" target="_blank">containers/synapse-dask/scripts/tif_to_n5.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and concise, with well-defined parameters and return types for functions, but could be improved with more examples. Internal comments exist but are minimal, leading to potential confusion without a deeper understanding of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/exllsm-circuit-reconstruction/blob/10c2ff2ba83d74725f2862ce5531ef537f9353f2/containers/synapse-dask/scripts/n5_multiscale.py" target="_blank">containers/synapse-dask/scripts/n5_multiscale.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides good descriptions of function parameters and expected behavior, but there could be more detailed explanations within the function bodies. Internal comments are present but could be improved for clarity and consistency, especially to explain complex logic.</p>
+        </div>
+    </div>
+</body>
+</html>

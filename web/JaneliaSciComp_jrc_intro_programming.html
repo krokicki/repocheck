@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/jrc_intro_programming Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/jrc_intro_programming" target="_blank">https://github.com/JaneliaSciComp/jrc_intro_programming</a></p>
+                <p>Description: Introduction to Python Programming @ Janelia Research Campus</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 2</p>
+                <p>Forks: 6</p>
+                <p>Last Commit: 2017-04-12T13:10:26+00:00</p>
+                <p>Contributors: williamrowell, csweaver, jni</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.4</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 1.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/thw-shell/generate_data.py" target="_blank">lessons/Supplemental/thw-shell/generate_data.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code provides some comments explaining key variables and general functionality, but lacks detailed explanations and documentation for methods and classes, limiting usability for external developers. While the internal comments help in understanding the code at a glance, they could be more comprehensive and structured.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/thw-python-debugging/examples/linting_example.py" target="_blank">lessons/Supplemental/thw-python-debugging/examples/linting_example.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal with a simple docstring that doesn't explain functionality. The internal comments identify issues but lack detailed explanations or context for a developer's understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/thw-documentation/close_line.py" target="_blank">lessons/Supplemental/thw-documentation/close_line.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks detailed API documentation and the comments are insufficient to understand the purpose of the functions and their parameters. While the function names suggest their functionality, explicit docstrings or inline comments are missing, making it difficult for external users and developers to grasp the code's intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/thw-python-debugging/tutorial.ipynb" target="_blank">lessons/Supplemental/thw-python-debugging/tutorial.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The file lacks adequate API documentation typically expected for external users, such as docstrings for functions and classes, and instead focuses on educational content. Internal comments are present but somewhat informal and less technical, which can reduce clarity for developers looking to understand code functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/misc-pandas/an-introduction-to-pandas.ipynb" target="_blank">lessons/Supplemental/misc-pandas/an-introduction-to-pandas.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation includes valuable introductory information and links to relevant resources, enhancing usability but lacks specific function or method descriptions. Internal comments provide some clarity on intentions but are sparse and could be more consistent throughout the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/thw-matplotlib/numpy-short.ipynb" target="_blank">lessons/Supplemental/thw-matplotlib/numpy-short.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides an overview of NumPy and its features but lacks specific usage examples for functions or classes. Internal comments are generally informative but could be more consistent in explaining complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/thw-scipy/pade1.py" target="_blank">lessons/Supplemental/thw-scipy/pade1.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a basic overview of concepts but lacks detailed explanations of the functions and their parameters. Internal comments are clear and helpful but could benefit from more technical depth in certain areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/swc-setdict/setdict-storage-instructor.ipynb" target="_blank">lessons/Supplemental/swc-setdict/setdict-storage-instructor.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough, focusing on educational content related to sets and dictionaries, which is helpful for learners. However, internal comments are sparse and could benefit from more detailed explanations for complex code segments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/thw-matplotlib/Untitled.ipynb" target="_blank">lessons/Supplemental/thw-matplotlib/Untitled.ipynb</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The provided Python file contains no API documentation or internal comments, resulting in the lowest possible scores for both categories.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_intro_programming/blob/153faf92a4b07b033ae25ce08df8041d328f5ae8/lessons/Supplemental/swc-setdict/setdict-dict-learner.ipynb" target="_blank">lessons/Supplemental/swc-setdict/setdict-dict-learner.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The documentation provides a basic overview of the objectives and concepts related to dictionaries, but lacks detailed explanations of function parameters and return values. Internal comments are present but are minimal and do not cover complex logic or edge cases.</p>
+        </div>
+    </div>
+</body>
+</html>

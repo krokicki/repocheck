@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/neuronbridge-services Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/neuronbridge-services" target="_blank">https://github.com/JaneliaSciComp/neuronbridge-services</a></p>
+                <p>Description: AWS Services for NeuronBridge</p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 2</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-10-30T17:40:24+00:00</p>
+                <p>Contributors: neomorphic, krokicki, dependabot[bot], takashi310</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.5</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: red">Average API Docs Score: 0.0</p>
+        <p style="color: red">Average Code Comments Score: 0.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>You need to have the AWS CLI installed and configured with proper AWS credentials. [<a href="https://aws.amazon.com/cli/" target="_blank">https://aws.amazon.com/cli/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Change to the VPC directory and install dependencies.</p>
+            <code>cd vpc</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the npm packages.</p>
+            <code>npm install</code>
+        </div>
+        <div class="setup-step">
+            <p>Deploy the shared VPC using Serverless.</p>
+            <code>npm run sls -- deploy</code>
+        </div>
+        <div class="setup-step">
+            <p>Update the system and install necessary packages for the EC2 instance.</p>
+            <code>sudo yum -y update</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the fuse-devel package.</p>
+            <code>sudo yum install -y fuse-devel</code>
+        </div>
+        <div class="setup-step">
+            <p>Format the volume as ext4.</p>
+            <code>sudo mkfs -t ext4 /dev/xvdb</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a mount point for the scratch volume.</p>
+            <code>sudo mkdir /scratch_volume</code>
+        </div>
+        <div class="setup-step">
+            <p>Append the mount information to fstab.</p>
+            <code>sudo echo -e '/dev/xvdb	/scratch_volume	ext4	defaults	0	0' | sudo tee -a /etc/fstab</code>
+        </div>
+        <div class="setup-step">
+            <p>Mount all filesystems specified in fstab.</p>
+            <code>sudo mount -a</code>
+        </div>
+        <div class="setup-step">
+            <p>Stop the ECS service.</p>
+            <code>sudo stop ecs</code>
+        </div>
+        <div class="setup-step">
+            <p>Remove the ECS agent data to prepare for new configurations.</p>
+            <code>sudo rm -rf /var/lib/ecs/data/ecs_agent_data.json</code>
+        </div>
+        <div class="setup-step">
+            <p>Change to the alignment directory and install dependencies.</p>
+            <code>cd align</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the npm packages for the alignment service.</p>
+            <code>npm install</code>
+        </div>
+        <div class="setup-step">
+            <p>Deploy the alignment service using Serverless.</p>
+            <code>npm run sls -- deploy -s dev</code>
+        </div>
+        <div class="setup-step">
+            <p>Change to the search directory and install dependencies.</p>
+            <code>cd search</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the npm packages for the color depth search service.</p>
+            <code>npm install</code>
+        </div>
+        <div class="setup-step">
+            <p>Deploy the color depth search service using Serverless.</p>
+            <code>npm run sls -- deploy -s dev</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/tethered-fly-pipeline Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/tethered-fly-pipeline" target="_blank">https://github.com/JaneliaSciComp/tethered-fly-pipeline</a></p>
+                <p>Description: Nextflow pipeline for processing tethered fly videos using APT</p>
+                <p>Language: Nextflow</p>
+                <p>Stars: 0</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-10-17T21:14:36+00:00</p>
+                <p>Contributors: krokicki, cgoina, stephenhuston</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.6</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Nextflow (version 20.10.0 or greater) [<a href="https://www.nextflow.io/docs/latest/getstarted.html" target="_blank">https://www.nextflow.io/docs/latest/getstarted.html</a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Singularity (version 3.5 or greater) [<a href="https://sylabs.io/guides/3.7/admin-guide/installation.html" target="_blank">https://sylabs.io/guides/3.7/admin-guide/installation.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install Nextflow</p>
+            <code>curl -s https://get.nextflow.io | bash</code>
+        </div>
+        <div class="setup-step">
+            <p>Add Nextflow to PATH</p>
+            <code>mv nextflow bin/</code>
+        </div>
+        <div class="setup-step">
+            <p>Update bashrc to include Nextflow in PATH</p>
+            <code>echo 'export PATH=$PATH:/$HOME/bin' >> .bashrc</code>
+        </div>
+        <div class="setup-step">
+            <p>Set Nextflow version to 20.10.0</p>
+            <code>export NXF_VER=20.10.0</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Singularity</p>
+            <code>sudo yum install singularity</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone git@github.com:JaneliaSciComp/tethered-fly-pipeline.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the pipeline locally on a Mac</p>
+            <code>./main.nf -profile localDocker <arguments></code>
+        </div>
+        <div class="setup-step">
+            <p>Run the pipeline locally on a Linux machine</p>
+            <code>./main.nf <arguments></code>
+        </div>
+        <div class="setup-step">
+            <p>Run the pipeline on Janelia's LSF cluster</p>
+            <code>bsub -e jobErrorLog.err -o jobOutputLog.out \ 
+    -P "+{LSF_PROJECT_CODE}" \ 
+    nextflow run main.nf \ 
+        -profile janeliaLSF \ 
+        --lsf_opts "-P ${LSF_PROJECT_CODE}" \ 
+        <arguments></code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/tethered-fly-pipeline/blob/b022fcb5fd3a83418e1c8031f693cb1d6d19e265/containers/apt_detect/scripts/python/detect_features_from_movies.py" target="_blank">containers/apt_detect/scripts/python/detect_features_from_movies.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some internal comments that provide basic explanations of certain functions, but they lack depth and may not convey the intent clearly to users unfamiliar with the context. The overall API documentation is minimal, with some function signatures missing documentation for parameters and return types.</p>
+        </div>
+    </div>
+</body>
+</html>

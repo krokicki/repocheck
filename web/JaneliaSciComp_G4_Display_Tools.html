@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/G4_Display_Tools Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/G4_Display_Tools" target="_blank">https://github.com/JaneliaSciComp/G4_Display_Tools</a></p>
+                <p>Description: Collection of tools for the G4 LED arena displays.</p>
+                <p>Language: MATLAB</p>
+                <p>Stars: 2</p>
+                <p>Forks: 3</p>
+                <p>Last Commit: 2024-11-14T21:15:12+00:00</p>
+                <p>Contributors: taylorlm88, floesche, misaacson01, liujinyang</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.5</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>MATLAB version R2019b or newer [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Run the GUI to generate patterns</p>
+            <code>run G4_Pattern_Generator_gui.m</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the function generator GUI for creating analog outputs and positions</p>
+            <code>run G4_Function_Generator.m</code>
+        </div>
+        <div class="setup-step">
+            <p>Connect to the G4 display system using PControl</p>
+            <code>run PControl_G4</code>
+        </div>
+        <div class="setup-step">
+            <p>Read data logged and acquired by the G4 display system into MATLAB</p>
+            <code>G4_TDMS_folder2struct('path/to/log/files')</code>
+        </div>
+        <div class="setup-step">
+            <p>Example script to run data analysis</p>
+            <code>run test_G4_Data_Analysis.m</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/G4_Display_Tools/blob/719dded4a06fd143e7ea06cb4c046d5648c53e87/G4_Data_Analysis/DA_gui/mainWindow.py" target="_blank">G4_Data_Analysis/DA_gui/mainWindow.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed docstrings for classes and methods, which are essential for user understanding. Internal comments are sparse and often don't explain the purpose of the code, making the logic less clear.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/G4_Display_Tools/blob/719dded4a06fd143e7ea06cb4c046d5648c53e87/G4_Data_Analysis/DA_gui/model.py" target="_blank">G4_Data_Analysis/DA_gui/model.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is very minimal, lacking clear descriptions of class and method functionalities, which makes it less accessible for users. However, internal comments and docstrings, while present, could be more thorough to aid developers in understanding the code flow and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/G4_Display_Tools/blob/bc2f547a943a4693789806dfe3f6eda8bddfeb76/G4_Data_Analysis/DA_gui/tabs/__init__.py" target="_blank">G4_Data_Analysis/DA_gui/tabs/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is present but could be more detailed, providing better examples and descriptions. Internal comments are minimal, making it harder for developers to understand complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/G4_Display_Tools/blob/b1aae0ed5a5e1aec3bd945d1a2ef020840b3c8b3/G4_Data_Analysis/DA_gui/tabs/tabClasses.py" target="_blank">G4_Data_Analysis/DA_gui/tabs/tabClasses.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The documentation for this code is minimal and lacks clarity, with limited comments that provide little context about the purpose or functionality of various sections. Additionally, the use of variable names and class structure could benefit from more descriptive comments and clearer documentation to aid understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/G4_Display_Tools/blob/bc2f547a943a4693789806dfe3f6eda8bddfeb76/G4_Data_Analysis/DA_gui/buttons/buttonClasses.py" target="_blank">G4_Data_Analysis/DA_gui/buttons/buttonClasses.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code contains class and method structure but lacks sufficient documentation for external users to understand the API responsibilities and usage. Internal comments are minimal and do not adequately explain the logic behind the code operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/G4_Display_Tools/blob/bc2f547a943a4693789806dfe3f6eda8bddfeb76/G4_Data_Analysis/DA_gui/buttons/__init__.py" target="_blank">G4_Data_Analysis/DA_gui/buttons/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks meaningful API documentation, making it unclear how to use its functions. Internal comments are minimal and do not effectively explain the logic or intent behind the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/G4_Display_Tools/blob/bc2f547a943a4693789806dfe3f6eda8bddfeb76/G4_Data_Analysis/DA_gui/layouts/layoutClasses.py" target="_blank">G4_Data_Analysis/DA_gui/layouts/layoutClasses.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear usage descriptions for the classes and methods. Internal comments are absent, making it difficult for a developer to understand the purpose and functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/G4_Display_Tools/blob/bc2f547a943a4693789806dfe3f6eda8bddfeb76/G4_Data_Analysis/DA_gui/layouts/__init__.py" target="_blank">G4_Data_Analysis/DA_gui/layouts/__init__.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good understanding of the functions, but it could include more examples. Internal comments are present but could be more descriptive to enhance code readability.</p>
+        </div>
+    </div>
+</body>
+</html>

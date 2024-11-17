@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/ray-janelia Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/ray-janelia" target="_blank">https://github.com/JaneliaSciComp/ray-janelia</a></p>
+                <p>Description: Run Python Ray on the Janelia cluster</p>
+                <p>Language: Shell</p>
+                <p>Stars: 2</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2022-09-08T17:07:37+00:00</p>
+                <p>Contributors: krokicki, vaxenburg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.5</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: green">Average API Docs Score: 4.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>A Conda environment with Ray installed [<a href="https://docs.ray.io/en/latest/ray-overview/installation.html" target="_blank">https://docs.ray.io/en/latest/ray-overview/installation.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Start a 20 slot cluster using the conda environment called ray-python</p>
+            <code>ray-janelia/ray-launch.sh -n 20 -e ray-python</code>
+        </div>
+        <div class="setup-step">
+            <p>Start a cluster with 20 CPU and 2 GPU slots on a GPU enabled queue</p>
+            <code>ray-janelia/ray-launch.sh -n 20 -e ray-python -b "-q gpu_queue -gpu num=2"</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a cluster and run a python job in a single command</p>
+            <code>./ray-launch.sh -n 20 -e ray-python -p "/path/to/job.py --options"</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ray-janelia/blob/7ac818c6325c202b8039b0b78d95a1aaf8b62b3f/example_job.py" target="_blank">example_job.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good example of usage for external users, but it could include more details about the functions and parameters. Internal comments are present but are quite brief and could benefit from more descriptive explanations of the functions' behaviors.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/ray-janelia/blob/39725f0d732910b7d1ca26ed561d2d9adcdba821/remote_as_local_wrapper.py" target="_blank">remote_as_local_wrapper.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough and provides clear examples and explanations, making it accessible for users. The code comments are informative but could use slightly more detail in some areas for developers.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/osgpyplusplus Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/osgpyplusplus" target="_blank">https://github.com/JaneliaSciComp/osgpyplusplus</a></p>
+                <p>Description: Python bindings for OpenSceneGraph 3D graphics API, created using Boost.Python and Py++</p>
+                <p>Language: C++</p>
+                <p>Stars: 19</p>
+                <p>Forks: 6</p>
+                <p>Last Commit: 2015-12-16T20:52:27+00:00</p>
+                <p>Contributors: cmbruns</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.0</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/207c726023eeb42f82a3887fa0a1e73402d47684/examples/debugging2/osgwidgettable.py" target="_blank">examples/debugging2/osgwidgettable.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a basic overview of the example's purpose and functionality but lacks in-depth descriptions for the main components and functions. Internal comments are mostly clear and helpful, though they could be more structured and detailed in some areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/1b349070fbb75bd5c56b4f92aab12fd00ffa3136/src/osgpypp/osg.py" target="_blank">src/osgpypp/osg.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The module has a brief overview and link for an external reference, but lacks detailed API documentation for individual classes and functions. Internal comments are minimal and do not explain the purpose or functionality of the code clearly.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/bab5c61fa7683882dc5d05e44a7638bf13d3b566/examples/rough_translated1/osgspheresegment.py" target="_blank">examples/rough_translated1/osgspheresegment.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detailed explanations of function parameters or return types, limiting usability for external users. Internal comments provide some understanding but could be more informative, especially regarding complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/bab5c61fa7683882dc5d05e44a7638bf13d3b566/examples/rough_translated1/osganimationhardware.py" target="_blank">examples/rough_translated1/osganimationhardware.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, with only a few comments describing the overall purpose of the file, while internal comments are sparse and lack clarity. There is a need for more detailed explanations on function usage, expected parameters, and operational context to facilitate understanding for both external users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/bab5c61fa7683882dc5d05e44a7638bf13d3b566/examples/rough_translated1/osgparticleshader.py" target="_blank">examples/rough_translated1/osgparticleshader.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is moderately detailed, but lacks formal docstrings for functions, making it less accessible for external users. Internal comments are quite thorough, giving a clear understanding of the rationale behind code decisions, but some comments could be more concise.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/bab5c61fa7683882dc5d05e44a7638bf13d3b566/examples/rough_translated1/osguserdata.py" target="_blank">examples/rough_translated1/osguserdata.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a basic understanding of the code, but lacks details on function parameters and return values for clarity. Internal comments are sparse and do not adequately explain the logic or functionality within the code, making it challenging for other developers to follow along.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/e60eb706e8a7654e1eaf4d00ee98c8ed6f66ee6e/test/test_graphicscostestimator.py" target="_blank">test/test_graphicscostestimator.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation and internal comments, making it hard to understand the purpose of the tests or how they are supposed to work.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/dc4126643488fb6fc651d0d3a1b2933a8a0f6db8/test/test_drawcallback.py" target="_blank">test/test_drawcallback.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, offering no explanation of the class or methods for external users. Internal comments provide some context about the purpose of the derived class, but they lack detail on the tests being conducted.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/bab5c61fa7683882dc5d05e44a7638bf13d3b566/examples/rough_translated1/osgtext.py" target="_blank">examples/rough_translated1/osgtext.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some comments that explain certain blocks clearly, but lacks overall documentation and consistency in style. Additionally, the use of internal comments is somewhat helpful, but several sections are left without explanation, making it difficult for a new developer to understand the context or purpose of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/osgpyplusplus/blob/bab5c61fa7683882dc5d05e44a7638bf13d3b566/examples/rough_translated1/osgcluster.py" target="_blank">examples/rough_translated1/osgcluster.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code contains some basic comments and documentation, but they lack depth and clarity. The comments do not provide sufficient context or explanations for functions, and there are several areas where additional documentation would be beneficial.</p>
+        </div>
+    </div>
+</body>
+</html>

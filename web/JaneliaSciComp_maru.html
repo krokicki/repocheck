@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/maru Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/maru" target="_blank">https://github.com/JaneliaSciComp/maru</a></p>
+                <p>Description: Maru is an opinionated command-line interface for quickly and easily containerizing scientific applications.</p>
+                <p>Language: Go</p>
+                <p>Stars: 5</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2021-08-31T21:45:55+00:00</p>
+                <p>Contributors: krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.9</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: red">Average API Docs Score: 1.0</p>
+        <p style="color: red">Average Code Comments Score: 1.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Docker or Singularity is required to run Maru [<a href="https://docs.docker.com/get-docker/" target="_blank">https://docs.docker.com/get-docker/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install Maru for Linux</p>
+            <code>curl -skL https://data.janelia.org/maru-linux | sudo tar -xz -C /usr/local/bin</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Maru for MacOS</p>
+            <code>curl -skL https://data.janelia.org/maru-macos | sudo tar -xz -C /usr/local/bin</code>
+        </div>
+        <div class="setup-step">
+            <p>Initialize the project configuration</p>
+            <code>maru init</code>
+        </div>
+        <div class="setup-step">
+            <p>Build your project into a Docker container</p>
+            <code>maru build</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the current version of your Docker container</p>
+            <code>maru run [args to app]</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Docker container using Singularity</p>
+            <code>maru singularity run [args to app]</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/maru/blob/999d1edf40507f5a369b16859757fee87bbbfa45/base-images/fiji-zulu-8/demo.py" target="_blank">base-images/fiji-zulu-8/demo.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any meaningful API documentation or internal comments, making it difficult for external users or developers to understand its purpose and usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/maru/blob/af7c50df88c8cb3864cd1c1a2bd0e7b4805e64d1/base-images/fiji-openjdk-8/demo.py" target="_blank">base-images/fiji-openjdk-8/demo.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any meaningful API documentation or internal comments, and the comment present is not clear or informative.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/containers Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/containers" target="_blank">https://github.com/JaneliaSciComp/containers</a></p>
+                <p>Description: Containers for workflow plugins</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-06-29T17:20:14+00:00</p>
+                <p>Contributors: krokicki, cgoina</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.1</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>GitHub personal authentication token [<a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Log into the GitHub Container Registry</p>
+            <code>echo $GITHUB_PACKAGE_TOKEN | docker login ghcr.io --username $USER --password-stdin</code>
+        </div>
+        <div class="setup-step">
+            <p>Build your image</p>
+            <code>./build.sh stitching-spark/1.10.0</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/6970d9de4782fd52b88b78fcdc3811c2198fbdbb/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/download_models.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/download_models.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some information on argument usage, but lacks thorough explanations of the functions and their purposes. Internal comments are minimal, which can hinder understanding for other developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/fcf4c7a6cf34e66e2505a78e1cfe75d8e7824919/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/distributed_cellpose.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/distributed_cellpose.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for input arguments is clear and provides descriptions for each parameter, making it easy for users to understand the expected inputs. However, the internal comments could be more descriptive about complex sections of the code to facilitate understanding among developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/0d99b00696da21a6eb2eee68d7cdf8361980074f/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/setup.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal, providing only basic package information without any details for users. Internal comments are absent, making it challenging for developers to understand the purpose and functionality of the setup configuration.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/262324d45b010ac444862a976049fdbf517c6501/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/altcontrib/cellpose_worker_plugin.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/altcontrib/cellpose_worker_plugin.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks detailed docstrings and comments that explain the purpose and functionality of the class and its methods. While the method signatures include type hints, additional documentation is needed for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/843e0683597204cf4aa216fc676fc5ee6db15f5f/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/altcontrib/distributed_segmentation.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/altcontrib/distributed_segmentation.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes some basic information such as parameter definitions and expected outcomes, but lacks comprehensive coverage for all functions. Internal comments are generally helpful in explaining code logic and data transformations, though some sections could benefit from further elaboration.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/0d99b00696da21a6eb2eee68d7cdf8361980074f/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/altcontrib/__init__.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/altcontrib/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code contains minimal documentation and lacks internal comments, making it difficult for external users and developers to understand its purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/3ed847a8e00a0f2c050464e0ada771db2dff998d/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/io_utils/write_utils.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/io_utils/write_utils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic information on the parameters but lacks clarity and comprehensive descriptions for each parameter. Internal comments are clear and useful, particularly for steps in the block saving process.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/4c295715731c6223a7168c3f95c9d186f3296eeb/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/io_utils/zarr_utils.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/io_utils/zarr_utils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The external API documentation is minimal, lacking function descriptions and expected parameters, which makes it difficult for users to understand the usage. However, there are some internal comments providing context on specific code sections, indicating a decent effort but needing improvement in clarity and comprehensiveness.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/0d99b00696da21a6eb2eee68d7cdf8361980074f/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/io_utils/__init__.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/io_utils/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation, and there are no internal comments explaining the purpose of the module or its components.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/containers/blob/2b41b1179427c22b77bc478ac4a09ba79fb70c2d/cellpose/2.2.3-dask2023.10.1-py11/scripts/python/io_utils/read_utils.py" target="_blank">cellpose/2.2.3-dask2023.10.1-py11/scripts/python/io_utils/read_utils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks clear docstrings for the functions, which are crucial for API documentation. Internal comments are minimal and do not sufficiently explain complex operations or logic.</p>
+        </div>
+    </div>
+</body>
+</html>

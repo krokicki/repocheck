@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/figleaf Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/figleaf" target="_blank">https://github.com/JaneliaSciComp/figleaf</a></p>
+                <p>Description: Tool for data publication on figshare. Just getting off the ground.</p>
+                <p>Language: Python</p>
+                <p>Stars: 4</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2023-10-18T15:28:35+00:00</p>
+                <p>Contributors: virginiascarlett, robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.6</span></p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Generate Python models from JSON schema for figshare private articles.</p>
+            <code>datamodel-codegen --input private_article_schema.json --input-file-type jsonschema --output priv_article_models.py</code>
+        </div>
+        <div class="setup-step">
+            <p>Get figshare metadata information.</p>
+            <code>python get_figshare_info.py -h</code>
+        </div>
+        <div class="setup-step">
+            <p>Convert CSV to JSON with compatibility checking for researcher metadata.</p>
+            <code>python ingest_researcher_metadata.py</code>
+        </div>
+        <div class="setup-step">
+            <p>POST a private article with metadata to figshare's server and publish it.</p>
+            <code>python create_and_publish.py</code>
+        </div>
+        <div class="setup-step">
+            <p>PUT a file on figshare associated with an existing article.</p>
+            <code>python publish_existing.py</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/6acd94ff4b77573145cfa34585780b315ba3bcae/tests/test_figleaf.py" target="_blank">tests/test_figleaf.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation or comments. There is only a single assertion with no context or explanation provided, making it hard to understand its purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/e5f28f695c4bb42c0fc15938127f0470b77bea21/figleaf/__init__.py" target="_blank">figleaf/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation or internal comments, making it difficult for users and developers to understand the purpose and usage of the version variable.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/6f591ae8415e0e6923e5e108cb7093bc16479b39/figleaf/datacite/ingest_researcher_metadata_datacite.py" target="_blank">figleaf/datacite/ingest_researcher_metadata_datacite.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the script's purpose but lacks details on function usage and parameters. Internal comments are generally informative, though some areas need more context or explanations to clarify the logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/1f51b72e24d3965267fa8b118305fab7e6be68aa/figleaf/my_articles.py" target="_blank">figleaf/my_articles.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is mostly clear and provides information on the purpose and return values of each function. Internal comments are generally useful, although they could be more consistent in detail across the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/6ab2860a2ed7ac85a97691e57930d4067e2619da/figleaf/ingest_researcher_metadata.py" target="_blank">figleaf/ingest_researcher_metadata.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The script includes a clear and informative docstring at the top, explaining its purpose and usage, which is good for API documentation. Internal comments are generally helpful and specific, though some parts could benefit from additional context or clarification, especially regarding complex sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/09919096c07d2f596912eba9f95432e1ece8f3f1/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has basic API documentation that covers some key functions but lacks detailed descriptions and examples. Internal comments are present and helpful, though not exhaustive, providing a good understanding of the logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/67503ccc4cb8288752416d19e861f85630b62e78/figleaf/publish_existing.py" target="_blank">figleaf/publish_existing.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the script's purpose and usage, but lacks detailed comments within the code. Internal comments are sparse and could enhance understanding of specific sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/0ded1d34f2dc63ca25678f3b65463b2f44f4c16c/figleaf/datacite/__init__.py" target="_blank">figleaf/datacite/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: No API documentation or internal comments are provided in the code, making it impossible for users to understand how to use or maintain the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/2479ea39cb5011098862ddc5be3eb4c7c07610ef/figleaf/get_figshare_info.py" target="_blank">figleaf/get_figshare_info.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is comprehensive and includes usage examples which are very helpful for users. However, internal comments are limited to only a few functions, missing opportunities to clarify more complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/figleaf/blob/1f51b72e24d3965267fa8b118305fab7e6be68aa/figleaf/priv_article_models.py" target="_blank">figleaf/priv_article_models.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, as there are no docstrings for the classes and methods, which limits a user's understanding of how to utilize the code. Internal comments are also lacking, making it harder for developers to follow the logic and purpose of the various components.</p>
+        </div>
+    </div>
+</body>
+</html>

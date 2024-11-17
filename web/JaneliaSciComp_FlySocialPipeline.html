@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/FlySocialPipeline Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/FlySocialPipeline" target="_blank">https://github.com/JaneliaSciComp/FlySocialPipeline</a></p>
+                <p>Description: Computational pipeline for analyzing videos for social behavior in flies</p>
+                <p>Language: MATLAB</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2021-01-27T17:55:08+00:00</p>
+                <p>Contributors: krokicki, cgoina</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.8</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Nextflow and Singularity must be installed [<a href="https://www.nextflow.io and https://sylabs.io" target="_blank">https://www.nextflow.io and https://sylabs.io</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone git@github.com:JaneliaSciComp/FlySocialPipeline</code>
+        </div>
+        <div class="setup-step">
+            <p>Initialize and update submodules</p>
+            <code>git submodule update --init --recursive</code>
+        </div>
+        <div class="setup-step">
+            <p>Build all executables</p>
+            <code>make</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the pipeline locally</p>
+            <code>./pipeline.nf --in /path/to/avis --config /path/to/config</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/pipeline/classify_fly_wings.py" target="_blank">VGGClassifier/pipeline/classify_fly_wings.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation for functions is present but could be more detailed regarding parameters and return types. Internal comments are helpful but lack consistency, and some complex logic could be better explained.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/scripts/vgg3d_classification_vote.py" target="_blank">VGGClassifier/scripts/vgg3d_classification_vote.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation, particularly the function docstrings, provides a clear explanation of parameters and return values, which is commendable. However, there are limited internal comments explaining complex code sections, which could benefit from additional clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/scripts/models.py" target="_blank">VGGClassifier/scripts/models.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code contains useful docstrings for classes and methods, but the public API could benefit from more detailed descriptions. Inline comments help clarify certain steps, although additional comments explaining parameters and expected input/output in function definitions would enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/scripts/train_validation_vgg3d_v1.py" target="_blank">VGGClassifier/scripts/train_validation_vgg3d_v1.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation for external users, making it difficult to understand the functions and their purposes. Additionally, there are no internal comments explaining the logic, making it challenging for developers to grasp the implementation details.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/scripts/train_validation_vgg3d_v2.py" target="_blank">VGGClassifier/scripts/train_validation_vgg3d_v2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks proper API documentation, such as docstrings for functions or classes, making it unclear for external users. Additionally, there are no internal comments to explain the logic or functionality of the code blocks, which is essential for developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/scripts/train_all_vgg3d_v1.py" target="_blank">VGGClassifier/scripts/train_all_vgg3d_v1.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks comprehensive API documentation, making it difficult for external users to understand its functionality. Additionally, there are very few internal comments explaining the code's logic or purpose, which would aid developers in understanding the implementation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/scripts/result_plot.py" target="_blank">VGGClassifier/scripts/result_plot.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks meaningful comments and API documentation that could help users understand its purpose and functionality. While the logic is clear to someone familiar with Python and the libraries used, there are no explanations for key components, potentially confusing less experienced users.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/scripts/data.py" target="_blank">VGGClassifier/scripts/data.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough and provides detailed descriptions for function arguments and expected behaviors, which is very helpful for users. However, the internal comments lack clarity in some sections, and sometimes the assert error messages would benefit from being structured as exceptions instead of print statements, making the code less readable.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/FlySocialPipeline/blob/9ce7d764e9686bd43fd79c729ac02d3ff30e2713/VGGClassifier/scripts/test_vgg3d_v1_independent_testset.py" target="_blank">VGGClassifier/scripts/test_vgg3d_v1_independent_testset.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal documentation, with no function or module docstrings provided, making it difficult for external users to understand its purpose. Internal comments are absent, which hampers clarity for developers trying to follow the code's logic.</p>
+        </div>
+    </div>
+</body>
+</html>

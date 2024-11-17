@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/transfero Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/transfero" target="_blank">https://github.com/JaneliaSciComp/transfero</a></p>
+                <p>Description: Python scripts for transferring data from rig computers</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-08-24T02:41:38+00:00</p>
+                <p>Contributors: adamltaylor</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.7</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: #F88017">README Quality: 2.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python version 3.6 or above [<a href="https://www.python.org/downloads/release/python-360/" target="_blank">https://www.python.org/downloads/release/python-360/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/e9beb73c88d7c7e22ef7dc8a5939b6183f563d9f/turn_off_transfero.py" target="_blank">turn_off_transfero.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is virtually non-existent, with no docstrings or comments explaining the purpose of the module or its functions. The internal comment is minimal and only describes a single line of code, lacking context or clarity about the function's purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/cb74b30fd77f8a95f4e56ca6021c7bb709c3b83a/turn_on_transfero.py" target="_blank">turn_on_transfero.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the function docstring is clear and provides a good understanding of the function's usage, including optional parameters. However, internal comments could be more descriptive about the specific steps and code logic in the implementation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/74545d2cabd10551e77405b6a216b59633c3017c/test_transfero_on_rubin_rig_flybubble_ww2.py" target="_blank">test_transfero_on_rubin_rig_flybubble_ww2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code lacks comprehensive API documentation, such as docstrings for functions, which diminishes its usability for external users. While there are some internal comments that provide context, they are sparse and not always descriptive enough to guide developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/8cd5fec043a9c4d3681fd228cfd456b04c479e10/test_transfero_on_branson_rig.py" target="_blank">test_transfero_on_branson_rig.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear descriptions of the function's parameters and return values, making it hard for external users to understand its use. Internal comments provide some guidance within the code but could benefit from increased clarity and context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/b4ca7dd931598005a691924dcddb94635cf8184b/test_transfero_on_aso_rig.py" target="_blank">test_transfero_on_aso_rig.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear function descriptions and parameter explanations, which makes it challenging for external users to understand how to use the functions. Internal comments provide some context, but they are often vague or not very informative, which makes it difficult for developers to grasp the code's intent without extensive reading.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/25352eba24a6be8f15c30100f1809d539b453635/test_transfero_on_single_failing_experiment_2023_05_10.py" target="_blank">test_transfero_on_single_failing_experiment_2023_05_10.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear function descriptions and parameter explanations, making it difficult for external users to understand how to use the code. Internal comments are present but mostly describe steps rather than provide contextual information about the logic or decisions made in the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/74545d2cabd10551e77405b6a216b59633c3017c/test_transfero_on_rubin_rig_flybubble_ww1.py" target="_blank">test_transfero_on_rubin_rig_flybubble_ww1.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code lacks thorough API documentation, making it challenging for external users to understand its purpose and usage; internal comments are present but often lack clarity and could be more informative.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/d5d0c1f63542b9c9a6381ce027b0d60c7124c9b8/test_transfero_on_aso_rig_2nd.py" target="_blank">test_transfero_on_aso_rig_2nd.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some internal comments that clarify certain sections, but overall, it lacks comprehensive API documentation for external users. The comments present often seem to be rudimentary or partially commented-out code, which does not provide clear explanations of functionality or usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/deacce5385232636d25b69a89667df2c90d56361/transfero.py" target="_blank">transfero.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The functions have good docstrings explaining their purpose, but they could benefit from more examples and details on parameters and return values. Internal comments are generally clear and helpful, though some sections could be more concise.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/transfero/blob/3f350d18b26fd140c7a2b20eef02b0c35cb69c52/copy_into_production.py" target="_blank">copy_into_production.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal documentation; there is no module-level docstring or function docstrings explaining what the code does. Additionally, there are no comments within the code that describe the logic or purpose of the operations.</p>
+        </div>
+    </div>
+</body>
+</html>

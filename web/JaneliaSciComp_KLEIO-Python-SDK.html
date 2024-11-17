@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/KLEIO-Python-SDK Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK" target="_blank">https://github.com/JaneliaSciComp/KLEIO-Python-SDK</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 2</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-07-25T16:07:01+00:00</p>
+                <p>Contributors: mzouink</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.8</span></p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: red">Average API Docs Score: 1.5</p>
+        <p style="color: red">Average Code Comments Score: 1.3</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Open a Zarr backed versioned file system store and prepare it for committing changes</p>
+            <code>index_store = ZarrIndexStore(INDEX_PATH)</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a VersionedFSStore to handle versioning.</p>
+            <code>store = VersionedFSStore(index_store, RAW_PATH)</code>
+        </div>
+        <div class="setup-step">
+            <p>Open the Zarr store in append mode.</p>
+            <code>z = zarr.open(store, mode="a")</code>
+        </div>
+        <div class="setup-step">
+            <p>Commit the current changes to the version control.</p>
+            <code>store.vc.commit()</code>
+        </div>
+        <div class="setup-step">
+            <p>Push the changes to the version control repository.</p>
+            <code>store.vc.push()</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new branch in the version control system.</p>
+            <code>store.vc.create_new_branch(BRANCH_NAME)</code>
+        </div>
+        <div class="setup-step">
+            <p>Checkout to the newly created branch.</p>
+            <code>store.vc.create_new_branch(BRANCH_NAME)</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/97af70bc799776537bf43216ab55ef2d9046efcf/examples/kleio/test_array.py" target="_blank">examples/kleio/test_array.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks API documentation and internal comments, making it difficult to understand its functionality and purpose. While there are some commented-out sections, they do not clarify the code's intent or usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/b328eb4513ba2683ff4980ef3e85768277f0c513/examples/kleio/zarr_array.py" target="_blank">examples/kleio/zarr_array.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks adequate API documentation and internal comments, making it difficult for external users and developers to understand its purpose and functionality. While the code uses some print statements, it does not contain meaningful comments explaining the logic or structure of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/ddd7655b0079ba46d719114acc663f97dbe436cb/examples/ssh_clone/ssh_command.py" target="_blank">examples/ssh_clone/ssh_command.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive API documentation, making it difficult for external users to understand the module's purpose and usage. Internal comments are minimal and do not sufficiently explain the code's logic and intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/b9cc65a10e0ec3e0761d891380d274e8234cc5e5/examples/ssh_clone/2-ssh_clone.py" target="_blank">examples/ssh_clone/2-ssh_clone.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks detailed API documentation and has minimal internal comments. Only one comment exists, which does not provide enough clarity on the purpose and functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/3b00dba31c55a000631d6eee7b19000b947184ca/kleio/config.py" target="_blank">kleio/config.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: There is no API documentation or comments present in the code. The lack of comments makes it hard for other developers to understand the purpose of the variables and functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/b328eb4513ba2683ff4980ef3e85768277f0c513/examples/kleio/test_decode_positons.py" target="_blank">examples/kleio/test_decode_positons.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks sufficient API documentation and internal comments, making it difficult for external users and developers to understand the purpose and functionality of the functions and variables. Additional comments explaining the logic and parameters would significantly improve clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/3b00dba31c55a000631d6eee7b19000b947184ca/examples/kleio_n5.py" target="_blank">examples/kleio_n5.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any meaningful API documentation or internal comments that explain the functionality and purpose of the code blocks, making it difficult for an external user or developer to understand its intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/3b00dba31c55a000631d6eee7b19000b947184ca/tests/test_write.py" target="_blank">tests/test_write.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The file lacks comprehensive API documentation and clear comments explaining the purpose of functions and key lines of code. While it includes some basic self-explanatory variable names, the absence of detailed explanations diminishes clarity for future users or collaborators.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/5ceeef67c6d8cf0418ca296ed26c563321454046/examples/kleio.py" target="_blank">examples/kleio.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any meaningful API documentation, such as docstrings for functions or classes, making it very difficult for external users to understand its purpose. Additionally, there are very few inline comments explaining the logic of the code, which is crucial for future maintainers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/KLEIO-Python-SDK/blob/b9cc65a10e0ec3e0761d891380d274e8234cc5e5/examples/ssh_clone/3-ssh_push.py" target="_blank">examples/ssh_clone/3-ssh_push.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal comments, which are brief and lack detail or context, making it hard to understand the purpose and usage of the functions. Additionally, the API documentation is absent, providing no guidance for external users on how to utilize the code.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/jrc_programming_python_practicals Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/jrc_programming_python_practicals" target="_blank">https://github.com/JaneliaSciComp/jrc_programming_python_practicals</a></p>
+                <p>Description: Practical's for the Introduction to Python Workshop</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 1</p>
+                <p>Forks: 10</p>
+                <p>Last Commit: 2017-01-11T21:53:32+00:00</p>
+                <p>Contributors: csweaver, williamrowell</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.3</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_programming_python_practicals/blob/cf989d7b270c63841ba3f12e9ea2ca012c81aba4/Flies/FlyAssayPractical.ipynb" target="_blank">Flies/FlyAssayPractical.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The function docstrings provide a reasonable overview of their purpose and expected behavior, but they could benefit from additional detail about parameters and return types. The code comments are quite descriptive and helpful in understanding the code's logic, but there are areas where more clarification would enhance readability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_programming_python_practicals/blob/cf989d7b270c63841ba3f12e9ea2ca012c81aba4/Flies/FlyAssayPractical-Solution.ipynb" target="_blank">Flies/FlyAssayPractical-Solution.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is clear and detailed enough to understand the purpose of the functions. Internal comments are also helpful, although a few could be more concise, and the overall structure could benefit from more detailed comments on the logic used within loops.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_programming_python_practicals/blob/cf989d7b270c63841ba3f12e9ea2ca012c81aba4/Weather/Weather Practical.ipynb" target="_blank">Weather/Weather Practical.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has some comments that indicate the goals of tasks, but they lack detailed explanations or descriptions of the functions and data being used. Additionally, there are no clear API documentation or docstrings for functions, which would be essential for users attempting to understand or utilize this code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/jrc_programming_python_practicals/blob/cf989d7b270c63841ba3f12e9ea2ca012c81aba4/Weather/Weather Solution.ipynb" target="_blank">Weather/Weather Solution.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The internal comments provide a basic understanding of the code's functionality, but they lack clarity and detail for someone unfamiliar with the context. The API documentation is minimal, with no clear function descriptions or usage examples, which is necessary for external users.</p>
+        </div>
+    </div>
+</body>
+</html>

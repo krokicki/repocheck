@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/birdsong Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/birdsong" target="_blank">https://github.com/JaneliaSciComp/birdsong</a></p>
+                <p>Description: Birdsong colony management and analysis</p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-03-12T01:02:28+00:00</p>
+                <p>Contributors: robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.3</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.3</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Docker must be installed to run the project containers. [<a href="https://docs.docker.com/get-docker/" target="_blank">https://docs.docker.com/get-docker/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Build the Docker image for the assignment manager.</p>
+            <code>docker build --tag registry.int.janelia.org/flyem/assignment-manager .</code>
+        </div>
+        <div class="setup-step">
+            <p>Push the Docker image to the registry.</p>
+            <code>docker push registry.int.janelia.org/flyem/assignment-manager</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new database instance for the application.</p>
+            <code>sudo mkdir /data/mysql/assignment</code>
+        </div>
+        <div class="setup-step">
+            <p>Change ownership of the new database directory for MySQL.</p>
+            <code>sudo chown mysql:mysqldba /data/mysql/assignment</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the database using Docker Compose.</p>
+            <code>docker-compose -f docker-compose-prod.yml up db</code>
+        </div>
+        <div class="setup-step">
+            <p>Navigate to the directory where the application is located.</p>
+            <code>cd /opt/flask/birdsong</code>
+        </div>
+        <div class="setup-step">
+            <p>Stop any running instances of the application.</p>
+            <code>docker-compose -f docker-compose-prod.yml down</code>
+        </div>
+        <div class="setup-step">
+            <p>List Docker images to find the image id for the assignment manager.</p>
+            <code>docker image ls</code>
+        </div>
+        <div class="setup-step">
+            <p>Remove the Docker image for the assignment manager based on the found image id.</p>
+            <code>docker image rm <image id from above for assignment-manager></code>
+        </div>
+        <div class="setup-step">
+            <p>Remove the existing static volume for assignment manager.</p>
+            <code>docker volume rm assignment-manager_static_volume</code>
+        </div>
+        <div class="setup-step">
+            <p>Pull the latest Docker image for the assignment manager.</p>
+            <code>docker pull registry.int.janelia.org/flyem/assignment-manager</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the application using Docker Compose in detached mode.</p>
+            <code>docker-compose -f docker-compose-prod.yml up -d</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/9a4a9ab9aa3d1f6d5f8127fb7d4523e3aa6dbb26/genetics/relatedness_plots.py" target="_blank">genetics/relatedness_plots.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is mostly clear and helpful, effectively explaining functions and their parameters. However, the internal comments could be improved for clarity and coverage in complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/e9ad706a3a6cd84c3cf3bec6d370375ce8a44498/genetics/process_file.py" target="_blank">genetics/process_file.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the module's purpose and key functions, including detailed parameter descriptions and return values. Internal comments are generally informative but could benefit from additional explanations in some complex logic sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/1857736f7b5b19defe7e0b90ae825b5958d6b461/utilities/split_ctv.py" target="_blank">utilities/split_ctv.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal comments, lacking descriptions for function parameters and overall logic flow, which makes it hard for developers to understand the code's purpose and usage. The docstring for the function is missing, and although there is a brief description in the argparse setup, it's not enough for comprehensive API documentation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/9a4a9ab9aa3d1f6d5f8127fb7d4523e3aa6dbb26/genetics/compute_similarity.py" target="_blank">genetics/compute_similarity.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and follows a consistent format, which helps external users understand the functionality of the code. Internal comments are generally helpful and specific, though some areas could benefit from more detailed explanations of complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/1857736f7b5b19defe7e0b90ae825b5958d6b461/utilities/upload_json.py" target="_blank">utilities/upload_json.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is satisfactory, providing a basic overview and parameter descriptions, but could benefit from additional detail and examples. Internal comments are clear and helpful, explaining the purpose of key sections, but could be enhanced with more context in complex areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/e9ad706a3a6cd84c3cf3bec6d370375ce8a44498/load/primary_etl.py" target="_blank">load/primary_etl.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a decent overview of function purposes, but it's sparse in detail for some complex logic and usage scenarios. Internal comments are quite helpful for developers, making the code easier to understand, although some sections could benefit from more clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/1857736f7b5b19defe7e0b90ae825b5958d6b461/genetics/combiner.py" target="_blank">genetics/combiner.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, with no docstrings for functions, making it unclear how to use them. Internal comments are very basic, lacking detail and context, which could hinder understanding for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/1857736f7b5b19defe7e0b90ae825b5958d6b461/api/jupyter/birdsong_rest_api.ipynb" target="_blank">api/jupyter/birdsong_rest_api.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear explanations of the requests and responses, which is beneficial for external users. Internal comments are concise and relevant, enhancing code readability and maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/40fa414ead7126cdad647a35b62ac8c688cc2727/api/birdsong_responder.py" target="_blank">api/birdsong_responder.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite thorough, including detailed descriptions for most functions and parameters, but lacks some clarity on certain endpoints. Internal comments are present but could be improved for better readability and understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/birdsong/blob/1857736f7b5b19defe7e0b90ae825b5958d6b461/api/jupyter/.ipynb" target="_blank">api/jupyter/.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is excellent, providing clear and comprehensive explanations of each endpoint and how to use them with examples. However, while the internal comments are generally good, they could be slightly more descriptive in some sections to enhance clarity.</p>
+        </div>
+    </div>
+</body>
+</html>

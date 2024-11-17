@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/Benedetti2024 Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/Benedetti2024" target="_blank">https://github.com/JaneliaSciComp/Benedetti2024</a></p>
+                <p>Description: Supporting Software for Benedetti et al. 2024</p>
+                <p>Language: Julia</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-05-17T23:42:46+00:00</p>
+                <p>Contributors: mkitti</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.6</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: red">Average API Docs Score: 0.0</p>
+        <p style="color: red">Average Code Comments Score: 0.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Latest stable version of Julia [<a href="https://julialang.org/downloads/" target="_blank">https://julialang.org/downloads/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Activate the project contained in the repository</p>
+            <code>using Pkg</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the specific project directory</p>
+            <code>Pkg.activate("Benedetti2024")</code>
+        </div>
+        <div class="setup-step">
+            <p>Resolve dependencies for the project</p>
+            <code>Pkg.resolve()</code>
+        </div>
+        <div class="setup-step">
+            <p>Instantiate the packages for the project</p>
+            <code>Pkg.instantiate()</code>
+        </div>
+        <div class="setup-step">
+            <p>Run Pluto.jl to select included notebooks</p>
+            <code>using Pluto</code>
+        </div>
+        <div class="setup-step">
+            <p>Start Pluto.jl with the specified notebook</p>
+            <code>Pluto.run(notebook="Benedetti2024/notebooks/periodicity.jl")</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+    </div>
+</body>
+</html>

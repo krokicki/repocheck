@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/elk-utilities Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/elk-utilities" target="_blank">https://github.com/JaneliaSciComp/elk-utilities</a></p>
+                <p>Description: Utilities for ELK stack configuration, maintenance, and use</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-08-29T19:12:24+00:00</p>
+                <p>Contributors: robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.2</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.3</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.8</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/elk-utilities/blob/97dbb90591e9a5a95426a24f15d052f5b8248105/bin/show_elastic_indices.py" target="_blank">bin/show_elastic_indices.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic descriptions for several functions and arguments; however, not all functions have clear docstrings. Internal comments are generally helpful but could benefit from additional context in more complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/elk-utilities/blob/13cec8473c365d94c3a8accbe106877ea60710e1/bin/minute_metrics.py" target="_blank">bin/minute_metrics.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation for external users, while present in function descriptions and argument explanations, could be more comprehensive in detailing the overall purpose of the script and its functions. Internal comments are generally helpful and provide good context within the code, but some areas could benefit from additional explanation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/elk-utilities/blob/5e348338a2ac0af40fb1b148a3164ce0ff9c6ba4/bin/count_elastic_docs.py" target="_blank">bin/count_elastic_docs.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is moderately informative, providing basic descriptions but lacking detailed examples or parameter explanations. Internal comments are quite helpful in elucidating code functionality, but some functions would benefit from more descriptive comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/elk-utilities/blob/5e348338a2ac0af40fb1b148a3164ce0ff9c6ba4/bin/get_latest_record.py" target="_blank">bin/get_latest_record.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides basic descriptions but lacks detail on function parameters and return types, which could enhance usability for external users. Internal comments are present but could be more descriptive about the code's logic and flow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/elk-utilities/blob/5e348338a2ac0af40fb1b148a3164ce0ff9c6ba4/bin/merge_geolocation_csvs.py" target="_blank">bin/merge_geolocation_csvs.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a basic overview but lacks depth and specific details about the functionality. Internal comments explain the logic in some areas but could be more comprehensive to aid other developers in understanding the code's intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/elk-utilities/blob/47975ebca96aa42b13c98453a2c9169a31d503a8/bin/delete_elastic_indices.py" target="_blank">bin/delete_elastic_indices.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has good API documentation with clear docstrings explaining the purpose of functions and their parameters. Internal comments are useful and mostly well-placed, but some areas could benefit from additional comments to improve clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/elk-utilities/blob/31b56f590700c1bc50bb553d26316bbae20d5608/bin/clean_indices.py" target="_blank">bin/clean_indices.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear descriptions for functions and their parameters, promoting user understanding. Internal comments succinctly explain code logic, but some sections could benefit from additional clarity.</p>
+        </div>
+    </div>
+</body>
+</html>

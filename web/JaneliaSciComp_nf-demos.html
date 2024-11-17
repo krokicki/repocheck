@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/nf-demos Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/nf-demos" target="_blank">https://github.com/JaneliaSciComp/nf-demos</a></p>
+                <p>Description: Nextflow Demo Pipelines for Image Processing</p>
+                <p>Language: Nextflow</p>
+                <p>Stars: 2</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2023-12-21T22:46:14+00:00</p>
+                <p>Contributors: krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.3</span></p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: green">Average API Docs Score: 4.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.2</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Nextflow version 20.10.0 or greater [<a href="https://www.nextflow.io/docs/latest/getstarted.html" target="_blank">https://www.nextflow.io/docs/latest/getstarted.html</a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Singularity version 3.5 or greater [<a href="https://sylabs.io/guides/3.7/admin-guide/installation.html" target="_blank">https://sylabs.io/guides/3.7/admin-guide/installation.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install Nextflow using curl</p>
+            <code>curl -s https://get.nextflow.io | bash</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the multifish repository</p>
+            <code>git clone https://github.com/JaneliaSciComp/nf-demos.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the setup script to pull in external dependencies</p>
+            <code>./setup.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Launch a pipeline (example command)</p>
+            <code>./n5-tools-dask/tiff-to-n5.nf.nf [arguments]</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/nf-demos/blob/9b3d3be3b0fc84f54148cc7e6a60f5c4e70040f7/containers/n5-tools-py/scripts/n5_utils.py" target="_blank">containers/n5-tools-py/scripts/n5_utils.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides necessary details about function parameters and their purpose, earning a score of 4. However, while comments are present, they could be expanded to better describe the process and important assumptions, resulting in a score of 3.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/nf-demos/blob/9b3d3be3b0fc84f54148cc7e6a60f5c4e70040f7/containers/n5-tools-py/scripts/n5_to_tif.py" target="_blank">containers/n5-tools-py/scripts/n5_to_tif.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is generally clear and provides useful information about the parameters and functionality of the functions. However, internal comments could be more informative by explaining the rationale or logic behind certain operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/nf-demos/blob/9b3d3be3b0fc84f54148cc7e6a60f5c4e70040f7/containers/n5-tools-py/scripts/create_n5.py" target="_blank">containers/n5-tools-py/scripts/create_n5.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is quite clear with detailed argument descriptions in the `ArgumentParser`, but the code lacks extensive internal comments explaining the logic and steps within the functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/nf-demos/blob/0e8d57ee6d135e160562cb36014a21b43be6cfa0/containers/n5-tools-py/scripts/tif_to_n5.py" target="_blank">containers/n5-tools-py/scripts/tif_to_n5.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the form of function docstrings is clear and describes the parameters well, but could benefit from examples. Internal comments explain key steps, but some complex operations would benefit from further clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/nf-demos/blob/0c447f1b401b7f43dc3916129448530842e00d4b/containers/n5-tools-py/scripts/n5_multiscale.py" target="_blank">containers/n5-tools-py/scripts/n5_multiscale.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is detailed and explains the main functions and their parameters well, though it could benefit from additional examples or clarification of terms. The internal comments are helpful in guiding the developer through the code, but some sections may warrant more explanation for clarity.</p>
+        </div>
+    </div>
+</body>
+</html>

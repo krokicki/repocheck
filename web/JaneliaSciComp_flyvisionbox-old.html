@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/flyvisionbox-old Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/flyvisionbox-old" target="_blank">https://github.com/JaneliaSciComp/flyvisionbox-old</a></p>
+                <p>Description: Old code for analysis of flyvisionbox experiments</p>
+                <p>Language: MATLAB</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-03-13T19:08:59+00:00</p>
+                <p>Contributors: adamltaylor</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.0</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.1</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/scripts/AVICompression/update_box_imagery.py" target="_blank">scripts/AVICompression/update_box_imagery.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, with no docstrings for functions or a description of the script's purpose, which hinders usability for external users. Internal comments provide some clarity on specific code blocks but lack depth and context for overall understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/exercise_pipeline.py" target="_blank">exercise_pipeline.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, with no function docstrings or usage instructions for external users, which detracts from its usability. Internal comments are more prevalent and provide some context, but they could be clearer and more detailed regarding function purposes and parameters.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/sbmoviesuite/sbfmf_check.py" target="_blank">sbmoviesuite/sbfmf_check.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a comprehensive guide for users on how to use the script, but it could be clearer about the function parameters. Internal comments are generally informative and consistently formatted, enhancing readability for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/sbmoviesuite/sbmovielib/backsub.py" target="_blank">sbmoviesuite/sbmovielib/backsub.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in docstrings is fairly comprehensive and provides clear information about the parameters and expected behavior of the methods. However, while there are some internal comments, several sections could benefit from additional clarification for better understanding, especially in complex computations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/sbmoviesuite/setup.py" target="_blank">sbmoviesuite/setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The file contains minimal API documentation and no internal comments, making it difficult for users and developers to understand its components and functionality. The lack of detailed descriptions for the package and modules significantly hinders usability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/sbmoviesuite/sbmovielib/FlyMovieFormat.py" target="_blank">sbmoviesuite/sbmovielib/FlyMovieFormat.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a basic overview, including constructor parameters for classes, but lacks detail in method descriptions. Internal comments are present but not sufficiently comprehensive to aid understanding of implementation intricacies.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/scripts/WikiStatusPage/wikilib.py" target="_blank">scripts/WikiStatusPage/wikilib.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is comprehensive, with clear descriptions for most methods and parameters, enhancing usability for external users. Internal comments provide insight into specific code decisions but could be more consistent and detailed throughout.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/sbmoviesuite/sbcompare.py" target="_blank">sbmoviesuite/sbcompare.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides basic input and output descriptions for functions, but lacks detail for parameters and edge cases. Internal comments are present but could be more descriptive and informative for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/scripts/AnalysisLoader/load_analysis.py" target="_blank">scripts/AnalysisLoader/load_analysis.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is almost non-existent, as there are no docstrings in the functions. Internal comments provide some context but lack clear and comprehensive explanations of the logic and purpose of complex sections, making it hard for a new developer to understand the code quickly.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/flyvisionbox-old/blob/9bf522f95f2dc8ab8ccc6bdb99446c5c7387d868/scripts/TubeSplitter/extract_tubes.py" target="_blank">scripts/TubeSplitter/extract_tubes.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has limited API documentation and user guidance, making it challenging for external users to understand its purpose and use cases. While there are some internal comments, they are sparse and do not adequately explain the logic or key components of the code.</p>
+        </div>
+    </div>
+</body>
+</html>

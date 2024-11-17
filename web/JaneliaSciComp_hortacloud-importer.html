@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/hortacloud-importer Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/hortacloud-importer" target="_blank">https://github.com/JaneliaSciComp/hortacloud-importer</a></p>
+                <p>Description: a tiff-to-octree converter for dask</p>
+                <p>Language: Python</p>
+                <p>Stars: 2</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2024-11-15T20:18:12+00:00</p>
+                <p>Contributors: takashi310, krokicki</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Install Miniconda [<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html" target="_blank">https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html</a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Clone pyktx [<a href="https://github.com/JaneliaSciComp/pyktx" target="_blank">https://github.com/JaneliaSciComp/pyktx</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Set channel priority for conda</p>
+            <code>conda config --set channel_priority strict</code>
+        </div>
+        <div class="setup-step">
+            <p>Create conda environment from environment.yml</p>
+            <code>conda env create -f environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate octree</code>
+        </div>
+        <div class="setup-step">
+            <p>Install pyktx from the specified path</p>
+            <code>pip install /path/to/pyktx</code>
+        </div>
+        <div class="setup-step">
+            <p>Convert TIFF slices or N5/Zarr datasets to octree format</p>
+            <code>python tiff2octree.py -i /path/to/input_dir -o /path/to/output_dir -d 2ndmax -t 16 --ktx</code>
+        </div>
+        <div class="setup-step">
+            <p>Convert TIFF stacks to octree format</p>
+            <code>python tiff2octree.py -f /input_slices/tiff -o /output/octree -d 2ndmax -t 16 --ktx</code>
+        </div>
+        <div class="setup-step">
+            <p>Convert multi-channel images to octree format</p>
+            <code>python tiff2octree.py -i /path/to/input_dir/ch1,/path/to/input_dir/ch2 -o /output/octree/ -d 2ndmax -t 8 --ktx</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/hortacloud-importer/blob/fdd8e7b7611274de7e35eefcd0400b68e2b41b30/tiff2octree.py" target="_blank">tiff2octree.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough, with clear docstrings for many functions outlining parameters and return values, contributing to a strong understanding for external users. However, while there are some inline comments, they could benefit from more detailed explanations of complex sections to enhance clarity for developers working with the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/hortacloud-importer/blob/4ef58e86db755e673bb3c3a56ec7160817ce2e6b/ktx/version.py" target="_blank">ktx/version.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, only including a version string with no clear indication of its usage or purpose. Internal comments provide some context about the versioning but lack detail on functionality or usage, resulting in a low but better score.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/hortacloud-importer/blob/4ef58e86db755e673bb3c3a56ec7160817ce2e6b/ktx/util.py" target="_blank">ktx/util.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is quite thorough, with clear descriptions of the functions and their parameters, though some functions could benefit from additional context about their use cases. The internal comments are helpful in explaining the logic of complex sections, but there are a few areas where clarity could be improved.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/hortacloud-importer/blob/4ef58e86db755e673bb3c3a56ec7160817ce2e6b/ktx/__init__.py" target="_blank">ktx/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides some clear method signatures and a brief docstring in 'from_ndarray', but it lacks extensive detail on the class purposes and method functionalities. Internal comments are generally helpful, especially in complex methods, but there are instances of inadequate explanations and TODO notes indicating areas that require further clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/hortacloud-importer/blob/4ef58e86db755e673bb3c3a56ec7160817ce2e6b/ktx/octree/small_memory_histogram.py" target="_blank">ktx/octree/small_memory_histogram.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is minimal, and while there is a brief header comment, it lacks detailed function descriptions and parameter/return type annotations. Internal comments do provide useful context but could be improved for clarity on specific logic and assumptions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/hortacloud-importer/blob/4ef58e86db755e673bb3c3a56ec7160817ce2e6b/ktx/octree/__init__.py" target="_blank">ktx/octree/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: The provided content lacks any API documentation and internal comments. Without any comments or docstrings, it is impossible to evaluate the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/hortacloud-importer/blob/4ef58e86db755e673bb3c3a56ec7160817ce2e6b/ktx/octree/ktx_from_rendered_tiff.py" target="_blank">ktx/octree/ktx_from_rendered_tiff.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes class and method-level docstrings that describe their purpose and functionality; however, some aspects of the API are inadequately described which may hinder understanding. Internal comments are generally clear and useful for developer understanding, but could benefit from more contextual detail in some areas.</p>
+        </div>
+    </div>
+</body>
+</html>

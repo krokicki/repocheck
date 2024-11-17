@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/SAM_service Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/SAM_service" target="_blank">https://github.com/JaneliaSciComp/SAM_service</a></p>
+                <p>Description: Web service which generates Segment Anything models</p>
+                <p>Language: Python</p>
+                <p>Stars: 2</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-06-10T17:30:24+00:00</p>
+                <p>Contributors: krokicki, neomorphic, axtimwalde</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.3</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>CUDA libraries [<a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html" target="_blank">https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install CUDA libraries</p>
+            <code>sudo apt install nvidia-cuda-toolkit</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone git@github.com:JaneliaSciComp/SAM_service.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Copy the model checkpoint file to the sam_service directory</p>
+            <code>cp sam_vit_h_4b8939.pth SAM_service/sam_service</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the necessary packages using conda</p>
+            <code>conda env create -f environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate segment_anything</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the paintera-sam repo alongside this one</p>
+            <code>git clone git@github.com:cmhulbert/paintera-sam.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the paintera-sam package</p>
+            <code>pip install --user -e .</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the API using Uvicorn</p>
+            <code>cd sam_service</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Uvicorn server</p>
+            <code>uvicorn sam_queue:app --access-log --workers 1 --host 0.0.0.0</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SAM_service/blob/6acba1def66b7b532661c2598296e9b187e477f2/sam_service/sam_fast_api.py" target="_blank">sam_service/sam_fast_api.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite clear with concise docstrings for each endpoint that describe their functionality. However, while there are some comments in the code, more detailed explanations, especially around complex logic and configuration, would enhance clarity and maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SAM_service/blob/6acba1def66b7b532661c2598296e9b187e477f2/sam_service/utils.py" target="_blank">sam_service/utils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: While the functions are somewhat clear in their intent, there is minimal to no external documentation provided for users. Internal comments exist but are limited and could be more detailed to enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SAM_service/blob/3f8aad3fc128117db28be776d44fe90b1748e275/sam_service/sam_queue.py" target="_blank">sam_service/sam_queue.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is comprehensive, with clear function signatures and descriptions suitable for external users. However, the internal comments could be enhanced for clarity, especially in complex parts of the logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SAM_service/blob/184fb1ca139feaa71e5a97a70f244047bf7e008d/sam_service/sam.py" target="_blank">sam_service/sam.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is somewhat available but lacks detailed docstrings for classes and methods, making it less clear to external users. Internal comments are generally good and explain key parts of the logic, but additional clarity on complex sections would improve understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SAM_service/blob/a3d837a87639532eb22209f33274dd4862bbdb17/sam_service/sam_flask.py" target="_blank">sam_service/sam_flask.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is present but could benefit from more detailed explanations, especially for method parameters and returned values. Internal comments are quite helpful, though some areas could use clarification regarding the intent and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SAM_service/blob/a1662d167d89d1fae16de8596d472676a5b300e6/tests/test_cancel.py" target="_blank">tests/test_cancel.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is generally clear and provides useful descriptions for command-line arguments. However, while there are some comments in the code, additional comments explaining the logic and flow in more detail would enhance clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/SAM_service/blob/a1662d167d89d1fae16de8596d472676a5b300e6/tests/test_load.py" target="_blank">tests/test_load.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the argument parser is clear and informative, providing good context for users. However, internal comments and function documentation could be improved to give better insights into the implementation details and logic flow.</p>
+        </div>
+    </div>
+</body>
+</html>

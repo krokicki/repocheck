@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/videoAnnotation_backend Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/videoAnnotation_backend" target="_blank">https://github.com/JaneliaSciComp/videoAnnotation_backend</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-10-03T20:00:37+00:00</p>
+                <p>Contributors: Dabenniu13, xpengJanelia</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.7</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Docker is required to pull and run MongoDB image. [<a href="https://www.docker.com/" target="_blank">https://www.docker.com/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Test Docker installation</p>
+            <code>docker -v</code>
+        </div>
+        <div class="setup-step">
+            <p>Pull the MongoDB image from DockerHub</p>
+            <code>docker pull mongo</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the MongoDB container</p>
+            <code>docker run -d --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -v /yourdirectory/db:/data/db mongo</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a Python virtual environment</p>
+            <code>python3 -m venv env</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the virtual environment</p>
+            <code>source env/bin/activate</code>
+        </div>
+        <div class="setup-step">
+            <p>Install project dependencies</p>
+            <code>pip install -r requirements.txt</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the development server</p>
+            <code>uvicorn main:app --reload</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/videoAnnotation_backend/blob/6ed9e57252f1afb2b40dd667e813ce85405f7cc5/src/datamodel.py" target="_blank">src/datamodel.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is quite structured and utilizes Pydantic effectively, though it lacks docstrings for classes and methods which would enhance understanding. Internal comments are minimal, making it harder to grasp the rationale behind some design choices.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/videoAnnotation_backend/blob/4d4c8a074c621f55e15d82183d0142497e1b5fe4/src/customized.py" target="_blank">src/customized.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear and provides detail about parameters and return values, but it lacks clarity on some edge cases for function usage. The internal comments are helpful but some parts are commented in a way that could lead to confusion regarding the implementation process.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/videoAnnotation_backend/blob/93129b8a76e9b257379e360500250c4dded3c761/src/main.py" target="_blank">src/main.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has a moderate level of API documentation with endpoint descriptions but lacks examples and deeper explanations of the parameters and return types. Internal comments are sparse and could be improved to clarify the functionality of specific code sections, especially within longer methods.</p>
+        </div>
+    </div>
+</body>
+</html>

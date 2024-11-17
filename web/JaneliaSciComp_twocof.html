@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/twocof Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/twocof" target="_blank">https://github.com/JaneliaSciComp/twocof</a></p>
+                <p>Description: produce plots and stats from the output of Choreography and the Multi-Worm Tracker</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2019-07-31T13:12:57+00:00</p>
+                <p>Contributors: olbris</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.7</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 1.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/lib/trackdata.py" target="_blank">lib/trackdata.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally clear but lacks comprehensive information on function parameters and return values, which would benefit from more detailed descriptions. Internal comments are frequent and helpful for understanding the code, but some sections could use more clarity regarding complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/lib/spinedata.py" target="_blank">lib/spinedata.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a basic description of the function inputs and outputs but lacks details on parameters for complex types or exceptions. Internal comments explain code logic but are sparse and could benefit from more clarity and contextual information.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/aggregate-stats.py" target="_blank">aggregate-stats.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is present but lacks detailed explanations of the parameters and return values. Internal comments provide good context but could be more descriptive in some functions to enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/trackinfo2.py" target="_blank">trackinfo2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The script includes a brief initial comment about its purpose and usage, but it lacks detailed documentation on the functions and classes used. Additionally, there are no internal comments that would help developers understand the code logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/lib/tasks/common.py" target="_blank">lib/tasks/common.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for class methods is mostly clear but lacks detailed descriptions for inputs and outputs in several methods. Internal comments exist but could be more comprehensive to enhance understanding for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/lib/tasks/analysis.py" target="_blank">lib/tasks/analysis.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is fairly detailed but lacks clarity and structure in some areas, leading to a moderately lower score. Internal comments are generally clear and helpful, providing context and explaining complex logic, which reflects a good level of understanding for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/makefakedatefolders.py" target="_blank">makefakedatefolders.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The documentation for external users is almost nonexistent, with only a vague comment at the start. Internal comments are minimal and do not adequately explain the functionality or logic of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/notify.py" target="_blank">notify.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides basic descriptions for the functions, but lacks detailed examples or usage notes. Internal comments are present but could be more descriptive and consistent to enhance code understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/clean.py" target="_blank">clean.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clarity on the purpose and usage of the script; it only provides basic command-line usage. Internal comments exist but are sparse and do not adequately explain the logic or purpose of key sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/twocof/blob/8c3d99df29b796705ba9c3316c8ea99704a2d3d5/lib/tasks/__init__.py" target="_blank">lib/tasks/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear explanations of module purpose or usage for external users. Internal comments provide some context but could be improved for clarity and guidance on the code's functionality.</p>
+        </div>
+    </div>
+</body>
+</html>

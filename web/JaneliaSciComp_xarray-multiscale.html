@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/xarray-multiscale Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/xarray-multiscale" target="_blank">https://github.com/JaneliaSciComp/xarray-multiscale</a></p>
+                <p>Description: scalable multiscale image pyramids in python</p>
+                <p>Language: Python</p>
+                <p>Stars: 26</p>
+                <p>Forks: 3</p>
+                <p>Last Commit: 2024-07-25T15:43:24+00:00</p>
+                <p>Contributors: d-v-b, carshadi, jhnnsrs</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.6</span></p>
+        <p style="color: red">Setup Completeness: 1.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: green">Average API Docs Score: 4.7</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the package via pip</p>
+            <code>pip install xarray-multiscale</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/486a8b786d7e72acd9114ba1eb2c5711dc11ac8a/src/xarray_multiscale/chunks.py" target="_blank">src/xarray_multiscale/chunks.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for the functions is clear and provides detailed descriptions of parameters and return types, earning a score of 4. However, the internal comments could be more thorough, particularly in explaining the logic behind certain operations, leading to a lower score of 3.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/486a8b786d7e72acd9114ba1eb2c5711dc11ac8a/src/xarray_multiscale/__about__.py" target="_blank">src/xarray_multiscale/__about__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The Python file lacks any API documentation or internal comments, providing only a version string and licensing information. This makes it difficult for users or developers to understand the purpose and functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/486a8b786d7e72acd9114ba1eb2c5711dc11ac8a/src/xarray_multiscale/util.py" target="_blank">src/xarray_multiscale/util.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough and clearly explains function parameters and return values, making it easy for external users to understand the purpose and usage of the functions. Internal comments are sparse but convey the necessary information, hence a slightly lower score.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/a0c7d0e412d3eb1015a94c786e3119b5a462fbf3/src/xarray_multiscale/multiscale.py" target="_blank">src/xarray_multiscale/multiscale.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: TheAPI documentation is thorough, providing details on parameters, return values, and examples for user understanding. Internal comments are mostly clear but could benefit from additional context in more complex sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/9e3a6f56baac94bd651b938f9e1e1aa9406ac063/tests/test_util.py" target="_blank">tests/test_util.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any comments or documentation, making it hard for external users and developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/4fc3d1115db538094658bb078c7dfe302155ef7e/src/xarray_multiscale/reducers.py" target="_blank">src/xarray_multiscale/reducers.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough and clear, providing detailed descriptions of parameters, return types, and examples, facilitating easy understanding for users. Internal comments are generally good, but some functions would benefit from additional inline comments to improve clarity on complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/de14f0ec3cce72cf2e1d0fe36f44b70c1e54b36a/tests/test_chunks.py" target="_blank">tests/test_chunks.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has some internal comments but lacks function-level docstrings explaining what the tests are for. While it is clear what each testing function does, better documentation could enhance understandability for new users.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/f65f16862f521ae0a30e63c152ddd12c927afc00/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: The provided content lacks any documentation or comments, which makes it impossible to understand the API's purpose or the code's functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/486a8b786d7e72acd9114ba1eb2c5711dc11ac8a/tests/test_docs.py" target="_blank">tests/test_docs.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks detailed API documentation, such as docstrings for the function, which would help external users understand its purpose. Internal comments are also minimal, only indicating a condition for skipping tests without clarifying the intent or logic of the test function.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/xarray-multiscale/blob/4fc3d1115db538094658bb078c7dfe302155ef7e/src/xarray_multiscale/__init__.py" target="_blank">src/xarray_multiscale/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has very minimal comments and lacks detailed descriptions for functions or modules, making it hard for external users to understand their purpose. The internal comments are absent, providing no guidance for developers regarding the logic or implementation choices.</p>
+        </div>
+    </div>
+</body>
+</html>

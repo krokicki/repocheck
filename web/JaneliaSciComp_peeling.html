@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/peeling Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/peeling" target="_blank">https://github.com/JaneliaSciComp/peeling</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 2</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-11-30T23:51:40+00:00</p>
+                <p>Contributors: xpengJanelia, Dabenniu13, neomorphic</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.1</span></p>
+        <p style="color: #F88017">Setup Completeness: 2.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the PEELing package</p>
+            <code>pip install peeling</code>
+        </div>
+        <div class="setup-step">
+            <p>Run PEELing with mass spec data, non-labelled controls, and labelled replicates</p>
+            <code>peeling mass_spec_dir num_of_nonlabelled_controls num_of_labelled_replicates</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/60c366aeb92d958170d05ac6ca72aeb2b12a94f6/peeling/webpantherprocessor.py" target="_blank">peeling/webpantherprocessor.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal as there are no docstrings provided for the methods or class, making it difficult for users to understand how to use the API. Internal comments provide some clarity on overridden methods and functionalities but could be expanded for better understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/915b3f68603c285f4dbdc1166b76e09b391ea3e1/peeling/userinputreader.py" target="_blank">peeling/userinputreader.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The class has some internal comments addressing specific method functionalities, but there is a lack of docstrings for public methods and overall class documentation. The code comments are useful, making it easier for developers to understand the checks, but API documentation can be improved significantly.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/c6313b516a5f22441d0bba1f6e369f76bfdfd8dd/peeling/cliuniprotcommunicator.py" target="_blank">peeling/cliuniprotcommunicator.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is non-existent, providing no guidance for external users. Internal comments are sparse and only provide a minimal indication of method implementation without context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/034f073408563c093669422cb914be72580db1e8/peeling/webuserinputreader.py" target="_blank">peeling/webuserinputreader.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code includes some comments, but they are minimal and lack detail on the methods' purposes. There is some level of API documentation through method signatures, but further descriptions would enhance clarity for external users.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/60c366aeb92d958170d05ac6ca72aeb2b12a94f6/peeling/cellular_compartments.py" target="_blank">peeling/cellular_compartments.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code contains basic comments that describe the purpose of some variables but lacks comprehensive documentation explaining the logic behind URL formation and the structure of the `cellular_compartments` dictionary. Additional clarifications on parameters, expected usage, and context for future developers would improve the overall documentation significantly.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/452850b69ddb55f9042672ebbfc084ea461c7e1e/peeling/pantherprocessor.py" target="_blank">peeling/pantherprocessor.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation offers basic insights into the purpose of classes and methods, but lacks detailed docstrings for most functions. Internal comments are generally clear and helpful, enhancing understandability for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/5e8b7e7baa93511b671b3709e116e87b270a2445/peeling/cliuserinputreader.py" target="_blank">peeling/cliuserinputreader.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The external API documentation is minimal, as the class and methods lack docstrings, making it hard for users to understand their purpose and usage. Internal comments are present but do not provide detailed insights or context about the functionality, which limits clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/ad75f2b6e80f3e975d54e7e9699f67810f73a315/peeling/main.py" target="_blank">peeling/main.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is fairly comprehensive, clearly explaining argument options and their purposes; however, there are no detailed docstrings or comments within the main function to describe its overall purpose or flow. Internal comments could be improved by providing more clarity on critical steps and decisions made within the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/034b7bb980ed5bc743c43032a59125b44081d915/peeling/webuniprotcommunicator.py" target="_blank">peeling/webuniprotcommunicator.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear docstrings for methods and the class itself, which limits understanding for external users. Internal comments are generally useful in explaining code logic, but could benefit from more detail in complex areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/peeling/blob/5e8b7e7baa93511b671b3709e116e87b270a2445/peeling/processor.py" target="_blank">peeling/processor.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is insufficient, lacking thorough method descriptions and parameter details. Internal comments are present but often vague or lack context, making it hard to follow the implementation logic.</p>
+        </div>
+    </div>
+</body>
+</html>

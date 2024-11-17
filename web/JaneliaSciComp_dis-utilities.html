@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/dis-utilities Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/dis-utilities" target="_blank">https://github.com/JaneliaSciComp/dis-utilities</a></p>
+                <p>Description: Utilities for Data and Information Services</p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 0</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-11-14T15:13:46+00:00</p>
+                <p>Contributors: robsv, virginiascarlett</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.0</span></p>
+        <p style="color: #F88017">Setup Completeness: 2.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: green">Average Code Comments Score: 4.3</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python and Flask must be installed, along with MongoDB for the database. [<a href="https://www.mongodb.com/" target="_blank">https://www.mongodb.com/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Run the update_dois.py script to pull and update DOIs.</p>
+            <code>my_venv/bin/python3 update_dois.py --manifold prod --write</code>
+        </div>
+        <div class="setup-step">
+            <p>To see help documentation for the update_dois.py script.</p>
+            <code>my_venv/bin/python3 update_dois.py --help</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/6a531ad41a4a6a31a8acb350d05f1d68bb22ca48/sync/bin/pull_arxiv.py" target="_blank">sync/bin/pull_arxiv.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in function docstrings is generally clear and covers the essential information about parameters and return types. Internal comments provide useful context but could benefit from more detailed explanations in certain areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/16102fc5007f3ff6cfaee142fab04a73aee907f3/utility/bin/add_newsletter.py" target="_blank">utility/bin/add_newsletter.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation through the function docstrings is adequate but lacks detail about parameters and return types in some places. Internal comments are present but could be more thorough to enhance understanding of complex logic and purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/16102fc5007f3ff6cfaee142fab04a73aee907f3/utility/bin/delete_dois.py" target="_blank">utility/bin/delete_dois.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides a brief overview of each function's purpose and parameters. Internal comments are also informative and generally helpful but could enhance clarity in complex areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/0a42f36bc39c0940ccb39f1a60751f630a3919f8/sync/bin/update_dois.py" target="_blank">sync/bin/update_dois.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The API documentation effectively describes the overall purpose and functionality of the module, but could use a little more detail on some functions. Internal comments are clear, informative, and consistent, helping to explain complex logic well.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/3d7369dc7374db025f25be7d6cc6823c91d49929/utility/bin/find_missing_orcids.py" target="_blank">utility/bin/find_missing_orcids.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear function-level descriptions, but lacks information on parameters and return types for some functions. Internal comments are frequent and mostly helpful but vary in completeness.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/e6c14241c3a2f3979b4b072bd931326049bf7c4d/sync/bin/update_orcid.py" target="_blank">sync/bin/update_orcid.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is clear and provides relevant information for external users, enabling them to understand the purpose of each function. Internal comments are also informative and add context where necessary, though a few areas could benefit from additional detail.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/d15c0379365470dc56b5c7c2e718dba1502c33a2/utility/bin/edit_orcid.py" target="_blank">utility/bin/edit_orcid.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is adequate but could benefit from more detailed descriptions of the parameters and return values in some functions. Internal comments are mostly clear and helpful, although some sections could be enhanced for greater clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/57dfaff87a8e19782b49410b30d9e357aadc667c/test/name_match/get_data_for_test_case.py" target="_blank">test/name_match/get_data_for_test_case.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, with no functions or classes being documented, leading to a low score. Internal comments provide some context but lack detail on complex logic or expected inputs and outputs.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/2463f7a3232e3627f7fde7a32df12f3bf7dc73d8/etl/bin/group_search.py" target="_blank">etl/bin/group_search.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear and includes descriptions of function parameters and return values. However, there are some areas with minimal internal comments that could improve understanding of the code flow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/dis-utilities/blob/6e729231a3d84eac5b7f4b8af74baceb2cce0b55/utility/bin/remove_jrc_author.py" target="_blank">utility/bin/remove_jrc_author.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is present and describes the functions adequately, but lacks detail on function parameters and return types in some cases. Internal comments are clear and effectively outline logical sections but could be more descriptive for complex operations.</p>
+        </div>
+    </div>
+</body>
+</html>

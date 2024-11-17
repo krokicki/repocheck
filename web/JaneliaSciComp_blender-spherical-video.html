@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/blender-spherical-video Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/blender-spherical-video" target="_blank">https://github.com/JaneliaSciComp/blender-spherical-video</a></p>
+                <p>Description: Scripts for Blender to render 360-degree spherical videos.</p>
+                <p>Language: Python</p>
+                <p>Stars: 9</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2020-07-06T22:00:01+00:00</p>
+                <p>Contributors: hubbardp</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.6</span></p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.3</p>
+        <p style="color: green">Average Code Comments Score: 4.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Blender must be installed to run the scripts for rendering videos. [<a href="https://blender.org" target="_blank">https://blender.org</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Render the example spherical video from the given Blender file.</p>
+            <code>blender --background --python blender-spherical-video/sphericalVideo.py -- -i examples/exampleBasic.blend -o /tmp/example</code>
+        </div>
+        <div class="setup-step">
+            <p>Assemble the final frames into a video file from the generated images.</p>
+            <code>blender --background --python blender-spherical-video/assembleFrames.py -- -i /tmp/example/spherical -iw 1280 -ih 720</code>
+        </div>
+        <div class="setup-step">
+            <p>Pack the final frames into a format suitable for a modified projector.</p>
+            <code>blender --background --python blender-spherical-video/packFrames.py -- -i /tmp/example/spherical -o /tmp/example/sphericalPacked</code>
+        </div>
+        <div class="setup-step">
+            <p>Run unit tests to ensure the system is functioning correctly.</p>
+            <code>blender --background --python blender-spherical-video/test_sphericalVideo.py</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/blender-spherical-video/blob/516c9661df18a1a047c2d610ba99e7ede3a695f3/blender-spherical-video/assembleFrames.py" target="_blank">blender-spherical-video/assembleFrames.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is adequate as it includes command-line argument descriptions, but could benefit from more detail on expected input formats and overall usage. Code comments are clear and helpful, though additional comments on more complex logic could further enhance code readability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/blender-spherical-video/blob/695bcfef80101537093ea62a46a6a6afe623d5ec/blender-spherical-video/test_sphericalVideo.py" target="_blank">blender-spherical-video/test_sphericalVideo.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is adequate but lacks detailed descriptions of function parameters and return values, which may hinder understanding for new users. Internal comments are sufficiently detailed and clarify the purpose of code sections, enhancing readability for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/blender-spherical-video/blob/958774fa8bf004df35c8a7ad5bd241bfb0df176d/blender-spherical-video/utilsFormats.py" target="_blank">blender-spherical-video/utilsFormats.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, providing no function docstrings or usage examples, making it hard for external users to understand how to use the functions. Internal comments are also lacking, with no explanations of the code structure or logic, which could aid developers in understanding and maintaining the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/blender-spherical-video/blob/e2204562fdcd35bf06871cd8ffa4b851a9cb8493/blender-spherical-video/packFrames.py" target="_blank">blender-spherical-video/packFrames.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear usage instructions and command line options, which is helpful for users. Internal comments generally explain the purpose of the code well, but some could benefit from additional detail.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/blender-spherical-video/blob/958774fa8bf004df35c8a7ad5bd241bfb0df176d/blender-spherical-video/sphericalVideo.py" target="_blank">blender-spherical-video/sphericalVideo.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The code is thoroughly documented with clear docstrings for each function, detailing parameters, return values, and additional contextual information where necessary. Internal comments throughout the code provide valuable insights into the logic and reasoning behind specific implementations.</p>
+        </div>
+    </div>
+</body>
+</html>

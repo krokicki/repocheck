@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaneliaSciComp/Activo-backend Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/JaneliaSciComp/Activo-backend" target="_blank">https://github.com/JaneliaSciComp/Activo-backend</a></p>
+                <p>Description: Kleio python API for data streaming using Flask</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-02-27T16:35:23+00:00</p>
+                <p>Contributors: mzouink</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.0</span></p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.8</p>
+        <p style="color: red">Average Code Comments Score: 1.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/57d1c88ed299a92fc6b4ba0f07bf7c41fa82e3d7/examples/api/kleio-api.py" target="_blank">examples/api/kleio-api.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal API documentation and lacks clear descriptions of functions and their parameters, which limits usability for external users. Internal comments are sparse and don't effectively explain the logic or purpose behind the code sections, making it harder for future developers to follow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/9cd431d23837b4ab5ea2d05d10cd3cc5fc4ecf66/activo/data/start.py" target="_blank">activo/data/start.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a brief outline of functionality but lacks detailed explanations for endpoints and their parameters. Internal comments are sparse and could clarify the complexity of the logic, particularly in the `create_reader` function and deployment logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/57d1c88ed299a92fc6b4ba0f07bf7c41fa82e3d7/examples/create/__init__.py" target="_blank">examples/create/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has minimal external documentation, making it challenging for users to understand the API. Internal comments exist but are sparse and sometimes unclear, which could lead to confusion for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/57d1c88ed299a92fc6b4ba0f07bf7c41fa82e3d7/examples/api/app.py" target="_blank">examples/api/app.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks sufficient API documentation and internal comments; function purpose and parameters are not described clearly. There are some comments indicating intentions, but they are minimal and could be more informative.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/318211ce125ca255e63b9af18cb18702ae9c9367/examples/__init__.py" target="_blank">examples/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides basic insights into the functions, but lacks comprehensive examples or detailed descriptions. Internal comments are sparse and do not fully explain complex parts of the code, which could hinder developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/57d1c88ed299a92fc6b4ba0f07bf7c41fa82e3d7/examples/api/__init__.py" target="_blank">examples/api/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some guidance but lacks thoroughness and clarity. Internal comments are sparse and do not consistently explain complex logic or the purpose of functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/9cd431d23837b4ab5ea2d05d10cd3cc5fc4ecf66/activo/ml/model.py" target="_blank">activo/ml/model.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear explanations for functions and classes, which makes it difficult for external users to understand the purpose and usage of the model. Internal comments are sparse and do not provide sufficient context or details on the logic within the methods.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/9cd431d23837b4ab5ea2d05d10cd3cc5fc4ecf66/examples/oder_check.py" target="_blank">examples/oder_check.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal documentation for external users, primarily lacking any function or class docstrings. Internal comments are also absent, making it difficult for developers to understand the intent and functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/57d1c88ed299a92fc6b4ba0f07bf7c41fa82e3d7/examples/create/generate_zarr.py" target="_blank">examples/create/generate_zarr.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation and internal comments, making it difficult for external users or future developers to understand its functionality and intention.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/JaneliaSciComp/Activo-backend/blob/9cd431d23837b4ab5ea2d05d10cd3cc5fc4ecf66/examples/dl/__init__.py" target="_blank">examples/dl/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic usage information but lacks detailed examples and explanations of parameters. Internal comments are clear and helpful, but more context in some critical areas would improve understanding.</p>
+        </div>
+    </div>
+</body>
+</html>
