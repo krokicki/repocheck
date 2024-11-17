@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/flyemflows Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/flyemflows" target="_blank">https://github.com/janelia-flyem/flyemflows</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2024-11-05T04:34:02+00:00</p>
+                <p>Contributors: stuarteberg, stephenplaza, grisaitis</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.6</span></p>
+        <p>Weighted Score: <span class="score">0.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 4.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/9b6fa342860ce62763a703f902f05907ebdf9508/tests/workflows/test_stitchedmeshes.py" target="_blank">tests/workflows/test_stitchedmeshes.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is somewhat lacking, especially for higher-level functions; it would benefit from docstrings describing parameters and return types. Internal comments are generally clear and helpful but could be improved by providing more context or rationale for complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/143b28ef1725cf7ce630b59340c5b22134c0a89b/flyemflows/workflow/masksegmentation.py" target="_blank">flyemflows/workflow/masksegmentation.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has thorough docstrings and comments that effectively describe the functionality of classes and methods, as well as parameters. However, some areas could benefit from additional comments to enhance clarity for specific implementation details or complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/a9f30503379e015777e1a091757e5f61f0eb7cfc/obsolete/DVIDSparkServices/graph_comparison.py" target="_blank">obsolete/DVIDSparkServices/graph_comparison.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is mostly comprehensive, providing clear descriptions and usage for each function; however, some functions could benefit from additional details regarding parameters and return types. Code comments are generally well-placed and informative, but more inline comments could enhance understanding in complex areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/92236768e1d3da500bafe86367062e4eeee44230/tests/workflows/test_decimatemeshes.py" target="_blank">tests/workflows/test_decimatemeshes.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and comprehensive, effectively explaining the purpose of most functions. Internal comments provide useful insights into specific logic and expected behaviors, though a few areas could benefit from further elaboration.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/def62d8a33e4e1751a62b7a4519c375523ffea6d/flyemflows/volumes/generic_schemas/volumes.py" target="_blank">flyemflows/volumes/generic_schemas/volumes.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides good descriptions for each schema, making it easy for external users to understand. Internal comments are informative and well-structured, although some minor enhancements could improve clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/a9f30503379e015777e1a091757e5f61f0eb7cfc/obsolete/integration_tests/test_seg_simple_predict/checkoutput.py" target="_blank">obsolete/integration_tests/test_seg_simple_predict/checkoutput.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks sufficient API documentation for external users, which makes it challenging to understand its purpose and usage. Although there are some internal comments, they are minimal and do not provide substantial insight into the code's functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/02fb69e709f36894f6447a5e90f777124cc5a43e/flyemflows/volumes/slice_files_volume_service.py" target="_blank">flyemflows/volumes/slice_files_volume_service.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code provides detailed API documentation for schemas and methods, but some aspects of usage could be clearer; especially for more complex parameters. Internal comments generally explain the code logic well, though some assertions could benefit from additional context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/dede28bf3ed39e49de220a1a3ab028bd820d24f8/flyemflows/_version.py" target="_blank">flyemflows/_version.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation through docstrings is clear and provides a good overview of function purposes. Internal comments also effectively explain complex logic and decisions, though a few more could enhance clarity in certain areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/a9f30503379e015777e1a091757e5f61f0eb7cfc/obsolete/DVIDSparkServices/reconutils/metrics/tests/__init__.py" target="_blank">obsolete/DVIDSparkServices/reconutils/metrics/tests/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detailed explanations or examples, making it hard for external users to understand the functionality. Internal comments are present but not comprehensive enough to aid in the understanding of the code logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyemflows/blob/1c4beac79212dfcf1b48ad8693cdf331f74cf431/flyemflows/workflow/util/mergereview.py" target="_blank">flyemflows/workflow/util/mergereview.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The function docstrings provide comprehensive explanations of parameters, return types, and functionality, making them highly useful for external users. Internal comments are also detailed and clear, although some minor improvements could enhance clarity in complex sections.</p>
+        </div>
+    </div>
+</body>
+</html>

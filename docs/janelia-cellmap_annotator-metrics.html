@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/annotator-metrics Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/annotator-metrics" target="_blank">https://github.com/janelia-cellmap/annotator-metrics</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-10-13T00:37:10+00:00</p>
+                <p>Contributors: davidackerman, jonesa3</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.7</span></p>
+        <p>Weighted Score: <span class="score">2.6</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.3</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone https://github.com/janelia-cosem/annotator-metrics</code>
+        </div>
+        <div class="setup-step">
+            <p>Move into the directory</p>
+            <code>cd annotator-metrics</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the conda environment</p>
+            <code>conda env create -f environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate annotator-metrics</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the package</p>
+            <code>pip install .</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/2749b45e7644c558d0fe01a30ad9040af90e186c/monitor.py" target="_blank">monitor.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking useful docstrings or explanations for class methods, which could benefit external users. The internal comments are present but sparse, and they do not provide sufficient context or explanations for complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/1ae8b50838c336d2a307b64d99838d84cc11d9b7/annotator_metrics/src/preprocessing.py" target="_blank">annotator_metrics/src/preprocessing.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a reasonable overview of function arguments and expected behaviors, but lacks extensive detail on usage and output. Internal comments are scattered and vary in clarity, with some explaining logic well while others are minimal.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/43ae49bc37155fa21c6a9eccb89d7a4a5f0c52ad/metric-evaluations.ipynb" target="_blank">metric-evaluations.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The API documentation at the top provides a clear overview of the notebook's purpose and the functions involved, making it easy for external users to understand. Internal comments are detailed and describe specific code actions well, enhancing readability for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/2285f54cf5f511b3ddc38cca569a34ae5f6bb611/annotator_metrics/util/doc_util.py" target="_blank">annotator_metrics/util/doc_util.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code lacks sufficient external API documentation, making it difficult for users to understand its purpose without deep inspection. Internal comments provide some context but are inconsistent and often incomplete, which could reduce maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/e7c6d32bf8a666b1061bc7e14c031b9a7af9af06/annotator_metrics/util/__init__.py" target="_blank">annotator_metrics/util/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: There is no content provided to assess the API documentation and internal comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/b8f4c4d064637a061b3db5e98ac8b0abe8f5cb1d/annotator_metrics/util/dask_util.py" target="_blank">annotator_metrics/util/dask_util.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides necessary details for the function parameters and exceptions. Internal comments are useful but could be more concise in some places, leading to minor deductions in clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/e7c6d32bf8a666b1061bc7e14c031b9a7af9af06/annotator_metrics/src/__init__.py" target="_blank">annotator_metrics/src/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some details, but lacks comprehensive examples and explanations of parameters. Internal comments are sparse and do not consistently clarify the logic or purpose of the code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/8c868b291bd80938e6b043acc6fdd2f090fe8445/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is virtually non-existent, with many fields left blank. Internal comments are also missing, making it difficult for other developers to understand its purpose and usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/8e98e3df4892aac62e9d785daeebe82633d2790c/annotator_metrics/util/image_util.py" target="_blank">annotator_metrics/util/image_util.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is fairly comprehensive, including docstrings explaining function parameters and behaviors. However, internal comments could be improved for clarity and consistency, as some complex logic lacks sufficient explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/annotator-metrics/blob/aa3f38220ee9fb8f607111edf8f9c7a49c4fafdb/annotator_metrics/src/metrics_evaluations.py" target="_blank">annotator_metrics/src/metrics_evaluations.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides comprehensive details about function inputs, outputs, and types, which is helpful for users. However, while the internal comments are generally present, some areas could benefit from more context regarding complex sections of the code.</p>
+        </div>
+    </div>
+</body>
+</html>

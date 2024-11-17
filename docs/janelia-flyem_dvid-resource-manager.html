@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/dvid-resource-manager Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/dvid-resource-manager" target="_blank">https://github.com/janelia-flyem/dvid-resource-manager</a></p>
+                <p>Description: Manages large-scale batch requests to DVID.</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-05-27T13:42:16+00:00</p>
+                <p>Contributors: stuarteberg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.1</span></p>
+        <p>Weighted Score: <span class="score">0.1</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid-resource-manager/blob/517746ed1b8a7e22952d0d53edcc020fb550c48e/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation in the setup function provides basic information but lacks detailed descriptions of parameters. Internal comments are absent, which limits understanding for developers working with the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid-resource-manager/blob/dad6d022e076375e0686f0f39beb282124ad5c13/dvid_resource_manager/server.py" target="_blank">dvid_resource_manager/server.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear explanations for functions and classes, which makes it hard for external users to understand the usage. Internal comments are present but often lack depth and clarity in explaining the logic behind the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid-resource-manager/blob/dad6d022e076375e0686f0f39beb282124ad5c13/dvid_resource_manager/client.py" target="_blank">dvid_resource_manager/client.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is extensive and provides practical usage examples, making it easy for users to understand the intended use cases. Internal comments are mostly clear and informative, though some methods could benefit from additional explanations or example usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid-resource-manager/blob/517746ed1b8a7e22952d0d53edcc020fb550c48e/dvid_resource_manager/__init__.py" target="_blank">dvid_resource_manager/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is sparse, lacking detailed descriptions and usage examples, which would be crucial for external users. Internal comments are present but often lack clarity, leaving some code logic ambiguous.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid-resource-manager/blob/1bec95d3ad3b04b4a2761a8675ad7cc299369e91/dvid_resource_manager/schemas.py" target="_blank">dvid_resource_manager/schemas.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is somewhat clear, providing basic information about the JSON schemas, but lacks detailed descriptions of individual schema components. Internal comments are present and generally helpful, but additional context could enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid-resource-manager/blob/842cb5602c171c8d43e7a06d47b0d06529e83f3a/dvid_resource_manager/tests/__init__.py" target="_blank">dvid_resource_manager/tests/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: No API documentation or internal comments were provided in the content, making it impossible to evaluate their quality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid-resource-manager/blob/dad6d022e076375e0686f0f39beb282124ad5c13/dvid_resource_manager/tests/test.py" target="_blank">dvid_resource_manager/tests/test.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides clear function docstrings but lacks detail for some parameters and return values. Internal comments are present but could be more descriptive in certain areas, particularly around complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid-resource-manager/blob/7e8a064bda0b455b48ab05388a88ef2436887d22/dvid_resource_manager/tests/helpers.py" target="_blank">dvid_resource_manager/tests/helpers.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The module-level comment provides a good overview of the file's purpose, while the function docstring in `_test_multiprocess` explains its functionality. However, individual function comments are missing, which would help users and developers understand their roles better.</p>
+        </div>
+    </div>
+</body>
+</html>

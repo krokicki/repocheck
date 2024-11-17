@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/assignment-manager Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/assignment-manager" target="_blank">https://github.com/janelia-flyem/assignment-manager</a></p>
+                <p>Description: Assignment manager database and applications</p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-05-25T02:17:03+00:00</p>
+                <p>Contributors: robsv</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.8</span></p>
+        <p>Weighted Score: <span class="score">2.6</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.8</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Docker and Docker Compose installed on the server [<a href="https://docs.docker.com/get-docker/" target="_blank">https://docs.docker.com/get-docker/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Build the Docker container</p>
+            <code>docker build --tag registry.int.janelia.org/flyem/assignment-manager .</code>
+        </div>
+        <div class="setup-step">
+            <p>Push the Docker image to the registry</p>
+            <code>docker push registry.int.janelia.org/flyem/assignment-manager</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new database instance</p>
+            <code>sudo mkdir /data/mysql/assignment</code>
+        </div>
+        <div class="setup-step">
+            <p>Change ownership of the database directory</p>
+            <code>sudo chown mysql:mysqldba /data/mysql/assignment</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the database service using Docker Compose</p>
+            <code>docker-compose -f docker-compose-prod.yml up db</code>
+        </div>
+        <div class="setup-step">
+            <p>Navigate to the assignment responder directory</p>
+            <code>cd /opt/flask/assignment-responder</code>
+        </div>
+        <div class="setup-step">
+            <p>Stop any running Docker services related to the project</p>
+            <code>docker-compose -f docker-compose-prod.yml down</code>
+        </div>
+        <div class="setup-step">
+            <p>List all Docker images</p>
+            <code>docker image ls</code>
+        </div>
+        <div class="setup-step">
+            <p>Remove the specific Docker image for assignment-manager</p>
+            <code>docker image rm <image id from above for assignment-manager></code>
+        </div>
+        <div class="setup-step">
+            <p>Remove the static volume for assignment-manager</p>
+            <code>docker volume rm assignment-manager_static_volume</code>
+        </div>
+        <div class="setup-step">
+            <p>Pull the latest Docker image from the registry</p>
+            <code>docker pull registry.int.janelia.org/flyem/assignment-manager</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the application using Docker Compose</p>
+            <code>docker-compose -f docker-compose-prod.yml up -d</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/4d02956f1dde3fb744fa6f37236b90c8dad28caa/api/assignment_utilities.py" target="_blank">api/assignment_utilities.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is generally clear with concise descriptions of parameters and expected behavior, but some functions could benefit from additional detail about return types or exceptions. The internal comments are present yet inconsistent in quality; while some functions have helpful comments, others lack clarity on complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/9c0c752ec5fcf9537b2f1484bc17c48cf02a8873/api/orphan_link.py" target="_blank">api/orphan_link.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is helpful, but lacks explicit descriptions of all parameters and return types. Internal comments are sparse and would benefit from more contextual explanations throughout the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/9c0c752ec5fcf9537b2f1484bc17c48cf02a8873/api/cleave.py" target="_blank">api/cleave.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides basic descriptions of the class and method, but lacks detail regarding parameter types and return types. Internal comments are present but could be more plentiful and descriptive to improve developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/fc0da6042822c24183138749d4745bc3b861ac59/utilities/upload_json.py" target="_blank">utilities/upload_json.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and describes the usage of each function and their parameters well, but lacks overall module-level comments. Internal comments are present but could be enhanced for better clarity, particularly in complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/b3a33dd04951748036fb4faa01d153607b71867a/utilities/split_ctv.py" target="_blank">utilities/split_ctv.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks sufficient API documentation for external users, such as details about parameters and return values for functions. Internal comments are minimal, providing little guidance on the logic or intention behind the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/0d6b23f51fc2364151166f9d0cf08bf4319327c6/api/connection_validation.py" target="_blank">api/connection_validation.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides basic descriptions of the class and methods but lacks detailed explanations of parameters and return values. Internal comments are minimal and do not clarify complex sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/c101c603f828989db17c1d51a2d5b4df55927b78/api/focused_merge.py" target="_blank">api/focused_merge.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides clear descriptions of classes and methods, but could include more detail on parameters and return values. The internal comments are minimal and could be improved to enhance code readability and understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/e766092b8b1655b863810d6234366acc1a8a77a8/utilities/add_users.py" target="_blank">utilities/add_users.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is present for the key function but lacks detail on the overall module purpose and could benefit from additional function descriptions and usage examples. Internal comments are minimal, which may make understanding the intent behind the code harder for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/b441d1a087bcbcae704853df21ef344bdecfa415/api/tasks.py" target="_blank">api/tasks.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of the function parameters, but it could benefit from additional details about the expected format and data types. Internal comments are present but are mostly high-level; more specific comments on complex logic and edge cases would enhance readability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/assignment-manager/blob/3f435e2c176080afdc7e8b09a2e8077f579eb5a0/assignment_manager.py" target="_blank">assignment_manager.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detail, which may hinder external users' understanding. Internal comments provide some context, but they are sparse and could be improved for clarity and coverage.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/appdata-store Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/appdata-store" target="_blank">https://github.com/janelia-flyem/appdata-store</a></p>
+                <p>Description: HTTP cloud function interface to the Google Datastore to manage application state.</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2023-05-01T20:57:39+00:00</p>
+                <p>Contributors: neomorphic, stephenplaza</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p>Weighted Score: <span class="score">2.2</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.0</p>
+        <p style="color: green">Average Code Comments Score: 4.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python package for creating JSON Web Tokens [<a href="https://pyjwt.readthedocs.io/en/stable/" target="_blank">https://pyjwt.readthedocs.io/en/stable/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install PyJWT</p>
+            <code>pip install PyJWT</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a JWT token</p>
+            <code>pyjwt --key=MYSECRET encode email=EMAILADDR level=admin|readwrite|readonly</code>
+        </div>
+        <div class="setup-step">
+            <p>Add a user with readonly permission to the API</p>
+            <code>curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <tokenid>" https://<GOOGLEFUNCTION>/users -d '{"foo@bar": "admin"}'</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/appdata-store/blob/0a1f58c55ecd3f0b9fe1443271d6058692e21e70/appdata.py" target="_blank">appdata.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is present but inconsistent and lacks detailed explanations for most functions. Internal comments are generally clear and helpful, but some sections could benefit from additional context.</p>
+        </div>
+    </div>
+</body>
+</html>

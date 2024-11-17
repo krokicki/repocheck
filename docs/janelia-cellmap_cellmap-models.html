@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/cellmap-models Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/cellmap-models" target="_blank">https://github.com/janelia-cellmap/cellmap-models</a></p>
+                <p>Description: Repository of model architectures and network weights used for CellMap segmentations.</p>
+                <p>Language: Python</p>
+                <p>Stars: 9</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-10-24T16:06:34+00:00</p>
+                <p>Contributors: rhoadesScholar, mzouink, aemmav, avweigel</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p>Weighted Score: <span class="score">2.9</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>A conda or mamba environment for package installation [<a href="https://docs.anaconda.com/free/miniconda/#quick-command-line-install" target="_blank">https://docs.anaconda.com/free/miniconda/#quick-command-line-install</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a new conda environment named 'cellmap' and install Python and PyTorch</p>
+            <code>conda env create -y -n cellmap python=3.10 pytorch -c pytorch</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate cellmap</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the cellmap-models package</p>
+            <code>pip install cellmap-models</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/566ceed05335c9c6743cfacc424494b87bdb4afc/src/cellmap_models/pytorch/cosem/load_model.py" target="_blank">src/cellmap_models/pytorch/cosem/load_model.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is detailed and informative, effectively explaining the purpose and usage of each function and class. Internal comments are generally clear and helpful, though a few areas could benefit from additional explanations for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/7727ec2a5fe42fe817fda8a6326ec668f5c9f10a/src/cellmap_models/pytorch/cellpose/get_model.py" target="_blank">src/cellmap_models/pytorch/cellpose/get_model.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation effectively describes the function and its parameters, which is helpful for external users. However, the internal comments could be improved for clarity and completeness, particularly regarding certain operations and error handling.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/e6d0277835a9cbddf005ffe61ecdd2dda2bbb9a4/src/cellmap_models/pytorch/untrained_models/unet_3D.py" target="_blank">src/cellmap_models/pytorch/untrained_models/unet_3D.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has clear class-level docstrings and method comments that provide context on purpose, which is beneficial for users. However, it could be enhanced with more detailed descriptions of the parameters and return types.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/895070395600cf2fb82cbbf94069055a5aa86642/src/cellmap_models/pytorch/cosem/setup45/model.py" target="_blank">src/cellmap_models/pytorch/cosem/setup45/model.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks clear API documentation or docstrings to explain its purpose to external users, and the internal comments are minimal, providing very little context or information about the parameters or their usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/895070395600cf2fb82cbbf94069055a5aa86642/src/cellmap_models/pytorch/cosem/setup28/model.py" target="_blank">src/cellmap_models/pytorch/cosem/setup28/model.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is virtually non-existent as there are no docstrings or explanations of function parameters or return values. The internal comments provide some context for parameter purpose but lack clarity and detail, limiting their usefulness.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/224842d06f430de6c4ba8602bcb5b28a8c411767/src/cellmap_models/pytorch/cosem/setup04/__init__.py" target="_blank">src/cellmap_models/pytorch/cosem/setup04/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: The Python file lacks any API documentation or internal comments, making it difficult for both external users and developers to understand the code's purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/e6d0277835a9cbddf005ffe61ecdd2dda2bbb9a4/src/cellmap_models/pytorch/untrained_models/unet_2D.py" target="_blank">src/cellmap_models/pytorch/untrained_models/unet_2D.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally clear and provides a good overview of the classes, although adding more details about the parameters and return values for each method would enhance understanding. Internal comments explain the functionality well, but more context in some complex areas could improve readability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/8f047c6d7549888277ab16bf76bb692fd20524de/src/cellmap_models/pytorch/cellpose/__init__.py" target="_blank">src/cellmap_models/pytorch/cellpose/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code contains no API documentation or user-facing comments, limiting its usability for external developers. Internal comments are also absent, making it challenging for developers to understand the purpose of the code quickly.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/125894e4d5d04e7075efcdc308f164eeb9cefb11/src/cellmap_models/__init__.py" target="_blank">src/cellmap_models/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: There is no meaningful API documentation or internal comments provided, making it difficult for both external users and developers to understand the functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-models/blob/da0495cb044eabac37d5df5f79b09755b5df3bde/src/cellmap_models/pytorch/cosem/setup26_1/__init__.py" target="_blank">src/cellmap_models/pytorch/cosem/setup26_1/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed descriptions for functions and parameters, which could hinder external users. However, there are some internal comments that help clarify parts of the code, though they could be more informative.</p>
+        </div>
+    </div>
+</body>
+</html>

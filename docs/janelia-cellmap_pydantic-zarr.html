@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/pydantic-zarr Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/pydantic-zarr" target="_blank">https://github.com/janelia-cellmap/pydantic-zarr</a></p>
+                <p>Description: Pydantic models for Zarr </p>
+                <p>Language: Python</p>
+                <p>Stars: 26</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-04-23T14:14:37+00:00</p>
+                <p>Contributors: d-v-b, clbarnes</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.2</span></p>
+        <p>Weighted Score: <span class="score">1.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 1.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.3</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the pydantic-zarr package</p>
+            <code>pip install -U pydantic-zarr</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/c09d74059da6dfe97c72fc04fee31354e03488d8/tests/test_docs.py" target="_blank">tests/test_docs.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal documentation and lacks detailed comments explaining the functionality. The use of parameters in the test function is not clearly described, reducing clarity for external users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/de19417808d11f5cc89a6846547b53630b3780b7/tests/test_core.py" target="_blank">tests/test_core.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, with no docstrings provided for the test function or related code. Internal comments are absent, making it harder for other developers to understand the purpose and logic of the test.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/339bf48c264e96df02475d7799dbc741ffc0a62e/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some basic details but lacks depth and examples. Internal comments are sparse and do not effectively clarify complex parts of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/cfd65cf23b6f1f49223307a5c76ccb6baaa045fa/tests/test_v3.py" target="_blank">tests/test_v3.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks sufficient documentation for external users and internal comments for developers. The function's purpose and the significance of the parameters and configurations are not explained.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/5b1250fb86c06d60a6c7eb64d5c546cb540f43fe/tests/test_v2.py" target="_blank">tests/test_v2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code includes useful high-level comments and docstrings for most functions, enhancing readability and usability. However, there are areas where additional context or explanations for more complex logic would improve understanding for both users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/c09d74059da6dfe97c72fc04fee31354e03488d8/docs/plugins/main.py" target="_blank">docs/plugins/main.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a high-level understanding of each function's purpose. Internal comments are present but could be more detailed to enhance clarity on specific implementation choices.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/1589c8131cb57fd296fdd498a83a9596d76d0b44/src/pydantic_zarr/__init__.py" target="_blank">src/pydantic_zarr/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some useful information, but lacks comprehensive coverage for all functions and classes. Internal comments are minimal, making it harder for developers to understand the logic and flow of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/7e1ba7f607167d37a11d7cb589df28bcea36bd85/src/pydantic_zarr/core.py" target="_blank">src/pydantic_zarr/core.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation includes clear descriptions of the functions and their purpose, which is helpful for external users. However, internal comments are minimal and could benefit from more elaboration on complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/a1f7a978a5c68b8c3425be7d83202986ef828d12/src/pydantic_zarr/v2.py" target="_blank">src/pydantic_zarr/v2.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, with clear and well-structured docstrings for functions and classes, making it easy for external users to understand usage and parameters. Internal comments are mostly good but could benefit from more clarity in some complex areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pydantic-zarr/blob/4b9f7ce7b96c532e1b70c12e21f68adc32b3705d/src/pydantic_zarr/v3.py" target="_blank">src/pydantic_zarr/v3.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough, with detailed class and method docstrings that outline parameters, return types, and attribute descriptions clearly. Internal comments are present but could be enhanced with additional context in certain areas, particularly in 'todo' notes.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/libdvid-utils Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/libdvid-utils" target="_blank">https://github.com/janelia-flyem/libdvid-utils</a></p>
+                <p>Description: Set of helper utilities that use libdvid interface</p>
+                <p>Language: C++</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2017-02-28T18:26:33+00:00</p>
+                <p>Contributors: stephenplaza</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.4</span></p>
+        <p>Weighted Score: <span class="score">1.7</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: red">Average API Docs Score: 0.0</p>
+        <p style="color: red">Average Code Comments Score: 0.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Miniconda needs to be installed for package management and environment handling [<a href="http://conda.pydata.org/miniconda.html" target="_blank">http://conda.pydata.org/miniconda.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Download and install Miniconda for Linux or Mac</p>
+            <code>wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Miniconda installer for Linux</p>
+            <code>bash Miniconda-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Download and install Miniconda for Mac</p>
+            <code>wget https://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Miniconda installer for Mac</p>
+            <code>bash Miniconda-latest-MacOSX-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>CONDA_ROOT=`conda info --root`</code>
+        </div>
+        <div class="setup-step">
+            <p>Source the conda root's activate script</p>
+            <code>source ${CONDA_ROOT}/bin/activate root</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new conda environment and install dvid-viewer</p>
+            <code>conda create -n CHOOSE_ENV_NAME -c flyem dvid-viewer</code>
+        </div>
+        <div class="setup-step">
+            <p>Create build directory and navigate into it</p>
+            <code>mkdir build</code>
+        </div>
+        <div class="setup-step">
+            <p>Change to the build directory</p>
+            <code>cd build</code>
+        </div>
+        <div class="setup-step">
+            <p>Run cmake to configure the build system with buildem</p>
+            <code>cmake .. -DBUILDEM_DIR=/user-defined/path/to/build/directory</code>
+        </div>
+        <div class="setup-step">
+            <p>Build the project with make using multiple processors</p>
+            <code>make -j num_processors</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the test regressions</p>
+            <code>make test</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/libdvid-cpp Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/libdvid-cpp" target="_blank">https://github.com/janelia-flyem/libdvid-cpp</a></p>
+                <p>Description: C++ library for accessing DVID's REST API</p>
+                <p>Language: HTML</p>
+                <p>Stars: 6</p>
+                <p>Forks: 7</p>
+                <p>Last Commit: 2024-05-22T02:35:43+00:00</p>
+                <p>Contributors: stuarteberg, stephenplaza, amotta, DocSavage, m-novikov, csweaver</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.0</span></p>
+        <p>Weighted Score: <span class="score">2.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.7</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Miniconda tool for conda installation [<a href="http://conda.pydata.org/miniconda.html" target="_blank">http://conda.pydata.org/miniconda.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a build directory and change into it</p>
+            <code>mkdir build</code>
+        </div>
+        <div class="setup-step">
+            <p>Run cmake to configure the build</p>
+            <code>cd build</code>
+        </div>
+        <div class="setup-step">
+            <p>Build the project</p>
+            <code>cmake ..</code>
+        </div>
+        <div class="setup-step">
+            <p>Compile the project</p>
+            <code>make</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the project</p>
+            <code>make install</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a conda environment and install libdvid-cpp</p>
+            <code>conda create -n <NAME> -c flyem libdvid-cpp</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the regression tests</p>
+            <code>make test</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/10406c74d9df21e11a764183d160e7be51c84c04/python/docs/notebooks/basic-tutorial.ipynb" target="_blank">python/docs/notebooks/basic-tutorial.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is present but lacks detailed explanations of parameters and return types, which would enhance usability. Internal comments are clear and informative, directly aiding in code understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/10406c74d9df21e11a764183d160e7be51c84c04/python/libdvid/voxels/__init__.py" target="_blank">python/libdvid/voxels/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The provided code snippet lacks any documentation or comments. There are no docstrings or inline comments to describe the imported modules or their purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/7b32127adc66eea45ead226fc969e239b78ba139/python/tests/_test_utils.py" target="_blank">python/tests/_test_utils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation in the `bb_to_slicing` function is clear and provides an example, but other functions lack docstrings. Internal comments are minimal and do not sufficiently clarify the purpose or functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/10406c74d9df21e11a764183d160e7be51c84c04/python/bin/copy_voxels.py" target="_blank">python/bin/copy_voxels.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the docstrings is generally comprehensive and provides clear example usages. However, while internal comments are present, they are sparse in some sections, and could benefit from further clarification on complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/0287dc5f493e4feb99532ba82f635da4f79a7fbf/python/libdvid/util/view_as_blocks.py" target="_blank">python/libdvid/util/view_as_blocks.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The function is well-documented, with clear parameters, return values, and examples. However, internal comments could be improved for clarity and guidance through the more complex sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/10406c74d9df21e11a764183d160e7be51c84c04/python/libdvid/gui/__init__.py" target="_blank">python/libdvid/gui/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has no docstrings or comments explaining the purpose of the imported module, making it difficult for users and developers to understand the context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/0287dc5f493e4feb99532ba82f635da4f79a7fbf/python/tests/test_label_codec.py" target="_blank">python/tests/test_label_codec.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in form of docstrings is present but lacks depth in explaining all parameters and return values, leaving room for improvement. Internal comments are generally informative and adequately describe the logic, although some sections could use more context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/86f571bc3e5d5586bb3781a12f41e12ebd302196/python/libdvid/__init__.py" target="_blank">python/libdvid/__init__.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for the `dissect_labelmap_block` function is clear and informative, providing details on the function's return values. However, while there are some internal comments, they could be more thorough and consistent throughout the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/10406c74d9df21e11a764183d160e7be51c84c04/python/libdvid/voxels/voxels_accessor.py" target="_blank">python/libdvid/voxels/voxels_accessor.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The API documentation is thorough with clear docstrings for public methods and classes, making it easy for external users to understand their usage. Internal comments are detailed, helping developers follow complex logic and assumptions throughout the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/libdvid-cpp/blob/408594ac454faffd97f71e7a2f4d52fe03f55335/python/libdvid/voxels/voxels_metadata.py" target="_blank">python/libdvid/voxels/voxels_metadata.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite detailed for the `VoxelsMetadata` class and its methods, providing examples and parameter descriptions, which is commendable. However, some internal comments could be more thorough and there are areas where clarifications on complex logic would enhance understanding.</p>
+        </div>
+    </div>
+</body>
+</html>

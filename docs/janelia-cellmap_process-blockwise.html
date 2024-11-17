@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/process-blockwise Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/process-blockwise" target="_blank">https://github.com/janelia-cellmap/process-blockwise</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-08-05T18:37:29+00:00</p>
+                <p>Contributors: mzouink</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.7</span></p>
+        <p>Weighted Score: <span class="score">1.2</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 1.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Submit the postprocessing job with the specified configuration file</p>
+            <code>process_blockwise config.yaml</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/c5f446219a4463abe17b24e198a5b757669a593c/check_worker.py" target="_blank">check_worker.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code contains minimal comments that only describe the high-level purpose of the main execution block. There is a lack of detailed documentation for the `segment_worker` function, which reduces clarity for external users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/e9bb893f7a11bacd50799a7c1dba9153c4b661db/process_blockwise/config.py" target="_blank">process_blockwise/config.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is adequate, providing clear class initializations and some method descriptions, but lacks comprehensive docstrings explaining the purpose and usage of each class and method. Internal comments provide some context but could be more detailed to enhance clarity for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/e9bb893f7a11bacd50799a7c1dba9153c4b661db/process_blockwise/predict.py" target="_blank">process_blockwise/predict.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and does not provide clear guidance on the functions and their parameters; a docstring for each function would help significantly. Internal comments exist but are sparse and do not sufficiently clarify complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/c5f446219a4463abe17b24e198a5b757669a593c/process_blockwise/__init__.py" target="_blank">process_blockwise/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: There are no API documentation or internal comments present in the provided Python file, leading to a score of zero in both categories.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/c5f446219a4463abe17b24e198a5b757669a593c/process_blockwise/segment_function_builder.py" target="_blank">process_blockwise/segment_function_builder.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code contains very minimal comments and lacks detailed API documentation, making it difficult for external users and developers to understand its purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/ada2f4149678c49fb45ea4d952377c5bf9162be0/process_blockwise/process_functions.py" target="_blank">process_blockwise/process_functions.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation lacks docstrings for all functions, making it unclear what their input/output specifications are. Internal comments are absent, which diminishes clarity for future developers regarding code intentions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/e9bb893f7a11bacd50799a7c1dba9153c4b661db/process_blockwise/predict_worker.py" target="_blank">process_blockwise/predict_worker.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is decent, providing command-line options, but lacks detailed explanations of functions and parameters. Internal comments are present and enhance understanding but could benefit from more context in complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/e9bb893f7a11bacd50799a7c1dba9153c4b661db/process_blockwise/predict_daisy.py" target="_blank">process_blockwise/predict_daisy.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation for function parameters is present but lacks comprehensive explanations. Internal comments are sparse and only occasionally provide context, which makes it harder for developers to understand the code's logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/1775a89120316bd29e643fe0e3c7b76f47f54d6c/process_blockwise/segment_worker.py" target="_blank">process_blockwise/segment_worker.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed descriptions of functions and parameters, which makes it hard for external users to understand the code's purpose. Internal comments are sparse and do not provide sufficient context or explanations for complex logic, making the code harder to follow for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/process-blockwise/blob/e9bb893f7a11bacd50799a7c1dba9153c4b661db/process_blockwise/segment_blockwise.py" target="_blank">process_blockwise/segment_blockwise.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed docstrings for functions and modules, which can hinder understanding for external users. However, the internal comments could aid developers somewhat, as they give context for some function operations, but they are also inconsistent and sparse.</p>
+        </div>
+    </div>
+</body>
+</html>

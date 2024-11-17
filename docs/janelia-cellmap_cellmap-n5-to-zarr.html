@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/cellmap-n5-to-zarr Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/cellmap-n5-to-zarr" target="_blank">https://github.com/janelia-cellmap/cellmap-n5-to-zarr</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-09-16T16:57:24+00:00</p>
+                <p>Contributors: yuriyzubov</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.5</span></p>
+        <p>Weighted Score: <span class="score">2.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.2</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Poetry is required to handle the dependencies [<a href="https://python-poetry.org/docs/#installation" target="_blank">https://python-poetry.org/docs/#installation</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Change directory to the project directory</p>
+            <code>cd PATH_TO_POETRY_PROJECT_DIRECTORY/</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the project dependencies using Poetry</p>
+            <code>poetry install</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the script to convert N5 to Zarr container</p>
+            <code>bsub -n 15 -J n5convert -o path_to_output_log_file 'poetry run python src/to_cellmap_zarr.py --num_workers=300 --cluster=lsf --src=path_to_raw_data_n5_group(array) --inf=path_to_inference --dest=path_to_the_output_zarr_container'</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-n5-to-zarr/blob/1ae53deba549fd10804b0698f1b0952c69fc5c08/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has no API documentation or external comments, making it unclear for users and developers. This results in very low scores for both API documentation and internal comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-n5-to-zarr/blob/dfc3e547e1bde5a46cd2fa771a508455f79ea066/tests/test_cellmap_layout.py" target="_blank">tests/test_cellmap_layout.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking docstrings for functions and overall module descriptions, making it difficult for external users to understand usage. The internal comments provide some context but could be more detailed to help developers comprehend complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-n5-to-zarr/blob/aabcfd4c42abb8a4ae94c9b2145a8d95bdcccebd/src/to_cellmap_zarr.py" target="_blank">src/to_cellmap_zarr.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation lacks descriptive comments to guide external users on the purpose and usage of the command-line options. Internal comments provide some clarity but could be more detailed to enhance understandability and maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-n5-to-zarr/blob/dfc3e547e1bde5a46cd2fa771a508455f79ea066/src/copy_data.py" target="_blank">src/copy_data.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is moderately effective, with some functions lacking detailed explanations of their parameters and return types. Internal comments are informative and provide insight into the logic, though some sections could benefit from additional context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-n5-to-zarr/blob/08fcaebc6852a3874cb822cb1836ddf6e732923c/src/zarr_attrs_multiscales.py" target="_blank">src/zarr_attrs_multiscales.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking function docstrings and clear descriptions of parameters and return types, which detracts from usability for external users. Internal comments are present but often lack clarity and detail, making it difficult to understand the intention behind certain code blocks.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-n5-to-zarr/blob/705f7de0104e51ce696ad85830197f6e17c1889b/src/cellmap_layout.py" target="_blank">src/cellmap_layout.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The function docstrings are missing, making it difficult for external users to understand their purpose. Internal comments are present but lack detail, which may leave developers confused about the implementation logic.</p>
+        </div>
+    </div>
+</body>
+</html>

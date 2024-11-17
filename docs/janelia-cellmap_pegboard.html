@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/pegboard Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/pegboard" target="_blank">https://github.com/janelia-cellmap/pegboard</a></p>
+                <p>Description: Data management portal</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-02-04T19:36:11+00:00</p>
+                <p>Contributors: neomorphic</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.7</span></p>
+        <p>Weighted Score: <span class="score">1.9</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.8</p>
+        <p style="color: red">Average Code Comments Score: 1.8</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone <repository-url></code>
+        </div>
+        <div class="setup-step">
+            <p>Start the Docker containers in the background</p>
+            <code>docker compose up -d</code>
+        </div>
+        <div class="setup-step">
+            <p>Access the shell of the running Docker container</p>
+            <code>docker exec -it pegboard-pegboard-1 /bin/bash</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a superuser for the Django application</p>
+            <code>python manage.py createsuperuser</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/6591cd8344f04b4116d379ba9584ede9188183df/app/pegboard/__init__.py" target="_blank">app/pegboard/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: There is no API documentation or internal comments present in the provided Python file.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/00c59771799a1ed386dbe1220d7519503d0a1943/app/data/models.py" target="_blank">app/data/models.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal, lacking docstrings that explain the purpose and usage of the models. Internal comments are absent, making it difficult for developers to understand the code's intent or logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/6591cd8344f04b4116d379ba9584ede9188183df/app/pegboard/asgi.py" target="_blank">app/pegboard/asgi.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The file contains clear API documentation at the top, providing context about the ASGI application for external users. However, there are no internal comments explaining the code's logic or any relevant details for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/6591cd8344f04b4116d379ba9584ede9188183df/app/pegboard/wsgi.py" target="_blank">app/pegboard/wsgi.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the file's purpose and includes a helpful link for further reference, but lacks detailed comments within the code itself. Internal comments are minimal and could benefit from additional explanations of non-obvious code elements.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/bfa65b2f7dbaf89ae0c1b19ffd3c0061df673fe3/app/data/views.py" target="_blank">app/data/views.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detail on how to use the views, while the internal comments are essentially non-existent, providing no guidance for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/610e20c83b96fbc57cdeeab3c9e503f51b4ce383/app/data/admin.py" target="_blank">app/data/admin.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks adequate external API documentation; there are no docstrings or comments explaining the purpose of the admin classes and their configuration. Internal comments are minimal, offering little guidance to developers about the functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/bfa65b2f7dbaf89ae0c1b19ffd3c0061df673fe3/app/pegboard/urls.py" target="_blank">app/pegboard/urls.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is clear and provides useful links and examples for routing URLs in Django, though it lacks specific examples for the current urlpatterns. Internal comments are minimal, providing no context for the urlpatterns, which could be improved.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/6591cd8344f04b4116d379ba9584ede9188183df/app/manage.py" target="_blank">app/manage.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code includes minimal docstrings and no example usage, which limits its clarity for external users. However, there are some comments explaining the overall task and managing imports that help developers understand the code better.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/00c59771799a1ed386dbe1220d7519503d0a1943/app/data/__init__.py" target="_blank">app/data/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides basic information but lacks detail, making it somewhat helpful for users. Internal comments are sparse and do not adequately explain the logic, which may confuse developers reading the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/pegboard/blob/00c59771799a1ed386dbe1220d7519503d0a1943/app/data/tests.py" target="_blank">app/data/tests.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: There is no API documentation or meaningful comments provided in the code. The single comment does not inform users or developers about the purpose of the tests.</p>
+        </div>
+    </div>
+</body>
+</html>

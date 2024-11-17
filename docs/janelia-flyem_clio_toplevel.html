@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/clio_toplevel Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/clio_toplevel" target="_blank">https://github.com/janelia-flyem/clio_toplevel</a></p>
+                <p>Description: Clio top level cloud function</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2020-12-04T16:01:46+00:00</p>
+                <p>Contributors: neomorphic, stephenplaza</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.6</span></p>
+        <p>Weighted Score: <span class="score">2.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.0</p>
+        <p style="color: green">Average Code Comments Score: 4.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Google Cloud SDK for authentication and invoking functions [<a href="https://cloud.google.com/sdk/docs/install" target="_blank">https://cloud.google.com/sdk/docs/install</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the function in Google Cloud function environment by setting necessary environment variables</p>
+            <code>Set environment variables: OWNER, SIG_BUCKET, TRANSFER_FUNC, TRANSFER_DEST</code>
+        </div>
+        <div class="setup-step">
+            <p>Post a dataset to the Cloud function</p>
+            <code>curl -X POST -H "Content-Type: application/json" --header "Authorization: Bearer $(gcloud auth print-identity-token)" https://us-east4-flyem-private.cloudfunctions.net/clio_toplevel/datasets -d '{"mb20": { "description": "4nm MB", "location": "gs://"}}'</code>
+        </div>
+        <div class="setup-step">
+            <p>Get the datasets</p>
+            <code>curl -X GET -H "Content-Type: application/json" --header "Authorization: Bearer $(gcloud auth print-identity-token)" https://us-east4-flyem-private.cloudfunctions.net/clio_toplevel/datasets</code>
+        </div>
+        <div class="setup-step">
+            <p>Post an annotation for the dataset "mb20"</p>
+            <code>curl -X POST -H "Content-Type: application/json" --header "Authorization: Bearer $(gcloud auth print-identity-token)" https://us-east4-flyem-private.cloudfunctions.net/clio_toplevel/annotations/mb20?x=50\&y=30\&z=50 -d '{"foo": "bar"}'</code>
+        </div>
+        <div class="setup-step">
+            <p>Get annotations for the dataset "mb20"</p>
+            <code>curl -X GET -H "Content-Type: application/json" --header "Authorization: Bearer $(gcloud auth print-identity-token)" https://us-east4-flyem-private.cloudfunctions.net/clio_toplevel/annotations/mb20</code>
+        </div>
+        <div class="setup-step">
+            <p>Transfer a dataset using the transfer API</p>
+            <code>curl -X POST -H "Content-Type: application/json" --header "Authorization: Bearer $(gcloud auth print-identity-token)" https://us-east4-flyem-private.cloudfunctions.net/clio_toplevel/transfer --data-binary @transfer.json</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/clio_toplevel/blob/b74c0aa9861e6aeeeee609d16f5c07f78f25945d/function.py" target="_blank">function.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes thorough docstrings for functions, but some documentation could be clearer on certain parameters and return types. Internal comments are present and generally helpful, though a few areas could benefit from more context or clarity regarding complex logic.</p>
+        </div>
+    </div>
+</body>
+</html>

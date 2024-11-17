@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/S-Cpp Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/S-Cpp" target="_blank">https://github.com/janelia-flyem/S-Cpp</a></p>
+                <p>Description: Various analyses of the cell type data and synapses  from the Fly EM reconstructions</p>
+                <p>Language: C++</p>
+                <p>Stars: 0</p>
+                <p>Forks: 4</p>
+                <p>Last Commit: 2015-10-05T20:11:05+00:00</p>
+                <p>Contributors: csweaver</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.8</span></p>
+        <p>Weighted Score: <span class="score">1.3</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: #F88017">Setup Completeness: 2.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Additional header files from numerical methods and annotation-body.json and synapse.json files from Fly EM analysis [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Compile the project</p>
+            <code>./ms</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the analysis</p>
+            <code>s</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/scons-tools/srcdist.py" target="_blank">json/jsoncpp-src-0.5.0/scons-tools/srcdist.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation includes docstrings for functions that provide a basic overview of their purpose, but lacks detailed descriptions of parameters and return values. Internal comments are present but sparse, leading to some ambiguity in function implementation details.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/doxybuild.py" target="_blank">json/jsoncpp-src-0.5.0/doxybuild.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally clear and provides basic usage instructions, but lacks detailed descriptions in some areas, reducing clarity for users. Internal comments are helpful and mostly explain purpose well, but could be more consistent in conveying the details of complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/test/runjsontests.py" target="_blank">json/jsoncpp-src-0.5.0/test/runjsontests.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides basic usage details but lacks comprehensive descriptions for functions, particularly their parameters and return types. The internal comments are minimal, leaving some logic details unclear and could greatly benefit from additional clarifying comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/test/cleantests.py" target="_blank">json/jsoncpp-src-0.5.0/test/cleantests.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has a minimal comment at the top, but lacks detailed API documentation or descriptive comments throughout. The internal comments are sparse and do not adequately explain the logic or provide helpful context for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/devtools/antglob.py" target="_blank">json/jsoncpp-src-0.5.0/devtools/antglob.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation within the function docstrings provides a clear understanding of the intended behavior, but it lacks further detail about parameters and return values. Internal comments explain complex sections well, although some sections could benefit from a little more context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/test/generate_expected.py" target="_blank">json/jsoncpp-src-0.5.0/test/generate_expected.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks both API documentation and internal comments, making it difficult for users and developers to understand its purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/test/rununittests.py" target="_blank">json/jsoncpp-src-0.5.0/test/rununittests.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive docstrings for classes and methods, making it difficult for external users to understand the functionality. Internal comments are sparse and do not sufficiently explain the logic or reasoning behind key parts of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/devtools/fixeol.py" target="_blank">json/jsoncpp-src-0.5.0/devtools/fixeol.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation includes a brief docstring for the main function, but lacks detail on parameters and return values. Internal comments are sparse and only one function has any comments, resulting in a lower score.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/devtools/__init__.py" target="_blank">json/jsoncpp-src-0.5.0/devtools/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The file contains only a brief comment indicating it is a module, without any detailed API documentation or internal comments explaining functions or logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/S-Cpp/blob/090699535e6f08937b441a2a75f660e281b860e9/json/jsoncpp-src-0.5.0/scons-tools/globtool.py" target="_blank">json/jsoncpp-src-0.5.0/scons-tools/globtool.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a clear overview of how to use the Glob function, including parameters and an example. However, internal comments are sparse and could benefit from more detail explaining the logic within the code.</p>
+        </div>
+    </div>
+</body>
+</html>

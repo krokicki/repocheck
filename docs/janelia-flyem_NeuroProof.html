@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/NeuroProof Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/NeuroProof" target="_blank">https://github.com/janelia-flyem/NeuroProof</a></p>
+                <p>Description: Tool for graph-based image segmentation and analysis</p>
+                <p>Language: C++</p>
+                <p>Stars: 21</p>
+                <p>Forks: 9</p>
+                <p>Last Commit: 2017-11-12T14:47:42+00:00</p>
+                <p>Contributors: stephenplaza, stuarteberg, paragt, DocSavage, jakirkham</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p>Weighted Score: <span class="score">2.3</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: red">Average API Docs Score: 1.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Miniconda package manager [<a href="http://conda.pydata.org/miniconda.html" target="_blank">http://conda.pydata.org/miniconda.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install Miniconda (Linux)</p>
+            <code>wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Run Miniconda installer (Linux)</p>
+            <code>bash Miniconda-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Miniconda (Mac)</p>
+            <code>wget https://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Run Miniconda installer (Mac)</p>
+            <code>bash Miniconda-latest-MacOSX-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate conda</p>
+            <code>CONDA_ROOT=`conda info --root`</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate conda environment</p>
+            <code>source ${CONDA_ROOT}/bin/activate root</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a conda environment for NeuroProof</p>
+            <code>conda create -n CHOOSE_ENV_NAME -c flyem neuroproof</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone NeuroProof repository</p>
+            <code>git clone https://github.com/janelia-flyem/neuroproof</code>
+        </div>
+        <div class="setup-step">
+            <p>Change to the NeuroProof directory</p>
+            <code>cd neuroproof</code>
+        </div>
+        <div class="setup-step">
+            <p>Run configuration script for conda</p>
+            <code>./configure-for-conda.sh ${PREFIX}</code>
+        </div>
+        <div class="setup-step">
+            <p>Create build directory</p>
+            <code>cd build</code>
+        </div>
+        <div class="setup-step">
+            <p>Compile the project</p>
+            <code>make -j4</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the compiled project</p>
+            <code>make install</code>
+        </div>
+        <div class="setup-step">
+            <p>Test the installation</p>
+            <code>make test</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/6c9eb8485ad32519e89098940e729a7f1378e19e/python/neuroproof/FocusedProofreading/__init__.py" target="_blank">python/neuroproof/FocusedProofreading/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The provided code snippet lacks any documentation or comments, making it very difficult for users or developers to understand the purpose and functionality of the imported module.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/eac4d91ef34829d59373d3779f9c5b9538752ad0/python/neuroproof/__init__.py" target="_blank">python/neuroproof/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: No API documentation or internal comments were provided in the Python file.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/36fdfcfecd24875fdabbeabd379b7a12572ff1a1/integration_tests/testpriority_manual.py" target="_blank">integration_tests/testpriority_manual.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal comments, mostly specifying what sections are handling body or synapse modes, but lacks detailed explanations of functionality and logic. The API documentation is almost non-existent, with no function docstrings or usage notes, making it difficult for external users to understand how to utilize the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/f0b188f398d82b000fdaa40e0aa776520a962a65/integration_tests/testpyagglom.py" target="_blank">integration_tests/testpyagglom.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking any module-level docstrings or descriptions for function parameters and return values, which makes it less accessible for external users. Internal comments exist but could be more descriptive regarding the overall purpose and logic of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/36fdfcfecd24875fdabbeabd379b7a12572ff1a1/focusedproofreading/extract_paths.py" target="_blank">focusedproofreading/extract_paths.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code includes minimal comments and lacks detailed API documentation. The comments present are vague and do not sufficiently explain the functionality or purpose of the code segments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/e71d9fd5008fa44742ebc89eadc470aaeaf07918/integration_tests/test3.py" target="_blank">integration_tests/test3.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has no API documentation or internal comments, making it difficult for external users and developers to understand its purpose and usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/6c9eb8485ad32519e89098940e729a7f1378e19e/python/neuroproof/Classifier/__init__.py" target="_blank">python/neuroproof/Classifier/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of documentation or comments, making it unclear for both users and developers. The import statement does not provide any context or information about the functionality being imported.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/6c9eb8485ad32519e89098940e729a7f1378e19e/python/neuroproof/Agglomeration/__init__.py" target="_blank">python/neuroproof/Agglomeration/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of documentation or comments. It simply imports an external module without providing context or information about its usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/e71d9fd5008fa44742ebc89eadc470aaeaf07918/integration_tests/test1.py" target="_blank">integration_tests/test1.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks both API documentation and internal comments, making it difficult for users and developers to understand the purpose and functionality of the code. A brief description of the function's purpose and parameters would significantly enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuroProof/blob/e71d9fd5008fa44742ebc89eadc470aaeaf07918/integration_tests/test5.py" target="_blank">integration_tests/test5.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: There is no API documentation or internal comments provided in the code. This makes it difficult for both external users and developers to understand the purpose and functionality of the code.</p>
+        </div>
+    </div>
+</body>
+</html>

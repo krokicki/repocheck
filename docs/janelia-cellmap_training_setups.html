@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/training_setups Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/training_setups" target="_blank">https://github.com/janelia-cellmap/training_setups</a></p>
+                <p>Description: Reference for parameters of the different training setups</p>
+                <p>Language: Python</p>
+                <p>Stars: 2</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-05-09T19:38:46+00:00</p>
+                <p>Contributors: neptunes5thmoon</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.4</span></p>
+        <p>Weighted Score: <span class="score">0.3</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/67a5ce055ac23287175d182b7fe51f51ae1ff73c/v0003.2/setup37/unet_template.py" target="_blank">v0003.2/setup37/unet_template.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code includes some high-level comments describing various sections and parameters, which helps in understanding the overall structure. However, function-level documentation and inline comments explaining complex logic or parameter choices are lacking, which could improve clarity for both API users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/15efb918e7e421c71929a076116d7eb242086c05/v0003.2/setup64/unet_template.py" target="_blank">v0003.2/setup64/unet_template.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is somewhat helpful but lacks detailed explanations of functions and parameters, making it less accessible for external users. Internal comments exist but are minimal and could be more descriptive to clarify complex sections of code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/15efb918e7e421c71929a076116d7eb242086c05/v0003.2/setup62/check_inference_complete.py" target="_blank">v0003.2/setup62/check_inference_complete.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough and provides clear explanations for each function's arguments and return values. However, the internal comments are sparse, and more elaboration on the logic within the code would enhance clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/67a5ce055ac23287175d182b7fe51f51ae1ff73c/v0003.2/setup39.1/unet_template.py" target="_blank">v0003.2/setup39.1/unet_template.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some basic comments and structured formatting, but lacks comprehensive docstrings and detailed explanations for functions and parameters. While the internal comments provide some context, they could be more descriptive and provide additional clarity for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/a21f915702ce1f8ecdf07cab46a9e9418f63566d/v0003.2/setup56/inference_config.py" target="_blank">v0003.2/setup56/inference_config.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides detailed descriptions of function parameters and return types, which is beneficial for users. However, internal comments could be improved for better code understanding, particularly in complex or non-obvious sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/a21f915702ce1f8ecdf07cab46a9e9418f63566d/v0003.2/setup27.1/check_inference_complete.py" target="_blank">v0003.2/setup27.1/check_inference_complete.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is quite detailed and clear, specifying args and return types effectively. However, the internal comments are sparse and would benefit from additional explanations about the logic to enhance readability for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/a21f915702ce1f8ecdf07cab46a9e9418f63566d/v0003.2/setup26.1/check_inference_complete.py" target="_blank">v0003.2/setup26.1/check_inference_complete.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and covers function inputs and outputs well, but may benefit from examples and deeper descriptions of usage contexts. The internal comments provide some guidance, but the code would benefit from more inline comments explaining the logic and purpose of complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/67a5ce055ac23287175d182b7fe51f51ae1ff73c/v0003.2/setup34/unet_template.py" target="_blank">v0003.2/setup34/unet_template.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic information about the functionalities, and while the internal comments are generally helpful, they could be more detailed or structured to improve clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/a21f915702ce1f8ecdf07cab46a9e9418f63566d/v0003.2/setup46/inference_config.py" target="_blank">v0003.2/setup46/inference_config.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite detailed, especially for function parameters and return types, making it easy for users to understand how to interact with each function. However, while there are some inline comments, they could be improved for clarity and more context in certain areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/training_setups/blob/a21f915702ce1f8ecdf07cab46a9e9418f63566d/v0003.2/setup25/check_inference_complete.py" target="_blank">v0003.2/setup25/check_inference_complete.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough with clear descriptions of the arguments and return values for each function, making it very user-friendly. Internal comments are mostly present and helpful, but some could be more detailed to provide additional context for complex code sections.</p>
+        </div>
+    </div>
+</body>
+</html>

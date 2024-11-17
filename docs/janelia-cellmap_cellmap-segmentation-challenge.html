@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/cellmap-segmentation-challenge Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge" target="_blank">https://github.com/janelia-cellmap/cellmap-segmentation-challenge</a></p>
+                <p>Description: Repository of scripts to facilitate participation in CellMap's segmentation challenge. This includes downloading data, simple setups for training 2D and 3D models, workflows for prediction and post-processing on out-of-memory arrays, and evaluation of results against validation data.</p>
+                <p>Language: Python</p>
+                <p>Stars: 3</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-11-14T16:36:06+00:00</p>
+                <p>Contributors: rhoadesScholar, d-v-b, aemmav, mzouink, yuvipanda</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.0</span></p>
+        <p>Weighted Score: <span class="score">2.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: green">Average API Docs Score: 4.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.2</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Micromamba for package management [<a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install" target="_blank">https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install micromamba</p>
+            <code>"${SHELL}" <(curl -L micro.mamba.pm/install.sh)</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new environment with Python 3.11</p>
+            <code>micromamba create -n csc -y python=3.11</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the environment</p>
+            <code>micromamba activate csc</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the repository</p>
+            <code>git clone https://github.com/janelia-cellmap/cellmap-segmentation-challenge</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the repository in editable mode</p>
+            <code>cd cellmap-segmentation-challenge</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the package</p>
+            <code>pip install -e .</code>
+        </div>
+        <div class="setup-step">
+            <p>Fetch the challenge data</p>
+            <code>csc fetch-data</code>
+        </div>
+        <div class="setup-step">
+            <p>Train a 2D model</p>
+            <code>cd examples</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the training script for 2D</p>
+            <code>python train_2D.py</code>
+        </div>
+        <div class="setup-step">
+            <p>Run TensorBoard to visualize training metrics</p>
+            <code>tensorboard --logdir=tensorboard</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/a9d3e14bef4d6fb8ed0e40e6c1c63ebd5f5b6ab8/benchmark/evaluate.py" target="_blank">benchmark/evaluate.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has some internal comments that explain certain sections effectively, especially regarding what variables are for; however, there are areas that could benefit from additional context or purpose explanations. The API documentation is adequate but lacks comprehensive descriptions for function parameters and return values.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/887dbe91505ecc41fe80c7a0bfdc825b5e286359/src/cellmap_segmentation_challenge/evaluate.py" target="_blank">src/cellmap_segmentation_challenge/evaluate.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the function docstrings is clear and includes examples, making it easy for external users to understand usage. However, while the internal comments in the code provide some guidance, certain sections could benefit from more detailed explanations on the logic or purpose behind specific operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/a9d3e14bef4d6fb8ed0e40e6c1c63ebd5f5b6ab8/src/cellmap_segmentation_challenge/utils/datasplit.py" target="_blank">src/cellmap_segmentation_challenge/utils/datasplit.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is comprehensive and includes detailed docstrings for all functions, but there are areas where consistency could be improved, such as using a consistent format for optional parameters. Internal comments are present but could provide more insight into complex sections of code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/a9d3e14bef4d6fb8ed0e40e6c1c63ebd5f5b6ab8/src/cellmap_segmentation_challenge/train.py" target="_blank">src/cellmap_segmentation_challenge/train.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The function `train` is well-documented with a comprehensive docstring that details each parameter effectively, making it accessible for other developers. The internal comments are generally clear, though some sections could benefit from additional context to enhance understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/a9d3e14bef4d6fb8ed0e40e6c1c63ebd5f5b6ab8/tests/test.py" target="_blank">tests/test.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation and internal comments, making it difficult for external users and developers to understand its purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/a9d3e14bef4d6fb8ed0e40e6c1c63ebd5f5b6ab8/src/cellmap_segmentation_challenge/config.py" target="_blank">src/cellmap_segmentation_challenge/config.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks API documentation, such as docstrings for functions or modules, which would help external users understand its purpose. Internal comments are minimal and do not explain the purpose or usage of the defined paths.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/a9d3e14bef4d6fb8ed0e40e6c1c63ebd5f5b6ab8/src/cellmap_segmentation_challenge/cli/process.py" target="_blank">src/cellmap_segmentation_challenge/cli/process.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for the CLI commands is clear and provides helpful information about options and their defaults. However, additional inline comments within the `process_cli` function could enhance understanding for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/a9d3e14bef4d6fb8ed0e40e6c1c63ebd5f5b6ab8/src/cellmap_segmentation_challenge/cli/__init__.py" target="_blank">src/cellmap_segmentation_challenge/cli/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal, providing some command names but lacking descriptions of their functionality. Internal comments are virtually non-existent, making it challenging for developers to understand code logic or intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/5b571df09b3a14f6143b106fd603f933862ab467/src/cellmap_segmentation_challenge/models/unet_model_3D.py" target="_blank">src/cellmap_segmentation_challenge/models/unet_model_3D.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear, especially in the main class `UNet_3D`, providing parameter details, but the function-level documentation could be more robust. Internal comments are present but could be expanded for clarity, particularly in more complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-segmentation-challenge/blob/a9d3e14bef4d6fb8ed0e40e6c1c63ebd5f5b6ab8/src/cellmap_segmentation_challenge/cli/train.py" target="_blank">src/cellmap_segmentation_challenge/cli/train.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good description of the purpose of the command and its argument. However, internal comments are lacking, which would help other developers understand the code's functionality better.</p>
+        </div>
+    </div>
+</body>
+</html>

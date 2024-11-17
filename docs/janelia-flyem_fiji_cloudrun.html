@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/fiji_cloudrun Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/fiji_cloudrun" target="_blank">https://github.com/janelia-flyem/fiji_cloudrun</a></p>
+                <p>Description: Headles fiji at scale using serverless google cloud run functions</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2020-04-21T04:06:49+00:00</p>
+                <p>Contributors: stephenplaza</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.5</span></p>
+        <p>Weighted Score: <span class="score">2.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Google Cloud account and gcloud installed [<a href="https://cloud.google.com/docs/authentication/production#obtaining_and_providing_service_account_credentials_manually" target="_blank">https://cloud.google.com/docs/authentication/production#obtaining_and_providing_service_account_credentials_manually</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Build the Docker container locally</p>
+            <code>docker build . -t fiji</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Docker container</p>
+            <code>docker run -e "PORT=8080" -p 8080:8080 -v $GOOGLE_APPLICATION_CREDENTIALS:/tmp/keys/FILE_NAME.json:ro -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/keys/FILE_NAME.json fiji</code>
+        </div>
+        <div class="setup-step">
+            <p>Submit the container to Google Cloud Build</p>
+            <code>gcloud builds submit --tag gcr.io/[PROJECT_ID]/fiji_headless</code>
+        </div>
+        <div class="setup-step">
+            <p>Deploy the container to Google Cloud Run</p>
+            <code>gcloud run deploy --memory 2048Mi --concurrency 1 --cpu 2 --image gcr.io/[PROJECT_ID]/fiji_headless --platform managed</code>
+        </div>
+        <div class="setup-step">
+            <p>Create an alias for curl with authentication for Cloud Run</p>
+            <code>alias gcurl='curl --header "Authorization: Bearer $(gcloud auth print-identity-token)"'</code>
+        </div>
+        <div class="setup-step">
+            <p>Invoke the service with a simple hello world</p>
+            <code>gcurl -H "Content-Type: application/json" -X POST --data-binary @example/config.json https://[CLOUD RUN ADDR]</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/fiji_cloudrun/blob/a8796b7e4d94491072370fa5cd5d903c5d6e42a4/fiji.py" target="_blank">fiji.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear, providing details about the expected JSON input, but could benefit from additional context, especially about responses and error handling. Internal comments are sparse, and while they cover some important points, they could be expanded to explain the rationale behind specific code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/fiji_cloudrun/blob/21d5b4166d50232fa1d7f0660b4df6216a4e1de7/process_request.py" target="_blank">process_request.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the script's purpose and functionality but lacks depth on specific parameters and return values. Internal comments are present and generally helpful, but they could be more descriptive in certain areas to improve clarity.</p>
+        </div>
+    </div>
+</body>
+</html>

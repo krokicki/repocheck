@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseLand/suite2p Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/MouseLand/suite2p" target="_blank">https://github.com/MouseLand/suite2p</a></p>
+                <p>Description: cell detection in calcium imaging recordings</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 358</p>
+                <p>Forks: 243</p>
+                <p>Last Commit: 2024-06-19T12:28:06+00:00</p>
+                <p>Contributors: carsen-stringer, nickdelgrosso, marius10p, chriski777, kir0ul, tdincer, jcouto, amorsi1, jwdegee, rly, orena1, yael-prilutski, landoskape, TheUwe, bjeon90, darikoneil, arielleleon, itsb, willyh101, jkim0731, neurodroid, nguyemi5, mk-mccann, liadJB, dependabot[bot], tbenst, sidhulyalkar, nhat-le, blackfile, LelouchLamperougeVI, kabilar, hwpdalgleish, hmacomber, djkapner, chrisroat</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.0</span></p>
+        <p>Weighted Score: <span class="score">3.3</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: green">Average API Docs Score: 4.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Anaconda distribution of Python [<a href="https://www.anaconda.com/download/" target="_blank">https://www.anaconda.com/download/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Open an anaconda prompt / command prompt with conda for python 3 in the path</p>
+            <code>Open an anaconda prompt / command prompt with `conda` for **python 3** in the path</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new environment</p>
+            <code>conda create --name suite2p python=3.9</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the new environment</p>
+            <code>conda activate suite2p</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the minimal version of suite2p</p>
+            <code>python -m pip install suite2p</code>
+        </div>
+        <div class="setup-step">
+            <p>Run suite2p</p>
+            <code>python -m suite2p</code>
+        </div>
+        <div class="setup-step">
+            <p>Run suite2p from the command line</p>
+            <code>suite2p --ops <path to ops.npy> --db <path to db.npy></code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/779709c1b28c2f9ffa7304c291d374ceaa64a97f/suite2p/detection/__init__.py" target="_blank">suite2p/detection/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: There is no API documentation or internal comments in the provided code, which makes it difficult for users and developers to understand the functionality and purpose of the imported modules.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/bdd7aee9a898c153b7f664b1efe8f3e853662f3f/benchmarks/registration_metrics.py" target="_blank">benchmarks/registration_metrics.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation within the function docstrings is clear and provides a good overview of the functionality. However, there are minimal internal comments explaining the various steps and logic in the code, which could improve the clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/1505233551a8d424e32239f7f9e1b2485b605f17/tests/test_registration.py" target="_blank">tests/test_registration.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal, lacking in-depth descriptions of the functions or expected parameters, making it difficult for external users to understand. Internal comments are absent, providing no guidance for developers regarding the function logic or purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/779709c1b28c2f9ffa7304c291d374ceaa64a97f/suite2p/registration/metrics.py" target="_blank">suite2p/registration/metrics.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough, describing parameters and return types clearly for each function. However, while the code contains some comments, additional internal comments explaining critical sections or complex logic could enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/779709c1b28c2f9ffa7304c291d374ceaa64a97f/suite2p/__main__.py" target="_blank">suite2p/__main__.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and descriptive, particularly in specifying the arguments for the functions, but could include more examples or details about potential values. Internal comments exist but are sparse and could be improved to enhance understanding of the logic flow in critical sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/779709c1b28c2f9ffa7304c291d374ceaa64a97f/suite2p/__init__.py" target="_blank">suite2p/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The file lacks any external API documentation, such as docstrings for functions or classes, which makes it hard for users to understand how to utilize the API. Internal comments are also missing, offering no guidance on the purpose or functionality of the imported modules.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/3099a6c5bb280ed785ed80a42dbf0aa93df23646/scripts/make_tiff_scanimage_compatible.py" target="_blank">scripts/make_tiff_scanimage_compatible.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a clear usage example, which is helpful for users. However, the internal comments are sparse and could benefit from more detailed explanations of the functions and their parameters.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/de1eccec073cc9032da7062561e9b87fb315de1d/docs/conf.py" target="_blank">docs/conf.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The file contains clear and concise comments explaining each section and its purpose, making it easy for both users and maintainers to understand the configuration settings. External users will benefit from the documentation references provided, enhancing the overall clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/2b7cd56e60427f3dee49c294b724d39f96bc4968/suite2p/detection/detect.py" target="_blank">suite2p/detection/detect.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides detailed descriptions of function parameters and return values, aiding external users. The internal code comments are also informative, but some areas could benefit from additional clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/suite2p/blob/c88e1ba3aa2013fe379e64c7e45ae73a417eb4a7/suite2p/gui/drawroi.py" target="_blank">suite2p/gui/drawroi.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and informs the user about input parameters and return values. However, internal comments are inconsistent, with some functions lacking sufficient explanations of their processes.</p>
+        </div>
+    </div>
+</body>
+</html>

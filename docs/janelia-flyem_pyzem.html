@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/pyzem Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/pyzem" target="_blank">https://github.com/janelia-flyem/pyzem</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 2</p>
+                <p>Forks: 4</p>
+                <p>Last Commit: 2020-08-25T19:54:15+00:00</p>
+                <p>Contributors: tingzhao, stuarteberg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.6</span></p>
+        <p>Weighted Score: <span class="score">2.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.6</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Install Node.js. [<a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the repository.</p>
+            <code>git clone https://github.com/user/example-project.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Change directory into the project folder.</p>
+            <code>cd example-project</code>
+        </div>
+        <div class="setup-step">
+            <p>Install project dependencies.</p>
+            <code>npm install</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the example script.</p>
+            <code>node example.js</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/b92540cfa1d8f71a4481401a42612b4a63c210f8/pyzem/studio/MovieScriptWriter.py" target="_blank">pyzem/studio/MovieScriptWriter.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The class and method docstrings are minimal and lack detailed descriptions of parameters and return values. Internal comments are sparse and do not sufficiently explain the logic or purpose of various code blocks.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/247d0e97cb06c05bc6282b8c95636ade9867f576/pyzem/dvid/__init__.py" target="_blank">pyzem/dvid/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of documentation or comments, making it difficult for external users and developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/247d0e97cb06c05bc6282b8c95636ade9867f576/pyzem/studio/__init__.py" target="_blank">pyzem/studio/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of API documentation and internal comments. It only contains import statements and a declaration of public members, which does not provide clarity on functionality or usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/097a901c77ee013d7d45a25b84c6944e300914f7/pyzem/compute/__init__.py" target="_blank">pyzem/compute/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The file lacks any API documentation and internal comments, making it difficult for external users and developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/7a71da7af395c472f44c62b4d8f1b5aa4a5ad68d/pyzem/service/neutuse.py" target="_blank">pyzem/service/neutuse.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation covers basic route functionalities, but there are significant areas lacking comments explaining the purpose and behavior of many functions. Internal comments provide some context but are sparse, making it harder to understand the flow and specifics of the logic used.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/c8e82e2fea880ef7f597ff5e4c685668ed0a4caa/pyzem/swc/swc.py" target="_blank">pyzem/swc/swc.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for public methods is generally clear and provides useful descriptions, though some methods lack detailed documentation. Internal comments provide some guidance, but are inconsistent in completeness and do not cover all complexities in the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/7cbf480ef263d802a336d6075ce40c8a566bc0a9/pyzem/compute/command.py" target="_blank">pyzem/compute/command.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code defines an enumeration for different states but lacks any external API documentation or internal comments explaining its purpose or usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/b92540cfa1d8f71a4481401a42612b4a63c210f8/pyzem/studio/movie.py" target="_blank">pyzem/studio/movie.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks meaningful comments and API documentation, making it difficult for users and developers to understand its purpose and functionality. Only very basic indications exist, such as author notes and function names, but they do not provide enough context or explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/1f617f3bcc7b7320e6a79ca6f4dfce4b093471cd/pyzem/studio/moviehelper.py" target="_blank">pyzem/studio/moviehelper.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, providing only brief and vague descriptions in class and method docstrings, making it inadequate for understanding usage. Internal comments are above average in quantity but lack clarity and detail, which would help developers grasp the code's logic better.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pyzem/blob/c5533511344a018258889c6b1ea67da51ca677c2/pyzem/dvid/dvidenv.py" target="_blank">pyzem/dvid/dvidenv.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks detailed API documentation that explains the purpose and usage of classes and methods. Additionally, internal comments are minimal and only occasionally present, leading to lower scores overall.</p>
+        </div>
+    </div>
+</body>
+</html>

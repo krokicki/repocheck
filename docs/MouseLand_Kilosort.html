@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseLand/Kilosort Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/MouseLand/Kilosort" target="_blank">https://github.com/MouseLand/Kilosort</a></p>
+                <p>Description: Fast spike sorting with drift correction</p>
+                <p>Language: Python</p>
+                <p>Stars: 478</p>
+                <p>Forks: 248</p>
+                <p>Last Commit: 2024-11-13T21:22:37+00:00</p>
+                <p>Contributors: jacobpennington, marius10p, rossant, nsteinme, carsen-stringer, shashwatsridhar, jenniferColonell, agbondy, oliche, kushbanga, JoseGuzman, apjanke, czuba, mari-sosa, rajatsaxena, pbotros, geffenlab, kouichi-c-nakamura, djoshea, tabedzki, jd730, thejanzimmermann, jpellman, mspacek, mwawra, RobertoDF, bryzgalovdm, danieljdenman, dimokaramanlis, m-beau, nacefguessaymi, zhang3xing1</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p>Weighted Score: <span class="score">3.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.4</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.3</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Anaconda distribution of Python [<a href="https://www.anaconda.com/products/distribution" target="_blank">https://www.anaconda.com/products/distribution</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Remove any existing kilosort environment if it exists</p>
+            <code>conda env remove -n kilosort</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new conda environment for Kilosort</p>
+            <code>conda create --name kilosort python=3.9</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the new environment</p>
+            <code>conda activate kilosort</code>
+        </div>
+        <div class="setup-step">
+            <p>Install kilosort with GUI support</p>
+            <code>python -m pip install kilosort[gui]</code>
+        </div>
+        <div class="setup-step">
+            <p>Uninstall CPU version of Pytorch (if installed)</p>
+            <code>pip uninstall torch</code>
+        </div>
+        <div class="setup-step">
+            <p>Install GPU version of Pytorch</p>
+            <code>conda install pytorch pytorch-cuda=11.8 -c pytorch -c nvidia</code>
+        </div>
+        <div class="setup-step">
+            <p>Run Kilosort GUI</p>
+            <code>python -m kilosort</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/50e298e3781a41b9ba4617b93e270234d366d1f9/kilosort/gui/header_box.py" target="_blank">kilosort/gui/header_box.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal with no docstrings for the class or its methods. Internal comments exist but lack context, making it difficult for other developers to fully understand the code's functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/e8fcba389f39b596eae3f067af8ce9387f73758d/tests/test_dtype.py" target="_blank">tests/test_dtype.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is minimal, lacking docstrings for functions which could explain their purpose and parameters clearly. However, the internal comments provide useful context and reasoning for specific code sections, enhancing understandability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/e8fcba389f39b596eae3f067af8ce9387f73758d/tests/test_spikedetect.py" target="_blank">tests/test_spikedetect.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, with no docstrings present to explain function parameters or return values. The internal comments provide some context but lack depth and specificity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/f4b8c4243ebe6f652abc0258c7baef2b45c73f7c/kilosort/__init__.py" target="_blank">kilosort/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code contains a minimal comment about the exception handling, but lacks detailed API documentation for external users. Internal comments are present but do not sufficiently explain the purpose and functionality of the imported modules and variables.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/9919dc47ef2bd2b60ee576fafb9f540174284a40/kilosort/io.py" target="_blank">kilosort/io.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite comprehensive, with thorough docstrings and examples for most functions, but there's room for improvement in consistency and completeness. Internal comments are present but can be more detailed to enhance understanding of complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/ac1c0c141a6269e263db6b25a5d56d104aa73968/kilosort/spikedetect.py" target="_blank">kilosort/spikedetect.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, with function docstrings missing, which makes it hard for external users to understand the purpose and usage of the functions. Internal comments exist, but they are sparse and sometimes lack context, which could benefit from improved explanations of complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/1eee3eb7c5cc7de574febdb98e5a8a58644d6b68/tests/test_clustering.py" target="_blank">tests/test_clustering.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is somewhat present, as the functions and classes have comments explaining their purpose. However, the comments could be more detailed regarding input parameters and return values, and some inline comments could be clearer.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/e023e5d8cbf2b68f089067bb9cc3f679f71cf161/tests/test_preprocessing.py" target="_blank">tests/test_preprocessing.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is functional but lacks comprehensive descriptions and examples for external users, which may hinder understanding. Internal comments are clear and insightful, providing valuable context for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/74173418609274cb10105fdb217d923cf1f523e7/kilosort/gui/probe_view_box.py" target="_blank">kilosort/gui/probe_view_box.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed docstrings for the class and methods, which makes external understanding more difficult. However, internal comments are present and helpful, particularly in explaining the logic of calculations and GUI interactions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/Kilosort/blob/a54fa7af2101b328b3713d1a72e96ec9f91018d4/tests/test_io.py" target="_blank">tests/test_io.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The Python file includes some comments that describe the functionality of test cases and key sections of code; however, the overall API documentation is lacking detail on function purposes and parameters. Comments could be enhanced with more descriptive language to clarify the code's intent, especially for those less familiar with the codebase.</p>
+        </div>
+    </div>
+</body>
+</html>

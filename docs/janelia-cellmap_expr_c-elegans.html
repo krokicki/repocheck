@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/expr_c-elegans Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/expr_c-elegans" target="_blank">https://github.com/janelia-cellmap/expr_c-elegans</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-08-01T14:02:39+00:00</p>
+                <p>Contributors: mzouink</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.3</span></p>
+        <p>Weighted Score: <span class="score">0.2</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: #F88017">README Quality: 2.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: red">Average API Docs Score: 2.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.3</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>DaCapo for training [<a href="https://github.com/janelia-cellmap/dacapo" target="_blank">https://github.com/janelia-cellmap/dacapo</a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>Process-blockwise for inference and postprocessing [<a href="https://github.com/janelia-cellmap/process-blockwise" target="_blank">https://github.com/janelia-cellmap/process-blockwise</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scripts/submit_train.py" target="_blank">scripts/submit_train.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is nearly nonexistent, with no descriptive comments explaining what the purpose of the code is or how it should be used. The internal comments are limited to commented-out code and don't add meaningful insights into the logic or intent of the active code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scripts/plot_run.py" target="_blank">scripts/plot_run.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal comments, and while the function being called suggests it may be part of an external library, there is no explanation provided for its purpose or expected input. Improvements could include more descriptive comments explaining the overall goal of this snippet and details about the parameters being passed to the function.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scratch/update_datasplit_for_run.py" target="_blank">scratch/update_datasplit_for_run.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks sufficient external API documentation, such as docstrings and meaningful comments, making it unclear how functions and modules are intended to be used. Internal comments are minimal, consisting mostly of commented-out lines which do not convey helpful information regarding the logic or purpose of the surrounding code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scratch/tmp_generate_yaml_crops.py" target="_blank">scratch/tmp_generate_yaml_crops.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks sufficient API documentation, as functions and methods are not described, making it difficult for external users to understand their purpose. Internal comments are minimal and do not provide clear explanations of the code's intent, logic, or details on complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scripts/generate_mini_unet_run.py" target="_blank">scripts/generate_mini_unet_run.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code provides some comments but lacks detailed explanations of complex sections and parameters, which could assist users and developers in understanding the code better. Additionally, there is minimal usage of docstrings for functions and classes, leading to lower scores for both API documentation and internal comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scratch/fix_config_yaml.py" target="_blank">scratch/fix_config_yaml.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides clear descriptions for the main functions, explaining their purpose and parameters. However, there are limited inline comments within the code, which would help improve understanding of some logic parts.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scripts/validate_all_checkpoints.py" target="_blank">scripts/validate_all_checkpoints.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal external documentation or docstrings explaining functions or their parameters, making it hard for users to understand the API usage. Internal comments are sparse and focus only on high-level operations, lacking detail for developers to grasp the implementation nuances.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scripts/generate_run_config_starter_setup04.py" target="_blank">scripts/generate_run_config_starter_setup04.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and does not provide clear explanations for how to use the components, which limits usability for external users. Internal comments are somewhat present but lack specificity regarding function details or complex operations, reducing understandability for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scripts/validate_checkpoint.py" target="_blank">scripts/validate_checkpoint.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: There is no API documentation or meaningful internal comments present in the code, making it difficult for external users and developers to understand the purpose or functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/expr_c-elegans/blob/c1465957c67629fc7b62d7ec442ae4e0fb1c7977/scripts/submit_validate_all_iterations.py" target="_blank">scripts/submit_validate_all_iterations.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some comments regarding the runs, but lacks detailed documentation on what the script does or how to use it. Internal comments are minimal and do not explain the purpose of commands clearly.</p>
+        </div>
+    </div>
+</body>
+</html>

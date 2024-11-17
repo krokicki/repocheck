@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/cluster-calclabels Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/cluster-calclabels" target="_blank">https://github.com/janelia-flyem/cluster-calclabels</a></p>
+                <p>Description: Framework for clustering label computation of an image dataset</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2015-07-08T20:57:13+00:00</p>
+                <p>Contributors: </p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p>Weighted Score: <span class="score">2.2</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Install Golang to use 'go get' command [<a href="https://golang.org/doc/install" target="_blank">https://golang.org/doc/install</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the cluster-calclabels service</p>
+            <code>go get github.com/janelia-flyem/cluster-calclabels</code>
+        </div>
+        <div class="setup-step">
+            <p>Install CalcLabelOrchestration</p>
+            <code>python setup.py build</code>
+        </div>
+        <div class="setup-step">
+            <p>Install CalcLabelOrchestration</p>
+            <code>python setup.py install</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/cluster-calclabels/blob/d8042a73d120a941ba40f27baf3f1c52677143c3/CalcLabelOrchestration/setup.py" target="_blank">CalcLabelOrchestration/setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation provides essential details about the package, including its name, version, and purpose, but lacks details on usage or examples. There are no internal comments to clarify the code, which would benefit developers looking to understand the setup configuration.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/cluster-calclabels/blob/0c0c4e65f806764a426fe53e8b086883e94cd28d/CalcLabelOrchestration/orchestration/stitch_labels.py" target="_blank">CalcLabelOrchestration/orchestration/stitch_labels.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, primarily consisting of a single description in the argument parser. Internal comments exist but lack detail, making it hard for a developer to fully understand the code's intended functionality without further context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/cluster-calclabels/blob/d8042a73d120a941ba40f27baf3f1c52677143c3/CalcLabelOrchestration/orchestration/remap_labels.py" target="_blank">CalcLabelOrchestration/orchestration/remap_labels.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, with only one brief description for the argument being documented; there are no docstrings for functions, which is crucial for understanding their purpose. Internal comments exist but are sparse and do not fully explain the logic or intention behind code segments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/cluster-calclabels/blob/da4e5fdf6f7467e59ee81fdee9da4a881af9213e/CalcLabelOrchestration/orchestration/__init__.py" target="_blank">CalcLabelOrchestration/orchestration/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some basic information, but lacks depth and explicit examples. Internal comments are sparse and do not sufficiently explain complex logic or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/cluster-calclabels/blob/2cefb30becf82c726b6bee72e2715585747a661c/CalcLabelOrchestration/orchestration/commit_labels.py" target="_blank">CalcLabelOrchestration/orchestration/commit_labels.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, only providing a brief description for the main function and command-line argument. Internal comments exist, but many are vague or outdated, and there are large blocks of commented-out code that detract from clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/cluster-calclabels/blob/2cefb30becf82c726b6bee72e2715585747a661c/CalcLabelOrchestration/orchestration/calclabels_cluster.py" target="_blank">CalcLabelOrchestration/orchestration/calclabels_cluster.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is somewhat adequate, with some overall explanations but lacks in specific method descriptions, making it less helpful for external users. Internal comments exist but they are not consistently useful; some methods lack comments, and variable naming can be improved for better understanding.</p>
+        </div>
+    </div>
+</body>
+</html>

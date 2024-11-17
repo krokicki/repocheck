@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/cosem_notebooks Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/cosem_notebooks" target="_blank">https://github.com/janelia-cellmap/cosem_notebooks</a></p>
+                <p>Description: Various notebooks for one-off operations</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2020-05-20T16:20:48+00:00</p>
+                <p>Contributors: d-v-b</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.1</span></p>
+        <p>Weighted Score: <span class="score">0.1</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 1.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/52b6addda8396c29cf401eb8bdb791d76c38353e/contrast_limits.ipynb" target="_blank">contrast_limits.ipynb</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has no API documentation or internal comments to explain its purpose or functionality. This lack of documentation significantly hinders understandability for both external users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/52b6addda8396c29cf401eb8bdb791d76c38353e/fibsem_preprocessing.ipynb" target="_blank">fibsem_preprocessing.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive API documentation and clear comments to explain the purpose and details of the functions. Inline comments are sparse and do not adequately clarify complex operations, making it hard for other developers to understand the code quickly.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/52b6addda8396c29cf401eb8bdb791d76c38353e/s3_admin.ipynb" target="_blank">s3_admin.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking function docstrings and overall context for users, but some internal comments exist, primarily describing key steps in the process. More detailed explanations and structured documentation would significantly improve clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/013c9b215055b1d4fd2428f381803a24bae35cc5/downsampling_for_gleb.ipynb" target="_blank">downsampling_for_gleb.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed descriptions of function parameters and outputs, which hinders understanding of how to use the library. Internal comments offer some context but could benefit from clearer explanations and better organization.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/52b6addda8396c29cf401eb8bdb791d76c38353e/n5-viewer.ipynb" target="_blank">n5-viewer.ipynb</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation and internal comments, making it difficult for users or developers to understand its purpose and functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/b497cd0424bf1482ea9448ae425cda0b9c8c53af/groundtruth_to_n5.ipynb" target="_blank">groundtruth_to_n5.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation at the beginning provides a clear overview of the notebook's purpose and functionality, which is beneficial for users. However, the internal comments within the code could be more detailed and consistent, especially in explaining complex logic or parameters.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/52b6addda8396c29cf401eb8bdb791d76c38353e/parallelizing_mrc_ops.ipynb" target="_blank">parallelizing_mrc_ops.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code contains some function definitions, but lacks detailed docstrings explaining the purpose and usage of the functions, making it hard for external users to understand how to use the API. Additionally, internal comments are sparse and do not sufficiently clarify the code's logic or intention.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/52b6addda8396c29cf401eb8bdb791d76c38353e/n5_deletion.ipynb" target="_blank">n5_deletion.ipynb</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is nearly non-existent as there are no docstrings or explanations of the functions or classes used. Internal comments are minimal and do not provide sufficient context for complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/52b6addda8396c29cf401eb8bdb791d76c38353e/n5_for_ng.ipynb" target="_blank">n5_for_ng.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code includes some external references and basic comments about the n5 support structure but lacks detailed in-line comments explaining the purpose of specific code sections or logic. While there’s some context provided through comments, the overall clarity and completeness for future maintainer understanding is not sufficient.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cosem_notebooks/blob/dc8fe28c50a46f5b378fab5e11869da3fa7bdae5/add_metadata_to_masks.ipynb" target="_blank">add_metadata_to_masks.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides an overview of the functionality but lacks specific details about function parameters and return values. Internal comments are present; however, they are minimal and do not clarify the logic of potentially complex sections.</p>
+        </div>
+    </div>
+</body>
+</html>

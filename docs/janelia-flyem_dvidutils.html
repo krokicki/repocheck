@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/dvidutils Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/dvidutils" target="_blank">https://github.com/janelia-flyem/dvidutils</a></p>
+                <p>Description: A collection of utility functions for dealing with dvid data</p>
+                <p>Language: C++</p>
+                <p>Stars: 0</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2024-08-07T19:47:20+00:00</p>
+                <p>Contributors: stuarteberg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.8</span></p>
+        <p>Weighted Score: <span class="score">2.7</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Conda package manager [<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the dvidutils package using conda</p>
+            <code>conda install -c flyem-forge dvidutils</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Python and necessary packages for development</p>
+            <code>conda install -c conda-forge python=3.6 cmake xtensor-python</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a build directory</p>
+            <code>mkdir build</code>
+        </div>
+        <div class="setup-step">
+            <p>Change to the build directory</p>
+            <code>cd build</code>
+        </div>
+        <div class="setup-step">
+            <p>Configure the project using cmake</p>
+            <code>cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG="-g -O0 -DXTENSOR_ENABLE_ASSERT=ON" -DCMAKE_PREFIX_PATH="${CONDA_PREFIX}"</code>
+        </div>
+        <div class="setup-step">
+            <p>Build the project</p>
+            <code>make</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the project</p>
+            <code>make install</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvidutils/blob/23aecbf86cad06be85fbc7e05c6522bc36de6f8b/dvidutils/__init__.py" target="_blank">dvidutils/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, with no high-level overview or indication of the module's purpose. Internal comments provide some context but lack clarity on the overall functionality and usage of the functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvidutils/blob/98ae1543cb9d390b58127536d6e94bed66e9413f/tests/test_pydraco.py" target="_blank">tests/test_pydraco.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal with no docstrings provided for any functions, making it difficult for external users to understand their purpose. Internal comments exist but are often sparse and would benefit from more context, especially in complex functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvidutils/blob/98ae1543cb9d390b58127536d6e94bed66e9413f/tests/test_remap_duplicates.py" target="_blank">tests/test_remap_duplicates.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking overall explanations for functions and parameters. Internal comments provide moderate clarity on some operations but could be expanded for better understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvidutils/blob/98ae1543cb9d390b58127536d6e94bed66e9413f/tests/test_labelmapper.py" target="_blank">tests/test_labelmapper.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has good API documentation with clear explanations in the fixture and test functions, but lacks detailed comments explaining non-obvious logic sections. Internal comments are somewhat sparse, making it harder for developers to quickly grasp the purpose behind certain code segments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvidutils/blob/98ae1543cb9d390b58127536d6e94bed66e9413f/tests/test_downsample.py" target="_blank">tests/test_downsample.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code has clear comments and assertions that explain the purpose of the tests and some edge cases, which aids in understanding the test structure. However, the API documentation for functions could be improved for external users, especially in detailing parameters and return types.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvidutils/blob/44bba9e1c05e95f50303f33eaf9b8aa9b04c702b/docs/conf.py" target="_blank">docs/conf.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code contains sufficient internal comments that clarify the purpose of various settings, but the API documentation itself is minimal. It lacks detailed explanations and usage examples that would be helpful for users unfamiliar with the project.</p>
+        </div>
+    </div>
+</body>
+</html>

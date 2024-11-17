@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/amira_python_extensions Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/amira_python_extensions" target="_blank">https://github.com/janelia-cellmap/amira_python_extensions</a></p>
+                <p>Description: Extensions to Amira for reading and writing common array container formats (HDF5, N5)</p>
+                <p>Language: Batchfile</p>
+                <p>Stars: 1</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2024-06-17T21:12:27+00:00</p>
+                <p>Contributors: yuriyzubov, davidackerman, d-v-b</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.5</span></p>
+        <p>Weighted Score: <span class="score">1.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: red">Average API Docs Score: 0.0</p>
+        <p style="color: red">Average Code Comments Score: 0.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Download the Enthought EDM installer</p>
+            <code>curl https://package-data.enthought.com/edm/win_x86_64/2.0/edm_2.0.0_x86_64.msi -o %userprofile%\Downloads\edm_2.0.0_x86_64.msi</code>
+        </div>
+        <div class="setup-step">
+            <p>Set log file variable</p>
+            <code>set logfile=%userprofile%\amira_python_extension_log.txt</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Enthought EDM installer</p>
+            <code>%userprofile%\Downloads\edm_2.0.0_x86_64.msi >%logfile% 2>&1</code>
+        </div>
+        <div class="setup-step">
+            <p>Import the Python environment</p>
+            <code>%userprofile%\AppData\Local\Programs\Enthought\edm\edm.bat envs import --force -f "C:\Program Files\Thermo Scientific Amira-Avizo3D 2021.1\python\bundles\3dSoftware_win64.json" hxEnv >>%logfile% 2>&1</code>
+        </div>
+        <div class="setup-step">
+            <p>Install necessary Python packages</p>
+            <code>%userprofile%\AppData\Local\Programs\Enthought\edm\edm.bat run -e hxEnv pip install zarr numcodecs olefile et_xmlfile dask[array] >>%logfile% 2>&1</code>
+        </div>
+        <div class="setup-step">
+            <p>Set Python path variable</p>
+            <code>setx HX_FORCE_PYTHON_PATH %userprofile%\.edm\envs\hxEnv >>%logfile% 2>&1</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+    </div>
+</body>
+</html>

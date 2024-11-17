@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/cellmap-api-aws Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/cellmap-api-aws" target="_blank">https://github.com/janelia-cellmap/cellmap-api-aws</a></p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-08-15T16:11:16+00:00</p>
+                <p>Contributors: d-v-b</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.0</span></p>
+        <p>Weighted Score: <span class="score">2.1</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.1</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a virtual environment</p>
+            <code>python3 -m venv .venv</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the virtual environment on MacOS and Linux</p>
+            <code>source .venv/bin/activate</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the virtual environment on Windows</p>
+            <code>.venv\Scripts\activate.bat</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the required dependencies</p>
+            <code>pip install -r requirements.txt</code>
+        </div>
+        <div class="setup-step">
+            <p>Synthesize the CloudFormation template</p>
+            <code>cdk synth</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-api-aws/blob/2395a50be905ba1f01b3119cdfeb4dd158566aa4/app.py" target="_blank">app.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation and internal comments, which severely limits understanding for both external users and developers. The only code present is initialization, which does not provide contextual information or explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-api-aws/blob/9824e1111445b675511047cde757f8be4cbff120/cellmap_api_aws/cellmap_api_aws_stack.py" target="_blank">cellmap_api_aws/cellmap_api_aws_stack.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal external documentation and lacks clear comments explaining the individual components and their purposes. Internal comments are sparse, which makes understanding the design decisions and functionality more difficult for someone unfamiliar with the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-api-aws/blob/cff04298e1b3bcd68ead0951a74caa749e5f74ab/cellmap_api_aws/__init__.py" target="_blank">cellmap_api_aws/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation lacks clarity and detail, making it difficult for external users to understand its usage. Internal comments are present but could benefit from more context and explanation for complex code segments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-api-aws/blob/cff04298e1b3bcd68ead0951a74caa749e5f74ab/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation, and internal comments are minimal and do not provide meaningful insight into the functionality or purpose of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-api-aws/blob/cff04298e1b3bcd68ead0951a74caa749e5f74ab/tests/unit/__init__.py" target="_blank">tests/unit/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detail, making it difficult for external users to understand the usage of the functions. Internal comments provide some context but could be more descriptive and consistent for better clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-api-aws/blob/cff04298e1b3bcd68ead0951a74caa749e5f74ab/tests/unit/test_cellmap_api_aws_stack.py" target="_blank">tests/unit/test_cellmap_api_aws_stack.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed explanations of the purpose and use of the test function. However, there are some comments that provide context for running the tests, which is helpful.</p>
+        </div>
+    </div>
+</body>
+</html>

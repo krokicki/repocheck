@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/DVIDSparkServices Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/DVIDSparkServices" target="_blank">https://github.com/janelia-flyem/DVIDSparkServices</a></p>
+                <p>Description: Spark implemented EM reconstruction software workflows</p>
+                <p>Language: Python</p>
+                <p>Stars: 8</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2019-04-03T15:31:15+00:00</p>
+                <p>Contributors: stuarteberg, stephenplaza, grisaitis</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.3</span></p>
+        <p>Weighted Score: <span class="score">3.0</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.7</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Miniconda for managing packages and environments [<a href="http://conda.pydata.org/miniconda.html" target="_blank">http://conda.pydata.org/miniconda.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install miniconda (Linux)</p>
+            <code>wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the installer for miniconda</p>
+            <code>bash Miniconda-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate conda environment</p>
+            <code>CONDA_ROOT=`conda info --root`</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the root environment</p>
+            <code>source ${CONDA_ROOT}/bin/activate root</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new conda environment and install dvidsparkservices</p>
+            <code>conda create -n <NAME> -c flyem dvidsparkservices</code>
+        </div>
+        <div class="setup-step">
+            <p>Build the package</p>
+            <code>python setup.py build</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the package</p>
+            <code>python setup.py install</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the workflow (as an example)</p>
+            <code>spark-submit --master local[4] DVIDSparkServices/workflow/launchworkflow.py ComputeGraph -c <configfile>.json</code>
+        </div>
+        <div class="setup-step">
+            <p>Unzip test data for running integration tests</p>
+            <code>gunzip integration_tests/resources/*.gz</code>
+        </div>
+        <div class="setup-step">
+            <p>Run integration tests</p>
+            <code>python integration_tests/launch_tests.py</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/435655796fedea7e0a3903711ea79efdc2297f8a/DVIDSparkServices/reconutils/metrics/plugins/edit_stat.py" target="_blank">DVIDSparkServices/reconutils/metrics/plugins/edit_stat.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of the class and its methods, although it could benefit from more specific examples. Internal comments are present and helpful but could be more detailed in certain sections for improved clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/b51423037641c77768262b80f1fb0f273e46cf9c/DVIDSparkServices/workflows/CreatePyramid.py" target="_blank">DVIDSparkServices/workflows/CreatePyramid.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is somewhat adequate, providing a JSON schema and some overall descriptions, but it lacks detailed information on class methods and expected behaviors. Internal comments are generally informative but could be clearer and more consistent throughout the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/5425faa5ba82a5ed1e267bb11c857d1faabe5ae7/scripts/copy-meshes.py" target="_blank">scripts/copy-meshes.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a detailed description of the script, usage examples, and prerequisite installations, which is very useful for users. Internal comments are clear and help explain the function's purpose and logic, but some blocks could benefit from slightly more context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/62e47b6e51a38bf47338eaaa486f417204a3215e/DVIDSparkServices/dvid/metadata.py" target="_blank">DVIDSparkServices/dvid/metadata.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is quite thorough, particularly for function arguments and return types, making it useful for external users. Internal comments are less consistent; some functions lack detailed explanations of complex operations, which could hinder readability for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/7e7751745407ea1ff1e42701ba520ae4b95ab9f4/unit_tests/reconutils/unit_tests/__init__.py" target="_blank">unit_tests/reconutils/unit_tests/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: No API documentation or internal comments were provided to evaluate.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/4842bd7bbb28e3f516c94e555200729b6ba8ae52/unit_tests/test_slice_files_volume_service.py" target="_blank">unit_tests/test_slice_files_volume_service.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear descriptions of class and method purposes, making it less accessible for external users. Code comments are sparse and don't provide detailed insights into complex sections, which could hinder understanding for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/4842bd7bbb28e3f516c94e555200729b6ba8ae52/DVIDSparkServices/sparkdvid/Subvolume.py" target="_blank">DVIDSparkServices/sparkdvid/Subvolume.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides helpful descriptions for the class and methods, though some method-level comments could be expanded for clarity. The internal comments are informative and offer useful context, but there are a few areas where additional context or explanations might improve the understanding of the logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/491e1fa594fb26dd5891a6897bb9eedc509db730/DVIDSparkServices/reconutils/metrics/plugins/autapse_stat.py" target="_blank">DVIDSparkServices/reconutils/metrics/plugins/autapse_stat.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes a class-level docstring and method docstrings but lacks comprehensive details about parameters and return types. Internal comments are generally informative and assist in understanding the logic but could be more descriptive in certain areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/7e7751745407ea1ff1e42701ba520ae4b95ab9f4/unit_tests/io_util/test_dvidSrc.py" target="_blank">unit_tests/io_util/test_dvidSrc.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of what each test case does, but lacks detailed information on parameter types and return values. Internal comments are present but not comprehensive, which may make understanding the code flow challenging for new developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDSparkServices/blob/0a2d99070546719d9f20856444cbb1735c164e6f/DVIDSparkServices/reconutils/misc.py" target="_blank">DVIDSparkServices/reconutils/misc.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally clear and includes descriptions for function parameters and return values, but some functions could benefit from more detailed comments about their purpose and usage. Internal comments are good at explaining complex logic but could be more consistent in detail across different sections.</p>
+        </div>
+    </div>
+</body>
+</html>

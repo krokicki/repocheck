@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/transfer_em Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/transfer_em" target="_blank">https://github.com/janelia-flyem/transfer_em</a></p>
+                <p>Description: Style transfer of EM data volumes using cycle GANs</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2021-03-10T01:04:39+00:00</p>
+                <p>Contributors: stuarteberg, stephenplaza</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.4</span></p>
+        <p>Weighted Score: <span class="score">1.7</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.7</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Tensorflow 2.2 and matplotlib [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the package</p>
+            <code>python setup.py install</code>
+        </div>
+        <div class="setup-step">
+            <p>Install necessary Python libraries for training and other features</p>
+            <code>pip install tqdm pillow</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a source distribution of the package for uploading</p>
+            <code>python setup.py sdist --formats=gztar</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/97d5d5ecaba0b33734b7b5df997004eb3936e3b4/examples/run_cloud_predict_service.ipynb" target="_blank">examples/run_cloud_predict_service.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed explanations of parameters or return values, making it difficult for external users to understand how to use the functions. Internal comments provide some context but could be improved by elaborating on the function's usage and providing more in-line explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/25d4b9dfc162d7cfd97c4d69c30517df2aff8e2b/transfer_em/cgan.py" target="_blank">transfer_em/cgan.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is fairly comprehensive, particularly the class docstrings and method descriptions, though it could benefit from additional examples or descriptions of some parameters. The internal comments are present but not always detailed enough for easy understanding of some complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/210dad39f94c432c25c25f0e92e402b703146ea7/transfer_em/models/__init__.py" target="_blank">transfer_em/models/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: The provided content lacks any documentation and comments, making it impossible to assess or understand the code's functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/97d5d5ecaba0b33734b7b5df997004eb3936e3b4/predict_service.py" target="_blank">predict_service.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and well-structured, with detailed descriptions of arguments and return values. However, some internal comments could be more descriptive, particularly within the `predict` method, to enhance understanding of the code flow.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/6d072d76c00c838c403cacf7bc6ee39bfa11a8f1/custom_online/setup.py" target="_blank">custom_online/setup.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks both API documentation and internal comments, providing no context or guidance for users or developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/2f255b82ad6aaa7866aa1806241e437e42527c72/transfer_em/predict_cloud.py" target="_blank">transfer_em/predict_cloud.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides comprehensive details about the function's parameters and return value, although it could elaborate a bit more on the context of use. The internal comments explain important steps but could be more detailed regarding the purpose of specific code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/2f255b82ad6aaa7866aa1806241e437e42527c72/transfer_em/debug.py" target="_blank">transfer_em/debug.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is mostly clear and provides good guidance on the purpose of each function, but it lacks detail on parameters and return values. Internal comments clarify certain parts of the code, but some areas could use more contextual information for greater clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/46c26aa04c774c29eb923f62def001dff83fa7cd/transfer_em/__init__.py" target="_blank">transfer_em/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is present but lacks detail in some areas, which may make it challenging for external users to fully understand the usage. Internal comments are generally clear and helpful, but additional context in complex sections would improve clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/97d5d5ecaba0b33734b7b5df997004eb3936e3b4/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation provides basic details about the package, but lacks in-depth explanations on usage and functionality. There are no internal comments explaining the code, which would benefit other developers reading or modifying it.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/transfer_em/blob/31543a2530e6f4dc7463e651c3745e68865fc208/examples/simple_training.ipynb" target="_blank">examples/simple_training.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detailed comments explaining the overall purpose of the code or the significance of the functions used. However, there are sufficient internal comments that guide the reader through the main processing steps.</p>
+        </div>
+    </div>
+</body>
+</html>

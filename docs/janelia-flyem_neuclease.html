@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/neuclease Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/neuclease" target="_blank">https://github.com/janelia-flyem/neuclease</a></p>
+                <p>Description: Tools for computing interactive "cleaves" of agglomerated neuron fragments from a DVID server.</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 9</p>
+                <p>Forks: 5</p>
+                <p>Last Commit: 2024-11-15T18:49:06+00:00</p>
+                <p>Contributors: stuarteberg, DocSavage, pgunn</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.2</span></p>
+        <p>Weighted Score: <span class="score">1.6</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 1.0</p>
+        <p style="color: #F88017">README Quality: 3.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install Neuclease package using conda</p>
+            <code>conda install -c flyem-forge -c conda-forge neuclease</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/2baf3001c8d5cdc11416da6bcdcc98864d44345e/neuclease/tests/__init__.py" target="_blank">neuclease/tests/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: The provided content does not include any specific Python code for evaluation, making it impossible to assess the quality of API documentation and internal comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/b0a4693388955727fae21c3d35506b1c19ab00cd/neuclease/dvid/kafka.py" target="_blank">neuclease/dvid/kafka.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive and well-organized, detailing arguments, return types, and special cases for each function. Internal comments are mostly present but could be slightly more detailed in certain areas for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/60b04cc5c67c06c30ba520d036c522d691fc9be2/neuclease/bin/__init__.py" target="_blank">neuclease/bin/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a basic understanding but lacks detailed explanations for each function. However, the internal comments are clear and helpful for other developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/c32835e2f8d5320ea4209974b6cb08668fd3c4a8/neuclease/bin/paste_sparsevols.py" target="_blank">neuclease/bin/paste_sparsevols.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the function docstrings is clear and provides a thorough explanation of parameters and return values, which is very helpful for users. However, while the internal comments are mostly informative, some sections could benefit from additional clarity or simplification for optimal understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/fd34725b7579fc8c371d387904c1f68708f5ee75/neuclease/clustering/blockmodel.py" target="_blank">neuclease/clustering/blockmodel.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, clearly describing the purpose, parameters, and return values of each function. Internal comments are helpful but could be expanded in some complex logic sections for better clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/23ebf5dc559fef0c6946020521297580eae90029/neuclease/cleave/merge_graph.py" target="_blank">neuclease/cleave/merge_graph.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, with detailed descriptions of functionalities, arguments, and return values, making it clear and accessible for users. Internal comments largely explain complex code sections effectively, though some less critical parts could use additional clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/fd34725b7579fc8c371d387904c1f68708f5ee75/neuclease/misc/evaluate_mito_count_results.py" target="_blank">neuclease/misc/evaluate_mito_count_results.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the script's purpose and its requirements, but lacks detailed function descriptions. Internal comments are abundant and generally helpful, though some sections could benefit from further clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/661d33754f64da0247139462539e30df441a87c2/neuclease/clio/_clio.py" target="_blank">neuclease/clio/_clio.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and explains the purpose and behavior of the functions and the decorator well. However, more detailed inline comments would improve clarity, especially in complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/434acb46937a0618db5bbbb439a3bc2b1b760eb3/zzz-oneoff/export_screenshots.py" target="_blank">zzz-oneoff/export_screenshots.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The file contains a general description of its purpose and instructions for using third-party tools, but lacks detailed function-level documentation. Internal comments are present but are minimal and could provide more clarity on the code's logic and steps.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neuclease/blob/e4d8527aeb2642c80d6abda8af491ae715e38638/neuclease/dvid/keyvalue/__init__.py" target="_blank">neuclease/dvid/keyvalue/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation or internal comments. Importing a module without accompanying documentation or comments provides no clarity for users or developers.</p>
+        </div>
+    </div>
+</body>
+</html>

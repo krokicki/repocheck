@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/flyem-snapshot Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/flyem-snapshot" target="_blank">https://github.com/janelia-flyem/flyem-snapshot</a></p>
+                <p>Description: Connectome exports and reports</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-10-28T17:49:23+00:00</p>
+                <p>Contributors: stuarteberg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p>Weighted Score: <span class="score">2.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 4.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.7</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.8</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Conda package manager to create and manage environments [<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a new conda environment named 'flyem' with the neuclease package</p>
+            <code>conda create -n flyem neuclease</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the flyem-snapshot repository from GitHub</p>
+            <code>git clone ssh://git@github.com/janelia-flyem/flyem-snapshot</code>
+        </div>
+        <div class="setup-step">
+            <p>Change directory into the cloned repository</p>
+            <code>cd flyem-snapshot</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the package in the current environment</p>
+            <code>python setup.py develop</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/f405eb5f4ccc66bee89fc1c0d2c0fa69ecb6db17/flyem_snapshot/bin/inspect_neuprint_snapshot.py" target="_blank">flyem_snapshot/bin/inspect_neuprint_snapshot.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is clear and provides necessary details on usage, inputs, and expected errors, earning a good score. However, the internal comments in the code are minimal, lacking explanations of key components and logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/b2dea3fcb1348d75c6ba25ed15584a7ffa229ec7/flyem_snapshot/outputs/neuprint/util.py" target="_blank">flyem_snapshot/outputs/neuprint/util.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is present but could be more detailed and consistent; some functions lack clear descriptions of parameters and return values. Internal comments are insightful and help understand the code logic, but they could benefit from additional clarification in certain complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/746d87e6a5f34944c10dec035683a893084d2383/flyem_snapshot/inputs/sizes.py" target="_blank">flyem_snapshot/inputs/sizes.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a good level of detail regarding the parameters and behavior of functions, making it relatively easy for users to understand the purpose of the methods. Internal comments describe the logic in some sections, but greater consistency and depth in explanatory comments would improve developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/7541ca8b70674b084d2afd7c6743fe0446681531/flyem_snapshot/outputs/neuprint/meta.py" target="_blank">flyem_snapshot/outputs/neuprint/meta.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The API documentation is thorough but lacks some introductory comments for complex functions. The internal comments are detailed and helpful, explaining the purpose and mechanics of the code effectively.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/16a22e7de27bf6b7cadf6f3334e44285300e623b/flyem_snapshot/outputs/flat.py" target="_blank">flyem_snapshot/outputs/flat.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear regarding the configuration options and the main function gives a good overview, although the function descriptions could benefit from more detail on parameters and return types. The internal comments effectively explain the logic in the helper functions, but some sections could use additional context or clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/a38ddbed33252b669002612237a9440d6c8db2be/flyem_snapshot/inputs/neurotransmitters.py" target="_blank">flyem_snapshot/inputs/neurotransmitters.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a comprehensive overview of the expected configurations and return types, along with clear function descriptions. However, while the internal comments are useful, they could be more frequent and detailed in some areas to aid understanding of complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/04680de8ee99f4dde9d17bbad2abd90c396e406b/flyem_snapshot/outputs/neuprint/neuprint.py" target="_blank">flyem_snapshot/outputs/neuprint/neuprint.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough, especially with clear descriptions of configuration settings and methods, which is beneficial for users. However, while there are internal comments, some crucial parts of the code could use more clarity on complex logic or context to aid future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/923f489b89727b8d04a6ea22b124412905b5934f/flyem_snapshot/outputs/neuprint/segment.py" target="_blank">flyem_snapshot/outputs/neuprint/segment.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The public API functions are mostly documented, but the docstrings are often too sparse and lack detailed information about parameters and return types. Internal comments are generally clear and help explain the code, though some functions could benefit from additional context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/e01e6b11d3b2e18cdeb16fd33299df4b7574877f/flyem_snapshot/outputs/neuprint/synapse.py" target="_blank">flyem_snapshot/outputs/neuprint/synapse.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is moderately effective, with some key functions documented and using decorators for clarity, but lacks detailed docstrings for parameters and return types. Internal comments are generally clear, explaining the logic and structure of code well, but could benefit from additional context for complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flyem-snapshot/blob/74f515b73a64d9fbafe6062f446eaeaf4f4121a4/flyem_snapshot/outputs/neuprint/neuroglancer.py" target="_blank">flyem_snapshot/outputs/neuprint/neuroglancer.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides good context on the functionality, but could benefit from example usage to enhance clarity for external users. Internal comments are decent but lack detail in some areas where the logic could be better explained.</p>
+        </div>
+    </div>
+</body>
+</html>

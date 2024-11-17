@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/utils-share Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/utils-share" target="_blank">https://github.com/janelia-cellmap/utils-share</a></p>
+                <p>Description: Repository for sharing useful pieces of code relevant to CellMap projects</p>
+                <p>Language: Python</p>
+                <p>Stars: 2</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-06-25T19:18:41+00:00</p>
+                <p>Contributors: rhoadesScholar, davidackerman, mzouink, yuriyzubov</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.1</span></p>
+        <p>Weighted Score: <span class="score">0.1</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 1.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/8c7a4de98d8b43224d8de3cb9b3aabe9b0023399/zubovy/mrc-to-zarr/src/__init__.py" target="_blank">zubovy/mrc-to-zarr/src/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some basic information but lacks detailed explanations and examples, while internal comments are sporadic and insufficient for a complex understanding of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/c10ba2b3cb280c8a5071b5f6b5adf58ebef74e5e/zouinkhim/postprocessing/daisy/config.py" target="_blank">zouinkhim/postprocessing/daisy/config.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is lacking as there are no docstrings explaining the purpose of the functions or modules. However, the internal comments provide some context about specific code sections, albeit they could be more detailed.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/08896d7429c17e382429c21193784baccdabae93/rhoadesj/blockwise_empanada.py" target="_blank">rhoadesj/blockwise_empanada.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code lacks comprehensive API documentation, with minimal comments explaining the purpose and functionality of key components. Internal comments are present but often limited to variable assignments without context, making it harder for new users or developers to fully understand the code's purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/d8f368e45965a991330f46c19871f37d1ef59cee/zouinkhim/postprocessing/er/config_er_new.py" target="_blank">zouinkhim/postprocessing/er/config_er_new.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks sufficient API documentation for external users, offering minimal context or function descriptions. Internal comments are sparse and mostly commented-out lines, which do not provide clear guidance on functionality or logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/d476f9cf004b4794d8fe787a41800d35c009bc9f/rhoadesj/tif_to_n5.py" target="_blank">rhoadesj/tif_to_n5.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic explanations of parameters in the `tif_to_n5` function, but lacks comprehensive docstrings. Internal comments are generally helpful, guiding the reader through the code, though some complex sections could benefit from additional clarification.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/d8f368e45965a991330f46c19871f37d1ef59cee/rhoadesj/daisy/config_mito_memb_clean.py" target="_blank">rhoadesj/daisy/config_mito_memb_clean.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has minimal comments that lack clarity and detail, making it hard to understand the overall functionality. While some sections are commented, many important transformations and choices are left unexplained.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/e0e9d6f404604e52b43b6175899058306986898c/ackermand/convert-tiffs/graph_recoloring.py" target="_blank">ackermand/convert-tiffs/graph_recoloring.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detailed descriptions of the functions and their parameters, which limits usability for external users. Internal comments provide some context but often lack clarity on complex algorithms or decisions, thus needing improvement.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/f60687aa8ea5d12328fb7ebf25d9ba81a3181f8a/zouinkhim/postprocessing/clean/mito_pipeline.py" target="_blank">zouinkhim/postprocessing/clean/mito_pipeline.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear descriptions for functions and parameters, which would benefit users trying to understand usage. Code comments provide some clarity, but they often focus on print statements and inner workings rather than describing the intent and function of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/fcc8d14d991c8753cda7fb710fc192e10d4a3ba0/zubovy/min_max_zarr/tests/__init__.py" target="_blank">zubovy/min_max_zarr/tests/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a basic overview but lacks detail in some areas, while the internal comments are frequent and helpful, clarifying complex sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/utils-share/blob/dedaad319d37d2bfceb6d99b169525ee9841b854/ackermand/neuroglancer/neuroglancer_python_examples.ipynb" target="_blank">ackermand/neuroglancer/neuroglancer_python_examples.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is somewhat lacking, as there are no docstrings or comments explaining functions or parameters. However, the internal comments are helpful and provide good context for the code's functionality.</p>
+        </div>
+    </div>
+</body>
+</html>

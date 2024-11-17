@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/FlyEM_Web_Visualization Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/FlyEM_Web_Visualization" target="_blank">https://github.com/janelia-flyem/FlyEM_Web_Visualization</a></p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2015-02-23T15:27:27+00:00</p>
+                <p>Contributors: </p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.0</span></p>
+        <p>Weighted Score: <span class="score">0.0</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: red">Average API Docs Score: 2.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/FlyEM_Web_Visualization/blob/cb491224889d71b23bdbf015644deafc5b3e8e52/src/Body_Parser.py" target="_blank">src/Body_Parser.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, missing detailed descriptions of the main functions and classes, which makes it challenging for external users to understand usage. Internal comments exist but are inconsistent and sometimes lack clarity about the purpose of various code sections, leading to potential confusion.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/FlyEM_Web_Visualization/blob/cb491224889d71b23bdbf015644deafc5b3e8e52/src/functions_common.py" target="_blank">src/functions_common.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear descriptions of function purposes and parameters, making it harder for external users to understand how to use the functions. Internal comments are present but often limited and could be more informative regarding the function logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/FlyEM_Web_Visualization/blob/cb491224889d71b23bdbf015644deafc5b3e8e52/src/graph_maker.py" target="_blank">src/graph_maker.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed explanations of the functions and their parameters which are essential for external users. Internal comments provide some contextual information but are inconsistent and often vague, leaving room for improvement in conveying the purpose and functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/FlyEM_Web_Visualization/blob/cb491224889d71b23bdbf015644deafc5b3e8e52/src/wcc_load.py" target="_blank">src/wcc_load.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation lacks clear and concise docstrings explaining the purpose and usage of the functions, which would help external users. However, there are some internal comments within functions that outline the logic, but they could be more descriptive and consistent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/FlyEM_Web_Visualization/blob/cb491224889d71b23bdbf015644deafc5b3e8e52/src/Core_Parser.py" target="_blank">src/Core_Parser.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of documentation or comments explaining its purpose, functionality, or any of the steps involved. This makes it very difficult for other developers to understand or maintain the code.</p>
+        </div>
+    </div>
+</body>
+</html>

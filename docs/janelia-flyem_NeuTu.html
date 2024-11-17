@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/NeuTu Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/NeuTu" target="_blank">https://github.com/janelia-flyem/NeuTu</a></p>
+                <p>Description: Software package for neuron reconstruction and visualization</p>
+                <p>Language: C++</p>
+                <p>Stars: 38</p>
+                <p>Forks: 13</p>
+                <p>Last Commit: 2024-04-04T13:28:02+00:00</p>
+                <p>Contributors: tingzhao, olbris, hubbardp, gnayuy, fenglinqing, ephemera2015, stuarteberg, DocSavage</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.9</span></p>
+        <p>Weighted Score: <span class="score">2.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Miniconda installation is required before running these commands. [<a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">https://docs.conda.io/en/latest/miniconda.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Download and run the installation script for NeuTu.</p>
+            <code>curl -X GET https://raw.githubusercontent.com/janelia-flyem/NeuTu/develop/neurolabi/shell/setup_neutu.sh > setup_neutu.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Execute the downloaded setup script with the intended installation directory.</p>
+            <code>bash setup_neutu.sh <install_dir> neutu-develop</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Miniconda on Mac.</p>
+            <code>curl -X GET https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh > Miniconda-latest-MacOSX-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Miniconda installer on Mac.</p>
+            <code>bash Miniconda-latest-MacOSX-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Miniconda on Linux.</p>
+            <code>curl -X GET https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh > Miniconda-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Miniconda installer on Linux.</p>
+            <code>bash Miniconda-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment after installation.</p>
+            <code>source <CONDA_ROOT>/bin/activate <NAME></code>
+        </div>
+        <div class="setup-step">
+            <p>Launch the NeuTu application after successful installation.</p>
+            <code>neutu</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/9c7e1692ad4507af0ca49cb4e58c116f31829c51/neurolabi/gui/ext/gtest/scripts/pump.py" target="_blank">neurolabi/gui/ext/gtest/scripts/pump.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The file includes a comprehensive module docstring that explains its purpose and usage, along with function-level docstrings that describe behavior and parameters. Internal comments, although generally clear, could be improved for clarity in some complex sections, yet they effectively assist in understanding the code structure.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/9c7e1692ad4507af0ca49cb4e58c116f31829c51/neurolabi/python/flyem/VerifyRelease.py" target="_blank">neurolabi/python/flyem/VerifyRelease.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks comprehensive documentation for external users, such as docstrings or usage examples, making it challenging to understand its purpose. Internal comments are sparse and do not sufficiently clarify complex operations or the overall flow of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/9c7e1692ad4507af0ca49cb4e58c116f31829c51/neurolabi/gui/ext/gtest/test/gtest_env_var_test.py" target="_blank">neurolabi/gui/ext/gtest/test/gtest_env_var_test.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes clear purpose statements for functions and classes, which aids external users in understanding the code's functionality. Internal comments within the code are also present and helpful, explaining the intention behind specific actions, but they could be more extensive in some areas.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/98ef9d31eaea600f25e06b52495e43d9348153a7/neurolabi/gui/ext/massedit.py" target="_blank">neurolabi/gui/ext/massedit.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The API documentation is generally clear and provides a good level of detail, but could benefit from more examples for clarity. Internal comments are comprehensive and helpful for understanding the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/9c7e1692ad4507af0ca49cb4e58c116f31829c51/neurolabi/python/flyem/dvidreader.py" target="_blank">neurolabi/python/flyem/dvidreader.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation in the class and its methods is minimal and lacks detail; it primarily consists of short docstrings that do not explain parameters or return values. Internal comments are scarce and do not provide sufficient context for code functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/5bd09cf905823b592eada1586aa281eb17d5f3c1/neurolabi/gui/ext/gtest/test/gtest_color_test.py" target="_blank">neurolabi/gui/ext/gtest/test/gtest_color_test.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides meaningful descriptions for functions and classes, although it could include more details about arguments and return types. Internal comments effectively explain the purpose of test cases in a concise manner.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/9c7e1692ad4507af0ca49cb4e58c116f31829c51/neurolabi/python/flyem/DvidService.py" target="_blank">neurolabi/python/flyem/DvidService.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detailed descriptions of methods and parameters, which could hinder understanding for external users. Internal comments are also insufficient, providing only generic descriptions that do not help clarify the code logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/9c7e1692ad4507af0ca49cb4e58c116f31829c51/neurolabi/python/flyem_process.py" target="_blank">neurolabi/python/flyem_process.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks clear API documentation and comprehensive comments that would help external users and developers understand the functionality. While some print statements provide basic insights into the flow, there are no meaningful explanations or comments within the code itself.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/1022c182a3e8e9b4d8c37f18da20380d7750814d/neurolabi/python/test/split_test.py" target="_blank">neurolabi/python/test/split_test.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, with only a brief description for the argparse parser, lacking details for functions and their parameters. Code comments are sparse and do not adequately explain the logic or purpose of key sections, making it challenging for other developers to understand the code's intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/NeuTu/blob/9c7e1692ad4507af0ca49cb4e58c116f31829c51/neurolabi/gui/ext/gtest/xcode/Scripts/versiongenerate.py" target="_blank">neurolabi/gui/ext/gtest/xcode/Scripts/versiongenerate.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation in the form of docstrings provides a clear overview of the script's purpose and assumptions. Internal comments are mostly clear and specific, but some could be more descriptive regarding their implementation context.</p>
+        </div>
+    </div>
+</body>
+</html>

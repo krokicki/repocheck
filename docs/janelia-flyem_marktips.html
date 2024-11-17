@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/marktips Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/marktips" target="_blank">https://github.com/janelia-flyem/marktips</a></p>
+                <p>Description: mark neuron skeleton tips with to do items in DVID</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2019-10-29T15:03:22+00:00</p>
+                <p>Contributors: olbris, stuarteberg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.4</span></p>
+        <p>Weighted Score: <span class="score">2.4</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 2.0</p>
+        <p style="color: green">Average API Docs Score: 4.5</p>
+        <p style="color: green">Average Code Comments Score: 4.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python packages required for the script [<a href="https://github.com/flyconnectome/dvid_tools" target="_blank">https://github.com/flyconnectome/dvid_tools</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the requests library</p>
+            <code>pip install requests</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the dvid_tools library</p>
+            <code>pip install git+https://github.com/flyconnectome/dvid_tools.git</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/marktips/blob/f7399a1b7fac9b7b561d34f80d2a882e7241eaf8/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is clear and conveys necessary package information, but lacks detailed docstrings for functions and classes. The internal comments are minimal, which could hinder comprehension for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/marktips/blob/e87034e40dcb95c9c402628dfbed24656d5f4238/versioneer.py" target="_blank">versioneer.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The API documentation is comprehensive and provides detailed descriptions of the purpose and usage of the Versioneer tool, including configurations and installation instructions. Internal comments are thorough, effectively explaining the purpose of functions and sections of code, which aids in understanding the logic and flow of the implementation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/marktips/blob/e87034e40dcb95c9c402628dfbed24656d5f4238/marktips/_version.py" target="_blank">marktips/_version.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code is well-documented with clear module-level and function-level docstrings, explaining the purpose and functionality effectively. Internal comments provide valuable context and clarify complex sections, but some could be more concise or improved for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/marktips/blob/e87034e40dcb95c9c402628dfbed24656d5f4238/marktips/__init__.py" target="_blank">marktips/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has no API documentation and lacks comments explaining the functionality. This makes it difficult for external users and developers to understand the code's purpose.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/marktips/blob/f1d3f1f6fff3e02fe9e4a500fe7333968beaa111/marktips/marktips.py" target="_blank">marktips/marktips.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation score is high due to clear and concise docstrings for most methods, making the API usage understandable. However, internal comments are sparse in some areas, leading to a lower score as they could better explain the complex logic and flows within the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/marktips/blob/f7399a1b7fac9b7b561d34f80d2a882e7241eaf8/marktips/marktipshistory.py" target="_blank">marktips/marktipshistory.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal and lacks detailed function descriptions or usage examples, which makes it difficult for external users to understand how to utilize the code effectively. However, the internal comments provide some helpful context, though they could be more informative and consistent throughout the code.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/neutuse Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/neutuse" target="_blank">https://github.com/janelia-flyem/neutuse</a></p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 3</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2020-01-10T20:21:18+00:00</p>
+                <p>Contributors: ephemera2015, tingzhao, stuarteberg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.6</span></p>
+        <p>Weighted Score: <span class="score">2.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>pyzem is required to run the database [<a href="https://github.com/janelia-flyem/pyzem" target="_blank">https://github.com/janelia-flyem/pyzem</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Clone the neutuse repository</p>
+            <code>git clone https://github.com/janelia-flyem/neutuse.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Navigate into the neutuse directory</p>
+            <code>cd neutuse</code>
+        </div>
+        <div class="setup-step">
+            <p>Install neutuse</p>
+            <code>python setup.py install</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the pyzem repository</p>
+            <code>git clone https://github.com/janelia-flyem/pyzem</code>
+        </div>
+        <div class="setup-step">
+            <p>Navigate into the pyzem directory</p>
+            <code>cd pyzem</code>
+        </div>
+        <div class="setup-step">
+            <p>Install pyzem</p>
+            <code>python setup.py install</code>
+        </div>
+        <div class="setup-step">
+            <p>Create configuration directory</p>
+            <code>mkdir neutuse-configs</code>
+        </div>
+        <div class="setup-step">
+            <p>Navigate into the configuration directory</p>
+            <code>cd neutuse-configs</code>
+        </div>
+        <div class="setup-step">
+            <p>Create skeletonize configuration file</p>
+            <code>cat > skeletonize_config.yaml << EOF
+number: 1
+log: /tmp/neutuse_skeletonize.log
+command: /miniconda/envs/neutu/bin/neutu
+EOF</code>
+        </div>
+        <div class="setup-step">
+            <p>Create process configuration file</p>
+            <code>cat > process_config.yaml << EOF
+address:
+    host: localhost
+    port: 2018
+number: 1
+log: /tmp/neutuse.log
+process:
+    - name: skeletonize
+      config: skeletonize_config.yaml
+EOF</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the database service</p>
+            <code>neutuse start database --config process_config.yaml</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the polling process in a separate terminal</p>
+            <code>neutuse start process --config process_config.yaml</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/f8a6089680092fbb14e1cf64f5505dd5ea868947/neutuse/process/spec/__init__.py" target="_blank">neutuse/process/spec/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a basic overview but lacks detailed usage examples. Internal comments are generally clear and helpful, improving code readability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/d4ffaddfe9e0828fd361e4dccaab259ff63ee0f7/neutuse/database/apiv1.py" target="_blank">neutuse/database/apiv1.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API is documented at a high level with a brief file description, but endpoint-specific documentation and usage examples are lacking. Internal comments are sparse and do not provide sufficient clarity on the logic and functionality, making understanding the code more challenging.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/1c75858424c13c6329979d70ded09e8f24cce3e0/neutuse/database/utils/mail.py" target="_blank">neutuse/database/utils/mail.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal, lacking docstrings for classes and methods, which would help users understand usage. Internal comments are virtually absent, leaving unclear some of the method implementations and their intentions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/2437c36e0ce9e8165556c4e5ee0f2a7cae20ff7d/neutuse/neutuse.py" target="_blank">neutuse/neutuse.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough and provides clear usage instructions for each command, but it could benefit from additional high-level descriptions and examples. Internal comments exist but are sparse, and more detailed inline commentary would improve developer understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/d4ffaddfe9e0828fd361e4dccaab259ff63ee0f7/neutuse/database/manager.py" target="_blank">neutuse/database/manager.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code includes some basic comments that describe certain functions and classes, but lacks comprehensive documentation for many methods and features, making it harder for external users to understand how to use the API effectively. The internal comments explain some functionality, though they are sparse and could be more detailed to improve code maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/bec293c01de3d2a7cd765fda86d82f24c358058d/neutuse/database/models.py" target="_blank">neutuse/database/models.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has minimal API documentation and lacks clear external usage instructions, making it hard for users to understand how to use the classes and functions. Internal comments are present but could provide more context to improve clarity, especially for complex functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/5d02c5a5b01a369f2250a2df551067e5e3cee2ff/neutuse/__init__.py" target="_blank">neutuse/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: There are no docstrings or comments explaining the purpose of the imported modules or functions, significantly hindering external understanding and developer maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/86ac89b34bcefc8599ec07665103e373a291abeb/neutuse/database/__init__.py" target="_blank">neutuse/database/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any documentation or comments, making it difficult for both external users and developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/cf9cd67eabb47d66310fb05837a1d9778d0e3100/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any internal comments explaining its functionality, and there is minimal API documentation provided, making it difficult for external users to understand configurations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/neutuse/blob/d2d20e7089eaa5579ee0983e6ba198efb2572a24/neutuse/database/server.py" target="_blank">neutuse/database/server.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The class and its methods have sufficient docstrings that briefly describe their purpose, but there's room for more detail about parameters and return values. The internal comments are clear and informative, aiding developers in understanding the code flow.</p>
+        </div>
+    </div>
+</body>
+</html>

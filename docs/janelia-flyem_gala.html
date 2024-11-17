@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/gala Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/gala" target="_blank">https://github.com/janelia-flyem/gala</a></p>
+                <p>Description: Automatic segmentation of electron microscopy volumes</p>
+                <p>Language: Python</p>
+                <p>Stars: 76</p>
+                <p>Forks: 29</p>
+                <p>Last Commit: 2021-01-15T14:17:34+00:00</p>
+                <p>Contributors: jni, stephenplaza, JohnnyTeutonic, DocSavage, NealJMD, anirbanchakraborty, tobiasmaier, jakirkham, apiszcz, jefferis, pmbuko, stuarteberg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.9</span></p>
+        <p>Weighted Score: <span class="score">2.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python 3.5 or higher is required. [<a href="" target="_blank"></a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the Gala package using pip.</p>
+            <code>pip install gala</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a Conda environment for gala using the environment file.</p>
+            <code>conda env create -f environment.yml</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Gala using distutils in your preferred Python environment.</p>
+            <code>python setup.py install</code>
+        </div>
+        <div class="setup-step">
+            <p>Build the project using CMake and make.</p>
+            <code>cmake -D BUILDEM_DIR=/path/to/platform-specific/build/dir <gala directory></code>
+        </div>
+        <div class="setup-step">
+            <p>Compile the project.</p>
+            <code>make</code>
+        </div>
+        <div class="setup-step">
+            <p>Run tests to check the installation of Gala.</p>
+            <code>py.test</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/893085a4e3e423372eaee85f0e87cc5968d5e12b/tests/test_agglo.py" target="_blank">tests/test_agglo.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation includes some docstrings, but they are minimal and lack detail on parameters and return types. Internal comments are sparse, making it harder for a developer to understand the code's intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/93cc124742ed0830833f13799fc446c5506eb466/gala/option_manager.py" target="_blank">gala/option_manager.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for the 'OptionManager' class is primarily strong, providing clear descriptions and examples, but some methods lack docstrings. Internal comments are present but sparse; more inline comments would improve clarity about the code logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/faca1155d538db6a15b710a62f37ea1b52619e43/gala/agglo2.py" target="_blank">gala/agglo2.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough, providing clear explanations for parameters, return types, and even examples for most functions, which greatly aids in understanding usage. Internal comments are useful but could benefit from slightly more detail in certain complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/93cc124742ed0830833f13799fc446c5506eb466/gala/segmentation_pipeline.py" target="_blank">gala/segmentation_pipeline.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides clear and structured explanations of function parameters and return types, which is beneficial for users. Internal comments exist but are inconsistent; while many functions have high-level descriptions, more granular comments detailing specific logic within the functions would enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/93cc124742ed0830833f13799fc446c5506eb466/gala/test_package.py" target="_blank">gala/test_package.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has minimal comments and lacks proper docstrings for classes and methods, making it difficult for users to understand the API's functionality. Although some code sections have inline comments, they are not sufficient to explain the overall purpose and usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/93cc124742ed0830833f13799fc446c5506eb466/gala/mergequeue.py" target="_blank">gala/mergequeue.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, lacking docstrings for classes and methods which would improve understanding of the code's functionality. Internal comments are also sparse, limiting clarity on the purpose and usage of certain methods.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/241164c0d7a16f3f13fc35eeca4116c5898f3eb6/gala/agglo.py" target="_blank">gala/agglo.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for functions and classes is detailed and provides clear parameters and return types, which is helpful for users. However, internal comments could be more consistent and might improve clarity in certain complex functions.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/93cc124742ed0830833f13799fc446c5506eb466/gala/features/__init__.py" target="_blank">gala/features/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clear descriptions of features and usage. Internal comments are virtually non-existent, making it hard for developers to understand the purpose or usage of the modules.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/39099f6a8aa706aeadec7dc9e4142915f98745b6/tests/test_features.py" target="_blank">tests/test_features.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The function docstrings provide a basic understanding of their purpose, but more comprehensive explanations are missing for many functions. Internal comments are sparse, making it difficult for developers unfamiliar with the code to follow along.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/gala/blob/b2938416dfbabba31dcbc3fc546cf20231c1d933/tests/example-data/example.py" target="_blank">tests/example-data/example.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking explanations of the overall module purpose and specific function usage, which limits usability for external users. However, there are some comments that clarify certain sections of code, providing a moderate level of detail for developers.</p>
+        </div>
+    </div>
+</body>
+</html>

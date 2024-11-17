@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/dvid Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/dvid" target="_blank">https://github.com/janelia-flyem/dvid</a></p>
+                <p>Description: Distributed, Versioned, Image-oriented Dataservice</p>
+                <p>Language: Go</p>
+                <p>Stars: 197</p>
+                <p>Forks: 33</p>
+                <p>Last Commit: 2024-11-15T03:11:31+00:00</p>
+                <p>Contributors: DocSavage, stuarteberg, rivo, neomorphic, pgunn, dependabot[bot], yarikoptic, olbris, nmlgc, dylex, tartavull, stephenplaza</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.4</span></p>
+        <p>Weighted Score: <span class="score">2.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.9</p>
+        <p style="color: green">Average Code Comments Score: 4.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Download the latest release of DVID from the releases page</p>
+            <code>wget https://github.com/janelia-flyem/dvid/releases/latest/download/dvid-linux-amd64</code>
+        </div>
+        <div class="setup-step">
+            <p>Make the DVID binary executable</p>
+            <code>chmod +x dvid-linux-amd64</code>
+        </div>
+        <div class="setup-step">
+            <p>Run DVID with the specified configuration file</p>
+            <code>./dvid-linux-amd64 -config <path-to-config-file></code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid/blob/96ba361d05adc0a2e4ced2023c9671b6c3063e59/storage/gbucket/testGbucket.py" target="_blank">storage/gbucket/testGbucket.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 5/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the requirements, including specific functions with detailed docstrings explaining their behavior. Internal comments are very comprehensive, detailing the purpose of each helper function and the steps in testing, making the code easy to understand.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/dvid/blob/debca93fcb0bb205d6cdd0c343207683ea769ad1/scripts/record-git-description.py" target="_blank">scripts/record-git-description.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some comments that explain its purpose, but they lack detail on the specific functionalities and parameters. Additionally, it lacks a comprehensive docstring for the overall script, which would help users understand how to utilize it effectively.</p>
+        </div>
+    </div>
+</body>
+</html>

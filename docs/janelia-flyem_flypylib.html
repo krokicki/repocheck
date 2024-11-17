@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/flypylib Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/flypylib" target="_blank">https://github.com/janelia-flyem/flypylib</a></p>
+                <p>Description: flyem python library for synapse/object detection</p>
+                <p>Language: Python</p>
+                <p>Stars: 7</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2018-11-02T21:16:40+00:00</p>
+                <p>Contributors: gbhuang, hueifang, pgunn</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.4</span></p>
+        <p>Weighted Score: <span class="score">2.4</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.3</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.2</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Miniconda is required to create a conda environment and install packages. [<a href="http://conda.pydata.org/miniconda.html" target="_blank">http://conda.pydata.org/miniconda.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Download the Miniconda installer for Linux.</p>
+            <code>wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the Miniconda installer.</p>
+            <code>bash Miniconda3-latest-Linux-x86_64.sh</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the root conda environment.</p>
+            <code>CONDA_ROOT=`conda info --root`</code>
+        </div>
+        <div class="setup-step">
+            <p>Install flypylib, ipython, and matplotlib in a new conda environment.</p>
+            <code>conda create -n <NAME> -c flyem-forge -c conda-forge flypylib ipython matplotlib</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/3873b79ec80e5ee124777d000157911072f8355a/scripts/fpl_example.py" target="_blank">scripts/fpl_example.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some comments that describe overall steps but lacks detailed documentation for functions and parameters, making it difficult for external users to understand the API. Internal comments are present but could be more descriptive to clarify complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/77ce274e5f0a09a4d3c4ef857f4f440f991e257e/scripts/fpl_cx1_0_vgg_1ss.py" target="_blank">scripts/fpl_cx1_0_vgg_1ss.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code contains some comments, but they are sparse and do not adequately explain complex logic or the purpose of various sections. The lack of detailed docstrings and overall context reduces its effectiveness for both API documentation and internal understanding.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/8c92a43a62c2b3aa36400c58d64a24bc9ada28a6/flypylib/__init__.py" target="_blank">flypylib/__init__.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a clear overview of the package and directs users to additional resources, which is helpful. However, the internal comments within the code are minimal, lacking detailed explanations of functionality or usage.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/f4249756da95ccb4e3ff69a8db6710b175ecc38a/flypylib/fplutils.py" target="_blank">flypylib/fplutils.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, with function names and parameters lacking detailed descriptions. Internal comments are present but do not provide enough context or explanations, especially for complex sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/fca564808668a00c562a58e7e158aea179be463f/scripts/fpl_cx1_0_unet_4ss_all.py" target="_blank">scripts/fpl_cx1_0_unet_4ss_all.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some basic comments that outline the purpose of variables and steps but lacks detailed explanations or documentation for the functions and classes used, making it difficult for external users to understand the code's functionality without prior knowledge. Internal comments are somewhat helpful but could be more descriptive regarding the strategy or processes being implemented.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/600b19130d1c9a987176036300e7b6a2cd7dc52f/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has no API documentation or internal comments, providing no context or explanation for its functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/c1886e24738d8f12cd3a870c2c211dc2743dbb66/flypylib/fplerroranalysis.py" target="_blank">flypylib/fplerroranalysis.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking docstrings for classes and methods, which makes it difficult for external users to understand usage. However, there are some internal comments explaining specific functionality, contributing to a decent understanding for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/530eb05c5d3889535f5e4346f05965c06f5084b6/flypylib/fplmodels.py" target="_blank">flypylib/fplmodels.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code contains basic function-level docstrings that describe the purpose of the models and loss functions, which is helpful. However, more detailed documentation explaining the parameters and the expected behavior of the functions could significantly improve clarity for API users.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/52d90f4e714c8cd78b92f4521ded83b9f42a9143/scripts/fpl_cx1_0_vgg_4ss.py" target="_blank">scripts/fpl_cx1_0_vgg_4ss.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has some comments explaining the purpose of certain lines, but these comments are minimal and do not provide enough context for someone unfamiliar with the code. There is no function or class documentation, which hinders understanding of the overall architecture and API.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flypylib/blob/bbaee87200068262b0b02a3682b28012a11242c1/flypylib/fplobjdetect.py" target="_blank">flypylib/fplobjdetect.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation within the function docstrings is detailed and clear, providing comprehensive parameter descriptions and return values. However, some internal comments could be enhanced for clarity on complex pieces of logic.</p>
+        </div>
+    </div>
+</body>
+</html>

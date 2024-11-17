@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/DVIDScripts Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/DVIDScripts" target="_blank">https://github.com/janelia-flyem/DVIDScripts</a></p>
+                <p>Description: Repository for useful scripts for interacting with DVID</p>
+                <p>Language: JavaScript</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2016-11-01T20:00:15+00:00</p>
+                <p>Contributors: csweaver, ErikaNeace, umayaml</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.1</span></p>
+        <p>Weighted Score: <span class="score">0.1</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.5</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.8</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/13db7d39e9279d901bca35f326f323fd24afdaa0/export_dvid_synapses.py" target="_blank">export_dvid_synapses.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a basic understanding of the script's purpose and usage examples. However, internal comments are sparse and lack detail, making it difficult for developers to grasp the logic without reading the entire code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/3fec0f4a10261543f33481daceb6c5e0f4dfbfa5/generate_dvid_assignment.py" target="_blank">generate_dvid_assignment.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a brief overview of the script's purpose, but lacks detailed explanations of parameters and return values, which could benefit external users. Internal comments are sparse and do not adequately elucidate complex code sections, making it harder for developers to understand the implementation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/4738c3d8af6ab7edabce0d248fddc29327d081a9/filter_roi_annot_synapse.py" target="_blank">filter_roi_annot_synapse.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation at the beginning provides clear examples of how to use the script, which is a strong point. However, while the function docstrings are helpful, some functions lack detailed comments explaining their purpose and behavior within the overall script.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/bf3eacf5333a755d50f92f948de9afcd7ed1360f/3DMetrics/metrics_for_substacks.py" target="_blank">3DMetrics/metrics_for_substacks.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The function docstrings provide a basic level of API documentation, clearly stating the parameters and expected return types, but additional examples or more detailed descriptions would enhance clarity. Internal comments exist but are sparse and sometimes unclear; they could benefit from more context regarding the logic and purpose behind certain operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/b135698db44dbbf749b2584bf8b675d06899f928/export_body_synapses.py" target="_blank">export_body_synapses.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation at the top briefly describes the purpose of the script but lacks detailed explanations of parameters and outputs. Internal comments are present but often lack clarity and could be improved for better understanding of the code logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/65dbcf6b4ca28e7ca6a843dc98937aa217253a08/generate_body_stats.py" target="_blank">generate_body_stats.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking clear descriptions of parameters, return values, and usage examples beyond the basic command-line usage. Internal comments exist but are often vague or commented-out, which reduces their usefulness to developers trying to understand the code's functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/cd874c3c4e009d23c7c83e6c9b140ac8689bd20a/Dashboard/LoadDataToDVID/DVIDLoad.py" target="_blank">Dashboard/LoadDataToDVID/DVIDLoad.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed descriptions of the script's purpose and usage, leading to a score of 2. However, the internal comments provide some guidance on the code functionality but could be more comprehensive.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/62cebff4d00875b769b845e59f60adabb6fdc28c/parse_annotations_with_body_list.py" target="_blank">parse_annotations_with_body_list.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed explanations of the function or parameters, making it difficult for external users to understand usage. Internal comments provide some clarity on the code's operations, but they are sparse and could be more descriptive.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/7fc2bd4b45573987eeaa3011fe49be5b898a37ec/group_synapses_to_bodies.py" target="_blank">group_synapses_to_bodies.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal, only providing a basic usage guide in print statements. Internal comments are sparse and mainly consist of commented-out debugging prints, lacking clear explanations of the code's functionality and intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDScripts/blob/13db7d39e9279d901bca35f326f323fd24afdaa0/export_dvid_bookmarks.py" target="_blank">export_dvid_bookmarks.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides a brief overview and usage example, but lacks detailed descriptions of inputs and outputs. Internal comments are minimal and do not fully explain the purpose of certain code blocks, making it harder for developers to understand the code's functionality.</p>
+        </div>
+    </div>
+</body>
+</html>

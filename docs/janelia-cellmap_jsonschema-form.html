@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/jsonschema-form Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/jsonschema-form" target="_blank">https://github.com/janelia-cellmap/jsonschema-form</a></p>
+                <p>Description: Schematized forms</p>
+                <p>Language: TypeScript</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-10-31T21:24:25+00:00</p>
+                <p>Contributors: neomorphic</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">2.5</span></p>
+        <p>Weighted Score: <span class="score">1.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: red">Average API Docs Score: 0.0</p>
+        <p style="color: red">Average Code Comments Score: 0.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Fly Command Line Interface [<a href="https://fly.io/docs/getting-started/installing-flyctl/" target="_blank">https://fly.io/docs/getting-started/installing-flyctl/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a new Remix app using the Indie Stack template</p>
+            <code>npx create-remix@latest --template remix-run/indie-stack</code>
+        </div>
+        <div class="setup-step">
+            <p>Initialize a Remix project</p>
+            <code>npx remix init</code>
+        </div>
+        <div class="setup-step">
+            <p>Run initial setup commands</p>
+            <code>npm run setup</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the development server</p>
+            <code>npm run dev</code>
+        </div>
+        <div class="setup-step">
+            <p>Sign up for Fly and log in</p>
+            <code>fly auth signup</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a production Fly app</p>
+            <code>fly apps create jsonschema-form-76e1</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a staging Fly app</p>
+            <code>fly apps create jsonschema-form-76e1-staging</code>
+        </div>
+        <div class="setup-step">
+            <p>Initialize a new Git repository</p>
+            <code>git init</code>
+        </div>
+        <div class="setup-step">
+            <p>Add a remote GitHub repository</p>
+            <code>git remote add origin <ORIGIN_URL></code>
+        </div>
+        <div class="setup-step">
+            <p>Set the SESSION_SECRET for production</p>
+            <code>fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app jsonschema-form-76e1</code>
+        </div>
+        <div class="setup-step">
+            <p>Set the SESSION_SECRET for staging</p>
+            <code>fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app jsonschema-form-76e1-staging</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a persistent volume for the SQLite database in production</p>
+            <code>fly volumes create data --size 1 --app jsonschema-form-76e1</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a persistent volume for the SQLite database in staging</p>
+            <code>fly volumes create data --size 1 --app jsonschema-form-76e1-staging</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+    </div>
+</body>
+</html>

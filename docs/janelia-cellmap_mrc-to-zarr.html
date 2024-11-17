@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/mrc-to-zarr Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/mrc-to-zarr" target="_blank">https://github.com/janelia-cellmap/mrc-to-zarr</a></p>
+                <p>Description:  Convert large mrc files to zarr arrays</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2024-11-06T15:42:11+00:00</p>
+                <p>Contributors: yuriyzubov</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.1</span></p>
+        <p>Weighted Score: <span class="score">2.9</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: green">Average API Docs Score: 4.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.0</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Navigate to the project directory</p>
+            <code>cd PATH_TO_POETRY_PROJECT_DIRECTORY/</code>
+        </div>
+        <div class="setup-step">
+            <p>Install project dependencies using Poetry</p>
+            <code>poetry install</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the script to convert MRC file to Zarr</p>
+            <code>poetry run python3 src/zarr_to_mrc.py --src=PATH_TO_MRC_FILE --dest=OUTPUT_ZARR_FILE --cluster=local/lsf --workers=50 --scale 10.0 10.0 10.0 --units nanometer nanometer nanometer</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/mrc-to-zarr/blob/728a4742023d32ce2febb71108f3acfeab51313d/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The external API documentation provides some useful information, but it lacks detail for full comprehension. The internal comments are sparse and do not adequately explain the logic or purpose behind the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/mrc-to-zarr/blob/ebc761029449de21cb4a6e90ef47699434989b75/src/zarr_to_mrc.py" target="_blank">src/zarr_to_mrc.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and concise regarding function purposes, input arguments, and return values, earning a score of 4. Internal comments are present but could be more comprehensive in explaining complex operations for better clarity for developers, hence a score of 3.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/mrc-to-zarr/blob/728a4742023d32ce2febb71108f3acfeab51313d/src/__init__.py" target="_blank">src/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: There is no API documentation or internal comments present in the code, which makes it difficult for both external users and developers to understand its functionality.</p>
+        </div>
+    </div>
+</body>
+</html>

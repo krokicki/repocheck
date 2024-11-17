@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/dacapo Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/dacapo" target="_blank">https://github.com/janelia-cellmap/dacapo</a></p>
+                <p>Description: A framework for easy application of established machine learning techniques on large, multi-dimensional images.</p>
+                <p>Language: Python</p>
+                <p>Stars: 46</p>
+                <p>Forks: 8</p>
+                <p>Last Commit: 2024-11-15T16:49:31+00:00</p>
+                <p>Contributors: pattonw, rhoadesScholar, mzouink, avweigel, davidackerman, funkey, cmalinmayor, adjavon, neptunes5thmoon, atc3, vaxenburg, d-v-b, adamltaylor, gbhuang, psobolewskiPhD</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: Yes</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.5</span></p>
+        <p>Weighted Score: <span class="score">2.5</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: #F88017">Setup Completeness: 3.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: green">License Score: 5.0</p>
+        <p style="color: green">Average API Docs Score: 4.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python 3.10 or higher [<a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a new conda environment for DaCapo</p>
+            <code>conda create -n dacapo python=3.10</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment</p>
+            <code>conda activate dacapo</code>
+        </div>
+        <div class="setup-step">
+            <p>Install DaCapo using pip</p>
+            <code>pip install dacapo-ml</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/dbf12fedee7abb7e27915b8c2f123ab7d7dd46c2/dacapo/__init__.py" target="_blank">dacapo/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation or internal comments explaining the functionality of modules or classes. This makes it difficult for external users and developers to understand the purpose and usage of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/407dd5973c893dabf72561e6f57c53db778bda3f/examples/distance_task/synthetic_example.py" target="_blank">examples/distance_task/synthetic_example.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is comprehensive, clear, and well-organized, making it easy for external users to understand how to use the framework. However, the internal comments within the code could be more detailed to improve clarity for developers on specific implementation choices.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/e013652d5173b14bd178c8f1d5d5fed7642f3b7a/dacapo/experiments/tasks/evaluators/instance_evaluator.py" target="_blank">dacapo/experiments/tasks/evaluators/instance_evaluator.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is very thorough, providing comprehensive descriptions of functions, parameters, return values, and usage examples. Internal comments are generally good but could benefit from a bit more clarity in complex sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/e503003eb01f94a1904904914fcfc3b8ae746707/tests/fixtures/losses.py" target="_blank">tests/fixtures/losses.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The provided code lacks any documentation or comments explaining its purpose, functionality, or usage. The test fixture is clearly defined, but without any context or comments, it is difficult for external users or developers to understand its intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/4d4c105365a87c774edc0feaaa1854f51e56b6bb/dacapo/experiments/arraytypes/intensities.py" target="_blank">dacapo/experiments/arraytypes/intensities.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The class-level docstring provides a clear overview of the class and its attributes, but it could benefit from more detail about usage and purpose. The method docstring is also informative, but the lack of inline comments reduces clarity on implementation intent.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/094acf68959aee9c5698ba3c9b149543b864c3f8/dacapo/experiments/tasks/affinities_task.py" target="_blank">dacapo/experiments/tasks/affinities_task.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides a clear and comprehensive description of the class, its attributes, and methods, making it easy to understand for external users. Internal comments are sparse but sufficient for understanding the initialization process; a few more inline comments could enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/7b1821019f2ec47ecf61e38c010ae9f9b62a2f68/dacapo/store/mongo_stats_store.py" target="_blank">dacapo/store/mongo_stats_store.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is detailed and includes comprehensive descriptions of attributes, methods, and examples for each class method. Internal comments are mostly clear but could benefit from slight improvements in specificity or clarity in some sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/ca1910f3cc30da66f4dc830734289ffb99d0b4b4/dacapo/experiments/datasplits/datasets/graphstores/graph_source_config.py" target="_blank">dacapo/experiments/datasplits/datasets/graphstores/graph_source_config.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation within the class docstring provides a clear overview of the purpose, attributes, and methods of the class, just missing a bit more detail on specific methods. However, there are no internal code comments explaining the implementation or design choices.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/1aec34fb995741ca3befbb61c6e2502fe6365b5a/dacapo/experiments/datasplits/datasets/dummy_dataset_config.py" target="_blank">dacapo/experiments/datasplits/datasets/dummy_dataset_config.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides clear descriptions of the class and method functionality, including attributes and return types. Internal comments are good but could benefit from a bit more detail in certain areas, especially regarding the purpose of the class and method.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/dacapo/blob/1b46d1d848b16901e7cf2ddfd1818776d5899c09/examples/cosem/run_cosem.py" target="_blank">examples/cosem/run_cosem.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has very minimal comments and lacks detailed API documentation. The existing comments are brief and do not provide enough context or explanations regarding the code's functionality.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/cellmap-schemas Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/cellmap-schemas" target="_blank">https://github.com/janelia-cellmap/cellmap-schemas</a></p>
+                <p>Description: Schemas for our data</p>
+                <p>Language: Python</p>
+                <p>Stars: 2</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-10-18T17:14:33+00:00</p>
+                <p>Contributors: d-v-b, neptunes5thmoon, yuriyzubov</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.0</span></p>
+        <p>Weighted Score: <span class="score">0.7</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 1.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/d7ac712648812d3632b8afced02796906f38d525/src/cellmap_schemas/cli.py" target="_blank">src/cellmap_schemas/cli.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides details on function parameters and their types, but some functions lack comprehensive comments. Internal comments in the code could be improved to explain complex logic and enhance readability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/847b056235f2fc25b05d8f8a61b93e679a9e3bf1/tests/test_multiscale/test_cosem.py" target="_blank">tests/test_multiscale/test_cosem.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code contains some internal comments that explain specific logic in the tests, and while the test functions have descriptive names, there are no docstrings to describe their purpose or parameters, which limits the API documentation's effectiveness.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/f011f05bdfe3d50f937e29c268a4570b6d49c8c4/src/cellmap_schemas/multiscale/__init__.py" target="_blank">src/cellmap_schemas/multiscale/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 0/5</p>
+            <p style="color: red">Code Comments Score: 0/5</p>
+            <p>Explanation: No API documentation or internal comments were provided to evaluate, resulting in a score of 0 for both categories.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/1ff29d3c3c8d1a0505057b4eb5fc1d2c7a4d2f4e/tests/__init__.py" target="_blank">tests/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic information but lacks detailed usage examples. Internal comments are generally clear and informative, but some areas could benefit from additional context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/612ed60748a0c8eb6cdca5c174650daf44999a15/tests/test_docs.py" target="_blank">tests/test_docs.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks descriptive comments and overall documentation; while its purpose can be inferred, comments explaining specific functionality or usage are missing.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/3c07066175f5aa957e8d738a0c2a1b08dd9a899c/src/cellmap_schemas/__init__.py" target="_blank">src/cellmap_schemas/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed descriptions and examples that would be helpful for external users. However, there are some internal comments present, which aid in understanding the code but could be more extensive.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/d7ac712648812d3632b8afced02796906f38d525/tests/test_cli.py" target="_blank">tests/test_cli.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal comments and lacks function-level documentation explaining the purpose and expected behavior of the tests. While the test cases are clear, additional context would enhance understanding for external users.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/847b056235f2fc25b05d8f8a61b93e679a9e3bf1/tests/test_base.py" target="_blank">tests/test_base.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code has some basic structure but lacks detailed API documentation, such as function docstrings that explain parameters and return types. Internal comments are minimal and do not clarify the purpose or logic behind sections of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/847b056235f2fc25b05d8f8a61b93e679a9e3bf1/src/cellmap_schemas/base.py" target="_blank">src/cellmap_schemas/base.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of the functions, including their parameters and return values. However, internal comments are sparse and could provide more insights into the logic and flow of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-schemas/blob/b186e89b1c85f17d08711541dacd3a27c4a9296d/src/cellmap_schemas/multiscale/cosem.py" target="_blank">src/cellmap_schemas/multiscale/cosem.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, with clear descriptions of methods, classes, and their parameters, making it accessible for external users. Internal comments are mostly informative but could benefit from additional context or clarifications in some complex sections.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/cellmap-data Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/cellmap-data" target="_blank">https://github.com/janelia-cellmap/cellmap-data</a></p>
+                <p>Description: Utility for loading CellMap data for machine learning training, utilizing PyTorch, TensorStore, Xarray, and PyDantic.</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 1</p>
+                <p>Last Commit: 2024-11-11T17:23:33+00:00</p>
+                <p>Contributors: rhoadesScholar, dependabot[bot]</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: Yes</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">4.5</span></p>
+        <p>Weighted Score: <span class="score">3.2</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 5.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: green">Average API Docs Score: 4.6</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a new micromamba environment named 'cellmap' with Python 3.11</p>
+            <code>micromamba create -n cellmap -y -c conda-forge -c pytorch python=3.11</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the 'cellmap' environment</p>
+            <code>micromamba activate cellmap</code>
+        </div>
+        <div class="setup-step">
+            <p>Clone the CellMap-Data repository from GitHub</p>
+            <code>git clone https://github.com/janelia-cellmap/cellmap-data.git</code>
+        </div>
+        <div class="setup-step">
+            <p>Change directory to the cloned repository</p>
+            <code>cd cellmap-data</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the package in editable mode</p>
+            <code>pip install -e .</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/62620df55e28ab0ce007d3d1764a5fad3a8df115/src/cellmap_data/dataset.py" target="_blank">src/cellmap_data/dataset.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, clearly detailing the purpose, attributes, and methods of the classes. Internal comments are mostly present but could benefit from more concise explanations for complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/c4c07caf757a012c77503a9e869e11cd68763474/src/cellmap_data/transforms/augment/random_contrast.py" target="_blank">src/cellmap_data/transforms/augment/random_contrast.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear, providing class and method descriptions, but could benefit from more detail about the parameters and return values. The comments within the code are minimal and do not sufficiently explain the logic, particularly the specific implementation choices.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/0e8a7ff137b9610da00ffb1e56e2f0878683e6cb/src/cellmap_data/multidataset.py" target="_blank">src/cellmap_data/multidataset.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, clearly outlining attributes, methods, and properties with concise descriptions. Internal comments are present but could be improved in clarity, especially in areas labeled as 'TODO', which lack sufficient context.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/c4c07caf757a012c77503a9e869e11cd68763474/src/cellmap_data/transforms/augment/nan_to_num.py" target="_blank">src/cellmap_data/transforms/augment/nan_to_num.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides context for the parameters and methods, but it lacks examples for better clarity. The internal comments are minimal and could benefit from more detailed explanations of the code's logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/c4c07caf757a012c77503a9e869e11cd68763474/src/cellmap_data/transforms/augment/normalize.py" target="_blank">src/cellmap_data/transforms/augment/normalize.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of the class and its methods, but it could benefit from more detail about parameters and return values. Internal comments are minimal and could be improved to clarify the transformation process within the method.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/0e8a7ff137b9610da00ffb1e56e2f0878683e6cb/docs/source/conf.py" target="_blank">docs/source/conf.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The file includes extensive comments explaining the configuration options, which is beneficial for users. However, it lacks inline comments for some configurations that would be useful for developers unfamiliar with Sphinx.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/0e8a7ff137b9610da00ffb1e56e2f0878683e6cb/src/cellmap_data/datasplit.py" target="_blank">src/cellmap_data/datasplit.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is thorough, clearly detailing class attributes, methods, and their parameters with examples, making it easy for external users to understand and use the class. Internal comments are mostly clear, but could benefit from additional detail in complex method implementations to improve clarity for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/c4c07caf757a012c77503a9e869e11cd68763474/src/cellmap_data/transforms/targets/distance.py" target="_blank">src/cellmap_data/transforms/targets/distance.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is concise and adequately describes functionality, though some attributes and methods could have more detail. Internal comments are present, but they could be expanded for clarity and to explain the rationale behind certain operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/1310767369607de065f6be8894a794a01e1f7bea/src/cellmap_data/dataset_writer.py" target="_blank">src/cellmap_data/dataset_writer.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is thorough and provides clear descriptions for class methods and parameters, but there are some inconsistencies and a few TODO comments indicating areas needing updates. Internal comments help clarify some complex functionality but are sporadic and could be more comprehensive.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/cellmap-data/blob/c4c07caf757a012c77503a9e869e11cd68763474/src/cellmap_data/transforms/targets/cellpose.py" target="_blank">src/cellmap_data/transforms/targets/cellpose.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The class and its methods are well-documented with clear docstrings explaining their usage and parameters. However, the internal comments are sparse and some lines contain commented-out code that should not be present in production files.</p>
+        </div>
+    </div>
+</body>
+</html>

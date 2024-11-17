@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/ingestion-guide-aso-mb-4nm Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/ingestion-guide-aso-mb-4nm" target="_blank">https://github.com/janelia-flyem/ingestion-guide-aso-mb-4nm</a></p>
+                <p>Description: A guide to ingesting new volumes into DVID, using the Aso MB 4nm as an example.</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-10-04T17:00:47+00:00</p>
+                <p>Contributors: stuarteberg</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.3</span></p>
+        <p>Weighted Score: <span class="score">2.3</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.7</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python package for data processing tasks [<a href="https://github.com/janelia-flyem/flyemflows" target="_blank">https://github.com/janelia-flyem/flyemflows</a>]</p>
+        </div>
+        <div class="prerequisite">
+            <p>DVID server [<a href="https://github.com/janelia-flyem/dvid" target="_blank">https://github.com/janelia-flyem/dvid</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a conda environment for DVID</p>
+            <code>conda create -n dvid -c flyem-forge -c conda-forge "dvid>=0.9.16"</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment for DVID</p>
+            <code>conda activate dvid</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a conda environment for flyemflows</p>
+            <code>conda create -n flyem -c flyem-forge -c conda-forge "flyemflows>=0.5.post.dev513"</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the conda environment for flyemflows</p>
+            <code>conda activate flyem</code>
+        </div>
+        <div class="setup-step">
+            <p>Change directory to DVID config</p>
+            <code>cd /path/to/dvid/configs/</code>
+        </div>
+        <div class="setup-step">
+            <p>Start the DVID server with the configuration file</p>
+            <code>dvid aso-mb-4nm.toml</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new repository on the DVID server</p>
+            <code>dvid -rpc=:8001 repos new aso-mb-4nm "Aso Mushroom Body Z0419_25_Alpha3"</code>
+        </div>
+        <div class="setup-step">
+            <p>Submit the export job to the cluster for grayscale data</p>
+            <code>bsub launchflow -n 32 02-export-grayscale</code>
+        </div>
+        <div class="setup-step">
+            <p>Change directory to the execution directory for grayscale processing</p>
+            <code>cd 02-export-grayscale-20220707.112909</code>
+        </div>
+        <div class="setup-step">
+            <p>Upload exported volume to Google Cloud Storage</p>
+            <code>gsutil -m cp -r Z0419_25_Alpha3_jpeg/* gs://aso-z0419_25_alpha3-jpeg/</code>
+        </div>
+        <div class="setup-step">
+            <p>Configure DVID to serve precomputed grayscale data</p>
+            <code>dvid -rpc=:8001 shutdown</code>
+        </div>
+        <div class="setup-step">
+            <p>Restart DVID server</p>
+            <code>dvid -rpc=:8001</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/ingestion-guide-aso-mb-4nm/blob/e15c8abbc8dca72bdf724c5ae6e849dc08e0abd7/04-load-agglomeration/convert-agglo-table.py" target="_blank">04-load-agglomeration/convert-agglo-table.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code contains minimal comments that explain some key steps, but lacks detailed API documentation or robust inline comments to guide external users effectively. While the variable names are descriptive, the absence of explanatory comments for the logic and data manipulations makes it less accessible for other developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/ingestion-guide-aso-mb-4nm/blob/e15c8abbc8dca72bdf724c5ae6e849dc08e0abd7/04-load-agglomeration/commit-agglo-node.py" target="_blank">04-load-agglomeration/commit-agglo-node.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has minimal external documentation and lacks clarity on the purpose of its components. Internal comments are absent, which makes it difficult for developers to understand the functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/ingestion-guide-aso-mb-4nm/blob/e15c8abbc8dca72bdf724c5ae6e849dc08e0abd7/03a-ingest-supervoxels/commit-root-node.py" target="_blank">03a-ingest-supervoxels/commit-root-node.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks sufficient documentation for external users as it does not explain what `post_commit` and `post_newversion` functions do or the parameters they accept. Internal comments are missing, which leaves developers without context or guidance about the intentions behind the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/ingestion-guide-aso-mb-4nm/blob/e15c8abbc8dca72bdf724c5ae6e849dc08e0abd7/05-cleave-server/construct-cleave-table.py" target="_blank">05-cleave-server/construct-cleave-table.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a basic overview of the script's purpose but lacks detail on the parameters and return types. Internal comments are present but could be more descriptive to enhance understanding of complex operations.</p>
+        </div>
+    </div>
+</body>
+</html>

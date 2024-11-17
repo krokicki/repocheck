@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/sheetscrape Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/sheetscrape" target="_blank">https://github.com/janelia-cellmap/sheetscrape</a></p>
+                <p>Description: Scraping google sheets</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2022-12-08T05:49:18+00:00</p>
+                <p>Contributors: d-v-b, dependabot[bot]</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.4</span></p>
+        <p>Weighted Score: <span class="score">2.4</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.7</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Credential file needed for Google Sheet access [<a href="https://gspread.readthedocs.io/en/latest/oauth2.html" target="_blank">https://gspread.readthedocs.io/en/latest/oauth2.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Import necessary libraries and create a GoogleSheetScraper instance with credentials</p>
+            <code>from sheetscrape.scraper import GoogleSheetScraper
+credfile = '/Users/bennettd/Downloads/cosem-db-a65771c5a9fa.json'
+sheet = GoogleSheetScraper(credfile, mode='r').client.open('COSEM')</code>
+        </div>
+        <div class="setup-step">
+            <p>Convert the sheet data to a DataFrame</p>
+            <code>df = pd.DataFrame(sheet.worksheets()[0].get_all_values())</code>
+        </div>
+        <div class="setup-step">
+            <p>Parse the data to create a list of FIBSEMDatasets</p>
+            <code>datasets = parse(df)</code>
+        </div>
+        <div class="setup-step">
+            <p>Connect to the MongoDB instance and insert datasets</p>
+            <code>with MongoClient(f'mongodb://{un}:{pw}@{db_name}.int.janelia.org') as client:
+    db = client.db
+    db.datasets.insert_many(flat)</code>
+        </div>
+        <div class="setup-step">
+            <p>Construct a FIBSEMDataset from the database results</p>
+            <code>fsb = FIBSEMDataset(**results[0])</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/sheetscrape/blob/db27131cdb03f07550d93ca6f3a2d500f1ac0247/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code includes minimal metadata for package setup without detailed API documentation or internal comments. The absence of comments explaining the setup parameters and how to use the package reduces clarity for both users and developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/sheetscrape/blob/fcc9c409ea0360716b0fd9c8aca8572d6ba8a06d/src/sheetscrape/scraper.py" target="_blank">src/sheetscrape/scraper.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The class and its methods have basic docstrings explaining their purpose, but they lack detailed descriptions of parameters and return values. Internal comments are minimal, and more context could enhance clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/sheetscrape/blob/fcc9c409ea0360716b0fd9c8aca8572d6ba8a06d/src/sheetscrape/__init__.py" target="_blank">src/sheetscrape/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is minimal and lacks clarity on function purposes and parameters, making it challenging for external users. Internal comments also provide insufficient context for code functionality, hindering maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/sheetscrape/blob/fcc9c409ea0360716b0fd9c8aca8572d6ba8a06d/src/sheetscrape/datastructures.py" target="_blank">src/sheetscrape/datastructures.py</a></h3>
+            <p style="color: green">API Docs Score: 5/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive and clear, detailing each attribute of the class effectively. The internal comments are minimal but sufficient, with the method documentation needing only a brief argument description for full clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/sheetscrape/blob/fcc9c409ea0360716b0fd9c8aca8572d6ba8a06d/src/sheetscrape/parsers/__init__.py" target="_blank">src/sheetscrape/parsers/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some basic information but lacks detailed descriptions for parameters and return values. Internal comments are minimal and often do not clarify complex logic, making it harder for developers to understand the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/sheetscrape/blob/fcc9c409ea0360716b0fd9c8aca8572d6ba8a06d/src/sheetscrape/parsers/TrainingData.py" target="_blank">src/sheetscrape/parsers/TrainingData.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is functional but lacks depth, particularly in function purpose and usage details. Internal comments are present but could benefit from additional clarification on complex logic or key processes.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/sheetscrape/blob/fcc9c409ea0360716b0fd9c8aca8572d6ba8a06d/src/sheetscrape/tests/tests.py" target="_blank">src/sheetscrape/tests/tests.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks API documentation and internal comments entirely, providing no guidance for external users or developers regarding the functionality or usage of the code.</p>
+        </div>
+    </div>
+</body>
+</html>

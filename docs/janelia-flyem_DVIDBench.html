@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/DVIDBench Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/DVIDBench" target="_blank">https://github.com/janelia-flyem/DVIDBench</a></p>
+                <p>Description: Benchmarking tool for testing responsiveness and capacity of DVID servers</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2016-06-13T19:43:25+00:00</p>
+                <p>Contributors: neomorphic</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.4</span></p>
+        <p>Weighted Score: <span class="score">2.4</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.0</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Install the project</p>
+            <code>python setup.py install</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the benchmark with master configuration</p>
+            <code>dvid-bench --master</code>
+        </div>
+        <div class="setup-step">
+            <p>Run the benchmark with manager configuration</p>
+            <code>dvid-bench --manager</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/92837cfaafe033783fc949cc334699fdd71f0f5e/dvidbench/rpc/__init__.py" target="_blank">dvidbench/rpc/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of documentation or comments, making it difficult for external users or developers to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/2fc4a31c0b0db8206eadbe19ac5dd670214dae24/dvidbench/events.py" target="_blank">dvidbench/events.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is generally well-written with clear usage examples for the `EventHook` class. However, the internal comments for the event hooks are brief and lack detail about their parameters and use cases.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/2fc4a31c0b0db8206eadbe19ac5dd670214dae24/dvidbench/stats.py" target="_blank">dvidbench/stats.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has clear and descriptive docstrings for most methods and classes, which is good for API documentation. However, while some internal comments are present, they are inconsistent and could be improved for better clarity, especially for complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/d2e38a37b3310cbcdb4ab763ebc116b99d2a5d89/misc/server.py" target="_blank">misc/server.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code has no comments or documentation, making it difficult for users to understand its purpose and functionality. Internal function definitions lack docstrings, and there are no explanations about the usage or parameters, which severely limits clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/6eefbf08bcd336cf032f1209e97674e65fb8bcbe/dvidbench/rpc/communication.py" target="_blank">dvidbench/rpc/communication.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks API documentation, such as docstrings for the class and methods that describe their purpose and parameters. Internal comments are missing as well, making it challenging for developers to understand the code's functionality quickly.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/d2e38a37b3310cbcdb4ab763ebc116b99d2a5d89/dvidbench/tests/test_client.py" target="_blank">dvidbench/tests/test_client.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is lacking as there are no docstrings or details about the purpose of the class or methods. The internal comments are minimal and do not adequately explain the logic or functionality of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/4f01413270b1ab0f5e78a83d6f504486e1ac75b6/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is basic, providing essential information such as package name and version, but lacks detailed descriptions of parameters, return values, or usage examples. Internal comments are minimal, making it difficult for developers to understand the code's functionality at a glance.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/b57a81f47b3c40977eb254438c5a340fbfed23ca/dvidbench/manager.py" target="_blank">dvidbench/manager.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking comprehensive docstrings for public methods, which can hinder external understanding. However, there are some internal comments that provide clearer context on specific logic and flow, albeit they are inconsistent and could be expanded for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/2fc4a31c0b0db8206eadbe19ac5dd670214dae24/dvidbench/config.py" target="_blank">dvidbench/config.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is virtually nonexistent, with no docstrings or comments explaining class or method purposes. Internal comments are minimal and do not provide sufficient context for code functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/DVIDBench/blob/df39cc205da2886a0e7039595e6ebd36aa641fe6/dvidbench/benchmark.py" target="_blank">dvidbench/benchmark.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking comprehensive docstrings for public methods and classes which are essential for clarity on usage. However, there are some internal comments throughout the code, providing basic context and describing certain operations, which aids in understanding.</p>
+        </div>
+    </div>
+</body>
+</html>

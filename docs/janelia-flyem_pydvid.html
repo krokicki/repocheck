@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/pydvid Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/pydvid" target="_blank">https://github.com/janelia-flyem/pydvid</a></p>
+                <p>Description: (Deprecated: see libdvid-cpp python) Python interface for calling the DVID http REST API</p>
+                <p>Language: Python</p>
+                <p>Stars: 1</p>
+                <p>Forks: 5</p>
+                <p>Last Commit: 2015-07-23T05:18:53+00:00</p>
+                <p>Contributors: stuarteberg, stephenplaza</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">1.2</span></p>
+        <p>Weighted Score: <span class="score">0.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: #F88017">README Quality: 2.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 3.8</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.5</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/b12db07ea6039cdc5f2f37893fc3d7856f4d771f/pydvid/keyvalue/__init__.py" target="_blank">pydvid/keyvalue/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any form of documentation or internal comments, making it difficult to understand its purpose or functionality.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/ac72bb5af8342c0bc12d61fce6f86556f53e9db4/pydvid/labelgraph/labelgraph.py" target="_blank">pydvid/labelgraph/labelgraph.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear with concise docstrings that describe each function's purpose, making it easy for external users to understand their usage. Internal comments are adequate but lack detail in some areas, and would benefit from more context to aid developers in understanding complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/b12db07ea6039cdc5f2f37893fc3d7856f4d771f/pydvid/errors.py" target="_blank">pydvid/errors.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The class-level docstrings provide a clear overview of the exceptions, ensuring good external documentation. However, there's a lack of inline comments explaining the constructor parameters and overall behavior, which could improve the clarity for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/ca27193e1408294d39012ff4ddde8c54da944337/pydvid/general/general.py" target="_blank">pydvid/general/general.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is clear and provides useful information about the methods and their purposes, but it lacks details on parameters and return types. Internal comments are missing, which would help clarify implementation and usage for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/762348228d18ad089e5b3c0e9fdea3a4c8a06916/docs/source/conf.py" target="_blank">docs/source/conf.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The file includes clear comments for configuration options, which aid understanding for users setting up documentation. However, it lacks detailed explanations on some settings, and external user documentation could be more extensive.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/241e13d91f4624ce65e7c5f72f5da2426afcce94/pydvid/__init__.py" target="_blank">pydvid/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation lacks comprehensive comments explaining the purpose and usage of the functions and classes, limiting usability for external users. Internal comments are present but minimal, providing basic context without delving into functionality details.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/8132d517c8ede7cf44819f28aa9d24bf423c5380/pydvid/util.py" target="_blank">pydvid/util.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The function docstrings provide clear descriptions of input parameters and functionality, but could benefit from additional examples or detailing return types. In-code comments are present but may lack context and clarity in some areas, indicating a need for more extensive commenting on complex logic.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/af643d8aeeac65bca6e7ace662b7e76d1c50483a/pydvid/gui/contents_browser.py" target="_blank">pydvid/gui/contents_browser.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a clear and concise overview of the module, its purpose, and its usage, including a good class-level docstring. However, while there are internal comments throughout the code, they vary in depth and some methods lack thorough explanations of their purpose or mechanics.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/b307a716480fe6ffdb804af1d1a669b75daebbaf/tests/test_voxels_accessor.py" target="_blank">tests/test_voxels_accessor.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides a good overview of the class methods and their functionality, though some methods could benefit from more detailed explanations. The internal comments are generally helpful, although they could be made more consistent and detailed in conveying the intention behind complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/pydvid/blob/b12db07ea6039cdc5f2f37893fc3d7856f4d771f/pydvid/gui/__init__.py" target="_blank">pydvid/gui/__init__.py</a></h3>
+            <p style="color: red">API Docs Score: 1/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks any API documentation or internal comments, making it very difficult to understand its purpose or usage.</p>
+        </div>
+    </div>
+</body>
+</html>

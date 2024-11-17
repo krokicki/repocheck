@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/tipdetect Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/tipdetect" target="_blank">https://github.com/janelia-flyem/tipdetect</a></p>
+                <p>Description: Script to find potentially incompletely traced neuron tips</p>
+                <p>Language: Python</p>
+                <p>Stars: 0</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2018-11-20T18:11:18+00:00</p>
+                <p>Contributors: stephenplaza</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p>Weighted Score: <span class="score">2.2</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 5.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.2</p>
+        <p style="color: #F88017">Average Code Comments Score: 2.8</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Miniconda installation is required. [<a href="https://conda.io/miniconda.html" target="_blank">https://conda.io/miniconda.html</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Add conda-forge channel to conda configuration</p>
+            <code>conda config --add channels conda-forge</code>
+        </div>
+        <div class="setup-step">
+            <p>Add flyem-forge channel to conda configuration</p>
+            <code>conda config --add channels flyem-forge</code>
+        </div>
+        <div class="setup-step">
+            <p>Create a new conda environment named 'neutube'</p>
+            <code>conda create neutube-python -n neutube</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the 'neutube' environment</p>
+            <code>source activate neutube</code>
+        </div>
+        <div class="setup-step">
+            <p>Install the package with setup script</p>
+            <code>python setup.py install</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/tipdetect/blob/29f47d7fb69185296ea362a2d6db816fc8a274e6/setup.py" target="_blank">setup.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides basic details like the package name and description, but lacks thorough exposition of parameters and usage. Internal comments are minimal and do not sufficiently clarify the purpose of the requirements list or other sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/tipdetect/blob/29f47d7fb69185296ea362a2d6db816fc8a274e6/tipdetect/tipdetect.py" target="_blank">tipdetect/tipdetect.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, providing very little context or usage instructions which may hinder understanding for external users. Internal comments are present but mostly describe the operations rather than explaining the purpose of the functions and important logic behind them.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/tipdetect/blob/29f47d7fb69185296ea362a2d6db816fc8a274e6/tipdetect/__init__.py" target="_blank">tipdetect/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation provides some basic information but lacks depth and clarity for external users. Internal comments are minimal and do not effectively explain the purpose or functionality of complex code sections.</p>
+        </div>
+    </div>
+</body>
+</html>

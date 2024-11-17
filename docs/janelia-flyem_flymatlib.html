@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-flyem/flymatlib Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-flyem/flymatlib" target="_blank">https://github.com/janelia-flyem/flymatlib</a></p>
+                <p>Description: FlyEM Matlab library of machine learning, deep learning methods for EM reconstruction</p>
+                <p>Language: Matlab</p>
+                <p>Stars: 5</p>
+                <p>Forks: 2</p>
+                <p>Last Commit: 2018-08-14T20:01:36+00:00</p>
+                <p>Contributors: gbhuang</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.0</span></p>
+        <p>Weighted Score: <span class="score">0.0</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.6</p>
+        <p style="color: red">Average Code Comments Score: 1.9</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/ad55fde1e3c85a0ebc185186d71325f364def3f2/third_party/matconvnet/utils/proto/caffe_0115_pb2.py" target="_blank">third_party/matconvnet/utils/proto/caffe_0115_pb2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The code lacks meaningful API documentation, making it difficult for users to understand how to effectively use the defined message structures. The internal comments are very minimal and do not provide clear guidance or context for developers working with this code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/c0ce3ee3b33d192b41ea223171e5b537f7286a6f/third_party/lz4/tests/test-lz4-versions.py" target="_blank">third_party/lz4/tests/test-lz4-versions.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code contains minimal API documentation, primarily a high-level module docstring, but lacks detailed function descriptions or parameter explanations. Internal comments are present and help with understanding the code flow, but they could be more comprehensive in explaining complex blocks.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/ad55fde1e3c85a0ebc185186d71325f364def3f2/third_party/matconvnet/utils/import-caffe.py" target="_blank">third_party/matconvnet/utils/import-caffe.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code contains some useful comments explaining the purpose of functions and options, but lacks clear documentation for complex sections and types, which may hinder understanding for external users. Internal comments are generally descriptive but could benefit from more details in certain areas to clarify the logic and flow of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/ad55fde1e3c85a0ebc185186d71325f364def3f2/third_party/matconvnet/utils/proto/__init__.py" target="_blank">third_party/matconvnet/utils/proto/__init__.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is moderately clear but lacks comprehensive examples. Internal comments are minimal, which could hinder understanding of complex code sections.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/ad55fde1e3c85a0ebc185186d71325f364def3f2/third_party/matconvnet/utils/proto/caffe_old_pb2.py" target="_blank">third_party/matconvnet/utils/proto/caffe_old_pb2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, primarily consisting of autogenerated comments with no detailed descriptions or usage examples. While there are some internal comments indicating class scopes, they do not provide sufficient context for developers to understand the purpose and functionality of the code without further documentation.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/ad55fde1e3c85a0ebc185186d71325f364def3f2/third_party/matconvnet/utils/proto/caffe_6e3916_pb2.py" target="_blank">third_party/matconvnet/utils/proto/caffe_6e3916_pb2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The file contains some basic comments, such as the initial comment indicating it is generated code, but lacks detailed explanations for many classes and methods, which would be essential for user understanding. Internal comments are infrequent and do not sufficiently clarify the complex structures and their purposes.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/ad55fde1e3c85a0ebc185186d71325f364def3f2/third_party/matconvnet/utils/proto/caffe_pb2.py" target="_blank">third_party/matconvnet/utils/proto/caffe_pb2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The API documentation is limited to class definitions without detailed descriptions of fields and methods, which affects usability for external users. There are internal comments indicating that the code is generated and should not be changed, but further explanations of functionality or purpose within the descriptors are sparse.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/ad55fde1e3c85a0ebc185186d71325f364def3f2/third_party/matconvnet/utils/proto/vgg_caffe_pb2.py" target="_blank">third_party/matconvnet/utils/proto/vgg_caffe_pb2.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: red">Code Comments Score: 1/5</p>
+            <p>Explanation: The file includes some internal comments indicating auto-generated sections and imports but lacks detailed documentation for API users. The absence of descriptive comments for the defined classes and their fields significantly lowers the clarity and usability of the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/ad55fde1e3c85a0ebc185186d71325f364def3f2/third_party/matconvnet/doc/matdocparser.py" target="_blank">third_party/matconvnet/doc/matdocparser.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation provides a comprehensive overview of the MatDoc format, including usage examples, which is helpful for users. However, internal comments are minimal and could be improved to enhance understanding of the code logic and structure.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-flyem/flymatlib/blob/c0ce3ee3b33d192b41ea223171e5b537f7286a6f/third_party/lz4/tests/test-lz4-speed.py" target="_blank">third_party/lz4/tests/test-lz4-speed.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code includes some high-level comments and a clear explanation of command-line arguments, but function docstrings are missing or insufficiently detailed. Internal comments are generally helpful, but more context and explanations in certain complex functions would enhance understanding.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseLand/cellpose Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/MouseLand/cellpose" target="_blank">https://github.com/MouseLand/cellpose</a></p>
+                <p>Description: a generalist algorithm for cellular segmentation with human-in-the-loop capabilities</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 1385</p>
+                <p>Forks: 400</p>
+                <p>Last Commit: 2024-10-30T12:42:07+00:00</p>
+                <p>Contributors: carsen-stringer, kevinjohncutler, mrariden, marius10p, qin-yu, erjel, chrisroat, FrickTobias, oeway, yfukai, francodgstn, vinisalazar, pr4deepr, orena1, dkurt, Tobiaspk, ian-coccimiglio, troycomi, SimonBon, OratHelm, matjesg, jasonkena, harryzcy, chaichontat, landoskape, ajinkya-kulkarni, sophiamaedler, qiagu, lacan, nickeener, nadavyayon, mark-dawn, guiwitz, Xqua, puisheelee, mmasinas, maweigert, kemaleren, jonasutz, rhoadesScholar, imagejan, Czaki, cgohlke, boazmohar</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: Yes</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">3.2</span></p>
+        <p>Weighted Score: <span class="score">3.8</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: green">Setup Completeness: 4.0</p>
+        <p style="color: green">README Quality: 4.0</p>
+        <p style="color: #F88017">License Score: 3.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.7</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.4</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <div class="prerequisite">
+            <p>Python version must be 3.8 or later. [<a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a>]</p>
+        </div>
+        <h3>Setup Steps:</h3>
+        <div class="setup-step">
+            <p>Create a new conda environment for Cellpose.</p>
+            <code>conda create --name cellpose python=3.10</code>
+        </div>
+        <div class="setup-step">
+            <p>Activate the cellpose conda environment.</p>
+            <code>conda activate cellpose</code>
+        </div>
+        <div class="setup-step">
+            <p>Install Cellpose with the GUI support.</p>
+            <code>python -m pip install cellpose[gui]</code>
+        </div>
+        <div class="setup-step">
+            <p>Run Cellpose using the command line interface.</p>
+            <code>python -m cellpose</code>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/52f75f9636250979dcff48da18d24aaff41c2c86/cellpose/train.py" target="_blank">cellpose/train.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is generally thorough, providing clear descriptions of function arguments and return types. Internal comments explain the purpose of code segments well, though some complex logic could benefit from additional context for clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/fdd2b6835f2b87b9a4a4f1880c4225b6a1cd1345/paper/2.0/datasets.py" target="_blank">paper/2.0/datasets.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The code contains some function docstrings and comments explaining certain operations, but it lacks comprehensive explanations for many functions. While the internal comments provide insight into the logic, clearer and more consistent API documentation would improve usability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/9fb76343ace1189a35a656e4c03e7b773d920c89/imagej_roi_converter.py" target="_blank">imagej_roi_converter.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code lacks sufficient API documentation for external users and has minimal comments explaining the logic. While there is a basic understanding of what the code is doing, more detailed explanations or docstrings would enhance clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/efcb4b92800c4de30f1304434d11573b7c2cc2a3/cellpose/gui/gui3d.py" target="_blank">cellpose/gui/gui3d.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The function and class docstrings provide basic explanations but lack detail on parameters and return types. The internal comments are generally helpful and provide context, but additional explanations for complex logic would enhance understandability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/fdd2b6835f2b87b9a4a4f1880c4225b6a1cd1345/paper/3.0/care.py" target="_blank">paper/3.0/care.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is lacking, as there are no docstrings for functions to describe their purpose or parameters, making it difficult for external users to understand their use. Internal comments are present for some code sections but could be more detailed to enhance clarity and maintainability.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/fc473ca7b3647cd00074f9a08cfc4a2f69e4ddab/paper/3.0/figures.py" target="_blank">paper/3.0/figures.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The code has minimal API documentation, lacking clear docstrings for public functions and parameters, which makes it difficult for external users to understand how to use it. However, there are some comments within functions that provide insights into the code's functionality, resulting in a slightly better score for internal comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/fdd2b6835f2b87b9a4a4f1880c4225b6a1cd1345/paper/3.0/noise2void.py" target="_blank">paper/3.0/noise2void.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking function docstrings which would help users understand the usage, inputs, and outputs of the functions. Internal comments exist but are not always comprehensive, and some key operations lack alignment in explanation, which reduces clarity for future developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/fdd2b6835f2b87b9a4a4f1880c4225b6a1cd1345/paper/2.0/train_subsets.py" target="_blank">paper/2.0/train_subsets.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is decent, with function signatures and parameter descriptions, but lacks detailed docstrings explaining the purpose and usage examples. Internal comments are helpful, particularly near complex logic, but could be expanded for greater clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/6b87c3e6290fbf672bf18ab6cad340a9f1782d08/notebooks/run_cyto3.ipynb" target="_blank">notebooks/run_cyto3.ipynb</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is clear and provides useful hyperlinks for further reading, while internal comments effectively guide the user through the code logic and choices. However, some minor areas could benefit from additional detail to clarify certain steps or parameters.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/MouseLand/cellpose/blob/fdd2b6835f2b87b9a4a4f1880c4225b6a1cd1345/paper/2.0/train_specialists.py" target="_blank">paper/2.0/train_specialists.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is present but lacks detailed explanations of function parameters and return values, leaving some ambiguity. Internal comments are present but inconsistent in clarity and depth, following some lines without adequate context.</p>
+        </div>
+    </div>
+</body>
+</html>

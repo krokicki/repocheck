@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>janelia-cellmap/FIB-SEM-Aligner Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .section {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: calc(50% - 20px);
+            box-sizing: border-box;
+            flex: 1 1 calc(50% - 20px);
+        }
+        @media (max-width: 600px) {
+            .section {
+                max-width: calc(100% - 20px);
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+        .score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .setup-step code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+        }
+        .file-analysis {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Repository Information</h2>
+                <p>URL: <a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner" target="_blank">https://github.com/janelia-cellmap/FIB-SEM-Aligner</a></p>
+                <p>Description: Align FIB SEM stacks on a cluster</p>
+                <p>Language: Jupyter Notebook</p>
+                <p>Stars: 2</p>
+                <p>Forks: 0</p>
+                <p>Last Commit: 2018-08-03T18:03:03+00:00</p>
+                <p>Contributors: david-hoffman</p>
+            </div>
+            <div style="flex: 1;">
+                <h2>License Analysis</h2>
+                <p>BSD 3-Clause: No</p>
+                <p>HHMI Copyright: No</p>
+                <p>Current Year: No</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Global Quality Scores</h2>
+        <p>Overall Score: <span class="score">0.0</span></p>
+        <p>Weighted Score: <span class="score">0.0</span> (70% overall, 20% stars, 10% forks)</p>
+        <p style="color: red">Setup Completeness: 0.0</p>
+        <p style="color: red">README Quality: 0.0</p>
+        <p style="color: red">License Score: 0.0</p>
+        <p style="color: #F88017">Average API Docs Score: 2.9</p>
+        <p style="color: #F88017">Average Code Comments Score: 3.2</p>
+    </div>
+    <div class="section">
+        <h2>Setup Information</h2>
+        <h3>Prerequisites:</h3>
+        <h3>Setup Steps:</h3>
+    </div>
+    <div class="section">
+        <h2>Code Documentation Analysis</h2>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/e7f89e9d338c4d15461512b77f45c462bb7bd03e/FIB-SEM Registration Driver.ipynb" target="_blank">FIB-SEM Registration Driver.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation in the form of docstrings is clear for the main function, but many other parts of the code lack function-level comments. Internal comments provide some context but could be more informative and consistent throughout the code.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/bfef33604ea8229f564fea9980f3cc8871c451df/FIB-SEM Registration Dev.ipynb" target="_blank">FIB-SEM Registration Dev.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, primarily consisting of links and one detailed function docstring. Internal comments explain some blocks of code but lack sufficient clarity and context for developers.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/592dbb4ccf6063cdf42e5496e8a1dd3682ac67c2/binboxes.py" target="_blank">binboxes.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is clear and provides a decent overview of the CLI usage. However, internal comments in the code could be enhanced for better clarity and understanding of some complex operations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/0514c980450cd10ca7b9dd134fe8d7a2e50f2d38/Build_stack_test.ipynb" target="_blank">Build_stack_test.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The code contains a basic level of API documentation in the form of a docstring for the `bin_ndarray` function, but it lacks comprehensive comments throughout to explain the overall logic and purpose of the sections. Additionally, there are scattered print statements that could be useful for debugging but do not serve as formal comments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/0514c980450cd10ca7b9dd134fe8d7a2e50f2d38/imreg.py" target="_blank">imreg.py</a></h3>
+            <p style="color: green">API Docs Score: 4/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation is comprehensive, including author details, versioning, requirements, and examples. Internal comments describe the purpose of functions, though some complex sections could benefit from more detailed explanations.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/e7f89e9d338c4d15461512b77f45c462bb7bd03e/FIB-SEM Dask Array Dev.ipynb" target="_blank">FIB-SEM Dask Array Dev.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation is minimal, lacking detailed explanations of the function purposes and parameters, which impacts usability for new users. However, internal comments provide some context and clarity for developers, though they could be more consistent and informative.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/e2be450647f3b4ffa93ff720e1a3148f907442bb/Build_Stack.py" target="_blank">Build_Stack.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: #F88017">Code Comments Score: 2/5</p>
+            <p>Explanation: The function-level docstrings provide basic information about key functionalities, but are inconsistent and often lack detailed descriptions of parameters or return values. Internal comments are sparse and often do not provide sufficient clarity on the logic or intentions behind code segments.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/fee5834239d4e51086605339ba6768605a51ca33/fibsem.py" target="_blank">fibsem.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation provides basic descriptions for functions and classes, but lacks detailed usage examples and parameter descriptions. Internal comments are fairly rich and cover various code sections but could be more concise and structured.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/e7f89e9d338c4d15461512b77f45c462bb7bd03e/Minimal Example.ipynb" target="_blank">Minimal Example.ipynb</a></h3>
+            <p style="color: #F88017">API Docs Score: 3/5</p>
+            <p style="color: green">Code Comments Score: 4/5</p>
+            <p>Explanation: The API documentation includes docstrings for most functions, which adequately describe their purpose and expected input/output, but some lack detail on parameters and return values. The internal comments are quite informative for development, with clear explanations and context, although some areas could use more clarity.</p>
+        </div>
+        <div class="file-analysis">
+            <h3><a href="https://github.com/janelia-cellmap/FIB-SEM-Aligner/blob/1f2113444dc7100b22eac479b3b922e955804aa1/Spark/01_gen_specs.py" target="_blank">Spark/01_gen_specs.py</a></h3>
+            <p style="color: #F88017">API Docs Score: 2/5</p>
+            <p style="color: #F88017">Code Comments Score: 3/5</p>
+            <p>Explanation: The API documentation for external users is minimal, primarily relying on variable names and a few print statements for clarity. Internal comments exist but lack detail, making it difficult to understand the logic without further context.</p>
+        </div>
+    </div>
+</body>
+</html>
