@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Analysis</title>
+    <link href="https://unpkg.com/tabulator-tables@6.3.0/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.0/dist/js/tabulator.min.js"></script>
+    <style>
+    html, body {
+        overflow: hidden; /* Disables scrolling on the page */
+        margin: 0;
+        padding: 0;
+    }
+    #data-table {
+        height: 100vh; /* Full viewport height */
+        width: 100vw; /* Full viewport width */
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
+    }
+    </style>
+</head>
+<body>
+    <div id="data-table"></div>
+    <script type="text/javascript">
+        // Define table data
+        var tableData = [
+            {% for row in data %}
+            {
+                {% for column in columns %}
+                "{{ column }}": {{ row[column] | tojson }},
+                {% endfor %}
+            },
+            {% endfor %}
+        ];
+        // Define table columns with header filters
+        var columnFormatters = {
+            "Repo": {
+                formatter: "link",
+                formatterParams: {
+                    target:"_blank",
+                }
+            },
+            "URL": {
+                formatter: "link",
+                formatterParams: {
+                    target:"_blank",
+                }
+            },
+            "Language": {
+                formatter: "plaintext",
+                formatterParams: {}
+            },
+            "Contributors": {
+                formatter: function(cell, formatterParams, onRendered) {
+                    return cell.getValue().join(", ");
+                },
+                formatterParams: {}
+            },
+            "Last Commit Date": {
+                formatter: "plaintext",
+                formatterParams: {}
+            },
+            "Stars": {
+                formatter: "plaintext",
+                formatterParams: {}
+            },
+            "Forks": {
+                formatter: "plaintext",
+                formatterParams: {}
+            },
+            "Setup Completeness": {
+                formatter: "star",
+                formatterParams: {}
+            },
+            "README Quality": {
+                formatter: "star",
+                formatterParams: {}
+            },
+            "License Score": {
+                formatter: "star",
+                formatterParams: {}
+            },
+            "API Documentation Score": {
+                formatter: "money",
+                formatterParams: {
+                }
+            },
+            "Code Comments Score": {
+                formatter: "money",
+                formatterParams: {
+                }
+            },
+            "Overall Score": {
+                formatter: "money",
+                formatterParams: {
+                }
+            },
+            "Has License": {
+                formatter: "tickCross",
+                formatterParams: {}
+            },
+            "License is BSD 3-clause": {
+                formatter: "tickCross",
+                formatterParams: {}
+            },
+            "License is Copyright HHMI": {
+                formatter: "tickCross",
+                formatterParams: {}
+            },
+            "License is Current Year": {
+                formatter: "tickCross",
+                formatterParams: {}
+            }
+        };
+
+        var tableColumns = [
+            {% for column in columns %}
+            {
+                title: "{{ column }}", 
+                field: "{{ column }}",
+                {% set unique_values = [] %}
+                {% for row in data %}
+                    {% if row[column] not in unique_values %}
+                        {% set _ = unique_values.append(row[column]) %}
+                    {% endif %}
+                {% endfor %}
+                {% if column == "Contributors" 
+                    or column == "Language" 
+                    or column == "Has License" 
+                    or column == "License is BSD 3-clause" 
+                    or column == "License is Copyright HHMI" 
+                    or column == "License is Current Year" %}
+                headerFilter: "list", // Add a select filter to the column header
+                headerFilterParams: {
+                    values: [
+                    {% for value in column_unique_values[column] %}
+                        "{{ value }}",
+                    {% endfor %}
+                    ],
+                },
+                {% endif %}
+                formatter: columnFormatters["{{ column }}"].formatter, // Get formatter from columnFormatters
+                formatterParams: columnFormatters["{{ column }}"].formatterParams // Get formatterParams from columnFormatters
+            },
+            {% endfor %}
+        ];
+       
+        // Create Tabulator on DOM element with id "table"
+        var table = new Tabulator("#data-table", {
+            data: tableData,
+            columns: tableColumns,
+            pagination: "local", // Enable pagination
+            paginationSize: 50, // Set number of rows per page
+            movableColumns: true, // Allow column order to be changed
+            resizableRows: true, // Allow row order to be changed
+            initialSort: [ // Set the initial sort order of the table
+                { column: "Overall Score", dir: "desc" } // Sort by Overall Score in descending order
+            ]
+        });
+    </script>
+</body>
+</html>
