@@ -37,6 +37,7 @@ class GlobalQualityScores(BaseModel):
     api_documentation: float = Field(description="The average API documentation score for all files")
     code_comments: float = Field(description="The average code comments score for all files")
     overall: float = Field(description="The overall quality score for the project")
+    weighted_score: Optional[float] = Field(description="The weighted quality score for the project", default=None)
 
 class GithubMetadata(BaseModel):
     repo_name: str = Field(description="The name of the GitHub repository")

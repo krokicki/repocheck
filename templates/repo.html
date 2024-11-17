@@ -73,6 +73,7 @@
     <div class="section">
         <h2>Global Quality Scores</h2>
         <p>Overall Score: <span class="score">{{ "%.1f"|format(analysis.global_scores.overall) }}</span></p>
+        <p>Weighted Score: <span class="score">{{ "%.1f"|format(analysis.global_scores.weighted_score) }}</span> (70% overall, 20% stars, 10% forks)</p>
         <p style="color: {{ get_score_color(analysis.global_scores.setup_completeness) }}">Setup Completeness: {{ "%.1f"|format(analysis.global_scores.setup_completeness) }}</p>
         <p style="color: {{ get_score_color(analysis.global_scores.readme_quality) }}">README Quality: {{ "%.1f"|format(analysis.global_scores.readme_quality) }}</p>
         <p style="color: {{ get_score_color(analysis.global_scores.license) }}">License Score: {{ "%.1f"|format(analysis.global_scores.license) }}</p>
