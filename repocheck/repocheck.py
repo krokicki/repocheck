@@ -320,7 +320,7 @@ def process_github_repo(repo: Repository, force=False):
         global_api_doc_score += analysis.api_documentation_score * weight
         global_code_comments_score += analysis.code_comments_score * weight
     
-    logger.info(f"API Documentation Score: {global_api_doc_score:.2f}")
+    logger.info(f"API Docs Score: {global_api_doc_score:.2f}")
     logger.info(f"Code Comments Score: {global_code_comments_score:.2f}")
 
     license_score = 0

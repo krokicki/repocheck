@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Analysis</title>
-    <link href="https://unpkg.com/tabulator-tables@6.3.0/dist/css/tabulator.min.css" rel="stylesheet">
-    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.0/dist/js/tabulator.min.js"></script>
+    <link href="https://unpkg.com/tabulator-tables@4.2.7/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.2.7/dist/js/tabulator.min.js"></script>
     <style>
     html, body {
         overflow: hidden; /* Disables scrolling on the page */
@@ -28,6 +28,11 @@
             {
                 {% for column in columns %}
                 "{{ column }}": {{ row[column] | tojson }},
+                {% if row[column] is float %}
+                "{{ column }}": {{ (row[column] | round) | int | tojson }},
+                {% else %}
+                "{{ column }}": {{ row[column] | tojson }},
+                {% endif %}
                 {% endfor %}
             },
             {% endfor %}
@@ -56,23 +61,16 @@
                 },
                 formatterParams: {}
             },
-            "Last Commit Date": {
-                formatter: "plaintext",
-                formatterParams: {}
+            "Overall Score": {
+                formatter: "star",
+                formatterParams: {
+                }
             },
-            "Stars": {
-                formatter: "plaintext",
-                formatterParams: {}
-            },
-            "Forks": {
-                formatter: "plaintext",
-                formatterParams: {}
-            },
-            "Setup Completeness": {
+            "Setup Score": {
                 formatter: "star",
                 formatterParams: {}
             },
-            "README Quality": {
+            "README Score": {
                 formatter: "star",
                 formatterParams: {}
             },
@@ -80,18 +78,13 @@
                 formatter: "star",
                 formatterParams: {}
             },
-            "API Documentation Score": {
-                formatter: "money",
+            "API Docs Score": {
+                formatter: "star",
                 formatterParams: {
                 }
             },
             "Code Comments Score": {
-                formatter: "money",
-                formatterParams: {
-                }
-            },
-            "Overall Score": {
-                formatter: "money",
+                formatter: "star",
                 formatterParams: {
                 }
             },
@@ -110,7 +103,19 @@
             "License is Current Year": {
                 formatter: "tickCross",
                 formatterParams: {}
-            }
+            },
+            "Last Commit Date": {
+                formatter: "plaintext",
+                formatterParams: {}
+            },
+            "Stars": {
+                formatter: "plaintext",
+                formatterParams: {}
+            },
+            "Forks": {
+                formatter: "plaintext",
+                formatterParams: {}
+            },
         };
 
         var tableColumns = [
@@ -130,13 +135,14 @@
                     or column == "License is BSD 3-clause" 
                     or column == "License is Copyright HHMI" 
                     or column == "License is Current Year" %}
-                headerFilter: "list", // Add a select filter to the column header
+                headerFilter: "autocomplete", // Add a select filter to the column header
                 headerFilterParams: {
                     values: [
                     {% for value in column_unique_values[column] %}
                         "{{ value }}",
                     {% endfor %}
                     ],
+                    showListOnEmpty: true, allowEmpty: true, freetext: true
                 },
                 {% endif %}
                 formatter: columnFormatters["{{ column }}"].formatter, // Get formatter from columnFormatters

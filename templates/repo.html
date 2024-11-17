@@ -76,8 +76,8 @@
         <p style="color: {{ get_score_color(analysis.global_scores.setup_completeness) }}">Setup Completeness: {{ "%.1f"|format(analysis.global_scores.setup_completeness) }}</p>
         <p style="color: {{ get_score_color(analysis.global_scores.readme_quality) }}">README Quality: {{ "%.1f"|format(analysis.global_scores.readme_quality) }}</p>
         <p style="color: {{ get_score_color(analysis.global_scores.license) }}">License Score: {{ "%.1f"|format(analysis.global_scores.license) }}</p>
-        <p style="color: {{ get_score_color(analysis.global_scores.api_documentation) }}">API Documentation: {{ "%.1f"|format(analysis.global_scores.api_documentation) }}</p>
-        <p style="color: {{ get_score_color(analysis.global_scores.code_comments) }}">Code Comments: {{ "%.1f"|format(analysis.global_scores.code_comments) }}</p>
+        <p style="color: {{ get_score_color(analysis.global_scores.api_documentation) }}">Average API Docs Score: {{ "%.1f"|format(analysis.global_scores.api_documentation) }}</p>
+        <p style="color: {{ get_score_color(analysis.global_scores.code_comments) }}">Average Code Comments Score: {{ "%.1f"|format(analysis.global_scores.code_comments) }}</p>
     </div>
     
     <div class="section">
@@ -104,7 +104,7 @@
         {% for filename, code_analysis in analysis.code_analysis.items() %}
         <div class="file-analysis">
             <h3><a href="{{ analysis.github_metadata.repo_url }}/blob/{{ code_analysis.github_commit_hash }}/{{ filename }}" target="_blank">{{ filename }}</a></h3>
-            <p style="color: {{ get_score_color(code_analysis.api_documentation_score) }}">API Documentation Score: {{ code_analysis.api_documentation_score }}/5</p>
+            <p style="color: {{ get_score_color(code_analysis.api_documentation_score) }}">API Docs Score: {{ code_analysis.api_documentation_score }}/5</p>
             <p style="color: {{ get_score_color(code_analysis.code_comments_score) }}">Code Comments Score: {{ code_analysis.code_comments_score }}/5</p>
             <p>Explanation: {{ code_analysis.explanation }}</p>
         </div>

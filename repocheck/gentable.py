@@ -24,17 +24,21 @@ def build_row(analysis):
     
     scores = analysis.global_scores
     row["Overall Score"] = scores.overall
-    row["Setup Completeness"] = scores.setup_completeness
-    row["README Quality"] = scores.readme_quality
+    row["Setup Score"] = scores.setup_completeness
+    row["README Score"] = scores.readme_quality
     row["License Score"] = scores.license
-    row["API Documentation Score"] = scores.api_documentation
+    row["API Docs Score"] = scores.api_documentation
     row["Code Comments Score"] = scores.code_comments
     
-    row["Has License"] = analysis.license_analysis is not None
+    row["Has License"] = analysis.license_analysis.github_commit_hash is not None
     if row["Has License"]:
         row["License is BSD 3-clause"] = analysis.license_analysis.is_bsd3clause
         row["License is Copyright HHMI"] = analysis.license_analysis.is_copyright_hhmi
         row["License is Current Year"] = analysis.license_analysis.is_current_year
+    else:
+        row["License is BSD 3-clause"] = False
+        row["License is Copyright HHMI"] = False
+        row["License is Current Year"] = False
 
     row["Last Commit Date"] = analysis.last_commit_date
     row["Stars"] = analysis.github_metadata.stars
