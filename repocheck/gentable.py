@@ -24,7 +24,6 @@ def build_row(analysis):
     row["Contributors"] = ",".join(analysis.github_metadata.contributors)
     
     scores = analysis.global_scores
-    row["Weighted Score"] = scores.weighted_score
     row["Overall Score"] = scores.overall
     row["Setup Score"] = scores.setup_completeness
     row["README Score"] = scores.readme_quality
@@ -84,26 +83,6 @@ if __name__ == "__main__":
 
     # Load analyses from cache
     analyses = load_analysis_from_cache(CACHE_DIR)    
-
-    # Get max values for normalization
-    max_stars = max(analysis.github_metadata.stars for analysis in analyses)
-    max_forks = max(analysis.github_metadata.forks for analysis in analyses)
-    
-    # Calculate weighted score combining overall score and GitHub metrics
-    for analysis in analyses:
-        overall_score = float(analysis.global_scores.overall)
-        stars = float(analysis.github_metadata.stars)
-        forks = float(analysis.github_metadata.forks)
-        
-        # Normalize stars and forks to 0-5 scale
-        norm_stars = (stars / max_stars) * 5 if max_stars > 0 else 0
-        norm_forks = (forks / max_forks) * 5 if max_forks > 0 else 0
-        
-        # Calculate weighted score (70% overall score, 20% stars, 10% forks)
-        weighted_score = (0.7 * overall_score) + (0.2 * norm_stars) + (0.1 * norm_forks)
-        
-        # Add to analysis global scores
-        analysis.global_scores.weighted_score = round(weighted_score, 2)
 
     data = [build_row(analysis) for analysis in analyses]
 
