@@ -9,7 +9,7 @@ from repocheck.model import *
 
 CACHE_DIR = "repo_cache"
 ANALYSIS_FILE = "analysis.json"
-
+CSV_OUTPUT = False
 
 def remove_empty_lines(html_content):
     return "\n".join([line for line in html_content.split("\n") if line.strip() != ""])
@@ -85,16 +85,17 @@ if __name__ == "__main__":
     data = [build_row(analysis) for analysis in analyses]
 
     # Write CSV output
-    output_csv_file = os.path.join(args.output_dir, "analysis_output.csv")
-    with open(output_csv_file, "w", newline='', encoding="utf-8") as csvfile:
-        fieldnames = data[0].keys() if data else []
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    if CSV_OUTPUT:
+        output_csv_file = os.path.join(args.output_dir, "analysis_output.csv")
+        with open(output_csv_file, "w", newline='', encoding="utf-8") as csvfile:
+            fieldnames = data[0].keys() if data else []
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            writer.writeheader()
+            for row in data:
+                writer.writerow(row)
         
-        writer.writeheader()
-        for row in data:
-            writer.writerow(row)
-        
-    print(f"Data has been written to {output_csv_file}")
+        print(f"Data has been written to {output_csv_file}")
     
     # Generate individual repo HTML files
     safe_name_map = {}
@@ -141,7 +142,7 @@ if __name__ == "__main__":
     index_template = env.get_template('templates/index.html')
     html_content = index_template.render(columns=columns, column_unique_values=column_unique_values, data=data, safe_name_map=safe_name_map)
     html_content = remove_empty_lines(html_content)
-    output_html_file = os.path.join(args.output_dir, "analysis_output.html")
+    output_html_file = os.path.join(args.output_dir, "index.html")
     with open(output_html_file, "w", encoding="utf-8") as htmlfile:
         htmlfile.write(html_content)
     print(f"Generated index table at {output_html_file}")
