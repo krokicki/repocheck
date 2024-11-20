@@ -1,15 +1,11 @@
 import os
 import csv
-import math
-import json
 import argparse
-from pydantic import ValidationError
 from jinja2 import Environment, FileSystemLoader
 
 from repocheck.model import *
+from repocheck.project_cache import load_analysis_from_cache
 
-CACHE_DIR = "repo_cache"
-ANALYSIS_FILE = "analysis.json"
 CSV_OUTPUT = False
 
 def remove_empty_lines(html_content):
@@ -48,22 +44,6 @@ def build_row(analysis):
     return row
 
 
-def load_analysis_from_cache(cache_dir):
-    analyses = []
-    for root, _, files in os.walk(cache_dir):
-        for file in files:
-            if file == ANALYSIS_FILE:
-                file_path = os.path.join(root, file)
-                try:
-                    with open(file_path, "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                        analysis = ProjectAnalysis(**data)
-                        analyses.append(analysis)
-                except (json.JSONDecodeError, ValidationError) as e:
-                    print(f"Failed to load {file_path}: {e}")
-    return analyses
-
-
 def get_score_color(score):
     if score >= 4:
         return "green"
@@ -73,32 +53,43 @@ def get_score_color(score):
         return "red"
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate analysis output files.")
-    parser.add_argument("--output-dir", type=str, default="output", help="Directory to write output files")
-    args = parser.parse_args()
-
-    # Create output directory if it doesn't exist
-    os.makedirs(args.output_dir, exist_ok=True)
-
-    # Load analyses from cache
-    analyses = load_analysis_from_cache(CACHE_DIR)    
-
-    data = [build_row(analysis) for analysis in analyses]
-
+def generate_csv_output(data, output_dir):
     # Write CSV output
-    if CSV_OUTPUT:
-        output_csv_file = os.path.join(args.output_dir, "analysis_output.csv")
-        with open(output_csv_file, "w", newline='', encoding="utf-8") as csvfile:
-            fieldnames = data[0].keys() if data else []
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            
-            writer.writeheader()
-            for row in data:
-                writer.writerow(row)
+    output_csv_file = os.path.join(output_dir, "analysis.csv")
+    with open(output_csv_file, "w", newline='', encoding="utf-8") as csvfile:
+        fieldnames = data[0].keys() if data else []
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
+        writer.writeheader()
+        for row in data:
+            writer.writerow(row)
+
         print(f"Data has been written to {output_csv_file}")
 
+    # Generate CSV with raw code analysis scores
+    code_scores_file = os.path.join(output_dir, "code_scores.csv")
+    with open(code_scores_file, "w", newline='', encoding="utf-8") as csvfile:
+        fieldnames = ["Repo", "File", "API Documentation Score", "Code Comments Score", "Explanation"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        
+        for analysis in analyses:
+            repo_name = analysis.github_metadata.repo_name
+            if analysis.code_analysis:
+                for filepath, file_analysis in analysis.code_analysis.items():
+                    row = {
+                        "Repo": repo_name,
+                        "File": filepath,
+                        "API Documentation Score": file_analysis.api_documentation_score,
+                        "Code Comments Score": file_analysis.code_comments_score,
+                        "Explanation": file_analysis.explanation
+                    }
+                    writer.writerow(row)
+    
+        print(f"Generated code analysis scores at {code_scores_file}")
+
+
+def generate_html_output(analyses, data, output_dir, get_score_color):
     # Generate individual repo HTML files
     safe_name_map = {}
     env = Environment(loader=FileSystemLoader('.'))
@@ -109,13 +100,12 @@ if __name__ == "__main__":
         
         # Create safe filename from repo name
         safe_name = analysis.github_metadata.repo_name.replace('/', '_')
-        output_repo_file = os.path.join(args.output_dir, f"{safe_name}.html")
+        output_repo_file = os.path.join(output_dir, f"{safe_name}.html")
         safe_name_map[analysis.github_metadata.repo_name] = safe_name
         
         with open(output_repo_file, "w", encoding="utf-8") as htmlfile:
             htmlfile.write(repo_html)
         print(f"Generated report for {analysis.github_metadata.repo_name} at {output_repo_file}")
-
 
     # Post-process data for display in the index table
     for row in data:
@@ -149,3 +139,31 @@ if __name__ == "__main__":
     with open(output_html_file, "w", encoding="utf-8") as htmlfile:
         htmlfile.write(html_content)
     print(f"Generated index table at {output_html_file}")
+
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate analysis output files.")
+    parser.add_argument("--cache-dir", type=str, help="Directory to store analysis cache files", default="cache")
+    parser.add_argument("--output-dir", type=str, default="output", help="Directory to write output files")
+    parser.add_argument("--csv", dest="csv", action="store_true", help="Do not generate CSV output")
+    parser.add_argument("--no-csv", dest="csv", action="store_false", help="Do not generate CSV output (default)")
+    parser.add_argument("--html", dest="html", action="store_true", help="Generate HTML output (default)")
+    parser.add_argument("--no-html", dest="html", action="store_false", help="Do not generate HTML output")
+    parser.set_defaults(csv=False, html=True)
+
+    args = parser.parse_args()
+
+    # Create output directory if it doesn't exist
+    os.makedirs(args.output_dir, exist_ok=True)
+
+    # Load analyses from cache
+    analyses = load_analysis_from_cache(args.cache_dir)    
+
+    data = [build_row(analysis) for analysis in analyses]
+
+    if args.csv:
+        generate_csv_output(data, args.output_dir)
+
+    if args.html:
+        generate_html_output(analyses, data, args.output_dir, get_score_color)

@@ -2,12 +2,10 @@
 
 import os
 import sys
-import json
 import random
 from datetime import datetime
 import argparse
 
-from git import Repo
 from openai import OpenAI
 from github import Github, Auth, Repository
 from loguru import logger
@@ -15,13 +13,14 @@ from nbconvert import PythonExporter
 import nbformat
 
 from repocheck.model import *
+from repocheck.project_cache import ProjectCache
 
-random.seed(42)  # Use consistent seed
+# Use consistent seed so that we sample the same files each time
+random.seed(42)
 
 LOG_LEVEL = "INFO"
 ANALYZE_CODE = True
 MAX_CODE_FILES = 10
-CACHE_DIR = "repo_cache"
 OPENAI_MODEL = "gpt-4o-mini-2024-07-18"
 
 COST_PER_INPUT_TOKEN = {
@@ -37,30 +36,6 @@ COST_PER_OUTPUT_TOKEN = {
 }
 
 
-def clone_or_update_repo(repo_url, local_path):
-    # Clone the repo if not already cached locally
-    if not os.path.exists(local_path):
-        logger.debug(f"Cloning repository from {repo_url} to {local_path}...")
-        repo = Repo.clone_from(repo_url, local_path)
-        changed = True
-    else:
-        # Pull latest updates if it already exists locally
-        logger.debug(f"Updating repository at {local_path}...")
-        repo = Repo(local_path)
-        before_pull_commit = repo.head.commit
-        repo.remotes.origin.pull()
-        changed = repo.head.commit != before_pull_commit
-
-    logger.debug(f"Repository at {local_path} is up to date")
-    return changed
-
-
-def get_commit_hash(repo_path, relative_path):
-    repo = Repo(repo_path)
-    commit_hash = repo.git.rev_list("-1", "HEAD", "--", relative_path)
-    return commit_hash
-
-
 def read_file(file_path):
     try:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -70,11 +45,12 @@ def read_file(file_path):
             return f.read()
 
        
-def collect_content(local_path):
+def collect_content(project_cache: ProjectCache):
     readme = None, ""
     license = None, ""
     code_files = []
     code = {}
+    local_path = project_cache.repo_path
 
     for root, _, files in os.walk(local_path):
 
@@ -144,10 +120,7 @@ def analyze_file_content(client, filepath, file_content, system_prompt, user_pro
             ],
             response_format=response_format,
         )
-        
-        #cached_tokens = completion.usage.prompt_tokens_details.cached_tokens
-        #print(f"cached_tokens: {cached_tokens}")
-        
+                
         cost = calculate_completion_cost(completion)
         return completion, cost
     
@@ -156,7 +129,7 @@ def analyze_file_content(client, filepath, file_content, system_prompt, user_pro
         return None, 0
 
 
-def analyze_readme(root_path, readme):
+def analyze_readme(project_cache: ProjectCache, readme):
     file, content = readme
 
     system_prompt = """
@@ -175,23 +148,23 @@ def analyze_readme(root_path, readme):
     """
 
     client = OpenAI()
-    completion, cost = analyze_file_content(client, f"{root_path}/{file}", content, system_prompt, user_prompt, ReadmeAnalysis)
+    completion, cost = analyze_file_content(client, project_cache.get_path_in_repo(file), content, system_prompt, user_prompt, ReadmeAnalysis)
     if completion is None:
         return None, cost
 
     message = completion.choices[0].message
     if message.parsed:
         result = message.parsed
-        result.github_commit_hash = get_commit_hash(root_path, file) if file else None
+        result.github_commit_hash = project_cache.get_commit_hash(file) if file else None
         return result, cost
     
     elif message.refusal:
-        logger.info(f"[ERROR] refused to analyze README {root_path}/{file}: {message.refusal}")
+        logger.info(f"[ERROR] refused to analyze README {project_cache.get_path_in_repo(file)}: {message.refusal}")
     
     return None, cost
     
 
-def analyze_license(root_path, license):
+def analyze_license(project_cache: ProjectCache, license):
     file, content = license
 
     is_copyright_hhmi = any(
@@ -201,7 +174,7 @@ def analyze_license(root_path, license):
     )
 
     analysis = LicenseAnalysis(
-        github_commit_hash=get_commit_hash(root_path, file) if file else None,
+        github_commit_hash=project_cache.get_commit_hash(file) if file else None,
         is_bsd3clause="BSD 3-Clause License" in content,
         is_copyright_hhmi=is_copyright_hhmi,
         is_current_year=str(datetime.now().year) in content,
@@ -209,7 +182,7 @@ def analyze_license(root_path, license):
     return analysis
 
 
-def analyze_code(root_path, code):
+def analyze_code(project_cache: ProjectCache, code):
     client = OpenAI()
     results = {}
     total_cost = 0
@@ -230,7 +203,8 @@ def analyze_code(root_path, code):
         {file_content}
         """
 
-        completion, cost = analyze_file_content(client, f"{root_path}/{filepath}", file_content, system_prompt, user_prompt, CodeDocumentationAnalysis)
+        fullpath = project_cache.get_path_in_repo(filepath)
+        completion, cost = analyze_file_content(client, fullpath, file_content, system_prompt, user_prompt, CodeDocumentationAnalysis)
         if completion is None:
             continue
 
@@ -241,13 +215,13 @@ def analyze_code(root_path, code):
             if message.parsed.github_commit_hash:
                 logger.warning(f"AI returned a commit hash for {filepath}: {message.parsed.github_commit_hash}")
             
-            message.parsed.github_commit_hash = get_commit_hash(root_path, filepath)
+            message.parsed.github_commit_hash = project_cache.get_commit_hash(filepath)
 
             results[filepath] = message.parsed
             c += 1
         
         elif message.refusal:
-            logger.info(f"[ERROR] refused to analyze code {root_path}/{filepath}: {message.refusal}")
+            logger.info(f"[ERROR] refused to analyze code {fullpath}: {message.refusal}")
 
         if c > 10:
             logger.info(f"Analyzed {c} code files")
@@ -256,27 +230,22 @@ def analyze_code(root_path, code):
     return results, total_cost
 
 
-def process_github_repo(repo: Repository, force=False):
+def process_github_repo(repo: Repository, cache_dir: str, force: bool = False):
 
-    project_cache_path = f"{CACHE_DIR}/{repo.full_name}"
-    local_repo_path = f"{project_cache_path}/repo"
-    output_file = f"{project_cache_path}/analysis.json"
+    project_cache = ProjectCache(cache_dir, repo.full_name)
 
     logger.info("=" * 80)
     logger.info(f"Processing {repo.full_name}")
     logger.info(f"Repo URL: {repo.html_url}")
     logger.info(f"Repo Description: {repo.description}")
+    logger.info(f"Language: {repo.language}")
+    logger.info(f"Pushed at: {repo.pushed_at}")
 
     if repo.fork or repo.archived:
         reason = "fork" if repo.fork else "archived"
         logger.info(f"Skipping {repo.full_name} because it is a {reason}")
-        if os.path.exists(output_file):
-            logger.info(f"Removing existing analysis for {reason} repo {repo.full_name}")
-            os.remove(output_file)
+        project_cache.remove_existing_analysis()
         return
-
-    logger.info(f"Language: {repo.language}")
-    logger.info(f"Pushed at: {repo.pushed_at}")
 
     # Get the contributors
     contributors = repo.get_contributors()
@@ -285,13 +254,13 @@ def process_github_repo(repo: Repository, force=False):
         logger.info(f"  {contributor.login} ({contributor.contributions} contributions)")
 
     # Fetch changes to the repo
-    changed = clone_or_update_repo(repo.ssh_url, local_repo_path)
-    if not changed and os.path.exists(f"{project_cache_path}/analysis.json") and not force:
+    changed = project_cache.clone_or_update_repo(repo.ssh_url)
+    if not changed and project_cache.analysis_exists() and not force:
         logger.info(f"Skipping {repo.full_name} because it hasn't changed since last analysis")
         return
 
-    readme, license, code = collect_content(local_repo_path)
-    readme_result, readme_cost = analyze_readme(local_repo_path, readme)
+    readme, license, code = collect_content(project_cache)
+    readme_result, readme_cost = analyze_readme(project_cache, readme)
 
     if readme_result.setup_steps:
         logger.info("Setup Steps:")
@@ -303,10 +272,10 @@ def process_github_repo(repo: Repository, force=False):
     logger.info(f"Setup Completeness Score: {readme_result.setup_completeness}")
     logger.info(f"README Quality Score: {readme_result.readme_quality}")
 
-    license_result = analyze_license(local_repo_path, license)
+    license_result = analyze_license(project_cache, license)
     
     if ANALYZE_CODE:
-        code_result, code_cost = analyze_code(local_repo_path, code)
+        code_result, code_cost = analyze_code(project_cache, code)
     else:
         code_result, code_cost = {}, 0
 
@@ -393,14 +362,11 @@ def process_github_repo(repo: Repository, force=False):
             overall=normalized_score),
     )
 
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(analysis.model_dump(), f, indent=4)
-    
-    logger.info(f"Analysis saved to {output_file}")
+    project_cache.save_analysis_to_file(analysis)
     return analysis
 
 
-def process_repo_from_url(repo_url, force=False):
+def process_repo_from_url(repo_url, cache_dir="cache", force=False):
     if repo_url.startswith("git@"):
         # SSH URL
         org_repo = repo_url.split(":")[1].replace(".git", "")
@@ -413,10 +379,10 @@ def process_repo_from_url(repo_url, force=False):
     org_name, repo_name = org_repo.split("/")
     g = Github(auth=Auth.Token(os.getenv("GITHUB_TOKEN")))
     repo = g.get_repo(f"{org_name}/{repo_name}")
-    return process_github_repo(repo, force)
+    return process_github_repo(repo, cache_dir, force)
 
 
-def process_all_repos_in_org(org_name, start_repo=None, force=False):
+def process_all_repos_in_org(org_name, start_repo=None, cache_dir="cache", force=False):
     logger.info(f"Fetching repositories in {org_name} organization...")
     g = Github(auth=Auth.Token(os.getenv("GITHUB_TOKEN")))
     repos = list(g.get_organization(org_name).get_repos(type='public'))
@@ -429,7 +395,7 @@ def process_all_repos_in_org(org_name, start_repo=None, force=False):
             else:
                 continue
         
-        process_github_repo(repo, force)
+        process_github_repo(repo, cache_dir, force)
 
 
 if __name__ == "__main__":
@@ -441,9 +407,10 @@ if __name__ == "__main__":
     parser.add_argument("--start", type=str, help="Restart processing from this repository name (full name, e.g. JaneliaSciComp/colormipsearch)")
     parser.add_argument("--force", action="store_true", help="Force re-analysis even if existing analysis exists")
     parser.add_argument("--org", type=str, help="Process all repositories in this organization", default="JaneliaSciComp")
+    parser.add_argument("--cache-dir", type=str, help="Directory to store analysis cache files", default="cache")
     args = parser.parse_args()
 
     if args.single:
-        process_repo_from_url(args.single, force=args.force)
+        process_repo_from_url(args.single, cache_dir=args.cache_dir, force=args.force)
     else:
-        process_all_repos_in_org(args.org, start_repo=args.start, force=args.force)
+        process_all_repos_in_org(args.org, start_repo=args.start, cache_dir=args.cache_dir, force=args.force)
