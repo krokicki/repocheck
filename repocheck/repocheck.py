@@ -67,6 +67,15 @@ def collect_content(project_cache: ProjectCache):
                     logger.debug(f"Found license at {root}/{file}")
 
             if file.endswith(".py") or file.endswith(".ipynb"):
+
+                if file=="__init__.py":
+                    logger.debug(f"Skipping {file} because it is an __init__.py file")
+                    continue
+
+                if "test" in file:
+                    logger.debug(f"Skipping {file} because it is a test file")
+                    continue
+                
                 code_files.append(file_path)
 
     # Randomly select from code_files if we have more files than the limit
@@ -135,14 +144,18 @@ def analyze_readme(project_cache: ProjectCache, readme):
     system_prompt = """
     You are an expert at analyzing Markdown files from GitHub repositories and extracting structured information about the project.
     Given the content of a README file, you extract the shell (CLI) commands which are necessary to setup the project and run a basic example.
-    Break multiline commands into separate steps.
-    Do NOT include commands which are optional or not relevant to setting up the project for a minimal example.
-    If commands are repeated multiple times with different example arguments, you should output those command only once, choosing the best example.
-    If you can't find any setup commands, please output an empty list.
+    Extract any prerequisites for running the setup steps and output them in the `prerequisites` field.
+    Extract the setup steps and output them in the `setup_steps` field, with the following guidelines:
+    - Break multiline commands into separate steps.
+    - Do NOT include commands which are optional or not relevant to setting up the project for a minimal example.
+    - If commands are repeated multiple times with different example arguments, you should output those command only once, choosing the best example.
+    - If you can't find any setup commands, please output an empty list.
+
+    Also, extract the URL to the full documentation for the project (`docs_url`). If it doesn't exist, please output an empty string.
     """
 
     user_prompt = f"""
-    Given the README content below, extract ONLY the shell commands which are necessary to setup the project and run a basic example:
+    README content:
 
     {content}
     """
@@ -184,7 +197,7 @@ def analyze_license(project_cache: ProjectCache, license):
 
 def analyze_code(project_cache: ProjectCache, code):
     client = OpenAI()
-    results = {}
+    results = []
     total_cost = 0
     c = 0
 
@@ -194,7 +207,23 @@ def analyze_code(project_cache: ProjectCache, code):
         You are an expert in evaluating Python code for API documentation and internal comments.
         You will be given the content of a Python file.
         
-        Please rate the quality of the API documentation and internal comments on a scale from 1 to 5.
+        Analyze the module and each function (including methods of classes). Ignore boilerplate code such as constructors.
+
+        For each function, give a pass/fail rating for clear naming, type annotations, API documentation, and internal comments.
+
+        For clear naming, look at the function name and determine if it is clear and descriptive.
+        If the function name is not descriptive, the function should get a fail for clear naming.
+        If the function name is descriptive, the function should get a pass for clear naming.
+
+        If the function has no docstring, it should get a fail for API documentation.
+        If the docstring exists but is missing important details, it should get a fail for API documentation.
+        If the docstring exists and is clear and complete, it should get a pass for API documentation.
+
+        For internal comments, look at the code and determine if there are enough comments to understand what the function does.
+        If there are comments, they should explain the code and be complete.
+        If there are no comments or not enough comments, the function should get a fail for internal comments.
+        If there are comments and they are clear and complete, the function should get a pass for internal comments.
+        
         Provide a very brief (two sentences max) explanation for your rating.
         """
 
@@ -215,9 +244,10 @@ def analyze_code(project_cache: ProjectCache, code):
             if message.parsed.github_commit_hash:
                 logger.warning(f"AI returned a commit hash for {filepath}: {message.parsed.github_commit_hash}")
             
+            message.parsed.filepath = filepath
             message.parsed.github_commit_hash = project_cache.get_commit_hash(filepath)
 
-            results[filepath] = message.parsed
+            results.append(message.parsed)
             c += 1
         
         elif message.refusal:
@@ -277,61 +307,7 @@ def process_github_repo(repo: Repository, cache_dir: str, force: bool = False):
     if ANALYZE_CODE:
         code_result, code_cost = analyze_code(project_cache, code)
     else:
-        code_result, code_cost = {}, 0
-
-    total_lines = sum(len([line for line in content.splitlines() if line.strip()]) for content in code.values())
-    global_api_doc_score = 0
-    global_code_comments_score = 0
-
-    for filepath, analysis in code_result.items():
-        file_lines = len([line for line in code[filepath].splitlines() if line.strip()])
-        weight = file_lines / total_lines
-        global_api_doc_score += analysis.api_documentation_score * weight
-        global_code_comments_score += analysis.code_comments_score * weight
-    
-    logger.info(f"API Docs Score: {global_api_doc_score:.2f}")
-    logger.info(f"Code Comments Score: {global_code_comments_score:.2f}")
-
-    license_score = 0
-    if license_result.github_commit_hash:
-        license_score += 2
-        if license_result.is_bsd3clause:
-            license_score += 1
-        if license_result.is_copyright_hhmi:
-            license_score += 1
-        if license_result.is_current_year:
-            license_score += 1
-    logger.info(f"License Score: {license_score}")
-
-    scores = {
-        "setup_completeness": readme_result.setup_completeness,
-        "readme_quality": readme_result.readme_quality,
-        "license": license_score,
-        "api_documentation": global_api_doc_score,
-        "code_comments": global_code_comments_score,
-    }
-
-    weights = {
-        "setup_completeness": 0.5,
-        "readme_quality": 0.4,
-        "license": 0.1,
-        "api_documentation": 0.3,
-        "code_comments": 0.2,
-    }
-
-    overall_score = sum(weights[key] * scores[key] for key in scores)
-    logger.info(f"Overall Score: {overall_score:.2f}")
-
-    # Normalize the overall score to a 0 to 5 range
-    def normalize_score(overall_score, weights):
-        theoretical_min = sum(weights[key] * 1 for key in weights)
-        theoretical_max = sum(weights[key] * 5 for key in weights)
-        normalized_score = 5 * ((overall_score - theoretical_min) / (theoretical_max - theoretical_min))
-        normalized_score = min(5, max(0, normalized_score))  # Clamp between 0-5
-        return normalized_score
-    
-    normalized_score = normalize_score(overall_score, weights)
-    logger.info(f"Normalized Overall Score: {normalized_score:.2f}")
+        code_result, code_cost = [], 0
 
     analysis_cost = readme_cost + code_cost
     logger.info(f"Analysis cost: ${analysis_cost:.4f}")
@@ -355,11 +331,7 @@ def process_github_repo(repo: Repository, cache_dir: str, force: bool = False):
         code_analysis=code_result,
         global_scores=GlobalQualityScores(
             setup_completeness=readme_result.setup_completeness,
-            readme_quality=readme_result.readme_quality, 
-            license=license_score, 
-            api_documentation=global_api_doc_score, 
-            code_comments=global_code_comments_score, 
-            overall=normalized_score),
+            readme_quality=readme_result.readme_quality),
     )
 
     project_cache.save_analysis_to_file(analysis)
@@ -403,14 +375,16 @@ if __name__ == "__main__":
     logger.add(sys.stderr, level=LOG_LEVEL)
     
     parser = argparse.ArgumentParser(description="Process GitHub repositories.")
-    parser.add_argument("--single", type=str, help="Process a single repository")
-    parser.add_argument("--start", type=str, help="Restart processing from this repository name (full name, e.g. JaneliaSciComp/colormipsearch)")
+    parser.add_argument("--repos", type=str, help="Process all the listed repositories (comma separated list of full names, e.g. JaneliaSciComp/zarrcade)")
+    parser.add_argument("--orgs", type=str, help="Process all repositories in these organizations (comma separated list)", default="JaneliaSciComp")
+    parser.add_argument("--start", type=str, help="When running with --orgs, start processing from this repository name (full name, e.g. JaneliaSciComp/colormipsearch)")
     parser.add_argument("--force", action="store_true", help="Force re-analysis even if existing analysis exists")
-    parser.add_argument("--org", type=str, help="Process all repositories in this organization", default="JaneliaSciComp")
     parser.add_argument("--cache-dir", type=str, help="Directory to store analysis cache files", default="cache")
     args = parser.parse_args()
 
-    if args.single:
-        process_repo_from_url(args.single, cache_dir=args.cache_dir, force=args.force)
+    if args.repos:
+        for repo in args.repos.split(","):
+            process_repo_from_url(repo, cache_dir=args.cache_dir, force=args.force)
     else:
-        process_all_repos_in_org(args.org, start_repo=args.start, cache_dir=args.cache_dir, force=args.force)
+        for org in args.orgs.split(","):
+            process_all_repos_in_org(org, start_repo=args.start, cache_dir=args.cache_dir, force=args.force)

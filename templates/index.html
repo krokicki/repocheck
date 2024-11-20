@@ -28,11 +28,6 @@
             {
                 {% for column in columns %}
                 "{{ column }}": {{ row[column] | tojson }},
-                {% if row[column] is float %}
-                "{{ column }}": {{ (row[column] | round) | int | tojson }},
-                {% else %}
-                "{{ column }}": {{ row[column] | tojson }},
-                {% endif %}
                 {% endfor %}
             },
             {% endfor %}
@@ -43,6 +38,12 @@
                 formatter: "link",
                 formatterParams: {
                     target:"_blank",
+                    label: function(cell, formatterParams, onRendered) {
+                        return cell.getRow().getData()["Repo"]["name"];
+                    },
+                    url: function(cell, formatterParams, onRendered) {
+                        return cell.getRow().getData()["Repo"]["filename"];
+                    }
                 }
             },
             "URL": {
@@ -131,11 +132,7 @@
                     {% endif %}
                 {% endfor %}
                 {% if column == "Contributors" 
-                    or column == "Language" 
-                    or column == "Has License" 
-                    or column == "License is BSD 3-clause" 
-                    or column == "License is Copyright HHMI" 
-                    or column == "License is Current Year" %}
+                    or column == "Language" %}
                 headerFilter: true, // Add a select filter to the column header
                 headerFilterParams: {
                     values: [

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ analysis.github_metadata.repo_name }} Analysis</title>
+    <link href="https://unpkg.com/tabulator-tables@6.3.0/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.0/dist/js/tabulator.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,13 +73,19 @@
     </div>
 
     <div class="section">
-        <h2>Global Quality Scores</h2>
-        <p>Overall Score: <span class="score">{{ "%.1f"|format(analysis.global_scores.overall) }}</span></p>
-        <p style="color: {{ get_score_color(analysis.global_scores.setup_completeness) }}">Setup Completeness: {{ "%.1f"|format(analysis.global_scores.setup_completeness) }}</p>
-        <p style="color: {{ get_score_color(analysis.global_scores.readme_quality) }}">README Quality: {{ "%.1f"|format(analysis.global_scores.readme_quality) }}</p>
-        <p style="color: {{ get_score_color(analysis.global_scores.license) }}">License Score: {{ "%.1f"|format(analysis.global_scores.license) }}</p>
-        <p style="color: {{ get_score_color(analysis.global_scores.api_documentation) }}">Average API Docs Score: {{ "%.1f"|format(analysis.global_scores.api_documentation) }}</p>
-        <p style="color: {{ get_score_color(analysis.global_scores.code_comments) }}">Average Code Comments Score: {{ "%.1f"|format(analysis.global_scores.code_comments) }}</p>
+        <h2>Quality Scores</h2>
+        {% set score = report['Overall Score'] %}
+        <p>Overall Score: <span class="score" style="color: {{ get_score_color(score) }}">{{ "%.1f"|format(score) }}</span></p>
+        {% set score = report['Setup Score'] %}
+        <p>Setup Score: <span class="score" style="color: {{ get_score_color(score) }}">{{ "%.1f"|format(score) }}</span></p>
+        {% set score = report['README Score'] %}
+        <p>README Score: <span class="score" style="color: {{ get_score_color(score) }}">{{ "%.1f"|format(score) }}</span></p>
+        {% set score = report['API Docs Score'] %}
+        <p>API Docs Score: <span class="score" style="color: {{ get_score_color(score) }}">{{ "%.1f"|format(score) }}</span></p>
+        {% set score = report['Code Comments Score'] %}
+        <p>Code Comments Score: <span class="score" style="color: {{ get_score_color(score) }}">{{ "%.1f"|format(score) }}</span></p>
+        {% set score = report['License Score'] %}
+        <p>License Score: <span class="score" style="color: {{ get_score_color(score) }}">{{ "%.1f"|format(score) }}</span></p>
     </div>
     
     <div class="section">
@@ -101,14 +109,57 @@
 
     <div class="section">
         <h2>Code Documentation Analysis</h2>
-        {% for filename, code_analysis in analysis.code_analysis.items() %}
-        <div class="file-analysis">
-            <h3><a href="{{ analysis.github_metadata.repo_url }}/blob/{{ code_analysis.github_commit_hash }}/{{ filename }}" target="_blank">{{ filename }}</a></h3>
-            <p style="color: {{ get_score_color(code_analysis.api_documentation_score) }}">API Docs Score: {{ code_analysis.api_documentation_score }}/5</p>
-            <p style="color: {{ get_score_color(code_analysis.code_comments_score) }}">Code Comments Score: {{ code_analysis.code_comments_score }}/5</p>
-            <p>Explanation: {{ code_analysis.explanation }}</p>
-        </div>
-        {% endfor %}
+
+    <div id="code-analysis-table"></div>
+    <script type="text/javascript">
+        // Define code analysis data
+        var commit_hash_lookup = {
+            {% for file_analysis in analysis.code_analysis %}
+            "{{ file_analysis.filepath }}": "{{ file_analysis.github_commit_hash }}",
+            {% endfor %}
+        };
+
+        var codeAnalysisData = [
+            {% for file_analysis in analysis.code_analysis %}
+                {% for function_analysis in file_analysis.function_analysis %}
+                {
+                    "File": "{{ file_analysis.filepath }}",
+                    "Function": "{{ function_analysis.function_name }}",
+                    "Clear Name": {% if function_analysis.clear_name %}true{% else %}false{% endif %},
+                    "Type Annotations": {% if function_analysis.type_annotations %}true{% else %}false{% endif %},
+                    "API Documentation": {% if function_analysis.api_documentation %}true{% else %}false{% endif %},
+                    "Code Comments": {% if function_analysis.code_comments %}true{% else %}false{% endif %},
+                    "Explanation": "{{ function_analysis.explanation|e }}",
+                },
+                {% endfor %}
+            {% endfor %}
+        ];
+
+        // Define table columns
+        var codeAnalysisColumns = [
+            { title: "File", field: "File", formatter: "link", formatterParams: {
+                target:"_blank",
+                url: function(cell, formatterParams, onRendered) {
+                    var filepath = cell.getValue();
+                    return "{{ analysis.github_metadata.repo_url }}/blob/" + commit_hash_lookup[filepath] + "/" + filepath;
+                }
+            }},
+            { title: "Function", field: "Function" },
+            { title: "Clear Name", field: "Clear Name", formatter: "tickCross" },
+            { title: "Type Annotations", field: "Type Annotations", formatter: "tickCross" },
+            { title: "API Documentation", field: "API Documentation", formatter: "tickCross" },
+            { title: "Code Comments", field: "Code Comments", formatter: "tickCross" },
+            //{ title: "Explanation", field: "Explanation" },
+        ];
+
+        // Create Tabulator on DOM element with id "code-analysis-table"
+        var codeAnalysisTable = new Tabulator("#code-analysis-table", {
+            data: codeAnalysisData,
+            columns: codeAnalysisColumns,
+            layout:"fitDataFill",
+            groupBy: "File",
+        });
+    </script>
     </div>
 
 </body>
