@@ -20,23 +20,18 @@ random.seed(42)
 
 LOG_LEVEL = "INFO"
 ANALYZE_CODE = True
+
+# Maximum number of code files to analyze (sample randomly if there are more)
 MAX_CODE_FILES = 10
+
+# Model to use for analysis
 OPENAI_MODEL = "gpt-4o-mini-2024-07-18"
 
-COST_PER_INPUT_TOKEN = {
-    "gpt-4o": 2.50 / 1_000_000,
-    "gpt-4o-mini": 0.15 / 1_000_000,
-    "gpt-4o-mini-2024-07-18": 0.15 / 1_000_000,
-}
 
-COST_PER_OUTPUT_TOKEN = {
-    "gpt-4o": 10.00 / 1_000_000,
-    "gpt-4o-mini": 0.60 / 1_000_000,
-    "gpt-4o-mini-2024-07-18": 0.60 / 1_000_000,
-}
-
-
-def read_file(file_path):
+def read_file(file_path: str) -> str:
+    """
+    Read the given file, trying to handle encoding issues.
+    """
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             return f.read()
@@ -45,7 +40,16 @@ def read_file(file_path):
             return f.read()
 
        
-def collect_content(project_cache: ProjectCache):
+def collect_content(project_cache: ProjectCache) -> tuple[tuple[str, str], tuple[str, str], dict[str, str]]:
+    """
+    Collect the content of the README, LICENSE, and code files from the given project cache.
+
+    Parameters:
+        project_cache: The project cache to use to find the files.  
+
+    Returns:
+        A tuple of (readme, license, code), where each is a tuple of (filename, content).
+    """
     readme = None, ""
     license = None, ""
     code_files = []
@@ -104,7 +108,23 @@ def collect_content(project_cache: ProjectCache):
     return readme, license, code
 
 
-def calculate_completion_cost(completion):
+def calculate_completion_cost(completion) -> float:
+    """
+    Calculate the total dollar cost of an OpenAI API call.
+    """
+
+    # From https://openai.com/api/pricing/
+    COST_PER_INPUT_TOKEN = {
+        "gpt-4o": 2.50 / 1_000_000,
+        "gpt-4o-mini": 0.15 / 1_000_000,
+        "gpt-4o-mini-2024-07-18": 0.15 / 1_000_000,
+    }
+    COST_PER_OUTPUT_TOKEN = {
+        "gpt-4o": 10.00 / 1_000_000,
+        "gpt-4o-mini": 0.60 / 1_000_000,
+        "gpt-4o-mini-2024-07-18": 0.60 / 1_000_000,
+    }
+
     prompt_tokens = completion.usage.prompt_tokens
     output_tokens = completion.usage.completion_tokens
     total_cost = (prompt_tokens * COST_PER_INPUT_TOKEN[OPENAI_MODEL]
@@ -112,8 +132,26 @@ def calculate_completion_cost(completion):
     return total_cost
 
 
-def analyze_file_content(client, filepath, file_content, system_prompt, user_prompt, response_format):
-    
+def analyze_file_content(client: OpenAI, 
+                         filepath: str, 
+                         file_content: str, 
+                         system_prompt: str, 
+                         user_prompt: str, 
+                         response_format: BaseModel):
+    """
+    Analyze the given file content using the OpenAI API's structured output feature.
+
+    Parameters:
+        client: The OpenAI client to use to make the API call.
+        filepath: The path to the file being analyzed.
+        file_content: The content of the file being analyzed.
+        system_prompt: The system prompt to use for the API call.
+        user_prompt: The user prompt to use for the API call.
+        response_format: The response format to use for the API call.
+
+    Returns:
+        A tuple of (completion, cost), where completion is the completion from the API call and cost is the cost of the API call.
+    """
     CHAR_LIMIT = 100000
     if len(file_content) > CHAR_LIMIT:
         logger.warning(f"File {filepath} exceeds the token limit and will be truncated.")
@@ -138,8 +176,31 @@ def analyze_file_content(client, filepath, file_content, system_prompt, user_pro
         return None, 0
 
 
-def analyze_readme(project_cache: ProjectCache, readme):
+def analyze_readme(project_cache: ProjectCache, readme) -> tuple[ReadmeAnalysis, float]:
+    """
+    Analyze the given README file using the OpenAI API.
+
+    Parameters:
+        project_cache: The project cache to use to find the file.
+        readme: The README file to analyze (tuple of (filename, content)).
+
+    Returns:
+        A tuple of (analysis, cost), where analysis is the analysis from the API call and cost is the cost of the API call.
+    """
     file, content = readme
+
+    default_analysis = ReadmeAnalysis(
+        github_commit_hash="",
+        project_name=project_cache.repo_full_name,
+        prerequisites=[],
+        setup_steps=[],
+        setup_completeness=0, 
+        readme_quality=0,
+        docs_url=""
+    )
+    
+    if not file or not content:
+        return default_analysis, 0
 
     system_prompt = """
     You are an expert at analyzing Markdown files from GitHub repositories and extracting structured information about the project.
@@ -163,7 +224,7 @@ def analyze_readme(project_cache: ProjectCache, readme):
     client = OpenAI()
     completion, cost = analyze_file_content(client, project_cache.get_path_in_repo(file), content, system_prompt, user_prompt, ReadmeAnalysis)
     if completion is None:
-        return None, cost
+        return default_analysis, cost
 
     message = completion.choices[0].message
     if message.parsed:
@@ -174,10 +235,13 @@ def analyze_readme(project_cache: ProjectCache, readme):
     elif message.refusal:
         logger.info(f"[ERROR] refused to analyze README {project_cache.get_path_in_repo(file)}: {message.refusal}")
     
-    return None, cost
+    return default_analysis, cost
     
 
-def analyze_license(project_cache: ProjectCache, license):
+def analyze_license(project_cache: ProjectCache, license) -> tuple[LicenseAnalysis, float]:
+    """
+    Analyze the given LICENSE file using the OpenAI API.
+    """
     file, content = license
 
     is_copyright_hhmi = any(
@@ -188,14 +252,17 @@ def analyze_license(project_cache: ProjectCache, license):
 
     analysis = LicenseAnalysis(
         github_commit_hash=project_cache.get_commit_hash(file) if file else None,
-        is_bsd3clause="BSD 3-Clause License" in content,
+        is_bsd3clause="BSD 3-Clause License" in content or "Janelia Open Source License" in content,
         is_copyright_hhmi=is_copyright_hhmi,
         is_current_year=str(datetime.now().year) in content,
     )
     return analysis
 
 
-def analyze_code(project_cache: ProjectCache, code):
+def analyze_code(project_cache: ProjectCache, code) -> tuple[list[CodeDocumentationAnalysis], float]:
+    """
+    Analyze the given code files using the OpenAI API.
+    """
     client = OpenAI()
     results = []
     total_cost = 0
@@ -260,8 +327,11 @@ def analyze_code(project_cache: ProjectCache, code):
     return results, total_cost
 
 
-def process_github_repo(repo: Repository, cache_dir: str, force: bool = False):
-
+def process_github_repo(repo: Repository, cache_dir: str, force: bool = False) -> ProjectAnalysis:
+    """
+    Process a GitHub repository, analyzing the README, LICENSE, and code files, 
+    saving the results to the cache directory and returning a ProjectAnalysis object.
+    """
     project_cache = ProjectCache(cache_dir, repo.full_name)
 
     logger.info("=" * 80)
@@ -279,9 +349,7 @@ def process_github_repo(repo: Repository, cache_dir: str, force: bool = False):
 
     # Get the contributors
     contributors = repo.get_contributors()
-    logger.info("Contributors:")    
-    for contributor in contributors:
-        logger.info(f"  {contributor.login} ({contributor.contributions} contributions)")
+    logger.info(f"Contributors: {len(list(contributors))}")
 
     # Fetch changes to the repo
     changed = project_cache.clone_or_update_repo(repo.ssh_url)
@@ -299,6 +367,7 @@ def process_github_repo(repo: Repository, cache_dir: str, force: bool = False):
     else:
         logger.info("Setup Steps: N/A")
 
+    logger.info(f"Docs URL: {readme_result.docs_url}")
     logger.info(f"Setup Completeness Score: {readme_result.setup_completeness}")
     logger.info(f"README Quality Score: {readme_result.readme_quality}")
 
@@ -338,7 +407,13 @@ def process_github_repo(repo: Repository, cache_dir: str, force: bool = False):
     return analysis
 
 
-def process_repo_from_url(repo_url, cache_dir="cache", force=False):
+def process_repo_from_url(repo_url: str, 
+                         cache_dir: str = "cache", 
+                         force: bool = False) -> ProjectAnalysis:
+    """
+    Process a GitHub repository given a URL, analyzing the README, LICENSE, and code files, 
+    saving the results to the cache directory and returning a ProjectAnalysis object.
+    """
     if repo_url.startswith("git@"):
         # SSH URL
         org_repo = repo_url.split(":")[1].replace(".git", "")
@@ -354,7 +429,13 @@ def process_repo_from_url(repo_url, cache_dir="cache", force=False):
     return process_github_repo(repo, cache_dir, force)
 
 
-def process_all_repos_in_org(org_name, start_repo=None, cache_dir="cache", force=False):
+def process_all_repos_in_org(org_name: str, 
+                             start_repo: str = None, 
+                             cache_dir: str = "cache", 
+                             force: bool = False) -> list[ProjectAnalysis]:
+    """
+    Process all the repositories in the given organization, saving the results to the cache directory and returning a list of ProjectAnalysis objects.
+    """
     logger.info(f"Fetching repositories in {org_name} organization...")
     g = Github(auth=Auth.Token(os.getenv("GITHUB_TOKEN")))
     repos = list(g.get_organization(org_name).get_repos(type='public'))

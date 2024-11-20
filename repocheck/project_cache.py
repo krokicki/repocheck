@@ -22,14 +22,24 @@ class ProjectCache:
 
 
     def get_project_cache_dir(self, repo_full_name: str):
+        """
+        Get the cache directory for the given repository.
+        """
         return f"{self.cache_dir}/{repo_full_name}"
 
 
     def get_repo_path(self, repo_full_name: str):
+        """
+        Get the path to the cached repository.
+        """
         return f"{self.cache_dir}/{repo_full_name}/repo"
 
 
     def clone_or_update_repo(self, repo_url: str):
+        """
+        Clone the repository if not already cached locally, 
+        or pull the latest updates if it already exists locally.
+        """
         # Clone the repo if not already cached locally
         if not os.path.exists(self.repo_path):
             logger.debug(f"Cloning repository from {repo_url} to {self.repo_path}...")
@@ -48,12 +58,18 @@ class ProjectCache:
 
     
     def get_commit_hash(self, relative_path: str):
+        """
+        Get the commit hash for the given relative path in the repository.
+        """
         repo = Repo(self.repo_path)
         commit_hash = repo.git.rev_list("-1", "HEAD", "--", relative_path)
         return commit_hash
     
 
     def get_path_in_repo(self, relative_path: str):
+        """
+        Get the path to the given relative path in the repository.
+        """
         return os.path.join(self.repo_path, relative_path)
 
 

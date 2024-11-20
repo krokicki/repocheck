@@ -8,11 +8,17 @@ from repocheck.project_cache import load_analysis_from_cache
 
 CSV_OUTPUT = False
 
-def remove_empty_lines(html_content):
+def remove_empty_lines(html_content: str) -> str:
+    """
+    Remove empty lines from the given HTML content.
+    """
     return "\n".join([line for line in html_content.split("\n") if line.strip() != ""])
 
 
-def get_license_score(license_analysis: LicenseAnalysis):
+def get_license_score(license_analysis: LicenseAnalysis) -> int:
+    """
+    Get the score for the license analysis.
+    """
     license_score = 0
     if license_analysis.github_commit_hash:
         license_score += 2
@@ -25,12 +31,14 @@ def get_license_score(license_analysis: LicenseAnalysis):
     return license_score
 
 
-def score_bool(value):
+def score_bool(value: bool) -> int:
     return 1 if value else 0
 
 
-def compute_scores(analysis: ProjectAnalysis):
-    
+def compute_scores(analysis: ProjectAnalysis) -> dict[str, float]:
+    """
+    Compute the scores for the given project analysis.
+    """
     global_scores = analysis.global_scores
     license_score = get_license_score(analysis.license_analysis)
 
@@ -84,21 +92,23 @@ def compute_scores(analysis: ProjectAnalysis):
     return scores
 
 
-# Create safe filename from repo name
-def generate_filename(repo_name):
+def generate_filename(repo_name: str) -> str:
+    """
+    Generate a safe filename from the repository name.
+    """
     return repo_name.replace('/', '_') + ".html"
 
 
-def build_report(analysis):
-
+def build_report(analysis: ProjectAnalysis) -> dict[str, dict]:
+    """
+    Build the report for the given project analysis.
+    """
     scores = compute_scores(analysis)
 
     report = {
-        "Repo": {
-            "name": analysis.github_metadata.repo_name,
-            "filename": generate_filename(analysis.github_metadata.repo_name)
-        },
-        "URL": analysis.github_metadata.repo_url,
+        "Repo Name": analysis.github_metadata.repo_name,
+        "Repo": generate_filename(analysis.github_metadata.repo_name),
+        "GitHub URL": analysis.github_metadata.repo_url,
         "Language": analysis.github_metadata.language,
         "Contributors": analysis.github_metadata.contributors,
         "Overall Score": scores['normalized'],
@@ -115,7 +125,10 @@ def build_report(analysis):
     return report
 
 
-def get_score_color(score):
+def get_score_color(score: float) -> str:
+    """
+    Map the given score to a display color.
+    """
     if score >= 4:
         return "green"
     elif score >= 2:
@@ -124,7 +137,10 @@ def get_score_color(score):
         return "red"
 
 
-def generate_csv_output(data, output_dir):
+def generate_csv_output(data: list[dict], output_dir: str):
+    """
+    Generate the CSV output for the project analysis.
+    """
     # Write CSV output
     output_csv_file = os.path.join(output_dir, "analysis.csv")
     with open(output_csv_file, "w", newline='', encoding="utf-8") as csvfile:
@@ -160,7 +176,10 @@ def generate_csv_output(data, output_dir):
         print(f"Generated code analysis scores at {code_scores_file}")
 
 
-def generate_html_output(analyses, data, output_dir, get_score_color):
+def generate_html_output(analyses: list[ProjectAnalysis], data: dict[str, dict], output_dir: str, get_score_color: callable):
+    """
+    Generate the HTML output for the project analysis.
+    """
 
     # Generate the index table
     values = list(data.values())
@@ -180,7 +199,7 @@ def generate_html_output(analyses, data, output_dir, get_score_color):
     index_template = env.get_template('templates/index.html')
     html_content = index_template.render(columns=columns, column_unique_values=column_unique_values, data=values)
     html_content = remove_empty_lines(html_content)
-    output_html_file = os.path.join(args.output_dir, "index.html")
+    output_html_file = os.path.join(output_dir, "index.html")
     with open(output_html_file, "w", encoding="utf-8") as htmlfile:
         htmlfile.write(html_content)
     print(f"Generated index table at {output_html_file}")
@@ -211,6 +230,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     output_dir = args.output_dir.replace("[cache-dir]", args.cache_dir)
+    print(f"Saving output to {output_dir}")
 
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
