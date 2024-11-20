@@ -17,6 +17,10 @@
         width: 100vw; /* Full viewport width */
         box-sizing: border-box; /* Ensures padding doesn't affect width */
     }
+    .tooltip {
+        padding: 5px;   
+        background-color: #ffffca;
+    }
     </style>
 </head>
 <body>
@@ -39,14 +43,14 @@
                 formatterParams: {
                     target:"_blank",
                     label: function(cell, formatterParams, onRendered) {
-                        return cell.getRow().getData()["Repo"]["name"];
+                        return cell.getRow().getData()["Repo Name"];
                     },
                     url: function(cell, formatterParams, onRendered) {
-                        return cell.getRow().getData()["Repo"]["filename"];
+                        return cell.getRow().getData()["Repo"];
                     }
                 }
             },
-            "URL": {
+            "GitHub URL": {
                 formatter: "link",
                 formatterParams: {
                     target:"_blank",
@@ -121,6 +125,7 @@
 
         var tableColumns = [
             {% for column in columns %}
+            {% if column!="Repo Name" %}
             {
                 title: "{{ column }}", 
                 field: "{{ column }}",
@@ -132,7 +137,8 @@
                     {% endif %}
                 {% endfor %}
                 {% if column == "Contributors" 
-                    or column == "Language" %}
+                    or column == "Language" 
+                    or column == "Repo" %}
                 headerFilter: true, // Add a select filter to the column header
                 headerFilterParams: {
                     values: [
@@ -146,6 +152,7 @@
                 formatter: columnFormatters["{{ column }}"].formatter, // Get formatter from columnFormatters
                 formatterParams: columnFormatters["{{ column }}"].formatterParams // Get formatterParams from columnFormatters
             },
+            {% endif %}
             {% endfor %}
         ];
        
@@ -157,7 +164,15 @@
             paginationSize: 50, // Set number of rows per page
             initialSort: [ // Set the initial sort order of the table
                 { column: "Overall Score", dir: "desc" } // Sort by Overall Score in descending order
-            ]
+            ],
+            columnDefaults:{
+                tooltip: function(e, cell, onRendered) {
+                    var el = document.createElement("div");
+                    el.className = "tooltip";
+                    el.innerText = cell.getColumn().getField() + ": " + cell.getValue();
+                    return el; 
+                }
+            }
         });
     </script>
 </body>
