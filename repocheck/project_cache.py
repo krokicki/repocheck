@@ -8,6 +8,7 @@ from pydantic import ValidationError
 from repocheck.model import ProjectAnalysis
 
 ANALYSIS_FILE = "analysis.json"
+DELETE_BROKEN_ANALYSIS_FILES = True
 
 class ProjectCache:
     """
@@ -119,5 +120,11 @@ def load_analysis_from_cache(cache_dir: str) -> list[ProjectAnalysis]:
                         analyses.append(analysis)
                 except (json.JSONDecodeError, ValidationError) as e:
                     print(f"Failed to load {file_path}: {e}")
+                    if DELETE_BROKEN_ANALYSIS_FILES:
+                        try:
+                            os.remove(file_path)
+                            logger.info(f"Deleted broken analysis file: {file_path}")
+                        except Exception as e:
+                            logger.error(f"Failed to delete {file_path}: {e}")
     return analyses
 
