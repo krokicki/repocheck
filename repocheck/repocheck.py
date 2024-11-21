@@ -269,6 +269,7 @@ def analyze_code(project_cache: ProjectCache, code) -> tuple[list[CodeDocumentat
     c = 0
 
     for filepath, file_content in code.items():
+        logger.info(f"Analyzing code file: {filepath}")
 
         system_prompt = """
         You are an expert in evaluating Python code for API documentation and internal comments.
