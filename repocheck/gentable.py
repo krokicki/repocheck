@@ -137,43 +137,44 @@ def get_score_color(score: float) -> str:
         return "red"
 
 
-def generate_csv_output(data: list[dict], output_dir: str):
+def generate_csv_output(analyses: list[ProjectAnalysis], data: dict[str, dict], output_dir: str):
     """
     Generate the CSV output for the project analysis.
     """
     # Write CSV output
+    rows = list(data.values())
     output_csv_file = os.path.join(output_dir, "analysis.csv")
     with open(output_csv_file, "w", newline='', encoding="utf-8") as csvfile:
-        fieldnames = data[0].keys() if data else []
+        fieldnames = rows[0].keys() if data else []
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
-        for row in data:
+        for row in rows:
             writer.writerow(row)
 
         print(f"Data has been written to {output_csv_file}")
 
     # Generate CSV with raw code analysis scores
-    code_scores_file = os.path.join(output_dir, "code_scores.csv")
-    with open(code_scores_file, "w", newline='', encoding="utf-8") as csvfile:
-        fieldnames = ["Repo", "File", "API Documentation Score", "Code Comments Score", "Explanation"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+    # code_scores_file = os.path.join(output_dir, "code_scores.csv")
+    # with open(code_scores_file, "w", newline='', encoding="utf-8") as csvfile:
+    #     fieldnames = ["Repo", "File", "API Documentation Score", "Code Comments Score", "Explanation"]
+    #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    #     writer.writeheader()
         
-        for analysis in analyses:
-            repo_name = analysis.github_metadata.repo_name
-            if analysis.code_analysis:
-                for filepath, file_analysis in analysis.code_analysis.items():
-                    row = {
-                        "Repo": repo_name,
-                        "File": filepath,
-                        "API Documentation Score": file_analysis.api_documentation_score,
-                        "Code Comments Score": file_analysis.code_comments_score,
-                        "Explanation": file_analysis.explanation
-                    }
-                    writer.writerow(row)
+    #     for analysis in analyses:
+    #         repo_name = analysis.github_metadata.repo_name
+    #         if analysis.code_analysis:
+    #             for file_analysis in analysis.code_analysis:
+    #                 row = {
+    #                     "Repo": repo_name,
+    #                     "File": file_analysis.filepath,
+    #                     "API Documentation Score": file_analysis.api_documentation_score,
+    #                     "Code Comments Score": file_analysis.code_comments_score,
+    #                     "Explanation": file_analysis.explanation
+    #                 }
+    #                 writer.writerow(row)
     
-        print(f"Generated code analysis scores at {code_scores_file}")
+    #     print(f"Generated code analysis scores at {code_scores_file}")
 
 
 def generate_html_output(analyses: list[ProjectAnalysis], data: dict[str, dict], output_dir: str, get_score_color: callable):
@@ -241,12 +242,8 @@ if __name__ == "__main__":
     reports = {analysis.github_metadata.repo_name: build_report(analysis) for analysis in analyses}
 
     if args.csv:
-        rows = []
-        for report in reports.values():
-            report_copy = report.copy()
-            report_copy["Repo"] = report_copy["Repo"]["name"]
-            rows.append(report_copy)
-        generate_csv_output(rows, output_dir)
+        rows = list(reports.values())
+        generate_csv_output(analyses, reports, output_dir)
 
     if args.html:
         generate_html_output(analyses, reports, output_dir, get_score_color)
