@@ -10,12 +10,14 @@ export GITHUB_TOKEN=...
 export OPENAI_API_KEY=...
 ```
 
+Next make sure you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/).
+
 Create a virtualenv and install the dependencies:
 
 ```bash
-virtualenv env
-source env/bin/activate
-pip install -r requirements.txt
+uv venv --python 3.11
+source .venv/bin/activate
+uv pip sync requirements-universal.txt
 ```
 
 Run the repocheck script on a single repository:
