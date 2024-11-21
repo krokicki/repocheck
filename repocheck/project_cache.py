@@ -51,7 +51,7 @@ class ProjectCache:
             logger.debug(f"Updating repository at {self.repo_path}...")
             repo = Repo(self.repo_path)
             before_pull_commit = repo.head.commit
-            repo.remotes.origin.pull()
+            repo.remotes.origin.pull(kill_after_timeout=10)
             changed = repo.head.commit != before_pull_commit
 
         logger.debug(f"Repository at {self.repo_path} is up to date")
