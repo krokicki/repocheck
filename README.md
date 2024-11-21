@@ -10,9 +10,7 @@ export GITHUB_TOKEN=...
 export OPENAI_API_KEY=...
 ```
 
-Next make sure you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/).
-
-Create a virtualenv and install the dependencies:
+Make sure you have [uv installed](https://docs.astral.sh/uv/getting-started/installation/), then create a virtual environment and install the dependencies:
 
 ```bash
 uv venv --python 3.11
@@ -22,20 +20,37 @@ uv pip sync requirements-universal.txt
 
 Run the repocheck script on a single repository:
 ```bash
-python -m repocheck.repocheck --single JaneliaSciComp/zarrcade
+python -m repocheck.repocheck --repos JaneliaSciComp/zarrcade
 ```
 
 Run the repocheck script on all repositories in the `JaneliaSciComp` organization:
 ```bash
-python -m repocheck.repocheck --org JaneliaSciComp
+python -m repocheck.repocheck --orgs JaneliaSciComp
 ```
 
-Generate the HTML results:
+Generate an HTML report:
+
 ```bash
 python -m repocheck.gentable
 ```
 
-## Publishing the results
+Generate a CSV spreadsheet:
+
+```bash
+python -m repocheck.gentable --no-html --csv
+```
+
+## Development
+
+### Updating dependencies
+
+Edit requirements.txt and then run this command to sync the universal requirements:
+
+```bash
+uv pip compile requirements.txt --universal --output-file  requirements-universal.txt
+```
+
+### Publishing the results
 
 This will generate a file called `index.html` in the `output` directory. 
 
