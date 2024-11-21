@@ -65,9 +65,10 @@
 
             <div style="flex: 1;">
                 <h2>License Analysis</h2>
-                <p>BSD 3-Clause: {{ "Yes" if analysis.license_analysis.is_bsd3clause else "No" }}</p>
-                <p>HHMI Copyright: {{ "Yes" if analysis.license_analysis.is_copyright_hhmi else "No" }}</p>
-                <p>Current Year: {{ "Yes" if analysis.license_analysis.is_current_year else "No" }}</p>
+                <p>File exists: <span style="color: {{ 'green' if analysis.license_analysis.github_commit_hash else 'red' }}">{{ "Yes" if analysis.license_analysis.github_commit_hash else "No" }}</span></p>
+                <p>BSD 3-Clause: <span style="color: {{ 'green' if analysis.license_analysis.is_bsd3clause else 'red' }}">{{ "Yes" if analysis.license_analysis.is_bsd3clause else "No" }}</span></p>
+                <p>HHMI Copyright: <span style="color: {{ 'green' if analysis.license_analysis.is_copyright_hhmi else 'red' }}">{{ "Yes" if analysis.license_analysis.is_copyright_hhmi else "No" }}</span></p>
+                <p>Current Year: <span style="color: {{ 'green' if analysis.license_analysis.is_current_year else 'red' }}">{{ "Yes" if analysis.license_analysis.is_current_year else "No" }}</span></p>
             </div>
         </div>
     </div>
@@ -91,19 +92,27 @@
     <div class="section">
         <h2>Setup Information</h2>
         <h3>Prerequisites:</h3>
+        {% if analysis.readme_analysis.prerequisites %}
         {% for prereq in analysis.readme_analysis.prerequisites %}
         <div class="prerequisite">
             <p>{{ prereq.description }} [<a href="{{ prereq.url }}" target="_blank">{{ prereq.url }}</a>]</p>
-        </div>
-        {% endfor %}
+            </div>
+            {% endfor %}
+        {% else %}
+        <p>No prerequisites found</p>
+        {% endif %}
 
         <h3>Setup Steps:</h3>
+        {% if analysis.readme_analysis.setup_steps %}
         {% for step in analysis.readme_analysis.setup_steps %}
         <div class="setup-step">
             <p>{{ step.description }}</p>
             <code>{{ step.command }}</code>
         </div>
         {% endfor %}
+        {% else %}
+        <p>No setup steps found</p>
+        {% endif %}
     </div>
 
 

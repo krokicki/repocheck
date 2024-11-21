@@ -58,12 +58,19 @@ def compute_scores(analysis: ProjectAnalysis) -> dict[str, float]:
             global_api_doc_score_divisor += 1
             global_code_comments_score += score_bool(function_analysis.code_comments)
             global_code_comments_score_divisor += 1
+    
+    api_doc_score = 0
+    code_comments_score = 0
+    if global_api_doc_score_divisor > 0:
+        api_doc_score = 5 * (global_api_doc_score / global_api_doc_score_divisor)
+    if global_code_comments_score_divisor > 0:
+        code_comments_score = 5 * (global_code_comments_score / global_code_comments_score_divisor)
 
     scores = {
         "setup_completeness": global_scores.setup_completeness,
         "readme_quality": global_scores.readme_quality,
-        "api_documentation": 5 * (global_api_doc_score / global_api_doc_score_divisor),
-        "code_comments": 5 * (global_code_comments_score / global_code_comments_score_divisor),
+        "api_documentation": api_doc_score,
+        "code_comments": code_comments_score,
         "license": license_score,
     }
 
